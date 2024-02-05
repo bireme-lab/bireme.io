@@ -2,35 +2,36 @@
   "name": "bireme.io",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+  "packageManager": "bun@1.0.26",
+  "lint-staged": {
+    "*.ts?(x)": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "next": "14.1.0",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.6.12",
-    "@storybook/addon-interactions": "^7.6.12",
-    "@storybook/addon-links": "^7.6.12",
-    "@storybook/addon-onboarding": "^1.0.11",
-    "@storybook/blocks": "^7.6.12",
-    "@storybook/nextjs": "^7.6.12",
-    "@storybook/react": "^7.6.12",
-    "@storybook/test": "^7.6.12",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@storybook/addon-essentials": "7.6.12",
+    "@storybook/addon-interactions": "7.6.12",
+    "@storybook/addon-links": "7.6.12",
+    "@storybook/addon-onboarding": "1.0.11",
+    "@storybook/blocks": "7.6.12",
+    "@storybook/nextjs": "7.6.12",
+    "@storybook/react": "7.6.12",
+    "@storybook/test": "7.6.12",
+    "@types/node": "20.11.16",
+    "eslint": "8.56.0",
     "eslint-config-next": "14.1.0",
-    "eslint-plugin-storybook": "^0.6.15",
-    "storybook": "^7.6.12",
-    "typescript": "^5"
+    "eslint-plugin-storybook": "0.6.15",
+    "husky": "9.0.10",
+    "lint-staged": "15.2.2",
+    "prettier": "3.2.5",
+    "prettier-plugin-organize-imports": "3.2.4",
+    "storybook": "7.6.12",
+    "typescript": "5.3.3"
   }
 }
