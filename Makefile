@@ -7,12 +7,6 @@ test:
 test-watch:
 	bun --watch test
 
-storybook:
-	bun storybook dev -p 6006
-
-build-storybook:
-	bun storybook build
-
 install:
 	bun install
 
