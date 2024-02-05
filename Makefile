@@ -1,6 +1,12 @@
 dev:
 	bun next dev
 
+storybook:
+	bun storybook dev -p 6006
+
+storybook-build:
+	bun build-storybook
+
 test:
 	bun test
 
