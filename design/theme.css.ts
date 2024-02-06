@@ -6,21 +6,26 @@ import { createGlobalTheme, globalStyle } from "@vanilla-extract/css";
 globalStyle("*, *::before, *::after", {
   boxSizing: "border-box",
 });
+
 globalStyle("*", {
   margin: 0,
   padding: 0,
 });
+
 globalStyle("body", {
   // lineHeight: 1.5, This will be set in the typography file
   WebkitFontSmoothing: "antialiased",
 });
+
 globalStyle("img, picture, video, canvas, svg", {
   display: "block",
   maxWidth: "100%",
 });
+
 globalStyle("input, button, textarea, select", {
   font: "inherit",
 });
+
 globalStyle("#root, #__next", {
   isolation: "isolate",
 });
@@ -39,5 +44,10 @@ globalStyle("a", {
 export const vars = createGlobalTheme(":root", {
   color: {
     primary: "blue",
+  },
+  font: {
+    sans: "var(--font-geist-sans), sans-serif",
+    mono: "var(--font-geist-mono), monospace",
+    hand: "var(--font-gloria-hallelujah), sans-serif",
   },
 });

@@ -1,10 +1,17 @@
 import { Sprite } from "@/components/Icon/Icon";
 import "@/design/theme.css";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Gloria_Hallelujah } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const GloriaHallelujah = Gloria_Hallelujah({
+  weight: "400",
+  display: "swap",
+  variable: "--font-gloria-hallelujah",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html
+      lang="fr"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${GloriaHallelujah.variable}`}
+    >
+      <body>
         <Sprite />
         {children}
       </body>

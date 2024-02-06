@@ -11,6 +11,7 @@ export default function Home() {
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.tsx</code>
         </p>
+        <h1 className={newStyles.h1}>toto</h1>
         <div className={newStyles.page}>
           <Icon name="github" title="Github" />
         </div>
