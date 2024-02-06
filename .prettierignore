@@ -1,0 +1,3 @@
+# Storybook config files
+.storybook/main.ts
+.storybook/preview.tsx

@@ -1,5 +1,7 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
-import "../design/theme.css.ts";
+import { Sprite } from "../components/Icon/Icon";
+import "../design/theme.css";
 
 const preview: Preview = {
   parameters: {
@@ -11,6 +13,14 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <>
+        <Sprite />
+        <Story />
+      </>
+    ),
+  ],
 };
 
 export default preview;
