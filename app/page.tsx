@@ -1,5 +1,6 @@
 import { Icon } from "@/components/Icon/Icon";
 import Image from "next/image";
+import * as newStyles from "./page.css";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.tsx</code>
         </p>
-        <div style={{ background: "black", color: "white" }}>
+        <div className={newStyles.page}>
           <Icon name="github" title="Github" />
         </div>
         <div>

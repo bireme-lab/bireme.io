@@ -1,3 +1,4 @@
+import * as styles from "./Icon.css";
 import { IconName } from "./Icon.types";
 import { sprite } from "./sprite";
 
@@ -9,9 +10,9 @@ export type IconProps = {
   style?: React.CSSProperties;
 };
 
-export const Icon = ({ name, title, label, className, style }: IconProps) => {
+export const Icon = ({ name, title, label, style }: IconProps) => {
   return (
-    <svg className={className} aria-label={label} style={style}>
+    <svg className={styles.icon} aria-label={label} style={style}>
       {title && <title>{title}</title>}
       <use xlinkHref={`#${name}`} />
     </svg>
