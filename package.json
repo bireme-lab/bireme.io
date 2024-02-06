@@ -3,18 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "packageManager": "bun@1.0.26",
-  "lint-staged": {
-    "*.ts?(x)": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
   "dependencies": {
-    "@types/react": "18.2.53",
-    "@types/react-dom": "18.2.18",
+    "fs-extra": "11.2.0",
     "next": "14.1.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "svg-sprite": "2.0.2",
+    "svgo": "3.2.0"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "7.6.12",
@@ -26,16 +21,24 @@
     "@storybook/nextjs": "7.6.12",
     "@storybook/react": "7.6.12",
     "@storybook/test": "7.6.12",
+    "@types/fs-extra": "11.0.4",
     "@types/node": "20.11.16",
+    "@types/react": "18.2.53",
+    "@types/react-dom": "18.2.18",
+    "@types/svg-sprite": "^0.0.38",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
     "ajv": "8.12.0",
     "eslint": "8.56.0",
     "eslint-config-next": "14.1.0",
+    "eslint-config-prettier": "9.1.0",
     "eslint-plugin-storybook": "0.6.15",
     "husky": "9.0.10",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
     "prettier-plugin-organize-imports": "3.2.4",
     "storybook": "7.6.12",
+    "tsx": "4.7.0",
     "typescript": "5.3.3"
   }
 }
