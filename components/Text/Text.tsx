@@ -42,7 +42,6 @@ export const Text: React.FC<Props> = ({
 }) => {
   const classNames = cx(styles.text({ variant }), styles.textColor[color], className);
 
-  console.log("classNames", classNames);
   return (
     <>
       {match([markup, children])
