@@ -9,7 +9,7 @@ export type IconProps = {
   style?: React.CSSProperties;
 };
 
-export const Icon = ({ name, title, label, style, className }: IconProps) => {
+export const Icon: React.FC<IconProps> = ({ name, title, label, style, className }) => {
   return (
     <svg className={className} aria-label={label} style={style}>
       {title && <title>{title}</title>}
@@ -20,7 +20,7 @@ export const Icon = ({ name, title, label, style, className }: IconProps) => {
 
 Icon.displayName = "Icon";
 
-export const Sprite = () => {
+export const Sprite: React.FC = () => {
   return (
     <svg
       aria-hidden="true"

@@ -60,6 +60,16 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: [
+    {
+      from: "../node_modules/geist/dist/fonts/geist-sans",
+      to: "/fonts/geist-sans",
+    },
+    {
+      from: "../node_modules/geist/dist/fonts/geist-mono",
+      to: "/fonts/geist-mono",
+    },
+  ],
   webpackFinal: async (config) => {
     if (!config.resolve) {
       return config;

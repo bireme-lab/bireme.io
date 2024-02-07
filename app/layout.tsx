@@ -1,5 +1,7 @@
 import { Sprite } from "@/components/Icon/Icon";
-import "@/design/theme.css";
+import "@/styles/global.css";
+import { cx } from "@/styles/mixins";
+import { dark } from "@/styles/theme/dark.css";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
@@ -26,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${GloriaHallelujah.variable}`}
+      className={cx(GeistSans.variable, GeistMono.variable, GloriaHallelujah.variable, dark)}
     >
       <body>
         <Sprite />

@@ -1,4 +1,4 @@
-import { createGlobalTheme, globalStyle } from "@vanilla-extract/css";
+import { globalStyle } from "@vanilla-extract/css";
 
 // CSS Reset from Josh Comeau (https://www.joshwcomeau.com/css/custom-css-reset)
 // -----------------------------------------------------------------------------o
@@ -12,8 +12,12 @@ globalStyle("*", {
   padding: 0,
 });
 
+globalStyle("html", {
+  textSizeAdjust: "100%",
+});
+
 globalStyle("body", {
-  // lineHeight: 1.5, This will be set in the typography file
+  MozOsxFontSmoothing: "grayscale",
   WebkitFontSmoothing: "antialiased",
 });
 
@@ -36,18 +40,4 @@ globalStyle("#root, #__next", {
 globalStyle("a", {
   textDecoration: "none",
   color: "inherit",
-});
-
-// App global theme
-// -----------------o
-
-export const vars = createGlobalTheme(":root", {
-  color: {
-    primary: "blue",
-  },
-  font: {
-    sans: "var(--font-geist-sans), sans-serif",
-    mono: "var(--font-geist-mono), monospace",
-    hand: "var(--font-gloria-hallelujah), sans-serif",
-  },
 });
