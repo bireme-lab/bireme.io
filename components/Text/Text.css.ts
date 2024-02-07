@@ -1,5 +1,5 @@
 import { vars } from "@/styles/theme/index.css";
-import { styleVariants } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const text = recipe({
@@ -8,7 +8,6 @@ export const text = recipe({
   },
   variants: {
     variant: {
-      span: {},
       comment: {
         fontFamily: vars.font.hand,
       },
@@ -29,7 +28,7 @@ export const text = recipe({
         fontWeight: 400,
         lineHeight: "0.8125rem",
       },
-      paragraph: {
+      body: {
         fontSize: "0.9375rem",
         fontWeight: 400,
         lineHeight: "1.5625rem",
@@ -41,17 +40,17 @@ export const text = recipe({
         lineHeight: "0.8125rem",
         textTransform: "uppercase",
       },
-      heading3: {
+      title3: {
         fontSize: "1.0625rem",
         fontWeight: 500,
         lineHeight: "1.5rem",
       },
-      heading2: {
+      title2: {
         fontSize: "1.25rem",
         fontWeight: 500,
         lineHeight: "1.625rem",
       },
-      heading1: {
+      title1: {
         fontSize: "2rem",
         fontWeight: 600,
         lineHeight: "2.5rem",
@@ -60,8 +59,19 @@ export const text = recipe({
   },
 });
 
+export const em = style({
+  fontStyle: "italic",
+});
+
+export const strong = style({
+  fontWeight: 500,
+});
+
+export const s = style({
+  textDecoration: "line-through",
+});
+
 export const textColor = styleVariants({
-  default: { color: vars.color.primary[500] },
   "primary-50": { color: vars.color.primary[50] },
   "primary-100": { color: vars.color.primary[100] },
   "primary-200": { color: vars.color.primary[200] },

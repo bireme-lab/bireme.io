@@ -26,7 +26,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Default: Story = {
+export const Variants: Story = {
   args: {
     children: "Hello, World!",
   },
@@ -36,11 +36,40 @@ export const Default: Story = {
       <Text variant="small-mono" {...props} />
       <Text variant="small-flat" {...props} />
       <Text variant="small" {...props} />
-      <Text variant="paragraph" {...props} />
+      <Text variant="body" {...props} />
       <Text variant="section-heading" {...props} />
-      <Text variant="heading3" {...props} />
-      <Text variant="heading2" {...props} />
-      <Text variant="heading1" {...props} />
+      <Text variant="title3" {...props} />
+      <Text variant="title2" {...props} />
+      <Text variant="title1" {...props} />
+    </>
+  ),
+};
+
+export const BlockNodes: Story = {
+  args: {
+    children: (
+      <>
+        <Text variant="comment">Super commentaire</Text>
+        <Text markup="strong">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui.
+        </Text>
+      </>
+    ),
+  },
+  render: (props) => (
+    <>
+      <Text markup="p" {...props} />
+    </>
+  ),
+};
+
+export const InlineNodes: Story = {
+  args: {
+    children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui.",
+  },
+  render: (props) => (
+    <>
+      <Text markup="span" {...props} />
     </>
   ),
 };
