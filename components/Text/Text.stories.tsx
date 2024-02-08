@@ -39,8 +39,8 @@ export const Variants: Story = {
       <Text variant="body" {...props} />
       <Text variant="section-heading" {...props} />
       <Text variant="title3" {...props} />
-      <Text variant="title2" {...props} />
-      <Text variant="title1" {...props} />
+      <Text markup="h2" variant="title2" {...props} />
+      <Text markup="h1" variant="title1" {...props} />
     </>
   ),
 };

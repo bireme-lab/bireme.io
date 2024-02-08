@@ -1,5 +1,5 @@
 import { createTheme } from "@vanilla-extract/css";
-import { vars } from "./index.css";
+import { sizes, vars } from "./index.css";
 
 // App global theme
 // -----------------o
@@ -98,5 +98,28 @@ export const dark = createTheme(vars, {
     sans: "var(--font-geist-sans), sans-serif",
     mono: "var(--font-geist-mono), monospace",
     hand: "var(--font-gloria-hallelujah), sans-serif",
+  },
+  grid: {
+    mobile: {
+      count: "2",
+      width: "100%",
+      maxWidth: "100%",
+      margin: sizes[24],
+      gutter: sizes[24],
+    },
+    tablet: {
+      count: "4",
+      width: "100%",
+      maxWidth: "100%",
+      margin: sizes[24],
+      gutter: sizes[24],
+    },
+    desktop: {
+      count: "8",
+      width: "100%",
+      maxWidth: "64rem",
+      margin: "0",
+      gutter: sizes[24],
+    },
   },
 });
