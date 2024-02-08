@@ -1,0 +1,20 @@
+{
+  "name": "Bireme Lab",
+  "short_name": "Bireme Lab",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#F9EADE",
+  "background_color": "#151515",
+  "start_url": "https://bireme.io",
+  "display": "standalone"
+}

@@ -6,7 +6,6 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { Gloria_Hallelujah } from "next/font/google";
-import "./globals.css";
 
 const GloriaHallelujah = Gloria_Hallelujah({
   weight: "400",
@@ -30,6 +29,13 @@ export default function RootLayout({
       lang="fr"
       className={cx(GeistSans.variable, GeistMono.variable, GloriaHallelujah.variable, dark)}
     >
+      <head>
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#151515" />
+        <meta name="apple-mobile-web-app-title" content="Bireme Lab" />
+        <meta name="application-name" content="Bireme Lab" />
+        <meta name="msapplication-TileColor" content="#151515" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body>
         <Sprite />
         {children}
