@@ -1,3 +1,4 @@
+import { transition } from "@/styles/mixins";
 import { vars } from "@/styles/theme/index.css";
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
@@ -5,6 +6,7 @@ import { recipe } from "@vanilla-extract/recipes";
 export const text = recipe({
   base: {
     fontFamily: vars.font.sans,
+    display: "inline",
   },
   variants: {
     variant: {
@@ -27,6 +29,16 @@ export const text = recipe({
         fontSize: "0.8125rem",
         fontWeight: 400,
         lineHeight: "0.8125rem",
+      },
+      anchor: {
+        fontSize: "0.875rem",
+        fontWeight: 400,
+        lineHeight: "1.3125rem",
+      },
+      "anchor-flat": {
+        fontSize: "0.875rem",
+        fontWeight: 400,
+        lineHeight: "0.875rem",
       },
       body: {
         fontSize: "0.9375rem",
@@ -69,6 +81,74 @@ export const strong = style({
 
 export const s = style({
   textDecoration: "line-through",
+});
+
+export const underlinedLink = style({
+  fontWeight: 500,
+  textDecoration: "underline",
+});
+
+export const link = recipe({
+  base: [
+    transition({
+      duration: 200,
+      properties: ["color", "background"],
+      timingFunction: "ease-out",
+    }),
+    {
+      zIndex: 1,
+      position: "relative",
+      background: `linear-gradient(to top, ${vars.color.secondary[500]} 0%, ${vars.color.secondary[500]} 100%) no-repeat`,
+      backgroundSize: "0% 100%",
+    },
+  ],
+  variants: {
+    isUnderlined: {
+      true: {
+        textDecoration: "underline",
+        fontWeight: 500,
+      },
+    },
+    isHovered: {
+      true: {},
+    },
+    isFocused: {
+      true: {
+        outline: "none",
+        color: `${vars.color.neutral[900]}!important`,
+        backgroundSize: "100% 100%",
+      },
+    },
+  },
+});
+
+export const translateAnimationContainer = recipe({
+  base: {
+    position: "relative",
+    transition: "300ms ease-out",
+
+    "::after": {
+      position: "absolute",
+      content: "attr(data-content)",
+      bottom: "-100%",
+      left: 0,
+      transition: "transform 0.3s",
+    },
+  },
+  variants: {
+    isHovered: {
+      true: {
+        transform: "translateY(-100%)",
+      },
+    },
+    isFocused: {
+      true: {
+        transform: "translateY(-100%)",
+        outline: "none",
+        color: vars.color.neutral[900],
+      },
+    },
+  },
 });
 
 export const textColor = styleVariants({

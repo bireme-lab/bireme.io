@@ -117,9 +117,26 @@ export const dark = createTheme(vars, {
     desktop: {
       count: "8",
       width: "100%",
-      maxWidth: "64rem",
+      maxWidth: "1024px",
       margin: "0",
       gutter: sizes[24],
+    },
+  },
+  spacings: {
+    content: {
+      gapExtraSmall: sizes[4],
+      gapSmall: sizes[8],
+      gapRegular: sizes[12],
+      gapMedium: sizes[16],
+      gapLarge: sizes[20],
+      gapExtraLarge: sizes[24],
+      gapExtraExtraLarge: sizes[48],
+    },
+    button: {
+      horizontalPadding: sizes[16],
+      verticalPadding: sizes[12],
+      gap: sizes[4],
+      radius: sizes[2],
     },
   },
 });

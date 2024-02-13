@@ -12,6 +12,7 @@
     "next": "14.1.0",
     "next-intl": "3.5.4",
     "react": "18.2.0",
+    "react-aria": "^3.31.1",
     "react-dom": "18.2.0",
     "svg-sprite": "2.0.2",
     "svgo": "3.2.0",

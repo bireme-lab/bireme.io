@@ -58,7 +58,7 @@ export const BlockNodes: Story = {
   },
   render: (props) => (
     <>
-      <Text markup="p" {...props} />
+      <Text {...props} />
     </>
   ),
 };
@@ -69,7 +69,36 @@ export const InlineNodes: Story = {
   },
   render: (props) => (
     <>
-      <Text markup="span" {...props} />
+      <Text {...props} />
     </>
+  ),
+};
+
+export const RelativeLink: Story = {
+  render: () => (
+    <Text href="https://google.com" translateOnHover>
+      Revenir en arrière
+    </Text>
+  ),
+};
+
+export const AbsoluteLink: Story = {
+  render: () => (
+    <Text markup="p" style={{ maxWidth: 500 }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam congue sapien ut ex pretium
+      finibus. Mauris sed lorem interdum, tristique mi tristique, aliquam justo. Aliquam ut accumsan
+      eros. Donec eu libero id est semper pretium eget vitae turpis. Fusce pharetra commodo ligula
+      non consequat. Donec egestas a lectus laoreet luctus. Praesent efficitur sodales aliquam. Nunc
+      quis lectus euismod nunc finibus ullamcorper eu eu ipsum. Nullam luctus, leo in cursus
+      faucibus, purus lorem luctus ipsum, sit amet pretium magna risus id purus.{" "}
+      <Text href="/#">This is a relative link with a long text to try with two lines.</Text> Donec
+      id enim felis. Suspendisse euismod massa turpis, viverra tempor odio egestas sit amet.
+      Praesent imperdiet blandit arcu, sit amet placerat nulla gravida quis. Aliquam laoreet nisi
+      nec lacus laoreet molestie. Sed eleifend nec lectus a dapibus. Nullam felis elit, malesuada a
+      congue sit amet, malesuada sed turpis. Vivamus interdum varius urna, mollis venenatis diam
+      aliquet eu. Fusce sit amet dapibus mauris. Cras ornare rhoncus nunc vel facilisis. Etiam id ex
+      cursus, facilisis ante ac, varius libero. Vestibulum sed lorem est. Cras vel enim vel nisi
+      volutpat commodo.
+    </Text>
   ),
 };
