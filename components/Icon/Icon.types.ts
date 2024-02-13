@@ -1,6 +1,7 @@
 export type IconName =
   | "arrow_left"
   | "arrow_right"
+  | "check"
   | "copy"
   | "cross"
   | "github"

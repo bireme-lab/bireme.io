@@ -126,6 +126,7 @@ export const translateAnimationContainer = recipe({
   base: {
     position: "relative",
     transition: "300ms ease-out",
+    color: "inherit",
 
     "::after": {
       position: "absolute",
@@ -145,13 +146,13 @@ export const translateAnimationContainer = recipe({
       true: {
         transform: "translateY(-100%)",
         outline: "none",
-        color: vars.color.neutral[900],
       },
     },
   },
 });
 
 export const textColor = styleVariants({
+  inherit: { color: "inherit" },
   "primary-50": { color: vars.color.primary[50] },
   "primary-100": { color: vars.color.primary[100] },
   "primary-200": { color: vars.color.primary[200] },

@@ -9,7 +9,7 @@ prepare:
 dev: build-icons-sprite
 	bun next dev
 
-storybook:
+storybook: build-icons-sprite
 	bun storybook dev -p 6006
 
 test:

@@ -2,7 +2,7 @@ import { cx } from "@/styles/mixins";
 import type { Color } from "@/styles/theme/index.css";
 import Link, { LinkProps as NextLinkProps } from "next/link";
 import { ElementType, PropsWithChildren } from "react";
-import { useFocusRing, useHover } from "react-aria";
+import { mergeProps, useFocusRing, useHover } from "react-aria";
 import { P, isMatching, match } from "ts-pattern";
 import * as styles from "./Text.css";
 
@@ -26,7 +26,7 @@ type TextElementType =
 type TextProps = {
   variant?: TextVariant;
   markup?: Extract<ElementType, TextElementType>;
-  color?: Color;
+  color?: Color | "inherit";
   className?: string;
   style?: React.CSSProperties;
 };
@@ -34,7 +34,7 @@ type TextProps = {
 type LinkProps = {
   variant?: TextVariant;
   underlined?: boolean;
-  color?: Color;
+  color?: Color | "inherit";
   className?: string;
   style?: React.CSSProperties;
   translateOnHover?: boolean;
@@ -172,9 +172,7 @@ const LinkComponent: React.FC<LinkProps> = ({
         }))
         .with([true, false], () => style)
         .otherwise(() => ({ display: "block", ...style }))}
-      {...props}
-      {...hoverProps}
-      {...focusProps}
+      {...mergeProps(props, hoverProps, focusProps)}
     >
       {isChildrenInlineNode && translateOnHover ? (
         <span
