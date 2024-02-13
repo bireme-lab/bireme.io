@@ -48,18 +48,14 @@ export const button = recipe({
       },
     },
     isHovered: {
-      true: {
-        transform: "scale(1.05)",
-      },
+      true: {},
     },
     isFocused: {
-      true: {
-        transform: "scale(1.05)",
-      },
+      true: {},
     },
     isPressed: {
       true: {
-        transform: "scale(1)",
+        transform: "scale(0.99)",
       },
     },
     isSuccess: {
