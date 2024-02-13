@@ -234,15 +234,15 @@ export const icon = recipe({
     },
     isHovered: {
       true: {
-        width: sizes[16],
-        height: sizes[16],
+        width: sizes[20],
+        height: sizes[20],
         transform: "rotate(0deg)",
       },
     },
     isFocused: {
       true: {
-        width: sizes[16],
-        height: sizes[16],
+        width: sizes[20],
+        height: sizes[20],
         transform: "rotate(0deg)",
       },
     },
