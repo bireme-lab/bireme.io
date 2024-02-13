@@ -1,3 +1,5 @@
 {
-  "helloworld": "Bonjour le monde"
+  "Checkbox": {
+    "ticked": "Case cochée"
+  }
 }

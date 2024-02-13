@@ -1,5 +1,5 @@
 import { cx } from "@/styles/mixins";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import * as styles from "./Grid.css";
 
 type Props = PropsWithChildren<{

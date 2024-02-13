@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from "react";
 import {
   AriaButtonProps,
@@ -82,6 +84,7 @@ export const Button: React.FC<Props> = ({
         </div>
         <Text
           color="inherit"
+          variant="anchor-flat"
           className={styles.label({
             showArrow,
             isHovered,

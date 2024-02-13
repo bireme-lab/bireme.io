@@ -1,3 +1,5 @@
 {
-  "helloworld": "Hello World!"
+  "Checkbox": {
+    "ticked": "Checkbox ticked"
+  }
 }

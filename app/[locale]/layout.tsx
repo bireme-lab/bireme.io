@@ -6,6 +6,7 @@ import { i18n, type Locale } from "@/utils/i18n";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { Gloria_Hallelujah } from "next/font/google";
 
@@ -35,6 +36,8 @@ export default function RootLayout({
   // https://next-intl-docs.vercel.app/docs/getting-started/app-router#add-unstable_setrequestlocale-to-all-layouts-and-pages
   unstable_setRequestLocale(locale);
 
+  const messages = useMessages();
+
   return (
     <html
       lang={locale}
@@ -49,7 +52,7 @@ export default function RootLayout({
       </head>
       <body>
         <Sprite />
-        {children}
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

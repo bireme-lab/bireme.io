@@ -1,7 +1,7 @@
 import { cx } from "@/styles/mixins";
 import type { Color } from "@/styles/theme/index.css";
-import Link, { LinkProps as NextLinkProps } from "next/link";
-import { ElementType, PropsWithChildren } from "react";
+import Link, { type LinkProps as NextLinkProps } from "next/link";
+import { ElementType, type PropsWithChildren } from "react";
 import { mergeProps, useFocusRing, useHover } from "react-aria";
 import { P, isMatching, match } from "ts-pattern";
 import * as styles from "./Text.css";

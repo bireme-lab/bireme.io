@@ -160,7 +160,7 @@ export const label = recipe({
     transition({
       duration: 200,
       timingFunction: "ease-out",
-      properties: ["opacity"],
+      properties: ["opacity", "margin"],
     }),
   ],
   variants: {
@@ -186,7 +186,7 @@ export const label = recipe({
         isHovered: true,
       },
       style: {
-        marginRight: sizes[4],
+        marginRight: sizes[20],
       },
     },
     {
@@ -195,7 +195,7 @@ export const label = recipe({
         isFocused: true,
       },
       style: {
-        marginRight: sizes[4],
+        marginRight: sizes[20],
       },
     },
   ],
@@ -209,7 +209,8 @@ export const icon = recipe({
       properties: ["transform", "width", "height"],
     }),
     {
-      position: "relative",
+      position: "absolute",
+      right: sizes[16],
       margin: 0,
       padding: 0,
       width: 0,
@@ -230,15 +231,15 @@ export const icon = recipe({
     },
     isHovered: {
       true: {
-        width: sizes[20],
-        height: sizes[20],
+        width: sizes[16],
+        height: sizes[16],
         transform: "rotate(0deg)",
       },
     },
     isFocused: {
       true: {
-        width: sizes[20],
-        height: sizes[20],
+        width: sizes[16],
+        height: sizes[16],
         transform: "rotate(0deg)",
       },
     },
