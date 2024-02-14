@@ -16,6 +16,7 @@ type TextElementType =
   | "h5"
   | "h6"
   | "p"
+  | "label"
   | "small"
   | "em"
   | "strong"
@@ -29,10 +30,11 @@ type TextProps = {
   color?: Color | "inherit";
   className?: string;
   style?: React.CSSProperties;
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 type LinkProps = {
   variant?: TextVariant;
+  markup?: never;
   underlined?: boolean;
   color?: Color | "inherit";
   className?: string;
@@ -57,76 +59,67 @@ export const Text: React.FC<Props> = ({
   return (
     <>
       {match(props)
-        .with({ markup: "h1", children: P._ }, ({ children }) => (
-          <h1 className={classNames} style={style}>
-            {children}
-          </h1>
+        .with({ markup: "h1", children: P._ }, (props) => (
+          <h1 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h2", children: P._ }, ({ children }) => (
-          <h2 className={classNames} style={style}>
-            {children}
-          </h2>
+        .with({ markup: "h2", children: P._ }, (props) => (
+          <h2 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h3", children: P._ }, ({ children }) => (
-          <h3 className={classNames} style={style}>
-            {children}
-          </h3>
+        .with({ markup: "h3", children: P._ }, (props) => (
+          <h3 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h4", children: P._ }, ({ children }) => (
-          <h4 className={classNames} style={style}>
-            {children}
-          </h4>
+        .with({ markup: "h4", children: P._ }, (props) => (
+          <h4 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h5", children: P._ }, ({ children }) => (
-          <h5 className={classNames} style={style}>
-            {children}
-          </h5>
+        .with({ markup: "h5", children: P._ }, (props) => (
+          <h5 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h6", children: P._ }, ({ children }) => (
-          <h5 className={classNames} style={style}>
-            {children}
-          </h5>
+        .with({ markup: "h6", children: P._ }, (props) => (
+          <h5 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "p", children: P._ }, ({ children }) => (
-          <p className={classNames} style={style}>
-            {children}
-          </p>
+        .with({ markup: "p", children: P._ }, (props) => (
+          <p className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "small", children: P._ }, ({ children }) => (
-          <small className={classNames} style={style}>
-            {children}
-          </small>
+        .with({ markup: "label", children: P._ }, (props) => (
+          <label className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "em", children: P.string }, ({ children }) => (
-          <em className={cx(styles.em, styles.textColor[color], className)} style={style}>
-            {children}
-          </em>
+        .with({ markup: "small", children: P._ }, (props) => (
+          <small className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "strong", children: P.string }, ({ children }) => (
-          <strong className={cx(styles.strong, styles.textColor[color], className)} style={style}>
-            {children}
-          </strong>
+        .with({ markup: "em", children: P.string }, (props) => (
+          <em
+            className={cx(styles.em, styles.textColor[color], className)}
+            style={style}
+            {...props}
+          />
         ))
-        .with({ markup: "b", children: P.string }, ({ children }) => (
-          <b className={cx(styles.strong, styles.textColor[color], className)} style={style}>
-            {children}
-          </b>
+        .with({ markup: "strong", children: P.string }, (props) => (
+          <strong
+            className={cx(styles.strong, styles.textColor[color], className)}
+            style={style}
+            {...props}
+          />
         ))
-        .with({ markup: "s", children: P.string }, ({ children }) => (
-          <s className={cx(styles.s, styles.textColor[color], className)} style={style}>
-            {children}
-          </s>
+        .with({ markup: "b", children: P.string }, (props) => (
+          <b
+            className={cx(styles.strong, styles.textColor[color], className)}
+            style={style}
+            {...props}
+          />
         ))
-        .with({ markup: "figcaption", children: P.string }, ({ children }) => (
-          <figcaption className={cx(styles.textColor[color], className)} style={style}>
-            {children}
-          </figcaption>
+        .with({ markup: "s", children: P.string }, (props) => (
+          <s
+            className={cx(styles.s, styles.textColor[color], className)}
+            style={style}
+            {...props}
+          />
+        ))
+        .with({ markup: "figcaption", children: P.string }, (props) => (
+          <figcaption className={cx(styles.textColor[color], className)} style={style} {...props} />
         ))
         .with({ href: P.string }, (typedProps) => <LinkComponent {...typedProps} />)
-        .otherwise(({ children }) => (
-          <span className={classNames} style={style}>
-            {children}
-          </span>
+        .otherwise((props) => (
+          <span className={classNames} style={style} {...props} />
         ))}
     </>
   );

@@ -1,5 +1,7 @@
 "use client";
 
+import { cx } from "@/styles/mixins";
+import { vars } from "@/styles/theme/index.css";
 import React, { useRef } from "react";
 import {
   VisuallyHidden,
@@ -16,6 +18,7 @@ import * as styles from "./Checkbox.css";
 
 type Props = {
   children?: string;
+  className?: string;
 } & AriaCheckboxProps;
 
 export const Checkbox: React.FC<Props> = (props) => {
@@ -30,12 +33,21 @@ export const Checkbox: React.FC<Props> = (props) => {
   });
 
   return (
-    <label className={styles.container} {...mergeProps(hoverProps, pressProps)}>
+    <label
+      className={cx(styles.container, props.className)}
+      {...mergeProps(hoverProps, pressProps)}
+    >
       <VisuallyHidden>
         <input {...mergeProps(inputProps, focusProps)} ref={ref} />
       </VisuallyHidden>
       <div className={styles.checkboxContainer}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={styles.svg}>
+        <svg
+          width={vars.spacings.checkbox.boxSize}
+          height={vars.spacings.checkbox.boxSize}
+          viewBox={`0 0 ${vars.spacings.checkbox.boxSize} ${vars.spacings.checkbox.boxSize}`}
+          fill="none"
+          className={styles.svg}
+        >
           <path
             className={styles.path({ isChecked: inputProps.checked })}
             stroke="currentColor"
@@ -55,7 +67,7 @@ export const Checkbox: React.FC<Props> = (props) => {
             d="M9 6.5c2 5 4.5 8.5 8.5 13.5"
           />
         </svg>
-        <div className={styles.checkbox({ isFocused: isFocusVisible, isHovered, isPressed })} />
+        <div className={cx(styles.checkbox({ isFocused: isFocusVisible, isHovered, isPressed }))} />
       </div>
       {props.children && <Text variant="anchor">{props.children}</Text>}
     </label>

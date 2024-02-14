@@ -21,7 +21,7 @@ export const button = recipe({
       display: "flex",
       alignItems: "center",
       overflow: "hidden",
-      padding: `${sizes[12]} ${sizes[16]}`,
+      padding: `${vars.spacings.button.verticalPadding} ${vars.spacings.button.horizontalPadding}`,
       width: "auto",
       borderRadius: vars.spacings.button.radius,
 
@@ -110,7 +110,7 @@ export const button = recipe({
         isHovered: true,
       },
       style: {
-        backgroundColor: vars.color.neutral[700],
+        borderColor: vars.color.primary[500],
       },
     },
     {
@@ -128,7 +128,7 @@ export const button = recipe({
         isPressed: true,
       },
       style: {
-        backgroundColor: vars.color.neutral[500],
+        backgroundColor: vars.color.neutral[700],
       },
     },
     {

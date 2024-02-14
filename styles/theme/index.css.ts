@@ -164,8 +164,19 @@ export const vars = createThemeContract({
     button: {
       horizontalPadding: null,
       verticalPadding: null,
-      gap: null,
       radius: null,
+    },
+    checkbox: {
+      gap: null,
+      iconSize: null,
+      boxSize: null,
+      radius: null,
+    },
+    input: {
+      horizontalPadding: null,
+      verticalPadding: null,
+      radius: null,
+      gap: null,
     },
   },
 });

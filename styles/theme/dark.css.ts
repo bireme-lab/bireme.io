@@ -135,8 +135,19 @@ export const dark = createTheme(vars, {
     button: {
       horizontalPadding: sizes[16],
       verticalPadding: sizes[12],
-      gap: sizes[4],
       radius: sizes[2],
+    },
+    checkbox: {
+      gap: sizes[2],
+      iconSize: sizes[24],
+      boxSize: sizes[12],
+      radius: sizes[2],
+    },
+    input: {
+      horizontalPadding: sizes[20],
+      verticalPadding: sizes[16],
+      radius: sizes[2],
+      gap: sizes[8],
     },
   },
 });

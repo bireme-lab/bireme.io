@@ -1,5 +1,5 @@
 import { transition } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { vars } from "@/styles/theme/index.css";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -7,6 +7,7 @@ export const container = style({
   display: "inline-flex",
   alignItems: "flex-start",
   WebkitTapHighlightColor: "transparent",
+  gap: vars.spacings.checkbox.gap,
 });
 
 export const checkboxContainer = style({
@@ -15,10 +16,10 @@ export const checkboxContainer = style({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  width: sizes[24],
-  height: sizes[24],
-  minWidth: sizes[24],
-  minHeight: sizes[24],
+  width: vars.spacings.checkbox.iconSize,
+  height: vars.spacings.checkbox.iconSize,
+  minWidth: vars.spacings.checkbox.iconSize,
+  minHeight: vars.spacings.checkbox.iconSize,
 });
 
 export const checkbox = recipe({
@@ -30,35 +31,31 @@ export const checkbox = recipe({
     }),
     {
       zIndex: 1,
-      width: sizes[12],
-      height: sizes[12],
-      minWidth: sizes[12],
-      minHeight: sizes[12],
+      width: vars.spacings.checkbox.boxSize,
+      height: vars.spacings.checkbox.boxSize,
+      minWidth: vars.spacings.checkbox.boxSize,
+      minHeight: vars.spacings.checkbox.boxSize,
       position: "relative",
       borderStyle: "solid",
       borderWidth: "1px",
-      borderRadius: sizes[2],
-      outlineStyle: "solid",
-      outlineWidth: "1px",
-      outlineColor: "transparent",
-      outlineOffset: 2,
+      borderRadius: vars.spacings.checkbox.radius,
       borderColor: vars.color.primary[800],
     },
   ],
   variants: {
     isFocused: {
       true: {
-        outlineColor: vars.color.secondary[500],
+        borderColor: vars.color.primary[500],
       },
     },
     isHovered: {
       true: {
-        transform: "scale(1.1)",
+        borderColor: vars.color.primary[500],
       },
     },
     isPressed: {
       true: {
-        transform: "scale(1)",
+        borderColor: vars.color.primary[800],
       },
     },
   },
