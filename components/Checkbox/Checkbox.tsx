@@ -1,16 +1,16 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import React, { useRef } from "react";
 import {
   VisuallyHidden,
   mergeProps,
   useCheckbox,
   useFocusRing,
+  useHover,
+  usePress,
   type AriaCheckboxProps,
 } from "react-aria";
 import { useToggleState } from "react-stately";
-import { Icon } from "../Icon/Icon";
 import { Text } from "../Text/Text";
 import * as styles from "./Checkbox.css";
 
@@ -20,33 +20,42 @@ type Props = {
 
 export const Checkbox: React.FC<Props> = (props) => {
   const ref = useRef<HTMLInputElement>(null);
-  const t = useTranslations("Checkbox");
 
   const state = useToggleState(props);
   const { inputProps } = useCheckbox(props, state, ref);
   const { isFocusVisible, focusProps } = useFocusRing();
+  const { isHovered, hoverProps } = useHover({});
+  const { isPressed, pressProps } = usePress({
+    ref,
+  });
 
   return (
-    <label className={styles.container}>
+    <label className={styles.container} {...mergeProps(hoverProps, pressProps)}>
       <VisuallyHidden>
         <input {...mergeProps(inputProps, focusProps)} ref={ref} />
       </VisuallyHidden>
-      <div className={styles.checkbox({ isFocused: isFocusVisible })}>
-        <Icon name="handwritten_cross" title={t("ticked")} className={styles.svg} />
-        <svg fill="none" className={styles.svg}>
+      <div className={styles.checkboxContainer}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={styles.svg}>
           <path
+            className={styles.path({ isChecked: inputProps.checked })}
             stroke="currentColor"
             strokeLinecap="round"
             strokeWidth="2"
+            strokeDashoffset="0px"
+            pathLength="1"
             d="M6 18.5c5.5-7 5.5-7 11-13"
           />
           <path
+            className={styles.path({ isChecked: inputProps.checked })}
             stroke="currentColor"
             strokeLinecap="round"
             strokeWidth="2"
+            strokeDashoffset="0px"
+            pathLength="1"
             d="M9 6.5c2 5 4.5 8.5 8.5 13.5"
           />
         </svg>
+        <div className={styles.checkbox({ isFocused: isFocusVisible, isHovered, isPressed })} />
       </div>
       {props.children && <Text variant="anchor">{props.children}</Text>}
     </label>
