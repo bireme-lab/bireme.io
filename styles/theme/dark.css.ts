@@ -151,6 +151,11 @@ export const dark = createTheme(vars, {
     },
     avatar: {
       size: sizes[24],
+      tooltipRadius: sizes[2],
+      tooltipHorizontalPadding: sizes[20],
+      tooltipVerticalPadding: sizes[16],
+      tooltipAvatarSize: sizes[32],
+      networkIconSize: sizes[24],
     },
   },
 });

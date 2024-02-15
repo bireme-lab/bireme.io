@@ -7,22 +7,25 @@ type LocalPublicImage = keyof typeof data;
 
 export type ImageProps = {
   src: StaticImport | LocalPublicImage;
+  placeholder?: "empty" | "blur";
 } & Exclude<NextImageProps, "src">;
 
 const isLocalPublicImage = (src: StaticImport | LocalPublicImage): src is LocalPublicImage => {
   return typeof src === "string" && Object.keys(data).includes(src);
 };
 
-export const Image: React.FC<ImageProps> = (props) => {
+export const Image: React.FC<ImageProps> = ({ placeholder = "blur", ...props }) => {
   return match(props)
-    .with({ src: P.when(isLocalPublicImage) }, ({ blurDataURL, placeholder, ...typedProps }) => {
+    .with({ src: P.when(isLocalPublicImage) }, ({ blurDataURL, ...typedProps }) => {
       return (
-        <NextImage placeholder="blur" blurDataURL={data[typedProps.src].blurHash} {...typedProps} />
+        <NextImage
+          blurDataURL={data[typedProps.src].blurHash}
+          placeholder={placeholder}
+          {...typedProps}
+        />
       );
     })
-    .otherwise(({ placeholder, ...typedProps }) => (
-      <NextImage placeholder="blur" {...typedProps} />
-    ));
+    .otherwise((typedProps) => <NextImage placeholder={placeholder} {...typedProps} />);
 };
 
 Image.displayName = "Image";

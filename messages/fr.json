@@ -1,5 +1,8 @@
 {
   "Checkbox": {
     "ticked": "Case cochée"
+  },
+  "Avatar": {
+    "follow_on_twitter": "Suivre {name} sur Twitter"
   }
 }

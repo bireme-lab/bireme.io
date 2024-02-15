@@ -21,7 +21,14 @@ export default async function Home({
       <div className={styles.page}>
         <Icon name="github" title="Github" />
         toto
-        <Avatar src="/images/avatars/fred.webp" alt="Fred" />
+        <Avatar
+          src="/images/avatars/fred.webp"
+          alt="Fred"
+          firstName="Fred"
+          lastName="Godin"
+          position="Co-fondateur"
+          twitterProfileUrl="https://twitter.com/epimodev"
+        />
         <Test />
       </div>
     </main>

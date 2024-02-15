@@ -180,6 +180,11 @@ export const vars = createThemeContract({
     },
     avatar: {
       size: null,
+      tooltipRadius: null,
+      tooltipAvatarSize: null,
+      tooltipHorizontalPadding: null,
+      tooltipVerticalPadding: null,
+      networkIconSize: null,
     },
   },
 });
