@@ -1,7 +1,6 @@
 "use client";
 
 import { cx } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
 import React, { useRef } from "react";
 import {
   VisuallyHidden,
@@ -12,7 +11,6 @@ import {
   usePress,
   type AriaCheckboxProps,
 } from "react-aria";
-import { useToggleState } from "react-stately";
 import { Text } from "../Text/Text";
 import * as styles from "./Checkbox.css";
 
@@ -24,8 +22,16 @@ type Props = {
 export const Checkbox: React.FC<Props> = (props) => {
   const ref = useRef<HTMLInputElement>(null);
 
-  const state = useToggleState(props);
-  const { inputProps } = useCheckbox(props, state, ref);
+  const { inputProps } = useCheckbox(
+    props,
+    {
+      isSelected: props.isSelected ?? false,
+      setSelected: (checked) => props.onChange?.(checked),
+      toggle: () => props.onChange?.(!props.isSelected),
+    },
+    ref,
+  );
+
   const { isFocusVisible, focusProps } = useFocusRing();
   const { isHovered, hoverProps } = useHover({});
   const { isPressed, pressProps } = usePress({
@@ -41,13 +47,7 @@ export const Checkbox: React.FC<Props> = (props) => {
         <input {...mergeProps(inputProps, focusProps)} ref={ref} />
       </VisuallyHidden>
       <div className={styles.checkboxContainer}>
-        <svg
-          width={vars.spacings.checkbox.boxSize}
-          height={vars.spacings.checkbox.boxSize}
-          viewBox={`0 0 ${vars.spacings.checkbox.boxSize} ${vars.spacings.checkbox.boxSize}`}
-          fill="none"
-          className={styles.svg}
-        >
+        <svg width={24} height={24} viewBox={`0 0 ${24} ${24}`} fill="none" className={styles.svg}>
           <path
             className={styles.path({ isChecked: inputProps.checked })}
             stroke="currentColor"

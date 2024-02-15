@@ -178,6 +178,9 @@ export const vars = createThemeContract({
       radius: null,
       gap: null,
     },
+    avatar: {
+      size: null,
+    },
   },
 });
 

@@ -149,5 +149,8 @@ export const dark = createTheme(vars, {
       radius: sizes[2],
       gap: sizes[8],
     },
+    avatar: {
+      size: sizes[24],
+    },
   },
 });

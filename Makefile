@@ -1,4 +1,5 @@
 BUILD_ICONS_SPRITE_SCRIPT = scripts/build-svg-sprite.ts
+GENERATE_IMAGES_DATA_SCRIPT = scripts/generate-images-data.ts
 
 install:
 	bun install
@@ -6,10 +7,10 @@ install:
 prepare:
 	bun husky
 
-dev: build-icons-sprite
+dev: build-icons-sprite generate-images-data
 	bun next dev
 
-storybook: build-icons-sprite
+storybook: build-icons-sprite generate-images-data
 	bun storybook dev -p 6006
 
 test:
@@ -33,7 +34,10 @@ storybook-build:
 build-icons-sprite:
 	bun tsx ${BUILD_ICONS_SPRITE_SCRIPT}
 
-build: build-icons-sprite
+generate-images-data:
+	bun tsx ${GENERATE_IMAGES_DATA_SCRIPT}
+
+build: build-icons-sprite generate-images-data
 	bun next build
 
 start:

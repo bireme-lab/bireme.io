@@ -15,6 +15,5 @@
   ],
   "theme_color": "#F9EADE",
   "background_color": "#151515",
-  "start_url": "https://bireme.io",
   "display": "standalone"
 }

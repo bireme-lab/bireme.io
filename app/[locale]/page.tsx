@@ -1,5 +1,6 @@
-import { Checkbox } from "@/components/Checkbox/Checkbox";
+import { Avatar } from "@/components/Avatar/Avatar";
 import { Icon } from "@/components/Icon/Icon";
+import { Test } from "@/components/Test";
 import { Locale } from "@/utils/i18n";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import * as styles from "./page.css";
@@ -20,7 +21,8 @@ export default async function Home({
       <div className={styles.page}>
         <Icon name="github" title="Github" />
         toto
-        <Checkbox>Contenu marketing et offres exclusives en rapport avec nos produits</Checkbox>
+        <Avatar src="/images/avatars/fred.webp" alt="Fred" />
+        <Test />
       </div>
     </main>
   );
