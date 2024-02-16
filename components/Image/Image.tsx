@@ -4,9 +4,10 @@ import { data } from "./data";
 
 type StaticImport = StaticImageData | { default: StaticImageData };
 type LocalPublicImage = keyof typeof data;
+export type ImageSrc = StaticImport | LocalPublicImage;
 
 export type ImageProps = {
-  src: StaticImport | LocalPublicImage;
+  src: ImageSrc;
   placeholder?: "empty" | "blur";
 } & Exclude<NextImageProps, "src">;
 
