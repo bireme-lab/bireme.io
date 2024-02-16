@@ -14,6 +14,8 @@ type Props = {
 };
 
 export const Authors: React.FC<Props> = ({ disableTooltips, authors }) => {
+  const lastIndex = authors.length - 1;
+
   return (
     <div className={styles.container}>
       {authors.map((author, index) => (
@@ -27,7 +29,7 @@ export const Authors: React.FC<Props> = ({ disableTooltips, authors }) => {
             position={author.position}
             twitterProfileUrl={author.twitterProfileUrl}
             disableTooltip={disableTooltips}
-            className={styles.author({ isLast: index === authors.length - 1 })}
+            className={styles.author({ isLast: index === lastIndex })}
           />
         </div>
       ))}
