@@ -6,5 +6,8 @@ export type IconName =
   | "cross"
   | "github"
   | "handwritten_cross"
+  | "handwritten_shape"
+  | "logo"
+  | "logo_with_reflection"
   | "table_of_content"
   | "x";

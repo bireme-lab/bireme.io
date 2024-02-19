@@ -28,7 +28,7 @@ export const Avatar: React.FC<Props> = ({
 }) => {
   const avatarSize = 24;
   const tooltipAvatarSize = 32;
-  const t = useTranslations("Avatar");
+  const t = useTranslations("components.Avatar");
 
   return (
     <TooltipTrigger

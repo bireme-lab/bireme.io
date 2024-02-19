@@ -1,3 +1,5 @@
+"use client";
+
 import { cx } from "@/styles/mixins";
 import type { Color } from "@/styles/theme/index.css";
 import Link, { type LinkProps as NextLinkProps } from "next/link";
@@ -27,7 +29,8 @@ type TextElementType =
 type TextProps = {
   variant?: TextVariant;
   markup?: Extract<ElementType, TextElementType>;
-  color?: Color | "inherit";
+  underlined?: boolean;
+  color?: Color | "inherit" | "none";
   className?: string;
   style?: React.CSSProperties;
 } & React.HTMLAttributes<HTMLElement>;
@@ -36,7 +39,7 @@ type LinkProps = {
   variant?: TextVariant;
   markup?: never;
   underlined?: boolean;
-  color?: Color | "inherit";
+  color?: Color | "inherit" | "none";
   className?: string;
   style?: React.CSSProperties;
   translateOnHover?: boolean;
@@ -52,9 +55,11 @@ export const Text: React.FC<Props> = ({
   className,
   style,
   variant,
+  underlined,
   ...props
 }) => {
-  const classNames = cx(styles.text({ variant }), styles.textColor[color], className);
+  const colorClass = color === "none" ? "" : styles.textColor[color];
+  const classNames = cx(styles.text({ variant, isUnderlined: underlined }), colorClass, className);
 
   return (
     <>
@@ -87,37 +92,30 @@ export const Text: React.FC<Props> = ({
           <small className={classNames} style={style} {...props} />
         ))
         .with({ markup: "em", children: P.string }, (props) => (
-          <em
-            className={cx(styles.em, styles.textColor[color], className)}
-            style={style}
-            {...props}
-          />
+          <em className={cx(styles.em, colorClass, className)} style={style} {...props} />
         ))
         .with({ markup: "strong", children: P.string }, (props) => (
-          <strong
-            className={cx(styles.strong, styles.textColor[color], className)}
-            style={style}
-            {...props}
-          />
+          <strong className={cx(styles.strong, colorClass, className)} style={style} {...props} />
         ))
         .with({ markup: "b", children: P.string }, (props) => (
-          <b
-            className={cx(styles.strong, styles.textColor[color], className)}
-            style={style}
-            {...props}
-          />
+          <b className={cx(styles.strong, colorClass, className)} style={style} {...props} />
         ))
         .with({ markup: "s", children: P.string }, (props) => (
-          <s
-            className={cx(styles.s, styles.textColor[color], className)}
-            style={style}
-            {...props}
-          />
+          <s className={cx(styles.s, colorClass, className)} style={style} {...props} />
         ))
         .with({ markup: "figcaption", children: P.string }, (props) => (
-          <figcaption className={cx(styles.textColor[color], className)} style={style} {...props} />
+          <figcaption className={cx(colorClass, className)} style={style} {...props} />
         ))
-        .with({ href: P.string }, (typedProps) => <LinkComponent {...typedProps} />)
+        .with({ href: P.string }, (typedProps) => (
+          <LinkComponent
+            {...typedProps}
+            variant={variant}
+            color={color}
+            underlined={underlined}
+            className={className}
+            style={style}
+          />
+        ))
         .otherwise((props) => (
           <span className={classNames} style={style} {...props} />
         ))}
@@ -140,10 +138,10 @@ const LinkComponent: React.FC<LinkProps> = ({
   const { isHovered, hoverProps } = useHover({});
   const { isFocusVisible, focusProps } = useFocusRing({});
   const isChildrenInlineNode = isMatching({ children: P.string }, props);
-  const isUnderlined = underlined && isChildrenInlineNode && !translateOnHover;
+  const isUnderlined = underlined && !translateOnHover;
   const classNames = cx(
     styles.text({ variant: props.variant }),
-    styles.textColor[color],
+    color === "none" ? "" : styles.textColor[color],
     className,
   );
 
@@ -155,24 +153,27 @@ const LinkComponent: React.FC<LinkProps> = ({
           isHovered: isControlledHovered ?? isHovered,
           isFocused: isControlledFocused ?? isFocusVisible,
         }),
-        classNames,
+        isChildrenInlineNode && translateOnHover ? "" : classNames,
       )}
       style={match([isChildrenInlineNode, translateOnHover])
         .with([true, true], () => ({
-          display: "inline-flex",
+          display: style?.display ? style?.display : "inline-flex",
           overflow: "hidden",
           ...style,
         }))
         .with([true, false], () => style)
-        .otherwise(() => ({ display: "block", ...style }))}
+        .otherwise(() => ({ display: style?.display ? style?.display : "block", ...style }))}
       {...mergeProps(props, hoverProps, focusProps)}
     >
       {isChildrenInlineNode && translateOnHover ? (
         <span
-          className={styles.translateAnimationContainer({
-            isHovered: isControlledHovered ?? isHovered,
-            isFocused: isControlledFocused ?? isFocusVisible,
-          })}
+          className={cx(
+            styles.translateAnimationContainer({
+              isHovered: isControlledHovered ?? isHovered,
+              isFocused: isControlledFocused ?? isFocusVisible,
+            }),
+            classNames,
+          )}
           data-content={props.children}
         >
           {props.children}

@@ -186,6 +186,10 @@ export const vars = createThemeContract({
       tooltipVerticalPadding: null,
       networkIconSize: null,
     },
+    newsBanner: {
+      horizontalPadding: null,
+      verticalPadding: null,
+    },
   },
 });
 

@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { cx } from "@/styles/mixins";
+import { CSSProperties, useRef } from "react";
 import {
   AriaButtonProps,
   PressEvent,
@@ -22,6 +23,8 @@ type Props = Omit<AriaButtonProps, "elementType"> & {
   showArrow?: boolean;
   isLoading?: boolean;
   isSuccess?: boolean;
+  className?: string;
+  style?: CSSProperties;
 };
 
 export const Button: React.FC<Props> = ({
@@ -31,6 +34,8 @@ export const Button: React.FC<Props> = ({
   isLoading = false,
   isSuccess = false,
   onPress,
+  className,
+  style,
   ...props
 }) => {
   const nonInteractiveState = isLoading || isSuccess || props.isDisabled;
@@ -67,14 +72,18 @@ export const Button: React.FC<Props> = ({
     <div className={styles.buttonContainer}>
       <button
         ref={ref}
-        className={styles.button({
-          variant,
-          isHovered,
-          isFocused,
-          isPressed,
-          isDisabled: props.isDisabled,
-          isSuccess,
-        })}
+        className={cx(
+          styles.button({
+            variant,
+            isHovered,
+            isFocused,
+            isPressed,
+            isDisabled: props.isDisabled,
+            isSuccess,
+          }),
+          className,
+        )}
+        style={style}
         {...mergeProps(buttonProps, hoverProps, focusProps, pressProps)}
       >
         <div className={styles.loader} aria-hidden={!loaderIsVisible}>

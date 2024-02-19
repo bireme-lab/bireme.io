@@ -14,6 +14,7 @@ globalStyle("*", {
 
 globalStyle("html", {
   textSizeAdjust: "100%",
+  minWidth: "350px",
 });
 
 globalStyle("body", {
@@ -40,4 +41,10 @@ globalStyle("#root, #__next", {
 globalStyle("a", {
   textDecoration: "none",
   color: "inherit",
+});
+
+globalStyle("input[type='text'], input[type='email']", {
+  appearance: "none",
+  WebkitAppearance: "none",
+  MozAppearance: "none",
 });

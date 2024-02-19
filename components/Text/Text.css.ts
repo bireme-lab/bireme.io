@@ -68,6 +68,11 @@ export const text = recipe({
         lineHeight: "2.5rem",
       },
     },
+    isUnderlined: {
+      true: {
+        textDecoration: "underline",
+      },
+    },
   },
 });
 
@@ -144,6 +149,7 @@ export const translateAnimationContainer = recipe({
     },
     isFocused: {
       true: {
+        color: `${vars.color.neutral[900]}!important`,
         transform: "translateY(-100%)",
         outline: "none",
       },

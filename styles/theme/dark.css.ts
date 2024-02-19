@@ -157,5 +157,9 @@ export const dark = createTheme(vars, {
       tooltipAvatarSize: sizes[32],
       networkIconSize: sizes[24],
     },
+    newsBanner: {
+      horizontalPadding: sizes[16],
+      verticalPadding: sizes[16],
+    },
   },
 });

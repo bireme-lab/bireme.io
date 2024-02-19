@@ -9,6 +9,9 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { Gloria_Hallelujah } from "next/font/google";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
+import * as styles from "./layout.css";
 
 const GloriaHallelujah = Gloria_Hallelujah({
   weight: "400",
@@ -41,7 +44,13 @@ export default function RootLayout({
   return (
     <html
       lang={locale}
-      className={cx(GeistSans.variable, GeistMono.variable, GloriaHallelujah.variable, dark)}
+      className={cx(
+        GeistSans.variable,
+        GeistMono.variable,
+        GloriaHallelujah.variable,
+        dark,
+        styles.html,
+      )}
     >
       <head>
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#151515" />
@@ -49,10 +58,16 @@ export default function RootLayout({
         <meta name="application-name" content="Bireme Lab" />
         <meta name="msapplication-TileColor" content="#151515" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </head>
-      <body>
-        <Sprite />
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+      <body className={styles.body}>
+        <NextIntlClientProvider messages={messages}>
+          <Sprite />
+          <div className={styles.light} />
+          <Header />
+          <main className={styles.main}>{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
