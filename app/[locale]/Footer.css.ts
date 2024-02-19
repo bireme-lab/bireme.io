@@ -8,14 +8,17 @@ export const footer = responsiveStyle({
     paddingTop: sizes[48],
     paddingBottom: sizes[48],
     backgroundColor: vars.color.neutral[900],
-    display: "flex",
-    flexDirection: "column",
-    gap: vars.spacings.content.gapExtraLarge,
   },
   desktop: {
     paddingTop: sizes[72],
     paddingBottom: sizes[72],
   },
+});
+
+export const container = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.spacings.content.gapExtraLarge,
 });
 
 export const logoLink = style([

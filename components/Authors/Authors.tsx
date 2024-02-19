@@ -1,38 +1,52 @@
+import { AuthorSlug, authors } from "@/content/authors";
+import { CSSProperties } from "react";
+import { match } from "ts-pattern";
 import { Avatar } from "../Avatar/Avatar";
-import type { ImageSrc } from "../Image/Image";
 import * as styles from "./Authors.css";
+
+// Authors avatar
+import antoine from "@/public/images/avatars/antoine.webp";
+import fred from "@/public/images/avatars/fred.webp";
+import { cx } from "@/styles/mixins";
 
 type Props = {
   disableTooltips?: boolean;
-  authors: {
-    avatar: ImageSrc;
-    firstName: string;
-    lastName: string;
-    position: string;
-    twitterProfileUrl: string;
-  }[];
+  authorSlugs: AuthorSlug[];
+  className?: string;
+  style?: CSSProperties;
 };
 
-export const Authors: React.FC<Props> = ({ disableTooltips, authors }) => {
-  const lastIndex = authors.length - 1;
+const getAuthorAvatar = (slug: AuthorSlug) => {
+  return match(slug)
+    .with("frederic-godin", () => fred)
+    .with("antoine-lin", () => antoine)
+    .exhaustive();
+};
+
+export const Authors: React.FC<Props> = ({ disableTooltips, authorSlugs, className, style }) => {
+  const lastIndex = authorSlugs.length - 1;
 
   return (
-    <div className={styles.container}>
-      {authors.map((author, index) => (
-        <div key={index} className={styles.authorWrapper}>
-          <Avatar
-            src={author.avatar}
-            placeholder="empty"
-            alt={`${author.firstName} ${author.lastName}`}
-            firstName={author.firstName}
-            lastName={author.lastName}
-            position={author.position}
-            twitterProfileUrl={author.twitterProfileUrl}
-            disableTooltip={disableTooltips}
-            className={styles.author({ isLast: index === lastIndex })}
-          />
-        </div>
-      ))}
+    <div className={cx(styles.container, className)} style={style}>
+      {authorSlugs.map((authorSlug, index) => {
+        const author = authors[authorSlug];
+
+        return (
+          <div key={index} className={index !== 0 ? styles.authorWrapper : ""}>
+            <Avatar
+              src={getAuthorAvatar(author.slug)}
+              placeholder="empty"
+              alt={`${author.firstName} ${author.lastName}`}
+              firstName={author.firstName}
+              lastName={author.lastName}
+              position={author.position}
+              twitterProfileUrl={author.twitterProfileUrl}
+              disableTooltip={disableTooltips}
+              className={styles.author({ isLast: index === lastIndex })}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

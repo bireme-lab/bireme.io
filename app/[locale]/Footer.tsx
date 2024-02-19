@@ -80,90 +80,88 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className={styles.footer}>
-      <Container>
+      <Container className={styles.container}>
         <Link href="/" className={styles.logoLink}>
           <Icon name="logo_with_reflection" title={t("homepage")} className={styles.logo} />
         </Link>
-      </Container>
-      <Grid>
-        <form onSubmit={onSubmit} className={styles.form}>
-          <Text variant="title3" markup="h3">
-            {t("headline")}
-          </Text>
-          <div className={styles.inputsWrapper}>
-            <Field name="email">
-              {({ value, error, onChange, onBlur }) => (
-                <Input
-                  value={value}
-                  label={t("form.email.label")}
-                  placeholder={t("form.email.placeholder")}
-                  errorMessage={error}
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  isRequired={true}
-                  hideError={true}
-                  className={styles.input}
-                />
-              )}
-            </Field>
-            <Field name="optInContent">
-              {({ value, onChange, onBlur }) => (
-                <Checkbox isSelected={value} onChange={onChange} onBlur={onBlur}>
-                  {t("form.optInContent.label")}
-                </Checkbox>
-              )}
-            </Field>
-            <Field name="optInMarketing">
-              {({ value, onChange, onBlur }) => (
-                <Checkbox isSelected={value} onChange={onChange} onBlur={onBlur}>
-                  {t("form.optInMarketing.label")}
-                </Checkbox>
-              )}
-            </Field>
-            <FieldsListener names={["email"]}>
-              {({ email }) => (
-                <Button
-                  type="submit"
-                  showArrow={true}
-                  isDisabled={
-                    isEmpty(email.value) || !isEmail(email.value) || requestState.isLoading()
-                  }
-                  isLoading={requestState.isLoading()}
-                  isSuccess={isFormSubmitSuccess}
-                  className={styles.submitButton}
+        <Grid>
+          <form onSubmit={onSubmit} className={styles.form}>
+            <Text variant="title3" markup="h3">
+              {t("headline")}
+            </Text>
+            <div className={styles.inputsWrapper}>
+              <Field name="email">
+                {({ value, error, onChange, onBlur }) => (
+                  <Input
+                    value={value}
+                    label={t("form.email.label")}
+                    placeholder={t("form.email.placeholder")}
+                    errorMessage={error}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    isRequired={true}
+                    hideError={true}
+                    className={styles.input}
+                  />
+                )}
+              </Field>
+              <Field name="optInContent">
+                {({ value, onChange, onBlur }) => (
+                  <Checkbox isSelected={value} onChange={onChange} onBlur={onBlur}>
+                    {t("form.optInContent.label")}
+                  </Checkbox>
+                )}
+              </Field>
+              <Field name="optInMarketing">
+                {({ value, onChange, onBlur }) => (
+                  <Checkbox isSelected={value} onChange={onChange} onBlur={onBlur}>
+                    {t("form.optInMarketing.label")}
+                  </Checkbox>
+                )}
+              </Field>
+              <FieldsListener names={["email"]}>
+                {({ email }) => (
+                  <Button
+                    type="submit"
+                    showArrow={true}
+                    isDisabled={
+                      isEmpty(email.value) || !isEmail(email.value) || requestState.isLoading()
+                    }
+                    isLoading={requestState.isLoading()}
+                    isSuccess={isFormSubmitSuccess}
+                    className={styles.submitButton}
+                  >
+                    {t("form.subscribe")}
+                  </Button>
+                )}
+              </FieldsListener>
+            </div>
+          </form>
+        </Grid>
+        <Grid>
+          <Text variant="small" markup="p" className={styles.mention} color="primary-700">
+            {t.rich("disclaimer", {
+              privacy: (chunk) => (
+                <Text href="/" style={{ display: "inline" }}>
+                  {chunk}
+                </Text>
+              ),
+              gdpr: (chunk) => (
+                <Text
+                  href="https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique"
+                  style={{ display: "inline" }}
                 >
-                  {t("form.subscribe")}
-                </Button>
-              )}
-            </FieldsListener>
-          </div>
-        </form>
-      </Grid>
-      <Grid>
-        <Text variant="small" markup="p" className={styles.mention} color="primary-700">
-          {t.rich("disclaimer", {
-            privacy: (chunk) => (
-              <Text href="/" style={{ display: "inline" }}>
-                {chunk}
-              </Text>
-            ),
-            gdpr: (chunk) => (
-              <Text
-                href="https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique"
-                style={{ display: "inline" }}
-              >
-                {chunk}
-              </Text>
-            ),
-            asterisk: (chunk) => (
-              <Text variant="small" color="negative-500">
-                {chunk}
-              </Text>
-            ),
-          })}
-        </Text>
-      </Grid>
-      <Container>
+                  {chunk}
+                </Text>
+              ),
+              asterisk: (chunk) => (
+                <Text variant="small" color="negative-500">
+                  {chunk}
+                </Text>
+              ),
+            })}
+          </Text>
+        </Grid>
         <ul className={styles.legalLinks}>
           <li>
             <Text

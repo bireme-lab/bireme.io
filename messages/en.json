@@ -38,12 +38,18 @@
     },
     "NewsBanner": {
       "new": "New"
+    },
+    "PublishedAt": {
+      "published_on": "Published on {date}",
+      "modified_on": "Updated on {date}"
     }
   },
   "pages": {
     "Home": {
       "title": "We create tools to help others build theirs.",
-      "description": "We support the self-employed, VSEs and SMEs in their digital transformation, offering personalized web services that precisely meet their unique needs."
+      "description": "We support the self-employed, VSEs and SMEs in their digital transformation, offering personalized web services that precisely meet their unique needs.",
+      "latest_post": "Our most recent post",
+      "all_posts": "All the stories we wrote"
     }
   }
 }

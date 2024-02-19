@@ -1,5 +1,3 @@
-import antoine from "@/public/images/avatars/antoine.webp";
-import fred from "@/public/images/avatars/fred.webp";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Authors } from "./Authors";
@@ -24,22 +22,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     disableTooltips: false,
-    authors: [
-      {
-        avatar: fred,
-        firstName: "Fred",
-        lastName: "Godin",
-        position: "Co-fondateur",
-        twitterProfileUrl: "https://twitter.com/epimodev",
-      },
-      {
-        avatar: antoine,
-        firstName: "Antoine",
-        lastName: "Lin",
-        position: "Co-fondateur",
-        twitterProfileUrl: "https://twitter.com/imvahill",
-      },
-    ],
+    authorSlugs: ["frederic-godin", "antoine-lin"],
   },
   render: (props) => <Authors {...props} />,
 };

@@ -7,6 +7,7 @@ export type IconName =
   | "github"
   | "handwritten_cross"
   | "handwritten_shape"
+  | "handwritten_underline"
   | "logo"
   | "logo_with_reflection"
   | "table_of_content"

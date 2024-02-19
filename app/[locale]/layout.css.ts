@@ -35,5 +35,5 @@ export const light = style({
 
 export const main = style({
   paddingTop: sizes[24],
-  paddingBottom: sizes[24],
+  paddingBottom: sizes[48],
 });

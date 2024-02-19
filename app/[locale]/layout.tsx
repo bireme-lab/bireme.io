@@ -2,6 +2,7 @@ import { Sprite } from "@/components/Icon/Icon";
 import "@/styles/global.css";
 import { cx } from "@/styles/mixins";
 import { dark } from "@/styles/theme/dark.css";
+import { configDayJS } from "@/utils/date";
 import { i18n, type Locale } from "@/utils/i18n";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
@@ -38,6 +39,7 @@ export default function RootLayout({
 }>) {
   // https://next-intl-docs.vercel.app/docs/getting-started/app-router#add-unstable_setrequestlocale-to-all-layouts-and-pages
   unstable_setRequestLocale(locale);
+  configDayJS(locale);
 
   const messages = useMessages();
 

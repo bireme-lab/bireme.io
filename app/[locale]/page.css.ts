@@ -1,5 +1,5 @@
-import { columnCount, responsiveStyle } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
+import { columnCount, responsiveStyle, transition } from "@/styles/mixins";
+import { sizes, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const container = style({
@@ -7,44 +7,6 @@ export const container = style({
   flexDirection: "column",
   gap: vars.spacings.content.gapExtraExtraLarge,
   minHeight: "600px",
-});
-
-export const newsBanner = responsiveStyle({
-  mobile: [
-    columnCount(2),
-    {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      padding: `${vars.spacings.newsBanner.verticalPadding} ${vars.spacings.newsBanner.horizontalPadding}`,
-      backgroundColor: vars.color.neutral[900],
-      gap: vars.spacings.content.gapSmall,
-      transition: "background-color, border 200ms ease-out",
-      border: `1px solid ${vars.color.neutral[900]}`,
-
-      ":focus": {
-        outline: "none",
-        borderColor: vars.color.primary[500],
-      },
-    },
-  ],
-  tablet: [
-    columnCount(3),
-    {
-      flexDirection: "row",
-      gap: vars.spacings.content.gapRegular,
-    },
-  ],
-  desktop: columnCount(4),
-});
-
-export const newsBannerTag = responsiveStyle({
-  mobile: {
-    position: "relative",
-  },
-  tablet: {
-    top: "5px",
-  },
 });
 
 export const titleWrapper = responsiveStyle({
@@ -63,4 +25,71 @@ export const descriptionWrapper = responsiveStyle({
   ],
   tablet: columnCount(2),
   desktop: columnCount(3),
+});
+
+export const latestPostWrapper = responsiveStyle({
+  mobile: {
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    gap: vars.spacings.content.gapLarge,
+  },
+  desktop: {
+    marginTop: sizes[80],
+  },
+});
+
+export const latestPost = responsiveStyle({
+  mobile: [
+    columnCount(2),
+    {
+      display: "flex",
+      flexDirection: "column",
+      gap: vars.spacings.content.gapSmall,
+    },
+  ],
+  tablet: columnCount(3),
+  desktop: columnCount(5),
+});
+
+export const publishedAt = style({
+  marginTop: sizes[4],
+});
+
+export const latestPostSectionHeading = style({
+  position: "relative",
+});
+
+export const latestPostTitle = style([
+  transition({ duration: 200, timingFunction: "ease-out", properties: ["color"] }),
+  {
+    ":hover": {
+      color: vars.color.primary[600],
+    },
+  },
+]);
+
+export const handwrittenUnderline = style({
+  position: "absolute",
+  left: 0,
+  bottom: "-10px",
+  width: "150px",
+  height: "7px",
+  color: vars.color.secondary[500],
+});
+
+export const allPostsWrapper = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.spacings.content.gapLarge,
+});
+
+export const allPostsSectionHeading = style({
+  marginBottom: sizes[4],
+});
+
+export const postsList = style({
+  display: "flex",
+  listStyle: "none",
+  flexDirection: "column",
 });

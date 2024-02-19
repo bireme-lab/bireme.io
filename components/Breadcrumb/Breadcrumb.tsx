@@ -1,6 +1,7 @@
 import { envs } from "@/publicEnvs";
 import { PROTOCOL } from "@/utils/vars";
 import { Fragment } from "react";
+import { BreadcrumbList, WithContext } from "schema-dts";
 import { Text } from "../Text/Text";
 import * as styles from "./Breadcrumb.css";
 
@@ -54,7 +55,7 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
                 url: `${PROTOCOL}://${envs.NEXT_PUBLIC_HOST}${url}`,
               },
             })),
-          }),
+          } as WithContext<BreadcrumbList>),
         }}
       />
     </>
