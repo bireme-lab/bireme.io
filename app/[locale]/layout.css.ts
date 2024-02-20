@@ -12,11 +12,20 @@ export const body = style({
   MozOsxFontSmoothing: "grayscale",
   display: "flex",
   flexDirection: "column",
-  overflowX: "hidden",
+  // overflowX: "hidden",
+});
+
+export const lighContainer = style({
+  zIndex: -1,
+  position: "absolute",
+  width: "100vw",
+  height: "100%",
+  overflow: "hidden",
+  pointerEvents: "none",
+  userSelect: "none",
 });
 
 export const light = style({
-  zIndex: -1,
   pointerEvents: "none",
   userSelect: "none",
   position: "absolute",

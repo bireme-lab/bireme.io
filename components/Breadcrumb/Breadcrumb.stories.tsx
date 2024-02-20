@@ -24,15 +24,15 @@ export const Default: Story = {
     steps: [
       {
         label: "Home",
-        url: "/",
+        href: "/",
       },
       {
         label: "Category",
-        url: "/category",
+        href: "/category",
       },
       {
         label: "Product",
-        url: "/product",
+        href: "/product",
       },
     ],
   },

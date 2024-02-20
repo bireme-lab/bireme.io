@@ -6,7 +6,7 @@ import { Text } from "../Text/Text";
 import * as styles from "./Breadcrumb.css";
 
 export type Step = {
-  url: string;
+  href: string;
   label: string;
 };
 
@@ -15,19 +15,23 @@ type Props = {
 };
 
 export const Breadcrumb: React.FC<Props> = ({ steps }) => {
+  if (steps.length === 0) {
+    return null;
+  }
+
   const lastIndex = steps.length - 1;
 
   return (
     <>
-      <div>
-        {steps.map(({ label, url }, index) => (
+      <div style={{ display: "inline-flex" }}>
+        {steps.map(({ label, href }, index) => (
           <Fragment key={label}>
             <Text
-              href={url}
+              href={href}
               title={label}
               variant="anchor-flat"
               translateOnHover={true}
-              className={styles.link({ isLast: index === lastIndex })}
+              className={styles.link}
             >
               {label}
             </Text>
@@ -46,13 +50,13 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            itemListElement: steps.map(({ label, url }, index) => ({
+            itemListElement: steps.map(({ label, href }, index) => ({
               "@type": "ListItem",
               position: index + 1,
               item: {
-                "@id": url,
+                "@id": href,
                 name: label,
-                url: `${PROTOCOL}://${envs.NEXT_PUBLIC_HOST}${url}`,
+                url: `${PROTOCOL}://${envs.NEXT_PUBLIC_HOST}${href}`,
               },
             })),
           } as WithContext<BreadcrumbList>),

@@ -5,10 +5,10 @@ import { P, match } from "ts-pattern";
 import { sortDateDesc } from "./utils/date";
 import { Locale } from "./utils/i18n";
 
-type FindFn = (slug: string) => Option<DocumentTypes>;
+type FindFn = (slug: string, locale: string) => Option<DocumentTypes>;
 
-export const findPostBySlug: FindFn = (slug: string) => {
-  return Array.find(allPosts, (post) => post.slug === slug);
+export const findPostBySlug: FindFn = (slug: string, locale: string) => {
+  return Array.find(allPosts, (post) => locale === post.locale && post.slug === slug);
 };
 
 export const getLatestPost = (locale: Locale) => {
@@ -29,8 +29,8 @@ export const getPostsByLocale = (locale: Locale) => {
 
 export const findRecordOrNotFound =
   (fn: FindFn) =>
-  (slug: string): DocumentTypes | never => {
-    return match(fn(slug))
+  (slug: string, locale: string): DocumentTypes | never => {
+    return match(fn(slug, locale))
       .with(Option.P.Some(P.select(P.when((record) => record.type === "Post"))), (post) => post)
       .otherwise(() => notFound());
   };

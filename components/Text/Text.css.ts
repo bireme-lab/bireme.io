@@ -1,4 +1,4 @@
-import { transition } from "@/styles/mixins";
+import { responsiveStyle, transition } from "@/styles/mixins";
 import { vars } from "@/styles/theme/index.css";
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
@@ -143,16 +143,23 @@ export const translateAnimationContainer = recipe({
   },
   variants: {
     isHovered: {
-      true: {
-        transform: "translateY(-100%)",
-      },
+      true: responsiveStyle({
+        mobile: {},
+        desktop: {
+          transform: "translateY(-100%)",
+        },
+      }),
     },
     isFocused: {
-      true: {
-        color: `${vars.color.neutral[900]}!important`,
-        transform: "translateY(-100%)",
-        outline: "none",
-      },
+      true: responsiveStyle({
+        mobile: {
+          color: `${vars.color.neutral[900]}!important`,
+          outline: "none",
+        },
+        desktop: {
+          transform: "translateY(-100%)",
+        },
+      }),
     },
   },
 });

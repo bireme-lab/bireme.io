@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import { defineDocumentType, defineNestedType, makeSource } from "contentlayer/source-files";
 import { authors } from "./content/authors";
 import {
   generatePostAlternates,
@@ -6,6 +6,14 @@ import {
   generatePostUrl,
   getRecordLocale,
 } from "./utils/content";
+
+const SEO = defineNestedType(() => ({
+  name: "SEO",
+  fields: {
+    title: { type: "string" },
+    description: { type: "string" },
+  },
+}));
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -23,8 +31,9 @@ export const Post = defineDocumentType(() => ({
       },
       required: true,
     },
-    excerpt: {
-      type: "mdx",
+    seo: {
+      type: "nested",
+      of: SEO,
       required: true,
     },
   },

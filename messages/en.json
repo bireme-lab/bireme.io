@@ -7,13 +7,13 @@
       "follow_on_twitter": "Follow {name} on Twitter"
     },
     "Header": {
-      "homepage": "Homepage",
+      "homepage": "Home",
       "create_account": "Create an account",
       "soon_available": "Soon available!",
       "be_informed": "Be informed"
     },
     "Footer": {
-      "homepage": "Homepage",
+      "homepage": "Home",
       "headline": "Our newsletter is the ideal way to keep up to date with our latest news.",
       "form": {
         "email": {
@@ -42,6 +42,12 @@
     "PublishedAt": {
       "published_on": "Published on {date}",
       "modified_on": "Updated on {date}"
+    },
+    "PostRow": {
+      "first_one": "The first one"
+    },
+    "TableOfContent": {
+      "title": "Table of content"
     }
   },
   "pages": {
@@ -50,6 +56,9 @@
       "description": "We support the self-employed, VSEs and SMEs in their digital transformation, offering personalized web services that precisely meet their unique needs.",
       "latest_post": "Our most recent post",
       "all_posts": "All the stories we wrote"
+    },
+    "PostPage": {
+      "go_back": "Go back"
     }
   }
 }

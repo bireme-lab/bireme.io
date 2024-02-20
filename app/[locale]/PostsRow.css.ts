@@ -112,3 +112,26 @@ export const title = recipe({
     },
   },
 });
+
+export const comment = recipe({
+  base: [
+    transition({ duration: 200, timingFunction: "ease-out", properties: ["color", "transform"] }),
+    {
+      color: vars.color.secondary[500],
+    },
+  ],
+  variants: {
+    isHovered: {
+      true: {
+        color: vars.color.neutral[900],
+        transform: `translateX(${sizes[12]})`,
+      },
+    },
+    isFocused: {
+      true: {
+        color: vars.color.neutral[900],
+        transform: `translateX(${sizes[12]})`,
+      },
+    },
+  },
+});

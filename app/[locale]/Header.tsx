@@ -1,19 +1,50 @@
 "use client";
 
+import { Breadcrumb, Step } from "@/components/Breadcrumb/Breadcrumb";
 import { Button } from "@/components/Button/Button";
 import { Container } from "@/components/Container/Container";
 import { Divider } from "@/components/Divider/Divider";
 import { Icon } from "@/components/Icon/Icon";
 import { Text } from "@/components/Text/Text";
-import { useTranslations } from "next-intl";
+import { findPostBySlug } from "@/contentlayer.fetchers";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { useSelectedLayoutSegments } from "next/navigation";
 import { mergeProps, useFocusRing, useHover, usePress } from "react-aria";
+import { P, match } from "ts-pattern";
 import * as styles from "./Header.css";
 
 export const Header: React.FC = () => {
+  const locale = useLocale();
   const t = useTranslations("components.Header");
   const { isFocusVisible, focusProps } = useFocusRing();
   const { isHovered, hoverProps } = useHover({});
+  const layoutSegments = useSelectedLayoutSegments();
+
+  const breadcrumbSteps: Step[] = [];
+
+  if (layoutSegments.length > 0) {
+    breadcrumbSteps.push({
+      label: t("homepage"),
+      href: "/",
+    });
+
+    match(layoutSegments)
+      // /blog/:post_slug
+      .with(["blog", P.string], (segments): Step | void => {
+        const postOption = findPostBySlug(segments[1], locale);
+
+        if (postOption.isSome()) {
+          const post = postOption.get();
+
+          breadcrumbSteps.push({
+            label: post.title,
+            href: post.url,
+          });
+        }
+      })
+      .otherwise(() => null);
+  }
 
   const handleButtonPress = () => {
     console.log("Button pressed");
@@ -56,6 +87,7 @@ export const Header: React.FC = () => {
             {t("be_informed")}
           </Text>
         </Text>
+        <Breadcrumb steps={breadcrumbSteps} />
       </Container>
       <Container>
         <Divider />

@@ -190,6 +190,12 @@ export const vars = createThemeContract({
       horizontalPadding: null,
       verticalPadding: null,
     },
+    tableOfContent: {
+      horizontalPadding: null,
+      verticalPadding: null,
+      iconSize: null,
+      radius: null,
+    },
   },
 });
 

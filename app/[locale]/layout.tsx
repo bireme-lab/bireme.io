@@ -65,7 +65,9 @@ export default function RootLayout({
       <body className={styles.body}>
         <NextIntlClientProvider messages={messages}>
           <Sprite />
-          <div className={styles.light} />
+          <div className={styles.lighContainer} aria-hidden={true}>
+            <div className={styles.light} />
+          </div>
           <Header />
           <main className={styles.main}>{children}</main>
           <Footer />

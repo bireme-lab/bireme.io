@@ -161,5 +161,11 @@ export const dark = createTheme(vars, {
       horizontalPadding: sizes[16],
       verticalPadding: sizes[16],
     },
+    tableOfContent: {
+      horizontalPadding: sizes[20],
+      verticalPadding: sizes[16],
+      iconSize: sizes[24],
+      radius: sizes[2],
+    },
   },
 });
