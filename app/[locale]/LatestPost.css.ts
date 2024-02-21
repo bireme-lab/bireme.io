@@ -1,5 +1,5 @@
-import { columnCount, responsiveStyle, transition } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { columnCount, responsiveStyle } from "@/styles/mixins";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const latestPost = responsiveStyle({
@@ -8,7 +8,7 @@ export const latestPost = responsiveStyle({
     {
       display: "flex",
       flexDirection: "column",
-      gap: vars.spacings.content.gapSmall,
+      gap: vars.sizes[8],
     },
   ],
   tablet: columnCount(3),
@@ -16,14 +16,13 @@ export const latestPost = responsiveStyle({
 });
 
 export const publishedAt = style({
-  marginTop: sizes[4],
+  marginTop: vars.sizes[4],
 });
 
-export const latestPostTitle = style([
-  transition({ duration: 200, timingFunction: "ease-out", properties: ["color"] }),
-  {
-    ":hover": {
-      color: vars.color.primary[600],
-    },
+export const latestPostTitle = style({
+  transition: `color ${transitionDuration}ms ease-out`,
+
+  ":hover": {
+    color: vars.color.primary[600],
   },
-]);
+});

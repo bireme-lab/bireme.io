@@ -1,41 +1,39 @@
-import { columnCount, responsiveStyle, transition } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { columnCount, responsiveStyle } from "@/styles/mixins";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const footer = responsiveStyle({
   mobile: {
     width: "100%",
-    paddingTop: sizes[48],
-    paddingBottom: sizes[48],
+    paddingTop: vars.sizes[48],
+    paddingBottom: vars.sizes[48],
     backgroundColor: vars.color.neutral[900],
   },
   desktop: {
-    paddingTop: sizes[72],
-    paddingBottom: sizes[72],
+    paddingTop: vars.sizes[72],
+    paddingBottom: vars.sizes[72],
   },
 });
 
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapExtraLarge,
+  gap: vars.sizes[24],
 });
 
-export const logoLink = style([
-  transition({ duration: 200, timingFunction: "ease-out", properties: ["color"] }),
-  {
-    color: vars.color.primary[500],
+export const logoLink = style({
+  color: vars.color.primary[500],
+  transition: `color ${transitionDuration}ms ease-out`,
 
-    ":hover": {
-      color: vars.color.primary[600],
-    },
-
-    ":focus": {
-      outline: "none",
-      color: vars.color.primary[600],
-    },
+  ":hover": {
+    color: vars.color.primary[600],
   },
-]);
+
+  ":focus": {
+    outline: "none",
+    color: vars.color.primary[600],
+  },
+});
 
 export const logo = style({
   width: "140px",
@@ -49,7 +47,7 @@ export const form = responsiveStyle({
     {
       display: "flex",
       flexDirection: "column",
-      gap: vars.spacings.content.gapMedium,
+      gap: vars.sizes[16],
     },
   ],
   tablet: columnCount(3),
@@ -57,11 +55,11 @@ export const form = responsiveStyle({
 });
 
 export const input = style({
-  marginBottom: vars.spacings.content.gapRegular,
+  marginBottom: vars.sizes[12],
 });
 
 export const submitButton = style({
-  marginTop: vars.spacings.content.gapRegular,
+  marginTop: vars.sizes[12],
 });
 
 export const mention = responsiveStyle({
@@ -79,17 +77,17 @@ export const legalLinks = responsiveStyle({
   mobile: {
     display: "flex",
     flexDirection: "column",
-    gap: vars.spacings.content.gapRegular,
-    marginTop: vars.spacings.content.gapMedium,
+    gap: vars.sizes[12],
+    marginTop: vars.sizes[16],
   },
   tablet: {
     flexDirection: "row",
-    gap: vars.spacings.content.gapMedium,
+    gap: vars.sizes[16],
   },
 });
 
 export const inputsWrapper = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapSmall,
+  gap: vars.sizes[8],
 });

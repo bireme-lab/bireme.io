@@ -1,5 +1,5 @@
 import { responsiveStyle } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -8,27 +8,29 @@ export const container = responsiveStyle({
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    gap: vars.spacings.tableOfContent.gap,
+    gap: vars.sizes[12],
   },
   desktop: {
     position: "sticky",
-    top: sizes[24],
+    top: vars.sizes[24],
   },
 });
 
 export const header = style({
   width: "100%",
-  padding: `${vars.spacings.tableOfContent.verticalPadding} ${vars.spacings.tableOfContent.horizontalPadding}`,
+  padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
   border: `1px solid ${vars.color.neutral[700]}`,
-  borderRadius: vars.spacings.tableOfContent.radius,
+  borderRadius: vars.sizes[2],
   display: "flex",
   alignItems: "center",
-  gap: vars.spacings.content.gapRegular,
+  gap: vars.sizes[12],
 });
 
 export const icon = style({
-  width: vars.spacings.tableOfContent.iconSize,
-  height: vars.spacings.tableOfContent.iconSize,
+  width: vars.sizes[24],
+  height: vars.sizes[24],
+  minWidth: vars.sizes[24],
+  minHeight: vars.sizes[24],
 });
 
 export const anchorList = style({
@@ -41,13 +43,13 @@ export const anchorList = style({
 
 export const anchor = recipe({
   base: {
-    padding: `${vars.spacings.tableOfContent.anchorsGap} 0`,
-    transition: "color 200ms ease-out",
+    padding: `${vars.sizes[4]} 0`,
+    transition: `color ${transitionDuration}ms ease-out`,
   },
   variants: {
     level: {
       2: {
-        marginTop: sizes[12],
+        marginTop: vars.sizes[12],
         color: vars.color.primary[500],
 
         ":hover": {
@@ -57,7 +59,7 @@ export const anchor = recipe({
       3: {
         position: "relative",
         color: vars.color.primary[700],
-        paddingLeft: sizes[16],
+        paddingLeft: vars.sizes[16],
 
         ":hover": {
           color: vars.color.primary[500],
@@ -66,7 +68,7 @@ export const anchor = recipe({
       4: {
         position: "relative",
         color: vars.color.primary[700],
-        paddingLeft: sizes[32],
+        paddingLeft: vars.sizes[32],
 
         ":hover": {
           color: vars.color.primary[500],
@@ -96,7 +98,7 @@ export const anchorDecoration = recipe({
         left: 0,
       },
       simple: {
-        left: sizes[16],
+        left: vars.sizes[16],
       },
     },
   },

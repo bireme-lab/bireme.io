@@ -1,5 +1,4 @@
-import { transition } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -10,30 +9,26 @@ export const buttonContainer = style({
 });
 
 export const button = recipe({
-  base: [
-    transition({
-      duration: 200,
-      timingFunction: "ease-out",
-      properties: ["transform", "background", "color", "border"],
-    }),
-    {
-      position: "relative",
-      display: "flex",
-      alignItems: "center",
-      overflow: "hidden",
-      padding: `${vars.spacings.button.verticalPadding} ${vars.spacings.button.horizontalPadding}`,
-      width: "auto",
-      borderRadius: vars.spacings.button.radius,
+  base: {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    overflow: "hidden",
+    padding: `${vars.sizes[12]} ${vars.sizes[16]}`,
+    width: "auto",
+    borderRadius: vars.sizes[2],
+    transitionProperty: "color, transform, background, border",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
 
-      // Prevents flickering on Safari
-      backfaceVisibility: "hidden",
-      transformStyle: "preserve-3d",
+    // Prevents flickering on Safari
+    backfaceVisibility: "hidden",
+    transformStyle: "preserve-3d",
 
-      ":focus-visible": {
-        outline: "none",
-      },
+    ":focus-visible": {
+      outline: "none",
     },
-  ],
+  },
   variants: {
     variant: {
       plain: {
@@ -156,13 +151,11 @@ export const button = recipe({
 });
 
 export const label = recipe({
-  base: [
-    transition({
-      duration: 200,
-      timingFunction: "ease-out",
-      properties: ["opacity", "margin"],
-    }),
-  ],
+  base: {
+    transitionProperty: "opacity, margin",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
+  },
   variants: {
     showArrow: {
       true: {},
@@ -186,7 +179,7 @@ export const label = recipe({
         isHovered: true,
       },
       style: {
-        marginRight: sizes[20],
+        marginRight: vars.sizes[20],
       },
     },
     {
@@ -195,34 +188,30 @@ export const label = recipe({
         isFocused: true,
       },
       style: {
-        marginRight: sizes[20],
+        marginRight: vars.sizes[20],
       },
     },
   ],
 });
 
 export const icon = recipe({
-  base: [
-    transition({
-      duration: 200,
-      timingFunction: "ease-out",
-      properties: ["transform", "width", "height"],
-    }),
-    {
-      position: "absolute",
-      right: sizes[16],
-      margin: 0,
-      padding: 0,
-      width: 0,
-      height: 0,
-      transform: "rotate(-120deg)",
-      transformOrigin: "center",
+  base: {
+    position: "absolute",
+    right: vars.sizes[16],
+    margin: 0,
+    padding: 0,
+    width: 0,
+    height: 0,
+    transform: "rotate(-120deg)",
+    transformOrigin: "center",
+    transitionProperty: "transform, width, height",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
 
-      // Prevents flickering on Safari
-      backfaceVisibility: "hidden",
-      transformStyle: "preserve-3d",
-    },
-  ],
+    // Prevents flickering on Safari
+    backfaceVisibility: "hidden",
+    transformStyle: "preserve-3d",
+  },
   variants: {
     show: {
       false: {
@@ -231,15 +220,15 @@ export const icon = recipe({
     },
     isHovered: {
       true: {
-        width: sizes[16],
-        height: sizes[16],
+        width: vars.sizes[16],
+        height: vars.sizes[16],
         transform: "rotate(0deg)",
       },
     },
     isFocused: {
       true: {
-        width: sizes[16],
-        height: sizes[16],
+        width: vars.sizes[16],
+        height: vars.sizes[16],
         transform: "rotate(0deg)",
       },
     },
@@ -268,7 +257,7 @@ export const loader = style({
   right: 0,
   bottom: 0,
   margin: "0 auto",
-  width: sizes[16],
+  width: vars.sizes[16],
   display: "flex",
   flexFlow: "row nowrap",
   alignItems: "center",
@@ -276,34 +265,34 @@ export const loader = style({
 });
 
 export const loaderElement = recipe({
-  base: [
-    transition({ duration: 200, timingFunction: "ease-out", properties: ["transform"] }),
-    {
-      width: sizes[4],
-      height: sizes[4],
-      borderRadius: "50%",
-      transform: "scale(0)",
-      animationDuration: "400ms",
-      animationIterationCount: "infinite",
-      animationDirection: "alternate",
-      animationTimingFunction: "ease-out",
+  base: {
+    width: vars.sizes[4],
+    height: vars.sizes[4],
+    borderRadius: "50%",
+    transform: "scale(0)",
+    animationDuration: "400ms",
+    animationIterationCount: "infinite",
+    animationDirection: "alternate",
+    animationTimingFunction: "ease-out",
+    transitionProperty: "transform",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
 
-      selectors: {
-        "&:nth-child(1)": {
-          transitionDelay: "100ms",
-          animationDelay: "100ms",
-        },
-        "&:nth-child(2)": {
-          transitionDelay: "200ms",
-          animationDelay: "200ms",
-        },
-        "&:nth-child(3)": {
-          transitionDelay: "300ms",
-          animationDelay: "300ms",
-        },
+    selectors: {
+      "&:nth-child(1)": {
+        transitionDelay: "100ms",
+        animationDelay: "100ms",
+      },
+      "&:nth-child(2)": {
+        transitionDelay: "200ms",
+        animationDelay: "200ms",
+      },
+      "&:nth-child(3)": {
+        transitionDelay: "300ms",
+        animationDelay: "300ms",
       },
     },
-  ],
+  },
   variants: {
     variant: {
       plain: {
@@ -347,7 +336,7 @@ export const successBackground = recipe({
       transform: "translate3d(-50%, -50%, 0) scale3d(0, 0, 0)",
       transformOrigin: "center",
       backgroundColor: vars.color.positive[500],
-      transition: "transform 200ms ease-out",
+      transition: `transform ${transitionDuration}ms ease-out`,
       transitionDelay: "300ms",
     },
   },
@@ -376,29 +365,25 @@ export const successBackground = recipe({
 });
 
 export const check = recipe({
-  base: [
-    transition({
-      duration: 200,
-      timingFunction: "ease-out",
-      properties: ["transform"],
-    }),
-    {
-      position: "relative",
-      width: sizes[32],
-      height: sizes[32],
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      margin: "0 auto",
-      transform: "scale(0)",
-      transformOrigin: "center",
+  base: {
+    position: "relative",
+    width: vars.sizes[32],
+    height: vars.sizes[32],
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    margin: "0 auto",
+    transform: "scale(0)",
+    transformOrigin: "center",
+    transitionProperty: "transform",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
 
-      // Prevents flickering on Safari
-      backfaceVisibility: "hidden",
-      transformStyle: "preserve-3d",
-    },
-  ],
+    // Prevents flickering on Safari
+    backfaceVisibility: "hidden",
+    transformStyle: "preserve-3d",
+  },
   variants: {
     variant: {
       plain: {

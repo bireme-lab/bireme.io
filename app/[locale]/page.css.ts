@@ -1,11 +1,11 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapExtraExtraLarge,
+  gap: vars.sizes[48],
   minHeight: "600px",
 });
 
@@ -32,10 +32,10 @@ export const latestPostWrapper = responsiveStyle({
     position: "relative",
     display: "flex",
     flexDirection: "column",
-    gap: vars.spacings.content.gapLarge,
+    gap: vars.sizes[20],
   },
   desktop: {
-    marginTop: sizes[80],
+    marginTop: vars.sizes[80],
   },
 });
 
@@ -55,11 +55,11 @@ export const handwrittenUnderline = style({
 export const allPostsWrapper = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapLarge,
+  gap: vars.sizes[20],
 });
 
 export const allPostsSectionHeading = style({
-  marginBottom: sizes[4],
+  marginBottom: vars.sizes[4],
 });
 
 export const postsList = style({

@@ -33,6 +33,8 @@ export const sizes = {
   256: "256px",
 };
 
+export const transitionDuration = 200;
+
 export const vars = createThemeContract({
   color: {
     primary: {
@@ -151,54 +153,14 @@ export const vars = createThemeContract({
       gutter: null,
     },
   },
-  spacings: {
-    content: {
-      gapExtraSmall: null,
-      gapSmall: null,
-      gapRegular: null,
-      gapMedium: null,
-      gapLarge: null,
-      gapExtraLarge: null,
-      gapExtraExtraLarge: null,
-    },
-    button: {
-      horizontalPadding: null,
-      verticalPadding: null,
-      radius: null,
-    },
-    checkbox: {
-      gap: null,
-      iconSize: null,
-      boxSize: null,
-      radius: null,
-    },
-    input: {
-      horizontalPadding: null,
-      verticalPadding: null,
-      radius: null,
-      gap: null,
-    },
-    avatar: {
-      size: null,
-      tooltipRadius: null,
-      tooltipAvatarSize: null,
-      tooltipHorizontalPadding: null,
-      tooltipVerticalPadding: null,
-      networkIconSize: null,
-    },
-    newsBanner: {
-      horizontalPadding: null,
-      verticalPadding: null,
-    },
-    tableOfContent: {
-      horizontalPadding: null,
-      verticalPadding: null,
-      iconSize: null,
-      radius: null,
-      gap: null,
-      anchorsGap: null,
-    },
+  radii: {
+    2: null,
+    4: null,
+    6: null,
+    8: null,
+    pill: null,
   },
+  sizes,
 });
 
 export type ColorName = Exclude<keyof typeof vars.color, "invariant">;

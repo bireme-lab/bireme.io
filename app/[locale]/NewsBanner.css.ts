@@ -1,5 +1,5 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 
 export const newsBanner = responsiveStyle({
   mobile: [
@@ -8,10 +8,12 @@ export const newsBanner = responsiveStyle({
       display: "flex",
       flexDirection: "column",
       alignItems: "flex-start",
-      padding: `${vars.spacings.newsBanner.verticalPadding} ${vars.spacings.newsBanner.horizontalPadding}`,
+      padding: `${vars.sizes[16]} ${vars.sizes[16]}`,
       backgroundColor: vars.color.neutral[900],
-      gap: vars.spacings.content.gapSmall,
-      transition: "background-color, border 200ms ease-out",
+      gap: vars.sizes[8],
+      transitionProperty: "background-color, border",
+      transitionDuration: `${transitionDuration}ms`,
+      transitionTimingFunction: "ease-out",
       border: `1px solid ${vars.color.neutral[900]}`,
 
       ":focus": {
@@ -24,7 +26,7 @@ export const newsBanner = responsiveStyle({
     columnCount(3),
     {
       flexDirection: "row",
-      gap: vars.spacings.content.gapRegular,
+      gap: vars.sizes[12],
     },
   ],
   desktop: columnCount(4),

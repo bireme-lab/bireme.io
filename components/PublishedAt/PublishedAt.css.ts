@@ -5,7 +5,7 @@ import { text } from "../Text/Text.css";
 export const container = style({
   display: "flex",
   alignItems: "center",
-  gap: vars.spacings.content.gapSmall,
+  gap: vars.sizes[8],
   color: vars.color.primary[700],
 });
 

@@ -1,5 +1,5 @@
-import { responsiveStyle, transition } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
+import { responsiveStyle } from "@/styles/mixins";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -94,19 +94,15 @@ export const underlinedLink = style({
 });
 
 export const link = recipe({
-  base: [
-    transition({
-      duration: 200,
-      properties: ["color", "background"],
-      timingFunction: "ease-out",
-    }),
-    {
-      zIndex: 1,
-      position: "relative",
-      background: `linear-gradient(to top, ${vars.color.secondary[500]} 0%, ${vars.color.secondary[500]} 100%) no-repeat`,
-      backgroundSize: "0% 100%",
-    },
-  ],
+  base: {
+    zIndex: 1,
+    position: "relative",
+    background: `linear-gradient(to top, ${vars.color.secondary[500]} 0%, ${vars.color.secondary[500]} 100%) no-repeat`,
+    backgroundSize: "0% 100%",
+    transitionProperty: "color, background",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
+  },
   variants: {
     isUnderlined: {
       true: {
@@ -130,7 +126,9 @@ export const link = recipe({
 export const translateAnimationContainer = recipe({
   base: {
     position: "relative",
-    transition: "300ms ease-out",
+    transitionProperty: "transform, color",
+    transitionDuration: "300ms",
+    transitionTimingFunction: "ease-out",
     color: "inherit",
 
     "::after": {
@@ -138,7 +136,7 @@ export const translateAnimationContainer = recipe({
       content: "attr(data-content)",
       bottom: "-100%",
       left: 0,
-      transition: "transform 0.3s",
+      transition: "transform 300ms ease-out",
     },
   },
   variants: {

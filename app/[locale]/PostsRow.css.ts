@@ -1,5 +1,5 @@
-import { responsiveStyleRules, transition } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { responsiveStyleRules } from "@/styles/mixins";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const post = recipe({
@@ -9,8 +9,8 @@ export const post = recipe({
       width: "100%",
       display: "flex",
       flexDirection: "column",
-      gap: vars.spacings.content.gapSmall,
-      padding: `${vars.spacings.content.gapLarge} 0`,
+      gap: vars.sizes[8],
+      padding: `${vars.sizes[20]} 0`,
 
       "::after": {
         zIndex: -1,
@@ -35,7 +35,7 @@ export const post = recipe({
     tablet: {
       flexDirection: "row",
       alignItems: "center",
-      gap: vars.spacings.content.gapMedium,
+      gap: vars.sizes[16],
     },
   }),
   variants: {
@@ -68,69 +68,69 @@ export const post = recipe({
 });
 
 export const publishedAt = recipe({
-  base: [
-    transition({ duration: 200, timingFunction: "ease-out", properties: ["color", "transform"] }),
-    {
-      color: vars.color.primary[700],
-    },
-  ],
+  base: {
+    transitionProperty: "color, transform",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
+    color: vars.color.primary[700],
+  },
   variants: {
     isHovered: {
       true: {
         color: vars.color.neutral[900],
-        transform: `translateX(${sizes[12]})`,
+        transform: `translateX(${vars.sizes[12]})`,
       },
     },
     isFocused: {
       true: {
         color: vars.color.neutral[900],
-        transform: `translateX(${sizes[12]})`,
+        transform: `translateX(${vars.sizes[12]})`,
       },
     },
   },
 });
 
 export const title = recipe({
-  base: [
-    transition({ duration: 200, timingFunction: "ease-out", properties: ["color", "transform"] }),
-    {
-      color: vars.color.primary[500],
-    },
-  ],
+  base: {
+    transitionProperty: "color, transform",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
+    color: vars.color.primary[500],
+  },
   variants: {
     isHovered: {
       true: {
         color: vars.color.neutral[900],
-        transform: `translateX(${sizes[12]})`,
+        transform: `translateX(${vars.sizes[12]})`,
       },
     },
     isFocused: {
       true: {
         color: vars.color.neutral[900],
-        transform: `translateX(${sizes[12]})`,
+        transform: `translateX(${vars.sizes[12]})`,
       },
     },
   },
 });
 
 export const comment = recipe({
-  base: [
-    transition({ duration: 200, timingFunction: "ease-out", properties: ["color", "transform"] }),
-    {
-      color: vars.color.secondary[500],
-    },
-  ],
+  base: {
+    transitionProperty: "color, transform",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
+    color: vars.color.secondary[500],
+  },
   variants: {
     isHovered: {
       true: {
         color: vars.color.neutral[900],
-        transform: `translateX(${sizes[12]})`,
+        transform: `translateX(${vars.sizes[12]})`,
       },
     },
     isFocused: {
       true: {
         color: vars.color.neutral[900],
-        transform: `translateX(${sizes[12]})`,
+        transform: `translateX(${vars.sizes[12]})`,
       },
     },
   },

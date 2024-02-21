@@ -14,6 +14,6 @@ export const link = responsiveStyle({
 });
 
 export const separator = style({
-  margin: `0 ${vars.spacings.content.gapSmall}`,
+  margin: `0 ${vars.sizes[8]}`,
   userSelect: "none",
 });

@@ -1,14 +1,13 @@
-import { transition } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapMedium,
-  paddingTop: sizes[24],
-  paddingBottom: sizes[24],
+  gap: vars.sizes[16],
+  paddingTop: vars.sizes[24],
+  paddingBottom: vars.sizes[24],
 });
 
 export const nav = style({
@@ -17,21 +16,19 @@ export const nav = style({
   alignItems: "center",
 });
 
-export const logoLink = style([
-  transition({ duration: 200, timingFunction: "ease-out", properties: ["color"] }),
-  {
-    color: vars.color.primary[500],
+export const logoLink = style({
+  color: vars.color.primary[500],
+  transition: `color ${transitionDuration}ms ease-out`,
 
-    ":hover": {
-      color: vars.color.primary[600],
-    },
-
-    ":focus": {
-      outline: "none",
-      color: vars.color.primary[600],
-    },
+  ":hover": {
+    color: vars.color.primary[600],
   },
-]);
+
+  ":focus": {
+    outline: "none",
+    color: vars.color.primary[600],
+  },
+});
 
 export const logo = style({
   width: "138px",
@@ -45,15 +42,14 @@ export const comment = style({
 });
 
 export const commentButton = recipe({
-  base: [
-    transition({ duration: 200, timingFunction: "ease-out", properties: ["color"] }),
-    {
-      color: vars.color.secondary[500],
-      ":focus-visible": {
-        outline: "none",
-      },
+  base: {
+    transition: `color ${transitionDuration}ms ease-out`,
+    color: vars.color.secondary[500],
+
+    ":focus-visible": {
+      outline: "none",
     },
-  ],
+  },
   variants: {
     isHovered: {
       true: {

@@ -1,5 +1,4 @@
-import { transition } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -7,7 +6,7 @@ export const container = style({
   display: "inline-flex",
   alignItems: "flex-start",
   WebkitTapHighlightColor: "transparent",
-  gap: vars.spacings.checkbox.gap,
+  gap: vars.sizes[2],
 });
 
 export const checkboxContainer = style({
@@ -16,32 +15,28 @@ export const checkboxContainer = style({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  width: vars.spacings.checkbox.iconSize,
-  height: vars.spacings.checkbox.iconSize,
-  minWidth: vars.spacings.checkbox.iconSize,
-  minHeight: vars.spacings.checkbox.iconSize,
+  width: vars.sizes[24],
+  height: vars.sizes[24],
+  minWidth: vars.sizes[24],
+  minHeight: vars.sizes[24],
 });
 
 export const checkbox = recipe({
-  base: [
-    transition({
-      duration: 200,
-      timingFunction: "ease-out",
-      properties: ["border", "background", "outline", "transform"],
-    }),
-    {
-      zIndex: 1,
-      width: vars.spacings.checkbox.boxSize,
-      height: vars.spacings.checkbox.boxSize,
-      minWidth: vars.spacings.checkbox.boxSize,
-      minHeight: vars.spacings.checkbox.boxSize,
-      position: "relative",
-      borderStyle: "solid",
-      borderWidth: "1px",
-      borderRadius: vars.spacings.checkbox.radius,
-      borderColor: vars.color.primary[800],
-    },
-  ],
+  base: {
+    zIndex: 1,
+    width: vars.sizes[12],
+    height: vars.sizes[12],
+    minWidth: vars.sizes[12],
+    minHeight: vars.sizes[12],
+    position: "relative",
+    borderStyle: "solid",
+    borderWidth: "1px",
+    borderRadius: vars.sizes[2],
+    borderColor: vars.color.primary[800],
+    transitionProperty: "transform, border, background, outline",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
+  },
   variants: {
     isFocused: {
       true: {

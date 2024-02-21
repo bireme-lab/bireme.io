@@ -1,33 +1,33 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
-import { sizes, vars } from "@/styles/theme/index.css";
+import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const goBack = style({
   display: "flex",
   alignItems: "center",
-  gap: sizes[4],
+  gap: vars.sizes[4],
 });
 
 export const goBackIcon = style({
-  width: sizes[16],
-  height: sizes[16],
-  minWidth: sizes[16],
-  minHeight: sizes[16],
+  width: vars.sizes[16],
+  height: vars.sizes[16],
+  minWidth: vars.sizes[16],
+  minHeight: vars.sizes[16],
   color: vars.color.primary[700],
 });
 
 export const article = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapExtraLarge,
-  marginTop: sizes[24],
+  gap: vars.sizes[24],
+  marginTop: vars.sizes[24],
 });
 
 export const heroContent = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapRegular,
+  gap: vars.sizes[12],
 });
 
 export const threeCols = responsiveStyle({
@@ -46,12 +46,12 @@ export const postBodyWrapper = recipe({
   base: {
     display: "flex",
     flexDirection: "column",
-    gap: vars.spacings.content.gapExtraLarge,
+    gap: vars.sizes[24],
   },
   variants: {
     isBodyStartingWithHeading: {
       true: {
-        marginTop: `-${sizes[8]}`,
+        marginTop: "-8px",
       },
     },
   },
@@ -59,7 +59,7 @@ export const postBodyWrapper = recipe({
 
 export const listItem = style({
   display: "list-item",
-  marginBottom: sizes[12],
+  marginBottom: vars.sizes[12],
   fontFamily: vars.font.sans,
   fontSize: "0.9375rem",
   fontWeight: 400,
@@ -72,5 +72,5 @@ export const listItem = style({
 });
 
 export const list = style({
-  marginLeft: sizes[12],
+  marginLeft: vars.sizes[12],
 });

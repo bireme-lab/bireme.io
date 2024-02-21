@@ -1,45 +1,40 @@
-import { transition } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapSmall,
+  gap: vars.sizes[8],
 });
 
 export const input = recipe({
-  base: [
-    transition({
-      duration: 200,
-      timingFunction: "ease-out",
-      properties: ["border", "background", "color"],
-    }),
-    {
-      width: "100%",
-      padding: `${vars.spacings.input.verticalPadding} ${vars.spacings.input.horizontalPadding}`,
-      backgroundColor: vars.color.neutral[800],
-      borderRadius: vars.spacings.input.radius,
-      borderWidth: 1,
-      borderStyle: "solid",
-      borderColor: vars.color.neutral[800],
-      fontFamily: vars.font.sans,
-      fontSize: "0.875rem",
-      fontWeight: 400,
-      lineHeight: "0.875rem",
-      color: vars.color.primary[500],
+  base: {
+    width: "100%",
+    padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
+    backgroundColor: vars.color.neutral[800],
+    borderRadius: vars.sizes[2],
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: vars.color.neutral[800],
+    fontFamily: vars.font.sans,
+    fontSize: "0.875rem",
+    fontWeight: 400,
+    lineHeight: "0.875rem",
+    color: vars.color.primary[500],
+    transitionProperty: "border, background, color",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
 
-      "::placeholder": {
-        color: vars.color.primary[700],
-      },
-
-      ":focus-visible": {
-        outline: "none",
-        borderColor: vars.color.primary[500],
-      },
+    "::placeholder": {
+      color: vars.color.primary[700],
     },
-  ],
+
+    ":focus-visible": {
+      outline: "none",
+      borderColor: vars.color.primary[500],
+    },
+  },
   variants: {
     isFocused: {
       true: {

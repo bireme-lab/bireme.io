@@ -1,5 +1,4 @@
-import { transition } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -13,8 +12,8 @@ export const wrapper = recipe({
     justifyContent: "center",
     lineHeight: 0,
     flexShrink: 0,
-    width: vars.spacings.avatar.size,
-    height: vars.spacings.avatar.size,
+    width: vars.sizes[24],
+    height: vars.sizes[24],
     cursor: "help",
   },
   variants: {
@@ -35,8 +34,8 @@ export const tooltipAvatarWrapper = style({
   justifyContent: "center",
   lineHeight: 0,
   flexShrink: 0,
-  width: vars.spacings.avatar.tooltipAvatarSize,
-  height: vars.spacings.avatar.tooltipAvatarSize,
+  width: vars.sizes[32],
+  height: vars.sizes[32],
 });
 
 export const image = style({
@@ -51,36 +50,30 @@ export const tooltip = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: `${vars.spacings.avatar.tooltipVerticalPadding} ${vars.spacings.avatar.tooltipHorizontalPadding}`,
-  borderRadius: vars.spacings.avatar.tooltipRadius,
+  padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
+  borderRadius: vars.sizes[2],
   backgroundColor: vars.color.neutral[900],
 });
 
 export const tooltipContent = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.spacings.content.gapExtraSmall,
+  gap: vars.sizes[4],
 });
 
-export const networkIcon = style([
-  transition({
-    duration: 200,
-    timingFunction: "ease-out",
-    properties: ["color"],
-  }),
-  {
-    width: vars.spacings.avatar.networkIconSize,
-    height: vars.spacings.avatar.networkIconSize,
-    cursor: "pointer",
+export const networkIcon = style({
+  width: vars.sizes[24],
+  height: vars.sizes[24],
+  cursor: "pointer",
+  transition: `color ${transitionDuration}ms ease-out`,
 
-    ":hover": {
-      color: vars.color.primary[600],
-    },
+  ":hover": {
+    color: vars.color.primary[600],
   },
-]);
+});
 
 export const tooltipContainer = style({
   display: "flex",
-  gap: vars.spacings.content.gapSmall,
+  gap: vars.sizes[8],
   alignItems: "center",
 });

@@ -1,4 +1,4 @@
-import { sizes, vars } from "@/styles/theme/index.css";
+import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const html = style({
@@ -43,6 +43,6 @@ export const light = style({
 });
 
 export const main = style({
-  paddingTop: sizes[24],
-  paddingBottom: sizes[48],
+  paddingTop: vars.sizes[24],
+  paddingBottom: vars.sizes[48],
 });

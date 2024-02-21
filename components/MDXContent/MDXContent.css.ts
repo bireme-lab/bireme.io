@@ -1,9 +1,9 @@
-import { sizes, vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const listItem = style({
   display: "list-item",
-  marginBottom: sizes[12],
+  marginBottom: vars.sizes[12],
   fontFamily: vars.font.sans,
   fontSize: "0.9375rem",
   fontWeight: 400,
@@ -16,26 +16,26 @@ export const listItem = style({
 });
 
 export const list = style({
-  marginLeft: sizes[12],
+  marginLeft: vars.sizes[12],
 });
 
 export const heading = style({
-  paddingTop: sizes[24],
+  paddingTop: vars.sizes[24],
 });
 
 export const headingLink = style({
   alignItems: "center",
-  gap: vars.spacings.content.gapExtraSmall,
+  gap: vars.sizes[4],
 });
 
 export const headingLinkIcon = style({
   display: "inline",
-  width: sizes[20],
-  height: sizes[20],
-  minWidth: sizes[20],
-  minHeight: sizes[20],
+  width: vars.sizes[20],
+  height: vars.sizes[20],
+  minWidth: vars.sizes[20],
+  minHeight: vars.sizes[20],
   color: vars.color.primary[700],
-  transition: "opacity 200ms ease-out",
+  transition: `opacity ${transitionDuration}ms ease-out`,
   opacity: 0,
 
   selectors: {
