@@ -4,6 +4,7 @@ import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
 import { MDXContent } from "@/components/MDXContent/MDXContent";
 import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
+import { TableOfContent } from "@/components/TableOfContent/TableOfContent";
 import { Text } from "@/components/Text/Text";
 import { cx } from "@/styles/mixins";
 import { Option } from "@swan-io/boxed";
@@ -11,7 +12,6 @@ import { findPostBySlug, findRecordOrNotFound } from "contentlayer/fetchers";
 import { allPosts } from "contentlayer/generated";
 import { getTranslations } from "next-intl/server";
 import { P, match } from "ts-pattern";
-import { TableOfContent } from "./TableOfContent";
 import * as styles from "./page.css";
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post.slug }));

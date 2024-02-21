@@ -1,6 +1,202 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
+
+// NewsBanner
+// -------------------------------------------o
+
+export const newsBanner = responsiveStyle({
+  mobile: [
+    columnCount(2),
+    {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      padding: `${vars.sizes[16]} ${vars.sizes[16]}`,
+      backgroundColor: vars.color.neutral[900],
+      gap: vars.sizes[8],
+      transitionProperty: "background-color, border",
+      transitionDuration: `${transitionDuration}ms`,
+      transitionTimingFunction: "ease-out",
+      border: `1px solid ${vars.color.neutral[900]}`,
+
+      ":focus": {
+        outline: "none",
+        borderColor: vars.color.primary[500],
+      },
+    },
+  ],
+  tablet: [
+    columnCount(3),
+    {
+      flexDirection: "row",
+      gap: vars.sizes[12],
+    },
+  ],
+  desktop: columnCount(4),
+});
+
+export const newsBannerTag = responsiveStyle({
+  mobile: {
+    position: "relative",
+  },
+  tablet: {
+    top: "5px",
+  },
+});
+
+// LatestPosts
+// -------------------------------------------o
+
+export const latestPost = responsiveStyle({
+  mobile: [
+    columnCount(2),
+    {
+      display: "flex",
+      flexDirection: "column",
+      gap: vars.sizes[8],
+    },
+  ],
+  tablet: columnCount(3),
+  desktop: columnCount(5),
+});
+
+export const latestPostTitle = style({
+  transition: `color ${transitionDuration}ms ease-out`,
+
+  ":hover": {
+    color: vars.color.primary[600],
+  },
+});
+
+export const latestPostPublishedAt = style({
+  marginTop: vars.sizes[4],
+});
+
+// PostRow
+// -------------------------------------------o
+
+export const postRow = recipe({
+  base: {},
+  variants: {
+    isFirst: {
+      true: {
+        borderTop: `1px solid ${vars.color.primary[900]}`,
+        borderBottom: `1px solid ${vars.color.primary[900]}`,
+      },
+      false: {
+        borderBottom: `1px solid ${vars.color.primary[900]}`,
+      },
+    },
+  },
+});
+
+export const post = responsiveStyle({
+  mobile: {
+    position: "relative",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: vars.sizes[8],
+    padding: `${vars.sizes[20]} 0`,
+
+    "::after": {
+      zIndex: -1,
+      content: "''",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: vars.color.secondary[500],
+      transition: "transform 300ms ease-out",
+      transformOrigin: "bottom",
+      transform: "scaleY(0)",
+    },
+
+    ":focus-within": {
+      outline: "none",
+    },
+
+    ":focus": {
+      outline: "none",
+    },
+
+    selectors: {
+      "&:hover::after": {
+        transform: "scaleY(1)",
+      },
+      "&:focus::after": {
+        transform: "scaleY(1)",
+      },
+    },
+  },
+  tablet: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: vars.sizes[16],
+  },
+});
+
+export const postRowTitle = style({
+  transitionProperty: "color, transform",
+  transitionDuration: `${transitionDuration}ms`,
+  transitionTimingFunction: "ease-out",
+  color: vars.color.primary[500],
+
+  selectors: {
+    [`${post}:hover &`]: {
+      color: vars.color.neutral[900],
+      transform: `translateX(${vars.sizes[12]})`,
+    },
+    [`${post}:focus &`]: {
+      color: vars.color.neutral[900],
+      transform: `translateX(${vars.sizes[12]})`,
+    },
+  },
+});
+
+export const postRowPublishedAt = style({
+  transitionProperty: "color, transform",
+  transitionDuration: `${transitionDuration}ms`,
+  transitionTimingFunction: "ease-out",
+  color: vars.color.primary[700],
+
+  selectors: {
+    [`${post}:hover &`]: {
+      color: vars.color.neutral[900],
+      transform: `translateX(${vars.sizes[12]})`,
+    },
+    [`${post}:focus &`]: {
+      color: vars.color.neutral[900],
+      transform: `translateX(${vars.sizes[12]})`,
+    },
+  },
+});
+
+export const postRowComment = style({
+  transitionProperty: "color, transform",
+  transitionDuration: `${transitionDuration}ms`,
+  transitionTimingFunction: "ease-out",
+  color: vars.color.secondary[500],
+
+  selectors: {
+    [`${post}:hover &`]: {
+      color: vars.color.neutral[900],
+      transform: `translateX(${vars.sizes[12]})`,
+    },
+    [`${post}:focus &`]: {
+      color: vars.color.neutral[900],
+      transform: `translateX(${vars.sizes[12]})`,
+    },
+  },
+});
+
+// Home
+// -------------------------------------------o
 
 export const container = style({
   display: "flex",

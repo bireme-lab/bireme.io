@@ -1,3 +1,5 @@
+import { Footer } from "@/components/Footer/Footer";
+import { Header } from "@/components/Header/Header";
 import { Sprite } from "@/components/Icon/Icon";
 import "@/styles/global.css";
 import { cx } from "@/styles/mixins";
@@ -10,8 +12,6 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { Gloria_Hallelujah } from "next/font/google";
-import { Footer } from "./Footer";
-import { Header } from "./Header";
 import * as styles from "./layout.css";
 
 const GloriaHallelujah = Gloria_Hallelujah({

@@ -1,18 +1,96 @@
 import { Container } from "@/components/Container/Container";
 import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
+import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
 import { Text } from "@/components/Text/Text";
 import { sortDateDesc } from "@/utils/date";
 import { Locale } from "@/utils/i18n";
 import { P_hasRecord } from "@/utils/types";
 import { Option } from "@swan-io/boxed";
 import { getLatestPost, getPostsByLocale } from "contentlayer/fetchers";
+import { Post } from "contentlayer/generated";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import Link from "next/link";
 import { P, match } from "ts-pattern";
-import LatestPost from "./LatestPost";
-import { NewsBanner } from "./NewsBanner";
-import { PostRow } from "./PostsRow";
 import * as styles from "./page.css";
+
+const NewsBanner = async () => {
+  const t = await getTranslations("components.NewsBanner");
+
+  return (
+    <Link href="/" className={styles.newsBanner}>
+      <Text variant="small-mono" color="secondary-500" className={styles.newsBannerTag}>
+        {t("new")}
+      </Text>
+      <Text variant="anchor">Mise à jour - Création du projet Bireme Lab</Text>
+    </Link>
+  );
+};
+
+NewsBanner.displayName = "NewsBanner";
+
+type LatestPostProps = {
+  post: Post;
+};
+
+const LatestPost: React.FC<LatestPostProps> = ({ post }) => {
+  return (
+    <div className={styles.latestPost}>
+      <div>
+        <Text
+          variant="title2"
+          href={post.url}
+          underlined={false}
+          className={styles.latestPostTitle}
+        >
+          {post.title}
+        </Text>
+      </div>
+      <Text variant="body" markup="p" color="primary-600">
+        {post.seo.description}
+      </Text>
+      <PublishedAt
+        authors={post.authors}
+        publishedAt={post.publishedAt}
+        className={styles.latestPostPublishedAt}
+      />
+    </div>
+  );
+};
+
+LatestPost.displayName = "LatestPost";
+
+type PostRowProps = {
+  post: Post;
+  isFirstIndex: boolean;
+  isLastIndex: boolean;
+};
+
+const PostRow: React.FC<PostRowProps> = async ({ post, isFirstIndex, isLastIndex }) => {
+  const t = await getTranslations("components.PostRow");
+
+  return (
+    <li key={post.slug} className={styles.postRow({ isFirst: isFirstIndex })}>
+      <Link href={post.url} className={styles.post}>
+        <Text variant="anchor" className={styles.postRowTitle}>
+          {post.title}
+        </Text>
+        <PublishedAt
+          authors={post.authors}
+          publishedAt={post.publishedAt}
+          className={styles.postRowPublishedAt}
+        />
+        {isLastIndex && (
+          <Text variant="comment" className={styles.postRowComment}>
+            {t("first_one")}
+          </Text>
+        )}
+      </Link>
+    </li>
+  );
+};
+
+PostRow.displayName = "PostRow";
 
 const Home = async ({
   params: { locale },
