@@ -1,6 +1,7 @@
 import { defineDocumentType, defineNestedType, makeSource } from "contentlayer/source-files";
 import GithubSlugger from "github-slugger";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 import { authors } from "./content/authors";
 import {
   generatePostAlternates,
@@ -74,6 +75,7 @@ export default makeSource({
   contentDirPath: "content/mdx",
   documentTypes: [Post],
   mdx: {
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeSlug],
   },
 });

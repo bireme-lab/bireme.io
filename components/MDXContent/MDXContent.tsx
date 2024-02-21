@@ -32,7 +32,7 @@ const MDXHeading: React.FC<MDXHeadingProps> = async ({
           variant="title2"
           color="primary-500"
           underlined={false}
-          style={{ display: "flex" }}
+          style={{ display: "inline-flex" }}
           className={styles.headingLink}
         >
           {children}
@@ -58,7 +58,7 @@ const MDXHeading: React.FC<MDXHeadingProps> = async ({
           variant="title3"
           color="primary-500"
           underlined={false}
-          style={{ display: "flex" }}
+          style={{ display: "inline-flex" }}
           className={styles.headingLink}
         >
           {children}
@@ -84,7 +84,7 @@ const MDXHeading: React.FC<MDXHeadingProps> = async ({
           variant="body"
           color="primary-500"
           underlined={false}
-          style={{ display: "flex" }}
+          style={{ display: "inline-flex" }}
           className={styles.headingLink}
         >
           {children}
@@ -110,7 +110,7 @@ const MDXHeading: React.FC<MDXHeadingProps> = async ({
           variant="body"
           color="primary-500"
           underlined={false}
-          style={{ display: "flex" }}
+          style={{ display: "inline-flex" }}
           className={styles.headingLink}
         >
           {children}
@@ -136,7 +136,7 @@ const MDXHeading: React.FC<MDXHeadingProps> = async ({
           variant="body"
           color="primary-500"
           underlined={false}
-          style={{ display: "flex" }}
+          style={{ display: "inline-flex" }}
           className={styles.headingLink}
         >
           {children}
