@@ -1,7 +1,7 @@
+import slugify from "@sindresorhus/slugify";
 import type { Post } from "contentlayer/generated";
 import { glob } from "glob";
 import path from "path";
-import slugify from "slugify";
 import { P, match } from "ts-pattern";
 import { P_hasRecord } from "./types";
 
@@ -30,10 +30,9 @@ export const getRecordLocale = (post: Post) => {
 };
 
 export const generatePostSlug = (post: Post) => {
-  const locale = getRecordLocale(post);
   const postName = post._raw.sourceFileName.replace(".mdx", "").split("-").slice(1).join("-");
 
-  return slugify(postName, { strict: true, lower: true, trim: true, locale });
+  return slugify(postName);
 };
 
 export const generatePostUrl = (post: Post) => {
@@ -49,7 +48,7 @@ const getAlternatePostUrl = async (id: string, locale: string) => {
   return match(files)
     .with(P_hasRecord, (files) => {
       const postName = path.basename(files[0]).replace(".mdx", "").split("-").slice(1).join("-");
-      return `/${locale}/blog/${slugify(postName, { strict: true, lower: true, trim: true, locale })}`;
+      return `/${locale}/blog/${slugify(postName)}`;
     })
     .otherwise(() => undefined);
 };

@@ -1,6 +1,7 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
 import { sizes, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 export const goBack = style({
   display: "flex",
@@ -9,10 +10,10 @@ export const goBack = style({
 });
 
 export const goBackIcon = style({
-  width: sizes[12],
-  height: sizes[12],
-  minWidth: sizes[12],
-  minHeight: sizes[12],
+  width: sizes[16],
+  height: sizes[16],
+  minWidth: sizes[16],
+  minHeight: sizes[16],
   color: vars.color.primary[700],
 });
 
@@ -31,21 +32,29 @@ export const heroContent = style({
 
 export const threeCols = responsiveStyle({
   mobile: [columnCount(2)],
-  tablet: [columnCount(4)],
+  tablet: [columnCount(2)],
   desktop: [columnCount(3)],
 });
 
 export const fiveCols = responsiveStyle({
-  mobile: [
-    columnCount(2),
-    {
-      display: "flex",
-      flexDirection: "column",
-      gap: vars.spacings.content.gapExtraLarge,
-    },
-  ],
+  mobile: [columnCount(2)],
   tablet: [columnCount(4)],
   desktop: [columnCount(5)],
+});
+
+export const postBodyWrapper = recipe({
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    gap: vars.spacings.content.gapExtraLarge,
+  },
+  variants: {
+    isBodyStartingWithHeading: {
+      true: {
+        marginTop: `-${sizes[8]}`,
+      },
+    },
+  },
 });
 
 export const listItem = style({

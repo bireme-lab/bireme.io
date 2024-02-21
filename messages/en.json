@@ -48,6 +48,9 @@
     },
     "TableOfContent": {
       "title": "Table of content"
+    },
+    "MDXHeading": {
+      "link_to": "Link to {id}"
     }
   },
   "pages": {

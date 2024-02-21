@@ -48,6 +48,9 @@
     },
     "TableOfContent": {
       "title": "Table des matières"
+    },
+    "MDXHeading": {
+      "link_to": "Lien vers {id}"
     }
   },
   "pages": {

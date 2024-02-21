@@ -1,4 +1,6 @@
 import { defineDocumentType, defineNestedType, makeSource } from "contentlayer/source-files";
+import GithubSlugger from "github-slugger";
+import rehypeSlug from "rehype-slug";
 import { authors } from "./content/authors";
 import {
   generatePostAlternates,
@@ -46,7 +48,32 @@ export const Post = defineDocumentType(() => ({
     url: { type: "string", resolve: generatePostUrl },
     slug: { type: "string", resolve: generatePostSlug },
     alternates: { type: "json", resolve: generatePostAlternates },
+    headings: {
+      type: "json",
+      resolve: (doc) => {
+        const headingsRegex = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
+        const slugger = new GithubSlugger();
+        const headings = Array.from(doc.body.raw.matchAll(headingsRegex)).map(({ groups }) => {
+          const flag = groups?.flag;
+          const content = groups?.content;
+
+          return {
+            level: flag?.length,
+            text: content,
+            slug: content ? slugger.slug(content) : undefined,
+          };
+        });
+
+        return headings;
+      },
+    },
   },
 }));
 
-export default makeSource({ contentDirPath: "content/mdx", documentTypes: [Post] });
+export default makeSource({
+  contentDirPath: "content/mdx",
+  documentTypes: [Post],
+  mdx: {
+    rehypePlugins: [rehypeSlug],
+  },
+});

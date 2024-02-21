@@ -26,6 +26,8 @@ type TextElementType =
   | "s"
   | "figcaption";
 
+export type HeadingElementType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
 type TextProps = {
   variant?: TextVariant;
   markup?: Extract<ElementType, TextElementType>;
@@ -64,46 +66,46 @@ export const Text: React.FC<Props> = ({
   return (
     <>
       {match(props)
-        .with({ markup: "h1", children: P._ }, (props) => (
+        .with({ markup: "h1", children: P._ }, ({ markup, ...props }) => (
           <h1 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h2", children: P._ }, (props) => (
+        .with({ markup: "h2", children: P._ }, ({ markup, ...props }) => (
           <h2 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h3", children: P._ }, (props) => (
+        .with({ markup: "h3", children: P._ }, ({ markup, ...props }) => (
           <h3 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h4", children: P._ }, (props) => (
+        .with({ markup: "h4", children: P._ }, ({ markup, ...props }) => (
           <h4 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h5", children: P._ }, (props) => (
+        .with({ markup: "h5", children: P._ }, ({ markup, ...props }) => (
           <h5 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "h6", children: P._ }, (props) => (
-          <h5 className={classNames} style={style} {...props} />
+        .with({ markup: "h6", children: P._ }, ({ markup, ...props }) => (
+          <h6 className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "p", children: P._ }, (props) => (
+        .with({ markup: "p", children: P._ }, ({ markup, ...props }) => (
           <p className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "label", children: P._ }, (props) => (
+        .with({ markup: "label", children: P._ }, ({ markup, ...props }) => (
           <label className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "small", children: P._ }, (props) => (
+        .with({ markup: "small", children: P._ }, ({ markup, ...props }) => (
           <small className={classNames} style={style} {...props} />
         ))
-        .with({ markup: "em", children: P.string }, (props) => (
+        .with({ markup: "em", children: P.string }, ({ markup, ...props }) => (
           <em className={cx(styles.em, colorClass, className)} style={style} {...props} />
         ))
-        .with({ markup: "strong", children: P.string }, (props) => (
+        .with({ markup: "strong", children: P.string }, ({ markup, ...props }) => (
           <strong className={cx(styles.strong, colorClass, className)} style={style} {...props} />
         ))
-        .with({ markup: "b", children: P.string }, (props) => (
+        .with({ markup: "b", children: P.string }, ({ markup, ...props }) => (
           <b className={cx(styles.strong, colorClass, className)} style={style} {...props} />
         ))
-        .with({ markup: "s", children: P.string }, (props) => (
+        .with({ markup: "s", children: P.string }, ({ markup, ...props }) => (
           <s className={cx(styles.s, colorClass, className)} style={style} {...props} />
         ))
-        .with({ markup: "figcaption", children: P.string }, (props) => (
+        .with({ markup: "figcaption", children: P.string }, ({ markup, ...props }) => (
           <figcaption className={cx(colorClass, className)} style={style} {...props} />
         ))
         .with({ href: P.string }, (typedProps) => (

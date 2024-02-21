@@ -166,6 +166,8 @@ export const dark = createTheme(vars, {
       verticalPadding: sizes[16],
       iconSize: sizes[24],
       radius: sizes[2],
+      gap: sizes[12],
+      anchorsGap: sizes[4],
     },
   },
 });

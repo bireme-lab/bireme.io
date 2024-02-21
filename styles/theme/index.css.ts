@@ -195,6 +195,8 @@ export const vars = createThemeContract({
       verticalPadding: null,
       iconSize: null,
       radius: null,
+      gap: null,
+      anchorsGap: null,
     },
   },
 });

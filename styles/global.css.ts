@@ -1,4 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
+import { vars } from "./theme/index.css";
 
 // CSS Reset from Josh Comeau (https://www.joshwcomeau.com/css/custom-css-reset)
 // -----------------------------------------------------------------------------o
@@ -47,4 +48,9 @@ globalStyle("input[type='text'], input[type='email']", {
   appearance: "none",
   WebkitAppearance: "none",
   MozAppearance: "none",
+});
+
+globalStyle("::selection", {
+  backgroundColor: vars.color.secondary[500],
+  color: vars.color.neutral[900],
 });
