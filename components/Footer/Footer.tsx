@@ -37,6 +37,7 @@ export const Footer: React.FC = () => {
           return t("form.email.empty");
         }
 
+        // TODO: Replace with Zod schema
         if (!isEmail(value)) {
           return t("form.email.invalid");
         }

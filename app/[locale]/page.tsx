@@ -3,12 +3,10 @@ import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
 import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
 import { Text } from "@/components/Text/Text";
-import { sortDateDesc } from "@/utils/date";
 import { Locale } from "@/utils/i18n";
+import * as MDX from "@/utils/mdx";
 import { P_hasRecord } from "@/utils/types";
 import { Option } from "@swan-io/boxed";
-import { getLatestPost, getPostsByLocale } from "contentlayer/fetchers";
-import { Post } from "contentlayer/generated";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { P, match } from "ts-pattern";
@@ -30,7 +28,7 @@ const NewsBanner = async () => {
 NewsBanner.displayName = "NewsBanner";
 
 type LatestPostProps = {
-  post: Post;
+  post: MDX.Post;
 };
 
 const LatestPost: React.FC<LatestPostProps> = ({ post }) => {
@@ -39,7 +37,7 @@ const LatestPost: React.FC<LatestPostProps> = ({ post }) => {
       <div>
         <Text
           variant="title2"
-          href={post.url}
+          href={post.href}
           underlined={false}
           className={styles.latestPostTitle}
         >
@@ -61,7 +59,7 @@ const LatestPost: React.FC<LatestPostProps> = ({ post }) => {
 LatestPost.displayName = "LatestPost";
 
 type PostRowProps = {
-  post: Post;
+  post: MDX.Post;
   isFirstIndex: boolean;
   isLastIndex: boolean;
 };
@@ -71,7 +69,7 @@ const PostRow: React.FC<PostRowProps> = async ({ post, isFirstIndex, isLastIndex
 
   return (
     <li key={post.slug} className={styles.postRow({ isFirst: isFirstIndex })}>
-      <Link href={post.url} className={styles.post}>
+      <Link href={post.href} className={styles.post}>
         <Text variant="anchor" className={styles.postRowTitle}>
           {post.title}
         </Text>
@@ -101,8 +99,9 @@ const Home = async ({
   unstable_setRequestLocale(locale);
 
   const t = await getTranslations("pages.Home");
-  const postOptions = getPostsByLocale(locale);
-  const latestPost = getLatestPost(locale);
+
+  const postsOption = MDX.Post.all(locale);
+  const latestPost = MDX.Post.latest(locale);
 
   return (
     <Container className={styles.container}>
@@ -142,21 +141,21 @@ const Home = async ({
         <Text variant="section-heading" markup="h3" className={styles.allPostsSectionHeading}>
           {t("all_posts")}
         </Text>
-        {match(postOptions)
+        {match(postsOption)
           .with(Option.Some(P.select(P_hasRecord)), (posts) => {
             const postsLength = posts.length;
+            posts.shift();
+
             return (
               <ul className={styles.postsList}>
-                {posts
-                  .sort((a, b) => sortDateDesc(a.publishedAt, b.publishedAt))
-                  .map((post, index) => (
-                    <PostRow
-                      key={post._id}
-                      post={post}
-                      isFirstIndex={index === 0}
-                      isLastIndex={index === postsLength - 1}
-                    />
-                  ))}
+                {posts.map((post, index) => (
+                  <PostRow
+                    key={post.slug}
+                    post={post}
+                    isFirstIndex={index === 0}
+                    isLastIndex={index === postsLength - 1}
+                  />
+                ))}
               </ul>
             );
           })

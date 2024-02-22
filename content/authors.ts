@@ -1,4 +1,7 @@
-export type AuthorSlug = "frederic-godin" | "antoine-lin";
+import { z } from "zod";
+
+export const authorSlugSchema = z.union([z.literal("frederic-godin"), z.literal("antoine-lin")]);
+export type AuthorSlug = z.infer<typeof authorSlugSchema>;
 
 export type Author = {
   slug: AuthorSlug;

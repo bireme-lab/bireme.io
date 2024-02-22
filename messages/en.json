@@ -61,7 +61,10 @@
       "all_posts": "All the stories we wrote"
     },
     "PostPage": {
-      "go_back": "Go back"
+      "go_back": "Go back",
+      "breadcrumb": {
+        "homepage": "Home"
+      }
     }
   }
 }

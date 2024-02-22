@@ -1,26 +1,37 @@
+import { Breadcrumb, Step } from "@/components/Breadcrumb/Breadcrumb";
 import { Container } from "@/components/Container/Container";
+import { CustomMDX } from "@/components/CustomMDX/CustomMDX";
 import { Divider } from "@/components/Divider/Divider";
 import { Grid } from "@/components/Grid/Grid";
-import { Icon } from "@/components/Icon/Icon";
-import { MDXContent } from "@/components/MDXContent/MDXContent";
 import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
 import { TableOfContent } from "@/components/TableOfContent/TableOfContent";
 import { Text } from "@/components/Text/Text";
 import { cx } from "@/styles/mixins";
+import { Locale } from "@/utils/i18n";
+import * as MDX from "@/utils/mdx";
 import { Option } from "@swan-io/boxed";
-import { findPostBySlug, findRecordOrNotFound } from "contentlayer/fetchers";
-import { allPosts } from "contentlayer/generated";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
 
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post.slug }));
+type PostPageParams = {
+  params: {
+    post_slug: string;
+    locale: Locale;
+  };
+};
 
-export const generateMetadata = ({ params }: { params: { post_slug: string; locale: string } }) => {
-  const post = findPostBySlug(params.post_slug, params.locale);
+export const generateStaticParams = async ({ params }: PostPageParams) => {
+  return match(MDX.Post.all(params.locale))
+    .with(Option.P.Some(P.select()), (posts) => posts.map((post) => post.slug))
+    .otherwise(() => []);
+};
+
+export const generateMetadata = ({ params }: PostPageParams) => {
+  const post = MDX.Post.findBySlug(params.post_slug, params.locale);
 
   return match(post)
-    .with(Option.P.Some(P.select(P.when((record) => record.type === "Post"))), (post) => ({
+    .with(Option.P.Some(P.select()), (post) => ({
       title: post.title,
     }))
     .otherwise(() => {
@@ -28,20 +39,28 @@ export const generateMetadata = ({ params }: { params: { post_slug: string; loca
     });
 };
 
-const PostPage = async ({ params }: { params: { post_slug: string; locale: string } }) => {
-  const t = await getTranslations("pages.PostPage");
-  const post = findRecordOrNotFound(findPostBySlug)(params.post_slug, params.locale);
+const PostPage = async ({ params }: PostPageParams) => {
+  unstable_setRequestLocale(params.locale);
 
-  const isBodyStartingWithHeading = post.body.raw.slice(0, 20).trim().startsWith("##");
+  const t = await getTranslations("pages.PostPage");
+
+  const post = MDX.findBySlugOrNotFound(MDX.Post.findBySlug)(params.post_slug, params.locale);
+  const isBodyStartingWithHeading = post.body.slice(0, 20).startsWith("##");
+
+  const breadcrumbSteps: Step[] = [
+    {
+      label: t("breadcrumb.homepage"),
+      href: "/",
+    },
+    {
+      label: post.title,
+      href: MDX.generatePostHref(post.slug, params.locale),
+    },
+  ];
 
   return (
     <Container>
-      <div className={styles.goBack}>
-        <Icon name="arrow_left" title={t("go_back")} className={styles.goBackIcon} />
-        <Text href="/" variant="anchor-flat" color="primary-700" translateOnHover>
-          {t("go_back")}
-        </Text>
-      </div>
+      <Breadcrumb steps={breadcrumbSteps} />
       <article className={styles.article}>
         <Text variant="title1" markup="h1">
           {post.title}
@@ -64,7 +83,7 @@ const PostPage = async ({ params }: { params: { post_slug: string; locale: strin
           <div
             className={cx(styles.fiveCols, styles.postBodyWrapper({ isBodyStartingWithHeading }))}
           >
-            <MDXContent code={post.body.code} />
+            <CustomMDX source={post.body} />
           </div>
         </Grid>
       </article>

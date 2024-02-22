@@ -15,11 +15,12 @@ type Props = {
 };
 
 export const Breadcrumb: React.FC<Props> = ({ steps }) => {
-  if (steps.length === 0) {
+  const stepsLength = steps.length;
+  const lastIndex = stepsLength - 1;
+
+  if (stepsLength === 0) {
     return null;
   }
-
-  const lastIndex = steps.length - 1;
 
   return (
     <>
@@ -32,11 +33,17 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
               variant="anchor-flat"
               translateOnHover={true}
               className={styles.link}
+              color={index === lastIndex ? "primary-500" : "primary-700"}
             >
               {label}
             </Text>
             {index !== lastIndex && (
-              <Text variant="small-flat" color="primary-700" className={styles.separator}>
+              <Text
+                variant="small-flat"
+                color="primary-800"
+                className={styles.separator}
+                aria-hidden={true}
+              >
                 /
               </Text>
             )}

@@ -32,10 +32,10 @@ storybook-build:
 	bun build-storybook
 
 build-icons-sprite:
-	bun tsx ${BUILD_ICONS_SPRITE_SCRIPT}
+	bun ${BUILD_ICONS_SPRITE_SCRIPT}
 
 generate-images-data:
-	bun tsx ${GENERATE_IMAGES_DATA_SCRIPT}
+	bun ${GENERATE_IMAGES_DATA_SCRIPT}
 
 build: build-icons-sprite generate-images-data
 	bun next build
