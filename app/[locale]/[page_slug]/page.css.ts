@@ -1,19 +1,16 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
 import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 
-export const article = style({
+export const grid = style({
   display: "flex",
   flexDirection: "column",
   gap: vars.sizes[24],
   marginTop: vars.sizes[24],
 });
 
-export const heroContent = style({
-  display: "flex",
-  flexDirection: "column",
-  gap: vars.sizes[12],
+export const title = style({
+  marginTop: vars.sizes[8],
 });
 
 export const threeCols = responsiveStyle({
@@ -28,17 +25,8 @@ export const fiveCols = responsiveStyle({
   desktop: [columnCount(5)],
 });
 
-export const postBodyWrapper = recipe({
-  base: {
-    display: "flex",
-    flexDirection: "column",
-    gap: vars.sizes[24],
-  },
-  variants: {
-    isBodyStartingWithHeading: {
-      true: {
-        marginTop: "-8px",
-      },
-    },
-  },
+export const postBodyWrapper = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.sizes[24],
 });

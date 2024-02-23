@@ -7,9 +7,10 @@ import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
 import { Input } from "@/components/Input/Input";
 import { Text } from "@/components/Text/Text";
+import { Locale } from "@/utils/i18n";
 import { isEmpty } from "@/utils/types";
 import { AsyncData, Result } from "@swan-io/boxed";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useForm } from "react-ux-form";
@@ -26,6 +27,7 @@ export const Footer: React.FC = () => {
   const [requestState, setRequestState] = useState<AsyncData<Result<boolean, boolean>>>(
     AsyncData.NotAsked(),
   );
+  const locale = useLocale() as Locale;
   const t = useTranslations("components.Footer");
   const { Field, submitForm, FieldsListener } = useForm({
     email: {
@@ -166,7 +168,10 @@ export const Footer: React.FC = () => {
         <ul className={styles.legalLinks}>
           <li>
             <Text
-              href="/mentions-legales"
+              href={match(locale)
+                .with("fr", () => "/fr/mentions-legales")
+                .with("en", () => "/en/legal-notice")
+                .exhaustive()}
               variant="small-flat"
               translateOnHover={true}
               color="primary-700"
@@ -176,7 +181,10 @@ export const Footer: React.FC = () => {
           </li>
           <li>
             <Text
-              href="/politique-de-confidentialite"
+              href={match(locale)
+                .with("fr", () => "/fr/politique-de-confidentialite")
+                .with("en", () => "/en/privacy-policy")
+                .exhaustive()}
               variant="small-flat"
               translateOnHover={true}
               color="primary-700"

@@ -44,7 +44,7 @@ const PostPage = async ({ params }: PostPageParams) => {
 
   const t = await getTranslations("pages.PostPage");
 
-  const post = await MDX.findBySlugOrNotFound(MDX.Post.findBySlug)(params.post_slug, params.locale);
+  const post = await MDX.findPostBySlugOrNotFound(params.post_slug, params.locale);
   const isBodyStartingWithHeading = post.body.slice(0, 20).startsWith("##");
 
   const breadcrumbSteps: Step[] = [
@@ -54,7 +54,7 @@ const PostPage = async ({ params }: PostPageParams) => {
     },
     {
       label: post.title,
-      href: MDX.generatePostHref(post.slug, params.locale),
+      href: MDX.generateHref(post.slug, params.locale, "Post"),
     },
   ];
 

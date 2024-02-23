@@ -2,6 +2,7 @@
 
 import { cx } from "@/styles/mixins";
 import type { Color } from "@/styles/theme/index.css";
+import { Locale } from "@/utils/i18n";
 import Link, { type LinkProps as NextLinkProps } from "next/link";
 import { ElementType, type PropsWithChildren } from "react";
 import { mergeProps, useFocusRing, useHover } from "react-aria";
@@ -47,6 +48,7 @@ type LinkProps = {
   translateOnHover?: boolean;
   isHovered?: boolean;
   isFocused?: boolean;
+  locale?: Locale;
 } & NextLinkProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 

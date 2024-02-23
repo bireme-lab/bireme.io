@@ -44,5 +44,5 @@ export const light = style({
 
 export const main = style({
   paddingTop: vars.sizes[24],
-  paddingBottom: vars.sizes[48],
+  paddingBottom: vars.sizes[96],
 });

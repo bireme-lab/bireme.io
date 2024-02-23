@@ -11,9 +11,10 @@ import { authorSlugSchema } from "../content/authors";
 import { sortDateDesc } from "./date";
 import { Locale } from "./i18n";
 
-type DocumentType = "Post";
+type DocumentType = "Post" | "Page";
 
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
+const PAGES_DIR = path.join(process.cwd(), "content/pages");
 
 const FILES: Record<
   DocumentType,
@@ -32,7 +33,37 @@ const FILES: Record<
     fr: {},
     en: {},
   },
+  Page: {
+    fr: {},
+    en: {},
+  },
 };
+
+export type Post = {
+  type: "Post";
+  href: string;
+  slug: string;
+  alternates: Alternates;
+  headings: {
+    level: 1 | 2 | 3 | 4 | 5 | 6;
+    text: string;
+    slug: string;
+  }[];
+  body: string;
+} & z.infer<typeof POST_ATTRIBUTES_SCHEMA>;
+
+export type Page = {
+  type: "Page";
+  href: string;
+  slug: string;
+  alternates: Alternates;
+  headings: {
+    level: 1 | 2 | 3 | 4 | 5 | 6;
+    text: string;
+    slug: string;
+  }[];
+  body: string;
+} & z.infer<typeof PAGE_ATTRIBUTES_SCHEMA>;
 
 // Schemas
 // ---------------------------------------- o
@@ -51,6 +82,19 @@ const POST_ATTRIBUTES_SCHEMA = z.object({
   authors: z.array(authorSlugSchema),
   seo: SEO_SCHEMA,
 });
+
+type PostValidationSchema = typeof POST_ATTRIBUTES_SCHEMA;
+
+const PAGE_ATTRIBUTES_SCHEMA = z.object({
+  title: z.string(),
+  publishedAt: z.string(),
+  modifiedAt: z.string().optional(),
+  seo: SEO_SCHEMA,
+});
+
+type PageValidationSchema = typeof PAGE_ATTRIBUTES_SCHEMA;
+
+type ValidationSchema = PostValidationSchema | PageValidationSchema;
 
 // Generic functions
 // ---------------------------------------- o
@@ -130,31 +174,52 @@ const readMDXFile = async (filePath: string) => {
 };
 
 export const generateMDXFilesRecord = async () => {
-  const [fr, en] = await Promise.all([
+  const [postsFr, postsEn, pagesFr, pagesEn] = await Promise.all([
     getMDXFiles(`${POSTS_DIR}/fr`),
     getMDXFiles(`${POSTS_DIR}/en`),
+    getMDXFiles(`${PAGES_DIR}/fr`),
+    getMDXFiles(`${PAGES_DIR}/en`),
   ]);
 
-  const storeFiles = (locale: Locale, file: string) => {
+  const storeFiles = (locale: Locale, file: string, documentType: DocumentType) => {
     const fileName = getFilename(file);
     const id = getMDXId(fileName);
     const slug = getMDXSlug(fileName);
 
-    if (!FILES.Post[locale][id]) {
-      FILES.Post[locale][id] = {
+    if (!FILES[documentType][locale][id]) {
+      FILES[documentType][locale][id] = {
         file,
         slug,
       };
     }
   };
 
-  for (const filePath of fr) {
-    storeFiles("fr", filePath);
+  for (const filePath of postsFr) {
+    storeFiles("fr", filePath, "Post");
   }
 
-  for (const filePath of en) {
-    storeFiles("en", filePath);
+  for (const filePath of postsEn) {
+    storeFiles("en", filePath, "Post");
   }
+
+  for (const filePath of pagesFr) {
+    storeFiles("fr", filePath, "Page");
+  }
+
+  for (const filePath of pagesEn) {
+    storeFiles("en", filePath, "Page");
+  }
+};
+
+export const generateHref = (slug: string, locale: Locale, documentType: DocumentType) => {
+  return match(documentType)
+    .with("Post", () => {
+      return `/${locale}/blog/${slug}`;
+    })
+    .with("Page", () => {
+      return `/${locale}/${slug}`;
+    })
+    .exhaustive();
 };
 
 export type Alternates =
@@ -207,35 +272,19 @@ const generateAlternates = (hrefs: Record<"fr" | "en", string | undefined>): Alt
     });
 };
 
-// Post
-// ---------------------------------------- o
-
-export type Post = {
-  type: "Post";
-  href: string;
-  slug: string;
-  alternates: Alternates;
-  headings: {
-    level: 1 | 2 | 3 | 4 | 5 | 6;
-    text: string;
-    slug: string;
-  }[];
-  body: string;
-} & z.infer<typeof POST_ATTRIBUTES_SCHEMA>;
-
-export const generatePostHref = (slug: string, locale: Locale) => {
-  return `/${locale}/blog/${slug}`;
-};
-
-const generatePostAlternateHref = (fileOption: Option<MDXFile>, locale: Locale) => {
+const generateAlternateHref = (
+  fileOption: Option<MDXFile>,
+  locale: Locale,
+  documentType: DocumentType,
+) => {
   if (fileOption.isNone()) {
     return undefined;
   }
 
-  return generatePostHref(fileOption.get().slug, locale);
+  return generateHref(fileOption.get().slug, locale, documentType);
 };
 
-const getPostHeadings = (body: string) => {
+const getHeadings = (body: string) => {
   const headingsRegex = /(?<flag>#{1,6})\s+(?<content>.+)/g;
   const slugger = new GithubSlugger();
   const iterable = Array.from(body.matchAll(headingsRegex));
@@ -258,42 +307,54 @@ const getPostHeadings = (body: string) => {
   return headings;
 };
 
-const processPostMDX = async ({
-  slug,
-  locale,
-  file,
-  id,
-}: {
-  slug: string;
+type PageOrPost<T> = T extends "Page" ? Page : T extends "Post" ? Post : never;
+
+type parseMDXArgs<T extends DocumentType> = {
+  filePath: string;
+  validationSchema: ValidationSchema;
+  documentType: T;
   locale: Locale;
+  slug: string;
   id: string;
-  file: string;
+};
+
+const parseMDX: <T extends DocumentType>(args: parseMDXArgs<T>) => Promise<PageOrPost<T>> = async ({
+  filePath,
+  validationSchema,
+  documentType,
+  locale,
+  slug,
+  id,
 }) => {
-  const fileContent = await readMDXFile(`${POSTS_DIR}/${locale}/${file}`);
+  const fileContent = await readMDXFile(filePath);
   const rawContent = fm(fileContent);
-  const attributes = POST_ATTRIBUTES_SCHEMA.parse(rawContent.attributes);
+  const attributes = validationSchema.parse(rawContent.attributes);
+  const href = generateHref(slug, locale, documentType);
 
   const alternates = generateAlternates({
     fr:
       locale === "fr"
-        ? `/fr/blog/${slug}`
-        : generatePostAlternateHref(await findMDXfileById(id, "fr", "Post"), "fr"),
+        ? href
+        : generateAlternateHref(await findMDXfileById(id, "fr", documentType), "fr", documentType),
     en:
       locale === "en"
-        ? `/en/blog/${slug}`
-        : generatePostAlternateHref(await findMDXfileById(id, "en", "Post"), "en"),
+        ? href
+        : generateAlternateHref(await findMDXfileById(id, "en", documentType), "en", documentType),
   });
 
   return {
-    type: "Post" as const,
-    href: generatePostHref(slug, locale),
+    ...attributes,
+    type: documentType,
+    href,
     slug,
     alternates,
-    headings: getPostHeadings(rawContent.body),
-    ...attributes,
+    headings: getHeadings(rawContent.body),
     body: rawContent.body,
-  };
+  } as PageOrPost<typeof documentType>;
 };
+
+// Post
+// ---------------------------------------- o
 
 export const Post = {
   findBySlug: async (slug: string, locale: Locale) => {
@@ -304,9 +365,16 @@ export const Post = {
     }
 
     const { file, id } = fileOption.get();
-    const postMDX = await processPostMDX({ slug, locale, file, id });
+    const post = await parseMDX({
+      slug,
+      locale,
+      filePath: `${POSTS_DIR}/${locale}/${file}`,
+      validationSchema: POST_ATTRIBUTES_SCHEMA,
+      documentType: "Post",
+      id,
+    });
 
-    return Option.Some(postMDX);
+    return Option.Some(post);
   },
   all: async (locale: Locale) => {
     const filesOption = await getMDXFilesByLocale(locale, "Post");
@@ -320,9 +388,16 @@ export const Post = {
     const posts: Post[] = [];
 
     for (const { id, slug, file } of files) {
-      const postMDX = await processPostMDX({ slug, locale, file, id });
+      const post = await parseMDX({
+        slug,
+        locale,
+        filePath: `${POSTS_DIR}/${locale}/${file}`,
+        validationSchema: POST_ATTRIBUTES_SCHEMA,
+        documentType: "Post",
+        id,
+      });
 
-      posts.push(postMDX);
+      posts.push(post);
     }
 
     return Option.Some(posts.sort((a, b) => sortDateDesc(a.publishedAt, b.publishedAt)));
@@ -338,12 +413,74 @@ export const Post = {
   },
 };
 
-type FindFn = typeof Post.findBySlug;
+// Page
+// ---------------------------------------- o
 
-export const findBySlugOrNotFound =
-  (fn: FindFn) =>
-  async (slug: string, locale: Locale): Promise<Post | never> => {
-    return match(await fn(slug, locale))
-      .with(Option.P.Some(P.select(P.when((record) => record.type === "Post"))), (post) => post)
-      .otherwise(() => notFound());
-  };
+export const Page = {
+  findBySlug: async (slug: string, locale: Locale) => {
+    const fileOption = await findMDXfileBySlug(slug, locale, "Page");
+
+    if (fileOption.isNone()) {
+      return Option.None();
+    }
+
+    const { file, id } = fileOption.get();
+    const page = await parseMDX({
+      slug,
+      locale,
+      filePath: `${PAGES_DIR}/${locale}/${file}`,
+      validationSchema: PAGE_ATTRIBUTES_SCHEMA,
+      documentType: "Page",
+      id,
+    });
+
+    return Option.Some(page);
+  },
+  all: async (locale: Locale) => {
+    const filesOption = await getMDXFilesByLocale(locale, "Page");
+
+    if (filesOption.isNone()) {
+      return Option.None();
+    }
+
+    const files = filesOption.get();
+
+    const pages: Page[] = [];
+
+    for (const { id, slug, file } of files) {
+      const page = await parseMDX({
+        slug,
+        locale,
+        filePath: `${PAGES_DIR}/${locale}/${file}`,
+        validationSchema: PAGE_ATTRIBUTES_SCHEMA,
+        documentType: "Page",
+        id,
+      });
+
+      pages.push(page);
+    }
+
+    return Option.Some(pages.sort((a, b) => sortDateDesc(a.publishedAt, b.publishedAt)));
+  },
+  latest: async (locale: Locale) => {
+    const pagesOption = await Page.all(locale);
+
+    if (pagesOption.isNone()) {
+      return Option.None();
+    }
+
+    return Option.Some(pagesOption.get()[0]);
+  },
+};
+
+export const findPostBySlugOrNotFound = async (slug: string, locale: Locale) => {
+  return match(await Post.findBySlug(slug, locale))
+    .with(Option.P.Some(P.select()), (post) => post)
+    .otherwise(() => notFound());
+};
+
+export const findPageBySlugOrNotFound = async (slug: string, locale: Locale) => {
+  return match(await Page.findBySlug(slug, locale))
+    .with(Option.P.Some(P.select()), (page) => page)
+    .otherwise(() => notFound());
+};

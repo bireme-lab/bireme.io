@@ -61,7 +61,11 @@
       "all_posts": "Tous nos articles"
     },
     "PostPage": {
-      "go_back": "Revenir en arrière",
+      "breadcrumb": {
+        "homepage": "Accueil"
+      }
+    },
+    "Page": {
       "breadcrumb": {
         "homepage": "Accueil"
       }
