@@ -69,8 +69,10 @@ const getFilename = (filePath: string) => {
   return FILE_NAME_SCHEMA.parse(path.basename(filePath));
 };
 
-const getMDXFiles = (filesDir: string) => {
-  return fs.readdirSync(filesDir).filter((file) => path.extname(file) === ".mdx");
+const getMDXFiles = async (filesDir: string) => {
+  const dir = await fs.readdir(filesDir);
+
+  return dir.filter((file) => path.extname(file) === ".mdx");
 };
 
 type MDXFile = {
@@ -79,55 +81,59 @@ type MDXFile = {
   file: string;
 };
 
-const findMDXfileBySlug = (
+const getFilesFromRecord = async (
+  locale: Locale,
+  documentType: DocumentType,
+): Promise<MDXFile[]> => {
+  if (Object.keys(FILES[documentType][locale]).length <= 0) {
+    await generateMDXFilesRecord();
+  }
+
+  return Object.entries(FILES[documentType][locale]).map(([id, { slug, file }]) => ({
+    id,
+    slug,
+    file,
+  }));
+};
+
+const findMDXfileBySlug = async (
   slug: string,
   locale: Locale,
   documentType: DocumentType,
-): Option<MDXFile> => {
-  for (const [id, { slug: fileSlug, file }] of Object.entries(FILES[documentType][locale])) {
-    if (fileSlug === slug) {
-      return Option.Some({
-        id,
-        slug: fileSlug,
-        file,
-      });
-    }
-  }
+): Promise<Option<MDXFile>> => {
+  const files = await getFilesFromRecord(locale, documentType);
+  const foundedFile = files.find((file) => file.slug === slug);
 
-  return Option.None();
+  return foundedFile ? Option.Some(foundedFile) : Option.None();
 };
 
-const findMDXfileById = (
+const findMDXfileById = async (
   id: string,
   locale: Locale,
   documentType: DocumentType,
-): Option<MDXFile> => {
-  for (const [fileId, { slug, file }] of Object.entries(FILES[documentType][locale])) {
-    if (fileId === id) {
-      return Option.Some({
-        id: fileId,
-        slug,
-        file,
-      });
-    }
-  }
+): Promise<Option<MDXFile>> => {
+  const files = await getFilesFromRecord(locale, documentType);
+  const foundedFile = files.find((file) => file.id === id);
 
-  return Option.None();
+  return foundedFile ? Option.Some(foundedFile) : Option.None();
 };
 
-const getMDXFilesByLocale = (locale: Locale, documentType: DocumentType) => {
-  return Option.Some(
-    Object.entries(FILES[documentType][locale]).map(([id, { slug, file }]) => ({ id, slug, file })),
-  );
+const getMDXFilesByLocale = async (
+  locale: Locale,
+  documentType: DocumentType,
+): Promise<Option<MDXFile[]>> => {
+  return Option.Some(await getFilesFromRecord(locale, documentType));
 };
 
-const readMDXFile = (filePath: string) => {
-  return fs.readFileSync(filePath, "utf-8");
+const readMDXFile = async (filePath: string) => {
+  return fs.readFile(filePath, "utf-8");
 };
 
-export const generateMDXFilesRecord = () => {
-  const frPosts = getMDXFiles(`${POSTS_DIR}/fr`);
-  const enPosts = getMDXFiles(`${POSTS_DIR}/en`);
+export const generateMDXFilesRecord = async () => {
+  const [fr, en] = await Promise.all([
+    getMDXFiles(`${POSTS_DIR}/fr`),
+    getMDXFiles(`${POSTS_DIR}/en`),
+  ]);
 
   const storeFiles = (locale: Locale, file: string) => {
     const fileName = getFilename(file);
@@ -142,11 +148,11 @@ export const generateMDXFilesRecord = () => {
     }
   };
 
-  for (const filePath of frPosts) {
+  for (const filePath of fr) {
     storeFiles("fr", filePath);
   }
 
-  for (const filePath of enPosts) {
+  for (const filePath of en) {
     storeFiles("en", filePath);
   }
 };
@@ -252,7 +258,7 @@ const getPostHeadings = (body: string) => {
   return headings;
 };
 
-const processPostMDX = ({
+const processPostMDX = async ({
   slug,
   locale,
   file,
@@ -263,18 +269,19 @@ const processPostMDX = ({
   id: string;
   file: string;
 }) => {
-  const rawContent = fm(readMDXFile(`${POSTS_DIR}/${locale}/${file}`));
+  const fileContent = await readMDXFile(`${POSTS_DIR}/${locale}/${file}`);
+  const rawContent = fm(fileContent);
   const attributes = POST_ATTRIBUTES_SCHEMA.parse(rawContent.attributes);
 
   const alternates = generateAlternates({
     fr:
       locale === "fr"
         ? `/fr/blog/${slug}`
-        : generatePostAlternateHref(findMDXfileById(id, "fr", "Post"), "fr"),
+        : generatePostAlternateHref(await findMDXfileById(id, "fr", "Post"), "fr"),
     en:
       locale === "en"
         ? `/en/blog/${slug}`
-        : generatePostAlternateHref(findMDXfileById(id, "en", "Post"), "en"),
+        : generatePostAlternateHref(await findMDXfileById(id, "en", "Post"), "en"),
   });
 
   return {
@@ -289,19 +296,20 @@ const processPostMDX = ({
 };
 
 export const Post = {
-  findBySlug: (slug: string, locale: Locale) => {
-    const fileOption = findMDXfileBySlug(slug, locale, "Post");
+  findBySlug: async (slug: string, locale: Locale) => {
+    const fileOption = await findMDXfileBySlug(slug, locale, "Post");
 
     if (fileOption.isNone()) {
       return Option.None();
     }
 
     const { file, id } = fileOption.get();
+    const postMDX = await processPostMDX({ slug, locale, file, id });
 
-    return Option.Some(processPostMDX({ slug, locale, file, id }));
+    return Option.Some(postMDX);
   },
-  all: (locale: Locale) => {
-    const filesOption = getMDXFilesByLocale(locale, "Post");
+  all: async (locale: Locale) => {
+    const filesOption = await getMDXFilesByLocale(locale, "Post");
 
     if (filesOption.isNone()) {
       return Option.None();
@@ -312,13 +320,15 @@ export const Post = {
     const posts: Post[] = [];
 
     for (const { id, slug, file } of files) {
-      posts.push(processPostMDX({ slug, locale, file, id }));
+      const postMDX = await processPostMDX({ slug, locale, file, id });
+
+      posts.push(postMDX);
     }
 
     return Option.Some(posts.sort((a, b) => sortDateDesc(a.publishedAt, b.publishedAt)));
   },
-  latest: (locale: Locale) => {
-    const postsOption = Post.all(locale);
+  latest: async (locale: Locale) => {
+    const postsOption = await Post.all(locale);
 
     if (postsOption.isNone()) {
       return Option.None();
@@ -332,8 +342,8 @@ type FindFn = typeof Post.findBySlug;
 
 export const findBySlugOrNotFound =
   (fn: FindFn) =>
-  (slug: string, locale: Locale): Post | never => {
-    return match(fn(slug, locale))
+  async (slug: string, locale: Locale): Promise<Post | never> => {
+    return match(await fn(slug, locale))
       .with(Option.P.Some(P.select(P.when((record) => record.type === "Post"))), (post) => post)
       .otherwise(() => notFound());
   };

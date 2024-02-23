@@ -22,13 +22,13 @@ type PostPageParams = {
 };
 
 export const generateStaticParams = async ({ params }: PostPageParams) => {
-  return match(MDX.Post.all(params.locale))
+  return match(await MDX.Post.all(params.locale))
     .with(Option.P.Some(P.select()), (posts) => posts.map((post) => post.slug))
     .otherwise(() => []);
 };
 
-export const generateMetadata = ({ params }: PostPageParams) => {
-  const post = MDX.Post.findBySlug(params.post_slug, params.locale);
+export const generateMetadata = async ({ params }: PostPageParams) => {
+  const post = await MDX.Post.findBySlug(params.post_slug, params.locale);
 
   return match(post)
     .with(Option.P.Some(P.select()), (post) => ({
@@ -44,7 +44,7 @@ const PostPage = async ({ params }: PostPageParams) => {
 
   const t = await getTranslations("pages.PostPage");
 
-  const post = MDX.findBySlugOrNotFound(MDX.Post.findBySlug)(params.post_slug, params.locale);
+  const post = await MDX.findBySlugOrNotFound(MDX.Post.findBySlug)(params.post_slug, params.locale);
   const isBodyStartingWithHeading = post.body.slice(0, 20).startsWith("##");
 
   const breadcrumbSteps: Step[] = [

@@ -100,8 +100,7 @@ const Home = async ({
 
   const t = await getTranslations("pages.Home");
 
-  const postsOption = MDX.Post.all(locale);
-  const latestPost = MDX.Post.latest(locale);
+  const postsOption = await MDX.Post.all(locale);
 
   return (
     <Container className={styles.container}>
@@ -120,8 +119,8 @@ const Home = async ({
           </Text>
         </div>
       </Grid>
-      {match(latestPost)
-        .with(Option.Some(P.select()), (post) => (
+      {match(postsOption)
+        .with(Option.Some(P.select()), (posts) => (
           <div className={styles.latestPostWrapper}>
             <Text variant="section-heading" markup="h3" className={styles.latestPostSectionHeading}>
               {t("latest_post")}
@@ -132,7 +131,7 @@ const Home = async ({
               />
             </Text>
             <Grid>
-              <LatestPost post={post} />
+              <LatestPost post={posts[0]} />
             </Grid>
           </div>
         ))
