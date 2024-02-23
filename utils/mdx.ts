@@ -11,12 +11,12 @@ import { authorSlugSchema } from "../content/authors";
 import { sortDateDesc } from "./date";
 import { Locale } from "./i18n";
 
-type DocumentType = "Post" | "Page";
-
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
 const PAGES_DIR = path.join(process.cwd(), "content/pages");
 
-const FILES: Record<
+export type DocumentType = "Post" | "Page";
+
+export const FILES: Record<
   DocumentType,
   Record<
     Locale,
@@ -38,6 +38,14 @@ const FILES: Record<
     en: {},
   },
 };
+
+export type Alternates =
+  | {
+      "x-default": string;
+      fr: string;
+      en: string;
+    }
+  | undefined;
 
 export type Post = {
   type: "Post";
@@ -68,7 +76,7 @@ export type Page = {
 // Schemas
 // ---------------------------------------- o
 
-const FILE_NAME_SCHEMA = z.string().regex(/^[a-z0-9-]+_[a-z0-9-]+\.mdx$/);
+export const FILE_NAME_SCHEMA = z.string().regex(/^[a-z0-9-]+_[a-z0-9-]+\.mdx$/);
 
 const SEO_SCHEMA = z.object({
   title: z.string(),
@@ -99,13 +107,13 @@ type ValidationSchema = PostValidationSchema | PageValidationSchema;
 // Generic functions
 // ---------------------------------------- o
 
-const getMDXSlug = (fileName: string) => {
+export const getMDXSlug = (fileName: string) => {
   const slugify = slugifyWithCounter();
 
   return slugify(fileName.replace(".mdx", "").split("_")[1]);
 };
 
-const getMDXId = (fileName: string) => {
+export const getMDXId = (fileName: string) => {
   return fileName.split("_")[0];
 };
 
@@ -113,7 +121,7 @@ const getFilename = (filePath: string) => {
   return FILE_NAME_SCHEMA.parse(path.basename(filePath));
 };
 
-const getMDXFiles = async (filesDir: string) => {
+export const getMDXFiles = async (filesDir: string) => {
   const dir = await fs.readdir(filesDir);
 
   return dir.filter((file) => path.extname(file) === ".mdx");
@@ -125,7 +133,7 @@ type MDXFile = {
   file: string;
 };
 
-const getFilesFromRecord = async (
+export const getFilesFromRecord = async (
   locale: Locale,
   documentType: DocumentType,
 ): Promise<MDXFile[]> => {
@@ -209,6 +217,8 @@ export const generateMDXFilesRecord = async () => {
   for (const filePath of pagesEn) {
     storeFiles("en", filePath, "Page");
   }
+
+  return FILES;
 };
 
 export const generateHref = (slug: string, locale: Locale, documentType: DocumentType) => {
@@ -222,29 +232,7 @@ export const generateHref = (slug: string, locale: Locale, documentType: Documen
     .exhaustive();
 };
 
-export type Alternates =
-  | {
-      "x-default": string;
-      fr: string;
-      en: string;
-    }
-  | {
-      "x-default": string;
-      fr: string;
-      en: undefined;
-    }
-  | {
-      "x-default": string;
-      fr: undefined;
-      en: string;
-    }
-  | {
-      "x-default": undefined;
-      fr: string | undefined;
-      en: string | undefined;
-    };
-
-const generateAlternates = (hrefs: Record<"fr" | "en", string | undefined>): Alternates => {
+export const generateAlternates = (hrefs: Record<Locale, string | undefined>): Alternates => {
   return match(hrefs)
     .with({ fr: P.string, en: P.string }, (alternates) => {
       return {
@@ -252,23 +240,8 @@ const generateAlternates = (hrefs: Record<"fr" | "en", string | undefined>): Alt
         "x-default": alternates.fr,
       };
     })
-    .with({ fr: P.string, en: P.nullish }, (alternates) => {
-      return {
-        ...alternates,
-        "x-default": alternates.fr,
-      };
-    })
-    .with({ fr: P.nullish, en: P.string }, (alternates) => {
-      return {
-        ...alternates,
-        "x-default": alternates.en,
-      };
-    })
-    .otherwise((alternates) => {
-      return {
-        ...alternates,
-        "x-default": undefined,
-      };
+    .otherwise(() => {
+      return undefined;
     });
 };
 
@@ -284,7 +257,7 @@ const generateAlternateHref = (
   return generateHref(fileOption.get().slug, locale, documentType);
 };
 
-const getHeadings = (body: string) => {
+export const getHeadings = (body: string) => {
   const headingsRegex = /(?<flag>#{1,6})\s+(?<content>.+)/g;
   const slugger = new GithubSlugger();
   const iterable = Array.from(body.matchAll(headingsRegex));

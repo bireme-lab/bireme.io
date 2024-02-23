@@ -6,13 +6,18 @@
   "dependencies": {
     "@sindresorhus/slugify": "2.2.1",
     "@swan-io/boxed": "2.0.0",
+    "@testing-library/react": "^14.2.1",
     "@vanilla-extract/dynamic": "2.1.0",
     "@vanilla-extract/recipes": "0.5.1",
+    "@vanilla-extract/vite-plugin": "^4.0.4",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/ui": "^1.3.1",
     "dayjs": "1.11.10",
     "front-matter": "^4.0.2",
     "fs-extra": "11.2.0",
     "geist": "1.2.2",
     "github-slugger": "^2.0.0",
+    "jsdom": "^24.0.0",
     "next": "14.1.0",
     "next-intl": "3.5.4",
     "next-mdx-remote": "^4.4.1",
@@ -30,6 +35,7 @@
     "svgo": "3.2.0",
     "ts-pattern": "5.0.6",
     "validator": "13.11.0",
+    "vitest": "^1.3.1",
     "zod": "3.22.4"
   },
   "devDependencies": {

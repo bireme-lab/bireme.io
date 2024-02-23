@@ -14,10 +14,10 @@ storybook: build-icons-sprite generate-images-data
 	bun storybook dev -p 6006
 
 test:
-	bun test
+	bun vitest run
 
-test-watch:
-	bun --watch test
+test-dev:
+	bun vitest --ui
 
 lint:
 	bun next lint
@@ -28,7 +28,7 @@ typecheck:
 lint-staged:
 	bun lint-staged
 
-storybook-build:
+build-storybook: build-icons-sprite generate-images-data
 	bun build-storybook
 
 build-icons-sprite:
