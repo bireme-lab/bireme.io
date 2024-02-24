@@ -3,13 +3,17 @@ import "server-only";
 import { cx } from "@/styles/mixins";
 import { getTranslations } from "next-intl/server";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import { ImageProps } from "next/image";
 import type { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from "react";
 import rehypePrettyCode, { type Options as RehypePrettyCodeOptions } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { match } from "ts-pattern";
+import { z } from "zod";
 import { Divider } from "../Divider/Divider";
 import { Icon } from "../Icon/Icon";
+import { Image, LocalPublicImage } from "../Image/Image";
+import { data } from "../Image/data";
 import { Text, type HeadingLevel } from "../Text/Text";
 import * as styles from "./CustomMDX.css";
 
@@ -86,6 +90,8 @@ const Blockquote: React.FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
+Blockquote.displayName = "Blockquote";
+
 const PreTitle: React.FC<PropsWithChildren> = ({ children, ...props }) => {
   return (
     <div className={styles.preTitle}>
@@ -95,6 +101,28 @@ const PreTitle: React.FC<PropsWithChildren> = ({ children, ...props }) => {
     </div>
   );
 };
+
+PreTitle.displayName = "PreTitle";
+
+const imgSchema = z.object({
+  src: z.string(),
+  alt: z.string(),
+  title: z.string(),
+});
+
+const MDXImage: React.FC<
+  PropsWithChildren<{ src: string; alt: string; title: string } & Exclude<ImageProps, "src">>
+> = ({ children, src, alt, title, placeholder, ...props }) => {
+  const img = imgSchema.parse(props);
+
+  if (!data[img.src as keyof typeof data]) {
+    throw new Error(`Image not found: ${img.src}`);
+  }
+
+  return <Image src={img.src as keyof typeof data} alt={img.alt} title={img.title} {...props} />;
+};
+
+MDXImage.displayName = "MDXImage";
 
 export const CustomMDX: React.FC<MDXRemoteProps> = async (props) => {
   const components: MDXRemoteProps["components"] = {
@@ -124,9 +152,37 @@ export const CustomMDX: React.FC<MDXRemoteProps> = async (props) => {
       return <Text variant="small" markup="figcaption" {...props} color="primary-700" />;
     },
     pre: (props) => <pre className={styles.pre} {...props} />,
+    img: ({ src, alt, title, width, height, ...props }) => {
+      const img = imgSchema.parse({ src, alt, title });
+
+      if (!data[img.src as keyof typeof data]) {
+        throw new Error(`Image not found: ${img.src}`);
+      }
+
+      return (
+        <Image
+          src={img.src as LocalPublicImage}
+          alt={img.alt}
+          title={img.title}
+          width={1024}
+          height={512}
+          style={{
+            objectFit: "cover",
+          }}
+          sizes="(min-width: 768px) 1024px, 512px"
+          {...props}
+        />
+      );
+    },
+    table: (props) => (
+      <div className={styles.tableContainer}>
+        <table className={styles.table} {...props} />
+      </div>
+    ),
     hr: Divider,
     Callout,
     blockquote: Blockquote,
+    Image: Image,
   };
 
   return (

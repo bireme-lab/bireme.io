@@ -79,6 +79,7 @@ export const blockquote = style({
   borderRadius: vars.radii[2],
   backgroundColor: vars.color.neutral[900],
   borderLeft: `2px solid ${vars.color.secondary[500]}`,
+  // fontStyle: "italic",
 });
 
 export const pre = style({
@@ -91,7 +92,7 @@ export const pre = style({
 export const preTitle = style({
   display: "flex",
   alignItems: "center",
-  padding: vars.sizes[20],
+  padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
   backgroundColor: vars.color.neutral[900],
 });
 
@@ -159,4 +160,50 @@ globalStyle(`${pre} mark`, {
   background: vars.color.neutral[700],
   boxShadow: `0 0 0 4px ${vars.color.neutral[700]}`,
   borderRadius: vars.radii[2],
+});
+
+export const image = style({
+  position: "relative",
+  width: "100%",
+  height: "400px",
+});
+
+export const tableContainer = style({
+  width: "100%",
+  borderRadius: vars.radii[2],
+  overflow: "hidden",
+});
+
+export const table = style({
+  display: "table",
+  // tableLayout: "fixed",
+  borderSpacing: "0",
+  width: "100%",
+  overflowX: "auto",
+});
+
+globalStyle(`${table} thead`, {
+  // backgroundColor: vars.color.neutral[900],
+});
+
+globalStyle(`${table} thead th`, {
+  // borderBottom: `1px solid ${vars.color.neutral[800]}`,
+  color: vars.color.primary[500],
+});
+
+globalStyle(`${table} tbody`, {
+  // backgroundColor: vars.color.neutral[900],
+});
+
+globalStyle(`${table} tbody td`, {
+  color: vars.color.primary[700],
+  borderTop: `1px solid ${vars.color.primary[900]}`,
+});
+
+globalStyle(`${table} th, td`, {
+  fontFamily: vars.font.sans,
+  fontSize: "0.8125rem",
+  fontWeight: 400,
+  lineHeight: "1.1875rem",
+  padding: `${vars.sizes[8]} ${vars.sizes[12]}`,
 });

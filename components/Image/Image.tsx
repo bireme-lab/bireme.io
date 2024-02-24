@@ -3,7 +3,7 @@ import { P, match } from "ts-pattern";
 import { data } from "./data";
 
 type StaticImport = StaticImageData | { default: StaticImageData };
-type LocalPublicImage = keyof typeof data;
+export type LocalPublicImage = keyof typeof data;
 export type ImageSrc = StaticImport | LocalPublicImage;
 
 export type ImageProps = {
