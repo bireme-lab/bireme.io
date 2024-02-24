@@ -51,6 +51,6 @@ globalStyle("input[type='text'], input[type='email']", {
 });
 
 globalStyle("::selection", {
-  backgroundColor: vars.color.secondary[500],
-  color: vars.color.neutral[900],
+  backgroundColor: vars.color.primary[900],
+  // color: vars.color.neutral[900],
 });

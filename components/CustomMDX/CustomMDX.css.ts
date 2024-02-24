@@ -1,5 +1,5 @@
 import { transitionDuration, vars } from "@/styles/theme/index.css";
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 export const listItem = style({
   display: "list-item",
@@ -43,4 +43,120 @@ export const headingLinkIcon = style({
       opacity: 1,
     },
   },
+});
+
+export const callout = style({
+  display: "flex",
+  alignItems: "center",
+  gap: vars.sizes[4],
+  padding: vars.sizes[16],
+  borderRadius: vars.radii[2],
+  backgroundColor: vars.color.neutral[900],
+});
+
+export const calloutEmoji = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexShrink: 0,
+  marginRight: vars.sizes[12],
+});
+
+export const calloutChildrenContainer = style({
+  flex: 1,
+});
+
+globalStyle(`${calloutChildrenContainer} *`, {
+  fontSize: "0.8125rem!important",
+  lineHeight: "1.1875rem!important",
+});
+
+export const blockquote = style({
+  display: "flex",
+  alignItems: "center",
+  gap: vars.sizes[4],
+  padding: `${vars.sizes[16]} ${vars.sizes[16]} ${vars.sizes[16]} ${vars.sizes[24]}`,
+  borderRadius: vars.radii[2],
+  backgroundColor: vars.color.neutral[900],
+  borderLeft: `2px solid ${vars.color.secondary[500]}`,
+});
+
+export const pre = style({
+  paddingTop: vars.sizes[20],
+  paddingBottom: vars.sizes[20],
+  backgroundColor: vars.color.neutral[900],
+  overflowX: "auto",
+});
+
+export const preTitle = style({
+  display: "flex",
+  alignItems: "center",
+  padding: vars.sizes[20],
+  backgroundColor: vars.color.neutral[900],
+});
+
+export const code = style({
+  fontFamily: vars.font.mono,
+  fontSize: "0.8125rem",
+  lineHeight: "1.5625rem",
+  borderRadius: vars.radii[2],
+  color: vars.color.primary[200],
+
+  "::before": {
+    content: "`",
+  },
+
+  "::after": {
+    content: "`",
+  },
+});
+
+globalStyle(`figure[data-rehype-pretty-code-figure=""]`, {
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.sizes[2],
+  borderRadius: vars.radii[2],
+});
+
+globalStyle(`${pre} code`, {
+  counterReset: "step",
+  counterIncrement: "step 0",
+});
+
+globalStyle(`${pre} code::before`, {
+  content: "",
+});
+
+globalStyle(`${pre} code::after`, {
+  content: "",
+});
+
+globalStyle(`${pre} [data-line]`, {
+  fontSize: "0.8125rem",
+  fontWeight: 500,
+  lineHeight: "1.5625rem",
+  fontFamily: vars.font.mono,
+  paddingLeft: vars.sizes[24],
+  paddingRight: vars.sizes[24],
+});
+
+globalStyle(`${pre} [data-line]::before`, {
+  content: "counter(step)",
+  counterIncrement: "step",
+  width: "1rem",
+  marginRight: "1.5rem",
+  display: "inline-block",
+  textAlign: "right",
+  color: vars.color.neutral[600],
+});
+
+globalStyle(`${pre} [data-highlighted-line]`, {
+  background: vars.color.neutral[700],
+  boxShadow: `0 0 0 2px ${vars.color.neutral[700]}`,
+});
+
+globalStyle(`${pre} mark`, {
+  background: vars.color.neutral[700],
+  boxShadow: `0 0 0 4px ${vars.color.neutral[700]}`,
+  borderRadius: vars.radii[2],
 });

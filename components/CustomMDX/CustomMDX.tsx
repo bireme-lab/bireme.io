@@ -3,9 +3,12 @@ import "server-only";
 import { cx } from "@/styles/mixins";
 import { getTranslations } from "next-intl/server";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import type { DetailedHTMLProps, HTMLAttributes } from "react";
+import type { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from "react";
+import rehypePrettyCode, { type Options as RehypePrettyCodeOptions } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 import { match } from "ts-pattern";
+import { Divider } from "../Divider/Divider";
 import { Icon } from "../Icon/Icon";
 import { Text, type HeadingLevel } from "../Text/Text";
 import * as styles from "./CustomMDX.css";
@@ -60,7 +63,40 @@ const MDXHeading: React.FC<MDXHeadingProps> = async ({ level, color, ...props })
   );
 };
 
-export const CustomMDX: React.FC<MDXRemoteProps> = (props) => {
+type CalloutProps = PropsWithChildren<{
+  emoji: string;
+}>;
+
+const Callout: React.FC<CalloutProps> = (props) => {
+  return (
+    <div className={styles.callout}>
+      <div className={styles.calloutEmoji}>{props.emoji}</div>
+      <blockquote className={styles.calloutChildrenContainer}>{props.children}</blockquote>
+    </div>
+  );
+};
+
+Callout.displayName = "Callout";
+
+const Blockquote: React.FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <div className={styles.blockquote}>
+      <blockquote className={styles.calloutChildrenContainer}>{children}</blockquote>
+    </div>
+  );
+};
+
+const PreTitle: React.FC<PropsWithChildren> = ({ children, ...props }) => {
+  return (
+    <div className={styles.preTitle}>
+      <Text variant="small" markup="figcaption" color="primary-500" {...props}>
+        {children}
+      </Text>
+    </div>
+  );
+};
+
+export const CustomMDX: React.FC<MDXRemoteProps> = async (props) => {
   const components: MDXRemoteProps["components"] = {
     h1: (props) => <MDXHeading level={1} {...props} />,
     h2: (props) => <MDXHeading level={2} {...props} />,
@@ -69,6 +105,9 @@ export const CustomMDX: React.FC<MDXRemoteProps> = (props) => {
     h5: (props) => <MDXHeading level={5} {...props} />,
     h6: (props) => <MDXHeading level={6} {...props} />,
     p: (props) => <Text variant="body" markup="p" {...props} color="primary-600" />,
+    a: (props) => (
+      <Text variant="body" href={props.href} {...props} color="primary-500" underlined={true} />
+    ),
     ol: (props) => <ol className={styles.list} {...props} />,
     ul: (props) => <ul className={styles.list} {...props} />,
     li: (props) => <li className={styles.listItem} {...props} />,
@@ -77,7 +116,17 @@ export const CustomMDX: React.FC<MDXRemoteProps> = (props) => {
     em: (props) => <Text variant="body" markup="em" {...props} color="primary-600" />,
     s: (props) => <Text variant="body" markup="s" {...props} color="primary-600" />,
     small: (props) => <Text variant="small" markup="small" {...props} color="primary-600" />,
-    figcaption: (props) => <Text variant="small" markup="small" {...props} color="primary-700" />,
+    code: (props) => <code className={styles.code} {...props} />,
+    figcaption: (props) => {
+      if (Object.defineProperty(props, "data-rehype-pretty-code-title", { value: "" })) {
+        return <PreTitle {...props} />;
+      }
+      return <Text variant="small" markup="figcaption" {...props} color="primary-700" />;
+    },
+    pre: (props) => <pre className={styles.pre} {...props} />,
+    hr: Divider,
+    Callout,
+    blockquote: Blockquote,
   };
 
   return (
@@ -86,7 +135,18 @@ export const CustomMDX: React.FC<MDXRemoteProps> = (props) => {
       components={{ ...components, ...(props.components || {}) }}
       options={{
         mdxOptions: {
-          rehypePlugins: [rehypeSlug],
+          remarkPlugins: [remarkGfm],
+          rehypePlugins: [
+            rehypeSlug,
+            [
+              // @ts-expect-error pain in the ass for types with plugins
+              rehypePrettyCode,
+              {
+                theme: "vesper",
+                keepBackground: false,
+              } as RehypePrettyCodeOptions,
+            ],
+          ],
           ...props.options?.mdxOptions,
         },
         ...props.options,

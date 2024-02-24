@@ -88,6 +88,10 @@ export const s = style({
   textDecoration: "line-through",
 });
 
+export const sup = style({
+  verticalAlign: "sup",
+});
+
 export const underlinedLink = style({
   fontWeight: 500,
   textDecoration: "underline",

@@ -1,5 +1,5 @@
 import { vars } from "@/styles/theme/index.css";
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 
 export const html = style({
   backgroundColor: vars.color.neutral[800],
@@ -25,6 +25,17 @@ export const lighContainer = style({
   userSelect: "none",
 });
 
+const lightAnimation = keyframes({
+  "0%": {
+    opacity: 0.1,
+    filter: "blur(100px)",
+  },
+  "100%": {
+    opacity: 0.2,
+    filter: "blur(150px)",
+  },
+});
+
 export const light = style({
   pointerEvents: "none",
   userSelect: "none",
@@ -40,6 +51,8 @@ export const light = style({
   opacity: 0.1,
   borderRadius: "50%",
   filter: "blur(150px)",
+  animation: `${lightAnimation} 5s infinite alternate`,
+  animationTimingFunction: "ease-out",
 });
 
 export const main = style({

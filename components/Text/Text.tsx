@@ -25,6 +25,7 @@ type TextElementType =
   | "strong"
   | "b"
   | "s"
+  | "sup"
   | "figcaption";
 
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -107,8 +108,11 @@ export const Text: React.FC<Props> = ({
         .with({ markup: "s", children: P.string }, ({ markup, ...props }) => (
           <s className={cx(styles.s, colorClass, className)} style={style} {...props} />
         ))
+        .with({ markup: "sup", children: P.string }, ({ markup, ...props }) => (
+          <sup className={cx(styles.sup, colorClass, className)} style={style} {...props} />
+        ))
         .with({ markup: "figcaption", children: P.string }, ({ markup, ...props }) => (
-          <figcaption className={cx(colorClass, className)} style={style} {...props} />
+          <figcaption className={classNames} style={style} {...props} />
         ))
         .with({ href: P.string }, (typedProps) => (
           <LinkComponent
