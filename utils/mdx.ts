@@ -10,6 +10,7 @@ import { z } from "zod";
 import { authorSlugSchema } from "../content/authors";
 import { sortDateDesc } from "./date";
 import { Locale } from "./i18n";
+import { ORIGIN } from "./vars";
 
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
 const PAGES_DIR = path.join(process.cwd(), "content/pages");
@@ -88,6 +89,7 @@ const POST_ATTRIBUTES_SCHEMA = z.object({
   publishedAt: z.string(),
   modifiedAt: z.string().optional(),
   authors: z.array(authorSlugSchema),
+  tags: z.array(z.string()),
   seo: SEO_SCHEMA,
 });
 
@@ -236,7 +238,8 @@ export const generateAlternates = (hrefs: Record<Locale, string | undefined>): A
   return match(hrefs)
     .with({ fr: P.string, en: P.string }, (alternates) => {
       return {
-        ...alternates,
+        fr: `${ORIGIN}${alternates.fr}`,
+        en: `${ORIGIN}${alternates.en}`,
         "x-default": alternates.fr,
       };
     })

@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Bireme Lab",
+    "description": "Bireme is a software development company that specializes in building web applications and websites."
+  },
   "components": {
     "Checkbox": {
       "ticked": "Checkbox ticked"

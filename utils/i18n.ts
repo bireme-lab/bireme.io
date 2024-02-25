@@ -1,5 +1,6 @@
 import { getRequestConfig } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { ORIGIN } from "./vars";
 
 export const i18n = {
   defaultLocale: "fr",
@@ -22,3 +23,11 @@ export default getRequestConfig(async ({ locale }) => {
     messages: (await import(`../messages/${locale}.json`)).default,
   };
 });
+
+export const getUrl = (locale: Locale, path: string) => {
+  if (path === "/") {
+    return `${ORIGIN}/${locale}`;
+  }
+
+  return `${ORIGIN}/${locale}/${path}`;
+};

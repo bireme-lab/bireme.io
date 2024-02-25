@@ -28,6 +28,10 @@ export const formatDateForSchema = (date: string): string => {
   return dayjs(date).format("YYYY-MM-DD");
 };
 
+export const formatDateForSitemap = (date: string): string => {
+  return dayjs(date).toISOString();
+};
+
 export const formatDateForDisplay = (date: string): string => {
   return dayjs(date).format("LL");
 };

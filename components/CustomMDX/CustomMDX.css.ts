@@ -15,6 +15,11 @@ export const listItem = style({
   },
 });
 
+globalStyle(`${listItem} strong, b`, {
+  fontWeight: 500,
+  color: vars.color.primary[500],
+});
+
 export const list = style({
   marginLeft: vars.sizes[12],
 });
@@ -80,6 +85,13 @@ export const blockquote = style({
   backgroundColor: vars.color.neutral[900],
   borderLeft: `2px solid ${vars.color.secondary[500]}`,
   // fontStyle: "italic",
+});
+
+export const paragraph = style({});
+
+globalStyle(`${paragraph} strong, b`, {
+  fontWeight: 500,
+  color: vars.color.primary[500],
 });
 
 export const pre = style({

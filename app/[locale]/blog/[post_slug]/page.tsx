@@ -6,10 +6,14 @@ import { Grid } from "@/components/Grid/Grid";
 import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
 import { TableOfContent } from "@/components/TableOfContent/TableOfContent";
 import { Text } from "@/components/Text/Text";
+import { authors } from "@/content/authors";
+import { getMeta } from "@/content/meta";
 import { cx } from "@/styles/mixins";
 import { Locale } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
+import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
+import { Metadata } from "next";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
@@ -27,13 +31,38 @@ export const generateStaticParams = async ({ params }: PostPageParams) => {
     .otherwise(() => []);
 };
 
-export const generateMetadata = async ({ params }: PostPageParams) => {
+export const generateMetadata = async ({ params }: PostPageParams): Promise<Metadata> => {
   const post = await MDX.Post.findBySlug(params.post_slug, params.locale);
+  const meta = await getMeta();
 
   return match(post)
-    .with(Option.P.Some(P.select()), (post) => ({
-      title: post.title,
-    }))
+    .with(Option.P.Some(P.select()), (post) => {
+      const url = `${ORIGIN}${MDX.generateHref(post.slug, params.locale, "Post")}`;
+
+      return {
+        title: post.seo.title,
+        description: post.seo.description,
+        alternates: {
+          canonical: url,
+          languages: post.alternates,
+        },
+        twitter: {
+          ...meta.twitter,
+          title: post.seo.title,
+          description: post.seo.description,
+        },
+        openGraph: {
+          ...meta.openGraph,
+          title: post.seo.title,
+          description: post.seo.description,
+          url,
+        },
+        authors: post.authors.map((author) => ({
+          name: authors[author].fullName,
+          url: authors[author].twitterProfileUrl,
+        })),
+      } as Metadata;
+    })
     .otherwise(() => {
       throw new Error(`Post not found for slug: ${params.post_slug}`);
     });

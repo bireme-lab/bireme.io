@@ -132,7 +132,9 @@ export const CustomMDX: React.FC<MDXRemoteProps> = async (props) => {
     h4: (props) => <MDXHeading level={4} {...props} />,
     h5: (props) => <MDXHeading level={5} {...props} />,
     h6: (props) => <MDXHeading level={6} {...props} />,
-    p: (props) => <Text variant="body" markup="p" {...props} color="primary-600" />,
+    p: (props) => (
+      <Text variant="body" markup="p" {...props} className={styles.paragraph} color="primary-600" />
+    ),
     a: (props) => (
       <Text variant="body" href={props.href} {...props} color="primary-500" underlined={true} />
     ),
