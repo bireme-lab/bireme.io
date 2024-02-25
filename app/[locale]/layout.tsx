@@ -23,8 +23,12 @@ const GloriaHallelujah = Gloria_Hallelujah({
   subsets: ["latin"],
 });
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  return await getMeta();
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { locale: Locale };
+}): Promise<Metadata> => {
+  return await getMeta(params.locale);
 };
 
 export const generateStaticParams = async () => {

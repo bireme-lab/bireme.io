@@ -33,7 +33,7 @@ export const generateStaticParams = async ({ params }: PostPageParams) => {
 
 export const generateMetadata = async ({ params }: PostPageParams): Promise<Metadata> => {
   const post = await MDX.Post.findBySlug(params.post_slug, params.locale);
-  const meta = await getMeta();
+  const meta = await getMeta(params.locale);
 
   return match(post)
     .with(Option.P.Some(P.select()), (post) => {

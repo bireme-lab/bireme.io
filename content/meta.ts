@@ -1,8 +1,9 @@
+import { Locale } from "@/utils/i18n";
 import { ORIGIN } from "@/utils/vars";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-export const getMeta = async (): Promise<Metadata> => {
+export const getMeta = async (locale: Locale): Promise<Metadata> => {
   const t = await getTranslations("meta");
 
   return {
@@ -15,14 +16,6 @@ export const getMeta = async (): Promise<Metadata> => {
       creator: "@biremelab",
       title: t("title"),
       description: t("description"),
-      images: [
-        {
-          url: `${ORIGIN}/images/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: t("title"),
-        },
-      ],
     },
     openGraph: {
       type: "website",
@@ -30,14 +23,7 @@ export const getMeta = async (): Promise<Metadata> => {
       siteName: "bireme.io",
       title: t("title"),
       description: t("description"),
-      images: [
-        {
-          url: `${ORIGIN}/images/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: t("title"),
-        },
-      ],
+      locale,
     },
     publisher: "Bireme Lab",
   };

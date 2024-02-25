@@ -14,7 +14,7 @@ export async function GET(request: Request) {
     .with({ pathname: P.string.includes("/en/") }, () => i18n.locales["1"])
     .otherwise(() => i18n.defaultLocale);
 
-  const meta = await getMeta();
+  const meta = await getMeta(locale);
 
   const feed = new RSS({
     title: meta.title as string,
