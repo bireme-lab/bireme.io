@@ -40,6 +40,28 @@
         "privacy_policy": "Politique de confidentialité"
       }
     },
+    "NewsletterForm": {
+      "headline": "Notre newsletter est le moyen idéal pour ne rien manquer de nos dernières actualités",
+      "email": {
+        "label": "Mail address",
+        "placeholder": "louis.pasteur@mail.com",
+        "empty": "This field is required",
+        "invalid": "Please enter a valid email address"
+      },
+      "optInContent": {
+        "label": "News from the company and posts from the blog"
+      },
+      "optInMarketing": {
+        "label": "Marketing content and exclusive offers related to our products and services"
+      },
+      "subscribe": "Subscribe",
+      "disclaimer": "En complétant et en envoyant vos données, vous acceptez notre <privacy>politique de confidentialité</privacy>. Toutes les données sont gardées confidentielles et nous respectons scrupuleusement <gdpr>les règles RGPD en matière de courriel commercial.</gdpr> (<asterisk>*</asterisk> sont des champs obligatoires)"
+    },
+    "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential and we scrupulously respect <gdpr>GDPR rules regarding commercial email.</gdpr> (<asterisk>*</asterisk> are required fields)",
+    "legal_links": {
+      "legal_notice": "Legal notice",
+      "privacy_policy": "Politique de confidentialité"
+    },
     "NewsBanner": {
       "new": "New"
     },
@@ -55,6 +77,9 @@
     },
     "MDXHeading": {
       "link_to": "Link to {id}"
+    },
+    "Sidepanel": {
+      "close": "Close"
     }
   },
   "pages": {

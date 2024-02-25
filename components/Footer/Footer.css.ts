@@ -54,25 +54,6 @@ export const form = responsiveStyle({
   desktop: columnCount(4),
 });
 
-export const input = style({
-  marginBottom: vars.sizes[12],
-});
-
-export const submitButton = style({
-  marginTop: vars.sizes[12],
-});
-
-export const mention = responsiveStyle({
-  mobile: [
-    columnCount(2),
-    {
-      display: "inline",
-    },
-  ],
-  tablet: columnCount(3),
-  desktop: columnCount(4),
-});
-
 export const legalLinks = responsiveStyle({
   mobile: {
     display: "flex",
@@ -84,10 +65,4 @@ export const legalLinks = responsiveStyle({
     flexDirection: "row",
     gap: vars.sizes[16],
   },
-});
-
-export const inputsWrapper = style({
-  display: "flex",
-  flexDirection: "column",
-  gap: vars.sizes[8],
 });

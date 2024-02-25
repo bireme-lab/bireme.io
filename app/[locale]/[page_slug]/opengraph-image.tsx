@@ -12,7 +12,7 @@ const getPost = async (slug: string, locale: Locale) => {
   return match(await MDX.Post.findBySlug(slug, locale))
     .with(Option.P.Some(P.select()), (post) => post)
     .otherwise(() => {
-      throw new Error(`Post not found for slug: ${slug}`);
+      throw new Error(`Page not found for slug: ${slug}`);
     });
 };
 
