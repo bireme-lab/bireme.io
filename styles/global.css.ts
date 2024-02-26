@@ -54,3 +54,5 @@ globalStyle("::selection", {
   backgroundColor: vars.color.secondary[500],
   color: vars.color.neutral[900],
 });
+
+globalStyle(".grecaptcha-badge", { visibility: "hidden" });

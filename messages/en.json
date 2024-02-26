@@ -18,23 +18,6 @@
     },
     "Footer": {
       "homepage": "Home",
-      "headline": "Our newsletter is the ideal way to keep up to date with our latest news.",
-      "form": {
-        "email": {
-          "label": "Mail address",
-          "placeholder": "louis.pasteur@mail.com",
-          "empty": "This field is required",
-          "invalid": "Please enter a valid email address"
-        },
-        "optInContent": {
-          "label": "News from the company and posts from the blog"
-        },
-        "optInMarketing": {
-          "label": "Marketing content and exclusive offers related to our products and services"
-        },
-        "subscribe": "Subscribe"
-      },
-      "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential and we scrupulously respect <gdpr>GDPR rules regarding commercial email.</gdpr> (<asterisk>*</asterisk> are required fields)",
       "legal_links": {
         "legal_notice": "Legal notice",
         "privacy_policy": "Politique de confidentialité"
@@ -45,7 +28,7 @@
       "email": {
         "label": "Mail address",
         "placeholder": "louis.pasteur@mail.com",
-        "empty": "This field is required",
+        "empty": "Email field is required",
         "invalid": "Please enter a valid email address"
       },
       "optInContent": {
@@ -54,8 +37,14 @@
       "optInMarketing": {
         "label": "Marketing content and exclusive offers related to our products and services"
       },
+      "fetch_error": "An error occurred while sending your data. Please try again later.",
+      "recaptcha_error": "reCAPTCHA verification failed. Please try again",
+      "server_error": "An error occurred while sending your data. Please try again later.",
       "subscribe": "Subscribe",
-      "disclaimer": "En complétant et en envoyant vos données, vous acceptez notre <privacy>politique de confidentialité</privacy>. Toutes les données sont gardées confidentielles et nous respectons scrupuleusement <gdpr>les règles RGPD en matière de courriel commercial.</gdpr> (<asterisk>*</asterisk> sont des champs obligatoires)"
+      "required_fields": "<asterisk>*</asterisk> are required fields",
+      "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential.",
+      "google_disclaimer": "This site is protected by reCAPTCHA and the Google <privacy>Privacy Policy</privacy> and <terms>Terms of Service</terms> apply.",
+      "email_sent": "You will receive a confirmation email shortly"
     },
     "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential and we scrupulously respect <gdpr>GDPR rules regarding commercial email.</gdpr> (<asterisk>*</asterisk> are required fields)",
     "legal_links": {

@@ -12,10 +12,6 @@ export const input = style({
   marginBottom: vars.sizes[12],
 });
 
-export const submitButton = style({
-  marginTop: vars.sizes[12],
-});
-
 export const mention = responsiveStyle({
   mobile: [
     columnCount(2),
@@ -28,6 +24,19 @@ export const mention = responsiveStyle({
 });
 
 export const inputsWrapper = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.sizes[8],
+});
+
+export const buttonWrapper = style({
+  marginTop: vars.sizes[12],
+  display: "flex",
+  alignItems: "center",
+  gap: vars.sizes[12],
+});
+
+export const mentionsWrapper = style({
   display: "flex",
   flexDirection: "column",
   gap: vars.sizes[8],

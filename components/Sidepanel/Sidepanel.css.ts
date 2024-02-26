@@ -99,7 +99,7 @@ export const container = recipe({
       gap: vars.sizes[24],
     },
     tablet: {
-      width: "400px",
+      width: "450px",
     },
   }),
   variants: {

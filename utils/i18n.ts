@@ -1,11 +1,14 @@
 import { getRequestConfig } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { z } from "zod";
 import { ORIGIN } from "./vars";
 
 export const i18n = {
   defaultLocale: "fr",
   locales: ["fr", "en"],
 } as const;
+
+export const localeEnum = z.enum(["fr", "en"]);
 
 export const isLocale = (locale: string): locale is Locale => {
   return i18n.locales.includes(locale as Locale);

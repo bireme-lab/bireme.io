@@ -1,7 +1,7 @@
 import path from "path";
 import { describe, expect, test } from "vitest";
 import { z } from "zod";
-import { Locale } from "./i18n";
+import { Locale, localeEnum } from "./i18n";
 import {
   DocumentType,
   FILES,
@@ -14,7 +14,6 @@ import {
   getMDXSlug,
 } from "./mdx";
 
-const localeEnumSchema = z.enum(["fr", "en"]);
 const documentTypeSchema = z.enum(["Post", "Page"]);
 
 describe("getMDXSlug", () => {
@@ -57,7 +56,7 @@ describe("generateMDXFilesRecord", () => {
     const recordSchema = z.record(
       documentTypeSchema,
       z.record(
-        localeEnumSchema,
+        localeEnum,
         z.record(
           z.string(),
           z.object({
