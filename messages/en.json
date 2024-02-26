@@ -20,21 +20,18 @@
       "homepage": "Home",
       "legal_links": {
         "legal_notice": "Legal notice",
-        "privacy_policy": "Politique de confidentialité"
+        "privacy_policy": "Privacy policy"
       }
     },
     "NewsletterForm": {
-      "headline": "Notre newsletter est le moyen idéal pour ne rien manquer de nos dernières actualités",
+      "headline": "Our newsletter is the ideal way to keep up to date with our latest news.",
       "email": {
         "label": "Mail address",
         "placeholder": "louis.pasteur@mail.com",
         "empty": "Email field is required",
         "invalid": "Please enter a valid email address"
       },
-      "optInContent": {
-        "label": "News from the company and posts from the blog"
-      },
-      "optInMarketing": {
+      "optIn": {
         "label": "Marketing content and exclusive offers related to our products and services"
       },
       "fetch_error": "An error occurred while sending your data. Please try again later.",
@@ -43,14 +40,10 @@
       "subscribe": "Subscribe",
       "required_fields": "<asterisk>*</asterisk> are required fields",
       "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential.",
-      "google_disclaimer": "This site is protected by reCAPTCHA and the Google <privacy>Privacy Policy</privacy> and <terms>Terms of Service</terms> apply.",
+      "google_disclaimer": "This site is protected by reCAPTCHA and the Google <privacy>privacy policy</privacy> and <terms>terms of service</terms> apply.",
       "email_sent": "You will receive a confirmation email shortly",
-      "success": "You are now subscribed to our newsletter"
-    },
-    "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential and we scrupulously respect <gdpr>GDPR rules regarding commercial email.</gdpr> (<asterisk>*</asterisk> are required fields)",
-    "legal_links": {
-      "legal_notice": "Legal notice",
-      "privacy_policy": "Politique de confidentialité"
+      "success": "You are now subscribed to our newsletter",
+      "already_subscribed": "You are already subscribed to our newsletter"
     },
     "NewsBanner": {
       "new": "New"

@@ -1,19 +1,21 @@
 import { localeEnum } from "@/utils/i18n";
+import { request } from "@/utils/request";
 import { Result } from "@swan-io/boxed";
 import { NextResponse } from "next/server";
+import { P, match } from "ts-pattern";
 import { z } from "zod";
 
 export type NewsletterSubscriptionResponseSuccess = {
-  status: "success";
+  status: "success" | "already_subscribed";
   message: "Ok";
 };
 
 export type NewsletterSubscriptionResponseError = {
   status: "error";
-  code: "invalid_request_body" | "recaptcha_validation_error" | "unauthorized";
+  code: "invalid_request_body" | "recaptcha_validation_error" | "unauthorized" | "server_error";
   message: string;
   errors?: {
-    field: "email" | "optInContent" | "optInMarketing" | "locale" | "recaptchaResponse";
+    field: "email" | "optIn" | "locale" | "recaptchaResponse";
     message: string;
   }[];
 };
@@ -22,15 +24,27 @@ export type NewsletterSubscriptionResponse =
   | NewsletterSubscriptionResponseSuccess
   | NewsletterSubscriptionResponseError;
 
-export async function POST(request: Request) {
-  const res = await request.json();
+type CreatePlunkContact = {
+  success: boolean;
+  id: string;
+  email: string;
+  subscribed: boolean;
+  data: {
+    optIn: boolean;
+    locale: string;
+  };
+  createdAt: string;
+  updatedAt: string;
+};
+
+export async function POST(req: Request) {
+  const res = await req.json();
   const body = await z
     .object({
       email: z.string().email(),
-      optInContent: z.boolean(),
-      optInMarketing: z.boolean(),
+      marketing_opted_in: z.boolean(),
       locale: localeEnum,
-      recaptchaResponse: z.string(),
+      recaptcha_response: z.string(),
     })
     .safeParseAsync(res);
 
@@ -49,14 +63,15 @@ export async function POST(request: Request) {
     );
   }
 
-  const recaptchaValidation = await Result.fromPromise(
-    fetch("https://www.google.com/recaptcha/api/siteverify", {
+  const recaptchaValidation = await request<{ success: boolean }, unknown>(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `secret=${process.env.RECAPTCHA_SITE_SECRET}&response=${body.data.recaptchaResponse}`,
-    }).then((res) => res.json()),
+      body: `secret=${process.env.RECAPTCHA_SITE_SECRET}&response=${body.data.recaptcha_response}`,
+    },
   );
 
   if (recaptchaValidation.isError()) {
@@ -82,8 +97,54 @@ export async function POST(request: Request) {
     );
   }
 
-  return new NextResponse(
-    JSON.stringify({ status: "success", message: "Ok" } as NewsletterSubscriptionResponseSuccess),
-    { status: 200 },
+  const createContact = await request<CreatePlunkContact, unknown>(
+    "https://api.useplunk.com/v1/track",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.PLUNK_SECRET_API_KEY}`,
+      },
+      body: JSON.stringify({
+        event:
+          body.data.locale === "fr" ? "newsletter-subscription-fr" : "newsletter-subscription-en",
+        email: body.data.email,
+        subscribed: true,
+        data: {
+          marketing_opted_in: body.data.marketing_opted_in ? "yes" : "no",
+          locale: body.data.locale,
+        },
+      }),
+    },
   );
+
+  return match(createContact)
+    .with(Result.P.Ok(P.select({ success: true })), () => {
+      return new NextResponse(
+        JSON.stringify({
+          status: "success",
+          message: "Ok",
+        } as NewsletterSubscriptionResponseSuccess),
+        { status: 200 },
+      );
+    })
+    .with(Result.P.Error(P.select({ code: 409, message: "Contact already exists" })), () => {
+      return new NextResponse(
+        JSON.stringify({
+          status: "already_subscribed",
+          message: "Ok",
+        } as NewsletterSubscriptionResponseSuccess),
+        { status: 200 },
+      );
+    })
+    .otherwise(() => {
+      return new NextResponse(
+        JSON.stringify({
+          status: "error",
+          code: "server_error",
+          message: "An error occured while creating contact",
+        } as NewsletterSubscriptionResponseError),
+        { status: 500 },
+      );
+    });
 }

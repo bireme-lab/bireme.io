@@ -10,7 +10,7 @@ import { request } from "@/utils/request";
 import { isEmpty } from "@/utils/types";
 import { AsyncData, Result } from "@swan-io/boxed";
 import { useLocale, useTranslations } from "next-intl";
-import React, { CSSProperties, FormEvent, useState } from "react";
+import React, { CSSProperties, FormEvent, useEffect, useState } from "react";
 import { hasDefinedKeys, useForm } from "react-ux-form";
 import { P, match } from "ts-pattern";
 import isEmail from "validator/lib/isEmail";
@@ -33,7 +33,8 @@ type FormResponseMessage =
   | "fetch_error"
   | "recaptcha_error"
   | "server_error"
-  | "success";
+  | "success"
+  | "already_subscribed";
 
 const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, onSuccess }) => {
   const [requestState, setRequestState] = useState<AsyncData<Result<boolean, boolean>>>(
@@ -46,7 +47,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
   const locale = useLocale();
   const { executeRecaptcha } = useGoogleReCaptcha({ enabled: focused, language: locale });
   const t = useTranslations("components.NewsletterForm");
-  const { Field, submitForm, FieldsListener, setFieldError } = useForm({
+  const { Field, submitForm, FieldsListener, setFieldError, resetForm } = useForm({
     email: {
       initialValue: "",
       strategy: "onSuccessOrBlur",
@@ -64,15 +65,22 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
         return undefined;
       },
     },
-    optInContent: {
-      initialValue: true,
-      strategy: "onSuccessOrBlur",
-    },
-    optInMarketing: {
+    marketingOptIn: {
       initialValue: false,
       strategy: "onSuccessOrBlur",
     },
   });
+
+  useEffect(() => {
+    if (requestState.isDone()) {
+      setTimeout(() => {
+        setRequestState(AsyncData.NotAsked());
+        setFormResponseMessage(undefined);
+        resetForm();
+      }, 5000);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requestState]);
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -95,16 +103,16 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            ...values,
             locale,
-            recaptchaResponse,
+            marketing_opted_in: values.marketingOptIn,
+            recaptcha_response: recaptchaResponse,
             email: values.email === "" ? undefined : values.email,
           }),
         });
 
         match(subscription)
-          .with(Result.P.Ok(P.select()), () => {
-            setFormResponseMessage("success");
+          .with(Result.P.Ok(P.select()), ({ status }) => {
+            setFormResponseMessage(status);
             setRequestState(AsyncData.Done(Result.Ok(true)));
             onSuccess?.();
           })
@@ -133,6 +141,10 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
           })
           .with(Result.P.Error(P.select({ code: "fetch_error" })), () => {
             setFormResponseMessage("fetch_error");
+            setRequestState(AsyncData.Done(Result.Error(true)));
+          })
+          .with(Result.P.Error(P.select({ code: "server_error" })), () => {
+            setFormResponseMessage("server_error");
             setRequestState(AsyncData.Done(Result.Error(true)));
           })
           .otherwise(() => {
@@ -180,17 +192,10 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
             />
           )}
         </Field>
-        <Field name="optInContent">
+        <Field name="marketingOptIn">
           {({ value, onChange, onBlur }) => (
             <Checkbox isSelected={value} onChange={onChange} onBlur={onBlur}>
-              {t("optInContent.label")}
-            </Checkbox>
-          )}
-        </Field>
-        <Field name="optInMarketing">
-          {({ value, onChange, onBlur }) => (
-            <Checkbox isSelected={value} onChange={onChange} onBlur={onBlur}>
-              {t("optInMarketing.label")}
+              {t("optIn.label")}
             </Checkbox>
           )}
         </Field>
@@ -224,6 +229,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
                 .with("recaptcha_error", () => t("recaptcha_error"))
                 .with("server_error", () => t("server_error"))
                 .with("success", () => t("success"))
+                .with("already_subscribed", () => t("already_subscribed"))
                 .exhaustive()}
             </Text>
           )}

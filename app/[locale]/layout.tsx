@@ -8,6 +8,7 @@ import { dark } from "@/styles/theme/dark.css";
 import { configDayJS } from "@/utils/date";
 import { i18n, type Locale } from "@/utils/i18n";
 import { generateMDXFilesRecord } from "@/utils/mdx";
+import { Analytics } from "@vercel/analytics/react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
@@ -78,6 +79,7 @@ export default function RootLayout({
           <main className={styles.main}>{children}</main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

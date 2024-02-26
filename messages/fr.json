@@ -31,10 +31,7 @@
         "empty": "Le champ email ne peut pas être vide",
         "invalid": "Veuillez saisir une adresse email valide"
       },
-      "optInContent": {
-        "label": "Actualité de l’entreprise et contenu rédactionnel"
-      },
-      "optInMarketing": {
+      "optIn": {
         "label": "Contenu marketing et offres exclusives en rapport avec nos produits"
       },
       "fetch_error": "Une erreur est survenue, veuillez réessayer plus tard",
@@ -45,7 +42,8 @@
       "disclaimer": "En complétant et en envoyant vos données, vous acceptez notre <privacy>politique de confidentialité</privacy>. Toutes les données sont gardées confidentielles.",
       "google_disclaimer": "Ce site est protégé par reCAPTCHA et la <privacy>politique de confidentialité</privacy> et les <terms>conditions d'utilisation</terms> de Google s'appliquent.",
       "email_sent": "Nous avons envoyé un lien de confirmation !",
-      "success": "Vous êtes maintenant inscrit à notre newsletter"
+      "success": "Vous êtes maintenant inscrit à notre newsletter",
+      "already_subscribed": "Vous êtes déjà inscrit à notre newsletter"
     },
     "NewsBanner": {
       "new": "Nouveau"
