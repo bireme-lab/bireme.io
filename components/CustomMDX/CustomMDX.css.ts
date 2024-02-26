@@ -174,12 +174,6 @@ globalStyle(`${pre} mark`, {
   borderRadius: vars.radii[2],
 });
 
-export const image = style({
-  position: "relative",
-  width: "100%",
-  height: "400px",
-});
-
 export const tableContainer = style({
   width: "100%",
   borderRadius: vars.radii[2],

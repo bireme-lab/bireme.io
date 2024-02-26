@@ -1,7 +1,6 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
 import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 
 // NewsBanner
 // -------------------------------------------o
@@ -72,127 +71,6 @@ export const latestPostTitle = style({
 
 export const latestPostPublishedAt = style({
   marginTop: vars.sizes[4],
-});
-
-// PostRow
-// -------------------------------------------o
-
-export const postRow = recipe({
-  base: {},
-  variants: {
-    isFirst: {
-      true: {
-        borderTop: `1px solid ${vars.color.primary[900]}`,
-        borderBottom: `1px solid ${vars.color.primary[900]}`,
-      },
-      false: {
-        borderBottom: `1px solid ${vars.color.primary[900]}`,
-      },
-    },
-  },
-});
-
-export const post = responsiveStyle({
-  mobile: {
-    position: "relative",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    gap: vars.sizes[8],
-    padding: `${vars.sizes[20]} 0`,
-
-    "::after": {
-      zIndex: -1,
-      content: "''",
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: vars.color.secondary[500],
-      transition: "transform 300ms ease-out",
-      transformOrigin: "bottom",
-      transform: "scaleY(0)",
-    },
-
-    ":focus-within": {
-      outline: "none",
-    },
-
-    ":focus": {
-      outline: "none",
-    },
-
-    selectors: {
-      "&:hover::after": {
-        transform: "scaleY(1)",
-      },
-      "&:focus::after": {
-        transform: "scaleY(1)",
-      },
-    },
-  },
-  tablet: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: vars.sizes[16],
-  },
-});
-
-export const postRowTitle = style({
-  transitionProperty: "color, transform",
-  transitionDuration: `${transitionDuration}ms`,
-  transitionTimingFunction: "ease-out",
-  color: vars.color.primary[500],
-
-  selectors: {
-    [`${post}:hover &`]: {
-      color: vars.color.neutral[900],
-      transform: `translateX(${vars.sizes[12]})`,
-    },
-    [`${post}:focus &`]: {
-      color: vars.color.neutral[900],
-      transform: `translateX(${vars.sizes[12]})`,
-    },
-  },
-});
-
-export const postRowPublishedAt = style({
-  transitionProperty: "color, transform",
-  transitionDuration: `${transitionDuration}ms`,
-  transitionTimingFunction: "ease-out",
-  color: vars.color.primary[700],
-
-  selectors: {
-    [`${post}:hover &`]: {
-      color: vars.color.neutral[900],
-      transform: `translateX(${vars.sizes[12]})`,
-    },
-    [`${post}:focus &`]: {
-      color: vars.color.neutral[900],
-      transform: `translateX(${vars.sizes[12]})`,
-    },
-  },
-});
-
-export const postRowComment = style({
-  transitionProperty: "color, transform",
-  transitionDuration: `${transitionDuration}ms`,
-  transitionTimingFunction: "ease-out",
-  color: vars.color.secondary[500],
-
-  selectors: {
-    [`${post}:hover &`]: {
-      color: vars.color.neutral[900],
-      transform: `translateX(${vars.sizes[12]})`,
-    },
-    [`${post}:focus &`]: {
-      color: vars.color.neutral[900],
-      transform: `translateX(${vars.sizes[12]})`,
-    },
-  },
 });
 
 // Home

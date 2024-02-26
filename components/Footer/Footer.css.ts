@@ -60,6 +60,7 @@ export const legalLinks = responsiveStyle({
     flexDirection: "column",
     gap: vars.sizes[12],
     marginTop: vars.sizes[16],
+    listStyle: "none",
   },
   tablet: {
     flexDirection: "row",

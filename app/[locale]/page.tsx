@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container/Container";
 import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
+import { PostRow } from "@/components/PostRow/PostRow";
 import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
 import { Text } from "@/components/Text/Text";
 import { Locale } from "@/utils/i18n";
@@ -57,38 +58,6 @@ const LatestPost: React.FC<LatestPostProps> = ({ post }) => {
 };
 
 LatestPost.displayName = "LatestPost";
-
-type PostRowProps = {
-  post: MDX.Post;
-  isFirstIndex: boolean;
-  isLastIndex: boolean;
-};
-
-const PostRow: React.FC<PostRowProps> = async ({ post, isFirstIndex, isLastIndex }) => {
-  const t = await getTranslations("components.PostRow");
-
-  return (
-    <li key={post.slug} className={styles.postRow({ isFirst: isFirstIndex })}>
-      <Link href={post.href} className={styles.post}>
-        <Text variant="anchor" className={styles.postRowTitle}>
-          {post.title}
-        </Text>
-        <PublishedAt
-          authors={post.authors}
-          publishedAt={post.publishedAt}
-          className={styles.postRowPublishedAt}
-        />
-        {isLastIndex && (
-          <Text variant="comment" className={styles.postRowComment}>
-            {t("first_one")}
-          </Text>
-        )}
-      </Link>
-    </li>
-  );
-};
-
-PostRow.displayName = "PostRow";
 
 const Home = async ({
   params: { locale },
