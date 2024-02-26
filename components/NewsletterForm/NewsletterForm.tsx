@@ -223,7 +223,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
                 .with("fetch_error", () => t("fetch_error"))
                 .with("recaptcha_error", () => t("recaptcha_error"))
                 .with("server_error", () => t("server_error"))
-                .with("success", () => t("email_sent"))
+                .with("success", () => t("success"))
                 .exhaustive()}
             </Text>
           )}

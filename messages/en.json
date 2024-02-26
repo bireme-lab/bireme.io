@@ -44,7 +44,8 @@
       "required_fields": "<asterisk>*</asterisk> are required fields",
       "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential.",
       "google_disclaimer": "This site is protected by reCAPTCHA and the Google <privacy>Privacy Policy</privacy> and <terms>Terms of Service</terms> apply.",
-      "email_sent": "You will receive a confirmation email shortly"
+      "email_sent": "You will receive a confirmation email shortly",
+      "success": "You are now subscribed to our newsletter"
     },
     "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential and we scrupulously respect <gdpr>GDPR rules regarding commercial email.</gdpr> (<asterisk>*</asterisk> are required fields)",
     "legal_links": {

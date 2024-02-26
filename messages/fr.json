@@ -44,7 +44,8 @@
       "required_fields": "<asterisk>*</asterisk> sont des champs obligatoires",
       "disclaimer": "En complétant et en envoyant vos données, vous acceptez notre <privacy>politique de confidentialité</privacy>. Toutes les données sont gardées confidentielles.",
       "google_disclaimer": "Ce site est protégé par reCAPTCHA et la <privacy>politique de confidentialité</privacy> et les <terms>conditions d'utilisation</terms> de Google s'appliquent.",
-      "email_sent": "Nous avons envoyé un lien de confirmation !"
+      "email_sent": "Nous avons envoyé un lien de confirmation !",
+      "success": "Vous êtes maintenant inscrit à notre newsletter"
     },
     "NewsBanner": {
       "new": "Nouveau"
