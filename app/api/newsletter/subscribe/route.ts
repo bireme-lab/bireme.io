@@ -3,14 +3,6 @@ import { Result } from "@swan-io/boxed";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
-export const bodySchema = z.object({
-  email: z.string().email(),
-  optInContent: z.boolean(),
-  optInMarketing: z.boolean(),
-  locale: localeEnum,
-  recaptchaResponse: z.string(),
-});
-
 export type NewsletterSubscriptionResponseSuccess = {
   status: "success";
   message: "Ok";
@@ -30,11 +22,17 @@ export type NewsletterSubscriptionResponse =
   | NewsletterSubscriptionResponseSuccess
   | NewsletterSubscriptionResponseError;
 
-export async function POST(
-  request: Request,
-): Promise<NextResponse<NewsletterSubscriptionResponse>> {
+export async function POST(request: Request) {
   const res = await request.json();
-  const body = await bodySchema.safeParseAsync(res);
+  const body = await z
+    .object({
+      email: z.string().email(),
+      optInContent: z.boolean(),
+      optInMarketing: z.boolean(),
+      locale: localeEnum,
+      recaptchaResponse: z.string(),
+    })
+    .safeParseAsync(res);
 
   if (!body.success) {
     return new NextResponse(
@@ -46,7 +44,7 @@ export async function POST(
           field: error.path[0],
           message: error.message,
         })),
-      }),
+      } as NewsletterSubscriptionResponseError),
       { status: 400 },
     );
   }
@@ -68,7 +66,7 @@ export async function POST(
         code: "recaptcha_validation_error",
         message: "An error occured while validating recaptcha response",
         error: recaptchaValidation.getError(),
-      }),
+      } as NewsletterSubscriptionResponseError),
       { status: 500 },
     );
   }
@@ -79,10 +77,13 @@ export async function POST(
         status: "error",
         code: "unauthorized",
         message: "Recaptcha validation failed",
-      }),
+      } as NewsletterSubscriptionResponseError),
       { status: 401 },
     );
   }
 
-  return new NextResponse(JSON.stringify({ status: "success", message: "Ok" }), { status: 200 });
+  return new NextResponse(
+    JSON.stringify({ status: "success", message: "Ok" } as NewsletterSubscriptionResponseSuccess),
+    { status: 200 },
+  );
 }

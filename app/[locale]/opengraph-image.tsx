@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { ImageResponse } from "next/og";
 
 // Route segment config
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export async function generateImageMetadata() {
   const t = await getTranslations("meta");

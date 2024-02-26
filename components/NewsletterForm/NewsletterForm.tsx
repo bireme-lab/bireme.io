@@ -24,6 +24,7 @@ type Props = {
   autofocus?: boolean;
   className?: string;
   style?: CSSProperties;
+  onSuccess?: () => void;
 };
 
 type FormResponseMessage =
@@ -34,7 +35,7 @@ type FormResponseMessage =
   | "server_error"
   | "success";
 
-const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false }) => {
+const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, onSuccess }) => {
   const [requestState, setRequestState] = useState<AsyncData<Result<boolean, boolean>>>(
     AsyncData.NotAsked(),
   );
@@ -105,6 +106,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false }
           .with(Result.P.Ok(P.select()), () => {
             setFormResponseMessage("success");
             setRequestState(AsyncData.Done(Result.Ok(true)));
+            onSuccess?.();
           })
           .with(Result.P.Error(P.select({ code: "invalid_request_body" })), (response) => {
             response.errors?.forEach((error) => {

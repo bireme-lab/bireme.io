@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import Image from "./opengraph-image";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export async function generateImageMetadata() {
   const t = await getTranslations("meta");
