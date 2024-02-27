@@ -111,8 +111,8 @@ const Home = async ({
         </Text>
         {match(postsOption)
           .with(Option.Some(P.select(P_hasRecord)), (posts) => {
-            const postsLength = posts.length;
             posts.shift();
+            const postsLength = posts.length;
 
             return (
               <ul className={styles.postsList}>

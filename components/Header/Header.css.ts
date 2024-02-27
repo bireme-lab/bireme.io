@@ -45,6 +45,7 @@ export const commentButton = recipe({
   base: {
     transition: `color ${transitionDuration}ms ease-out`,
     color: vars.color.secondary[500],
+    cursor: "pointer",
 
     ":focus-visible": {
       outline: "none",

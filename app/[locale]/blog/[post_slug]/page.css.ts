@@ -16,6 +16,15 @@ export const heroContent = style({
   gap: vars.sizes[12],
 });
 
+export const grid = responsiveStyle({
+  mobile: {
+    rowGap: vars.sizes[72],
+  },
+  desktop: {
+    rowGap: "unset",
+  },
+});
+
 export const threeCols = responsiveStyle({
   mobile: [columnCount(2)],
   tablet: [columnCount(2)],

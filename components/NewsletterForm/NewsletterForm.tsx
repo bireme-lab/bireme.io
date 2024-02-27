@@ -28,8 +28,6 @@ type Props = {
 };
 
 type FormResponseMessage =
-  | "email_missing"
-  | "email_invalid"
   | "fetch_error"
   | "recaptcha_error"
   | "server_error"
@@ -119,13 +117,9 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
           .with(Result.P.Error(P.select({ code: "invalid_request_body" })), (response) => {
             response.errors?.forEach((error) => {
               if (error.field === "email") {
-                setFieldError(error.field, error.message);
-              }
-
-              if (error.field === "email" && error.message === "Required") {
-                setFormResponseMessage("email_missing");
-              } else if (error.field === "email" && error.message === "Invalid email") {
-                setFormResponseMessage("email_invalid");
+                const message =
+                  error.message === "Required" ? t("email.empty") : t("email.invalid");
+                setFieldError(error.field, message);
               }
             });
 
@@ -199,9 +193,9 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
             </Checkbox>
           )}
         </Field>
-        <div className={styles.buttonWrapper}>
-          <FieldsListener names={["email"]}>
-            {({ email }) => (
+        <FieldsListener names={["email"]}>
+          {({ email }) => (
+            <div className={styles.buttonWrapper}>
               <Button
                 type="submit"
                 showArrow={true}
@@ -213,27 +207,27 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
               >
                 {t("subscribe")}
               </Button>
-            )}
-          </FieldsListener>
-          {formResponseMessage && (
-            <Text
-              variant="anchor"
-              markup="p"
-              className={styles.mention}
-              color={isFormSubmitSuccess ? "positive-500" : "negative-500"}
-            >
-              {match(formResponseMessage)
-                .with("email_missing", () => t("email.empty"))
-                .with("email_invalid", () => t("email.invalid"))
-                .with("fetch_error", () => t("fetch_error"))
-                .with("recaptcha_error", () => t("recaptcha_error"))
-                .with("server_error", () => t("server_error"))
-                .with("success", () => t("success"))
-                .with("already_subscribed", () => t("already_subscribed"))
-                .exhaustive()}
-            </Text>
+              {(email.error || formResponseMessage) && (
+                <Text
+                  variant="anchor"
+                  markup="p"
+                  className={styles.mention}
+                  color={isFormSubmitSuccess ? "positive-500" : "negative-500"}
+                >
+                  {match([formResponseMessage, email.error])
+                    .with([P._, P.string], ([, error]) => error)
+                    .with(["fetch_error", P._], () => t("fetch_error"))
+                    .with(["recaptcha_error", P._], () => t("recaptcha_error"))
+                    .with(["server_error", P._], () => t("server_error"))
+                    .with(["success", P._], () => t("success"))
+                    .with(["already_subscribed", P._], () => t("already_subscribed"))
+                    .with([P.nullish, P.nullish], () => null)
+                    .exhaustive()}
+                </Text>
+              )}
+            </div>
           )}
-        </div>
+        </FieldsListener>
       </div>
       <div className={styles.mentionsWrapper}>
         <Text variant="small" markup="p" className={styles.mention} color="primary-700">

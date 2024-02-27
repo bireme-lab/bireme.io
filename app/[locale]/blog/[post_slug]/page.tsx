@@ -105,7 +105,7 @@ const PostPage = async ({ params }: PostPageParams) => {
           </Text>
         </div>
         <Divider />
-        <Grid>
+        <Grid className={styles.grid}>
           <div className={styles.threeCols}>
             <TableOfContent headings={post.headings} />
           </div>
