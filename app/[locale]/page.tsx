@@ -95,7 +95,7 @@ const Home = async ({
             <div className={styles.latestPostWrapper}>
               <Text
                 variant="section-heading"
-                markup="h3"
+                markup="h2"
                 className={styles.latestPostSectionHeading}
               >
                 {t("latest_post")}
@@ -112,7 +112,7 @@ const Home = async ({
           ))
           .otherwise(() => null)}
         <div className={styles.allPostsWrapper}>
-          <Text variant="section-heading" markup="h3" className={styles.allPostsSectionHeading}>
+          <Text variant="section-heading" markup="h2" className={styles.allPostsSectionHeading}>
             {t("all_posts")}
           </Text>
           {match(postsOption)
