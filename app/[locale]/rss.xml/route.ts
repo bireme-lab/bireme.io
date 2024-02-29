@@ -27,7 +27,7 @@ export async function GET(request: Request) {
     language: locale,
     pubDate: new Date().toUTCString(),
     ttl: 60,
-    image_url: `${url.origin}/images/rss-image.png`,
+    image_url: `${url.origin}/images/logo.png`,
   });
 
   match(await MDX.Post.all(locale))

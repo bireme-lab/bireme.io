@@ -7,8 +7,10 @@ import { Text } from "@/components/Text/Text";
 import { cx } from "@/styles/mixins";
 import { Locale } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
+import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { WebPage, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
 
@@ -55,20 +57,70 @@ const Page = async ({ params }: PageParams) => {
   ];
 
   return (
-    <Container>
-      <Breadcrumb steps={breadcrumbSteps} />
-      <Grid className={styles.grid}>
-        <div className={styles.threeCols}>
-          <TableOfContent headings={page.headings} />
-        </div>
-        <div className={cx(styles.fiveCols, styles.postBodyWrapper)}>
-          <Text markup="h1" variant="title1" className={styles.title}>
-            {page.title}
-          </Text>
-          <CustomMDX source={page.body} />
-        </div>
-      </Grid>
-    </Container>
+    <>
+      <Container>
+        <Breadcrumb steps={breadcrumbSteps} />
+        <Grid className={styles.grid}>
+          <div className={styles.threeCols}>
+            <TableOfContent headings={page.headings} />
+          </div>
+          <div className={cx(styles.fiveCols, styles.postBodyWrapper)}>
+            <Text markup="h1" variant="title1" className={styles.title}>
+              {page.title}
+            </Text>
+            <CustomMDX source={page.body} />
+          </div>
+        </Grid>
+      </Container>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Bireme Lab",
+            url: MDX.generateHref(params.page_slug, params.locale, "Page"),
+            logo: "https://bireme.io/images/logo.png",
+            publisher: {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Bireme Lab",
+              url: ORIGIN,
+              logo: "https://bireme.io/images/logo.png",
+              foundingDate: "2024",
+              founders: [
+                {
+                  "@type": "Person",
+                  name: "Antoine Lin",
+                  jobTitle: params.locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+                {
+                  "@type": "Person",
+                  name: "Frédéric Godin",
+                  jobTitle: params.locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+              ],
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "7 rue Meyerbeer",
+                addressLocality: "Paris",
+                addressRegion: "Paris",
+                postalCode: "75009",
+                addressCountry: "FR",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Contact",
+                email: "contact@bireme.io",
+              },
+              sameAs: ["https://twitter.com/biremelab"],
+            },
+            sameAs: ["https://twitter.com/biremelab"],
+          } as WithContext<WebPage>),
+        }}
+      />
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ import { dark } from "@/styles/theme/dark.css";
 import { configDayJS } from "@/utils/date";
 import { i18n, type Locale } from "@/utils/i18n";
 import { generateMDXFilesRecord } from "@/utils/mdx";
+import { ORIGIN } from "@/utils/vars";
 import { Analytics } from "@vercel/analytics/react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
@@ -15,6 +16,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { Gloria_Hallelujah } from "next/font/google";
+import { Organization, WithContext } from "schema-dts";
 import * as styles from "./layout.css";
 
 const GloriaHallelujah = Gloria_Hallelujah({
@@ -80,6 +82,46 @@ export default function RootLayout({
           <Footer />
         </NextIntlClientProvider>
         <Analytics />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Bireme Lab",
+              url: ORIGIN,
+              logo: "https://bireme.io/images/logo.png",
+              foundingDate: "2024",
+              founders: [
+                {
+                  "@type": "Person",
+                  name: "Antoine Lin",
+                  jobTitle: params.locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+                {
+                  "@type": "Person",
+                  name: "Frédéric Godin",
+                  jobTitle: params.locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+              ],
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "7 rue Meyerbeer",
+                addressLocality: "Paris",
+                addressRegion: "Paris",
+                postalCode: "75009",
+                addressCountry: "FR",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Contact",
+                email: "contact@bireme.io",
+              },
+              sameAs: ["https://twitter.com/biremelab"],
+            } as WithContext<Organization>),
+          }}
+        />
       </body>
     </html>
   );

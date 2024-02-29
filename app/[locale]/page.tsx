@@ -6,10 +6,11 @@ import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
 import { Text } from "@/components/Text/Text";
 import { Locale } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
-import { P_hasRecord } from "@/utils/types";
+import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
+import { WebPage, WebSite, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
 
@@ -72,66 +73,168 @@ const Home = async ({
   const postsOption = await MDX.Post.all(locale);
 
   return (
-    <Container className={styles.container}>
-      <Grid>
-        <NewsBanner />
-      </Grid>
-      <Grid>
-        <div className={styles.titleWrapper}>
-          <Text variant="title1" markup="h1">
-            {t("title")}
-          </Text>
-        </div>
-        <div className={styles.descriptionWrapper}>
-          <Text variant="body" markup="p" color="primary-600">
-            {t("description")}
-          </Text>
-        </div>
-      </Grid>
-      {match(postsOption)
-        .with(Option.Some(P.select()), (posts) => (
-          <div className={styles.latestPostWrapper}>
-            <Text variant="section-heading" markup="h3" className={styles.latestPostSectionHeading}>
-              {t("latest_post")}
-              <Icon
-                name="handwritten_underline"
-                title={t("latest_post")}
-                className={styles.handwrittenUnderline}
-              />
+    <>
+      <Container className={styles.container}>
+        <Grid>
+          <NewsBanner />
+        </Grid>
+        <Grid>
+          <div className={styles.titleWrapper}>
+            <Text variant="title1" markup="h1">
+              {t("title")}
             </Text>
-            <Grid>
-              <LatestPost post={posts[0]} />
-            </Grid>
           </div>
-        ))
-        .otherwise(() => null)}
-      <div className={styles.allPostsWrapper}>
-        <Text variant="section-heading" markup="h3" className={styles.allPostsSectionHeading}>
-          {t("all_posts")}
-        </Text>
+          <div className={styles.descriptionWrapper}>
+            <Text variant="body" markup="p" color="primary-600">
+              {t("description")}
+            </Text>
+          </div>
+        </Grid>
         {match(postsOption)
-          .with(Option.Some(P.select(P_hasRecord)), (posts) => {
-            posts.shift();
-            const postsLength = posts.length;
+          .with(Option.Some(P.select()), (posts) => (
+            <div className={styles.latestPostWrapper}>
+              <Text
+                variant="section-heading"
+                markup="h3"
+                className={styles.latestPostSectionHeading}
+              >
+                {t("latest_post")}
+                <Icon
+                  name="handwritten_underline"
+                  title={t("latest_post")}
+                  className={styles.handwrittenUnderline}
+                />
+              </Text>
+              <Grid>
+                <LatestPost post={posts[0]} />
+              </Grid>
+            </div>
+          ))
+          .otherwise(() => null)}
+        <div className={styles.allPostsWrapper}>
+          <Text variant="section-heading" markup="h3" className={styles.allPostsSectionHeading}>
+            {t("all_posts")}
+          </Text>
+          {match(postsOption)
+            .with(Option.Some(P.select(P.when((posts) => posts.length < 1))), (posts) => {
+              posts.shift();
+              const postsLength = posts.length;
 
-            return (
-              <ul className={styles.postsList}>
-                {posts.map((post, index) => (
-                  <PostRow
-                    key={post.slug}
-                    post={post}
-                    isFirstIndex={index === 0}
-                    isLastIndex={index === postsLength - 1}
-                  />
-                ))}
-              </ul>
-            );
-          })
-          .otherwise(() => (
-            <Text variant="body">No posts found</Text>
-          ))}
-      </div>
-    </Container>
+              return (
+                <ul className={styles.postsList}>
+                  {posts.map((post, index) => (
+                    <PostRow
+                      key={post.slug}
+                      post={post}
+                      isFirstIndex={index === 0}
+                      isLastIndex={index === postsLength - 1}
+                    />
+                  ))}
+                </ul>
+              );
+            })
+            .otherwise(() => (
+              <Text variant="body">{t("no_posts")}</Text>
+            ))}
+        </div>
+      </Container>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Bireme Lab",
+            url: ORIGIN,
+            logo: "https://bireme.io/images/logo.png",
+            publisher: {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Bireme Lab",
+              url: ORIGIN,
+              logo: "https://bireme.io/images/logo.png",
+              foundingDate: "2024",
+              founders: [
+                {
+                  "@type": "Person",
+                  name: "Antoine Lin",
+                  jobTitle: locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+                {
+                  "@type": "Person",
+                  name: "Frédéric Godin",
+                  jobTitle: locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+              ],
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "7 rue Meyerbeer",
+                addressLocality: "Paris",
+                addressRegion: "Paris",
+                postalCode: "75009",
+                addressCountry: "FR",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Contact",
+                email: "contact@bireme.io",
+              },
+              sameAs: ["https://twitter.com/biremelab"],
+            },
+            sameAs: ["https://twitter.com/biremelab"],
+          } as WithContext<WebSite>),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Bireme Lab",
+            url: `${ORIGIN}/${locale}`,
+            logo: "https://bireme.io/images/logo.png",
+            publisher: {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Bireme Lab",
+              url: ORIGIN,
+              logo: "https://bireme.io/images/logo.png",
+              foundingDate: "2024",
+              founders: [
+                {
+                  "@type": "Person",
+                  name: "Antoine Lin",
+                  jobTitle: locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+                {
+                  "@type": "Person",
+                  name: "Frédéric Godin",
+                  jobTitle: locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+              ],
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "7 rue Meyerbeer",
+                addressLocality: "Paris",
+                addressRegion: "Paris",
+                postalCode: "75009",
+                addressCountry: "FR",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Contact",
+                email: "contact@bireme.io",
+              },
+              sameAs: ["https://twitter.com/biremelab"],
+            },
+            sameAs: ["https://twitter.com/biremelab"],
+          } as WithContext<WebPage>),
+        }}
+      />
+    </>
   );
 };
 

@@ -11,6 +11,7 @@ export type Author = {
   fullName: string;
   position: string;
   twitterProfileUrl: string;
+  email: string;
 };
 
 export const authors: Record<AuthorSlug, Author> = {
@@ -22,6 +23,7 @@ export const authors: Record<AuthorSlug, Author> = {
     fullName: "Frédéric Godin",
     position: "Co-fondateur",
     twitterProfileUrl: "https://twitter.com/epimodev",
+    email: "frederic@bireme.io",
   },
   "antoine-lin": {
     slug: "antoine-lin",
@@ -30,6 +32,7 @@ export const authors: Record<AuthorSlug, Author> = {
     lastName: "Lin",
     fullName: "Antoine Lin",
     position: "Co-fondateur",
-    twitterProfileUrl: "https://twitter.com/imvahill",
+    twitterProfileUrl: "https://twitter.com/antoinerdlin",
+    email: "antoine@bireme.io",
   },
 };
