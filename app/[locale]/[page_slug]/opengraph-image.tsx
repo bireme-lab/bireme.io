@@ -9,8 +9,8 @@ import { match, P } from "ts-pattern";
 export const runtime = "nodejs";
 
 const getPost = async (slug: string, locale: Locale) => {
-  return match(await MDX.Post.findBySlug(slug, locale))
-    .with(Option.P.Some(P.select()), (post) => post)
+  return match(await MDX.Page.findBySlug(slug, locale))
+    .with(Option.P.Some(P.select()), (page) => page)
     .otherwise(() => {
       throw new Error(`Page not found for slug: ${slug}`);
     });

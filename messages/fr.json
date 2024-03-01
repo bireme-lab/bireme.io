@@ -27,7 +27,7 @@
       "headline": "Notre newsletter est le moyen idéal pour ne rien manquer de nos dernières actualités",
       "email": {
         "label": "Adresse email",
-        "placeholder": "ulysse@mail.com",
+        "placeholder": "charles.edward@mail.com",
         "empty": "Le champ email ne peut pas être vide",
         "invalid": "Veuillez saisir une adresse email valide"
       },

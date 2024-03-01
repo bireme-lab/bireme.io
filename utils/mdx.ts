@@ -91,6 +91,7 @@ const POST_ATTRIBUTES_SCHEMA = z.object({
   authors: z.array(authorSlugSchema),
   tags: z.array(z.string()),
   seo: SEO_SCHEMA,
+  tldr: z.string(),
 });
 
 type PostValidationSchema = typeof POST_ATTRIBUTES_SCHEMA;

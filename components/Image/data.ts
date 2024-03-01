@@ -17,4 +17,10 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAPUlEQVR4nGNgYNJTs41XNotkYNBj8PUJ+v5i37vbW/z9ghmcfJP+/n/w/Pl5t8BUBgYxOwGDWCX7TAZJRwDRiRJDT7GungAAAABJRU5ErkJggg==",
   },
+  "/images/logo.png": {
+    name: "logo.png",
+    extension: ".png",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAACE4AAAhOAFFljFgAAAASElEQVR4nGOQlJT8Ly4u/l9CUvI/iM3AzsHxv6+r9f+zezf+8/Hx/WdgY2P/v3b54v//f3/7Lygk9J8BpAyEhYVF/ouLS/wHAJdLG9WSfiIsAAAAAElFTkSuQmCC",
+  },
 };

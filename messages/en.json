@@ -27,7 +27,7 @@
       "headline": "Our newsletter is the ideal way to keep up to date with our latest news.",
       "email": {
         "label": "Mail address",
-        "placeholder": "ulysse@mail.com",
+        "placeholder": "charles.edward@mail.com",
         "empty": "Email field is required",
         "invalid": "Please enter a valid email address"
       },

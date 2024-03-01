@@ -104,7 +104,10 @@ const PostPage = async ({ params }: PostPageParams) => {
               disableTooltips={false}
             />
             <Text variant="body" markup="p" color="primary-600">
-              {post.seo.description}
+              <Text variant="section-heading" color="primary-700">
+                TLDR;&nbsp;
+              </Text>
+              {post.tldr}
             </Text>
           </div>
           <Divider />
