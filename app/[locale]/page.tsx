@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container/Container";
 import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
+import { NewsletterTrigger } from "@/components/NewsletterTrigger/NewsletterTrigger";
 import { PostRow } from "@/components/PostRow/PostRow";
 import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
 import { Text } from "@/components/Text/Text";
@@ -14,15 +15,24 @@ import { WebPage, WebSite, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
 
-const NewsBanner = async () => {
+type NewsBannerProps = {
+  locale: Locale;
+};
+
+const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
   const t = await getTranslations("components.NewsBanner");
 
+  const href = match(locale)
+    .with("fr", () => MDX.generateHref("a-propos-de-bireme-lab", locale, "Post"))
+    .with("en", () => MDX.generateHref("about-bireme-lab", locale, "Post"))
+    .exhaustive();
+
   return (
-    <Link href="/" className={styles.newsBanner}>
+    <Link href={href} className={styles.newsBanner}>
       <Text variant="small-mono" color="secondary-500" className={styles.newsBannerTag}>
         {t("new")}
       </Text>
-      <Text variant="anchor">Mise à jour - Création du projet Bireme Lab</Text>
+      <Text variant="anchor">{t("text")}</Text>
     </Link>
   );
 };
@@ -76,17 +86,34 @@ const Home = async ({
     <>
       <Container className={styles.container}>
         <Grid>
-          <NewsBanner />
+          <NewsBanner locale={locale} />
         </Grid>
         <Grid>
           <div className={styles.titleWrapper}>
             <Text variant="title1" markup="h1">
               {t("title")}
             </Text>
+            <div className={styles.learnMoreWrapper}>
+              <Text
+                href={match(locale)
+                  .with("fr", () => MDX.generateHref("a-propos-de-bireme-lab", locale, "Post"))
+                  .with("en", () => MDX.generateHref("about-bireme-lab", locale, "Post"))
+                  .exhaustive()}
+                variant="anchor"
+                translateOnHover={true}
+                className={styles.learnMore}
+              >
+                {t("learn_more")}
+              </Text>
+              <Icon name="arrow_right" title={t("learn_more")} className={styles.learnMoreIcon} />
+            </div>
           </div>
           <div className={styles.descriptionWrapper}>
             <Text variant="body" markup="p" color="primary-600">
-              {t("description")}
+              {t.rich("description", {
+                NewsletterTrigger: (chunk) =>
+                  chunk && <NewsletterTrigger key="home-description" content={chunk.toString()} />,
+              })}
             </Text>
           </div>
         </Grid>

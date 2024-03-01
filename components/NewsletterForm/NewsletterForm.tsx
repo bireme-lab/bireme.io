@@ -242,7 +242,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
         <Text variant="small" markup="p" className={styles.mention} color="primary-700">
           {t.rich("disclaimer", {
             privacy: (chunk) => (
-              <Text href="/" style={{ display: "inline" }}>
+              <Text href="/" style={{ display: "inline" }} underlined={true}>
                 {chunk}
               </Text>
             ),
@@ -250,6 +250,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
               <Text
                 href="https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique"
                 style={{ display: "inline" }}
+                underlined={true}
               >
                 {chunk}
               </Text>
@@ -259,12 +260,20 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
         <Text variant="small" markup="p" className={styles.mention} color="primary-700">
           {t.rich("google_disclaimer", {
             privacy: (chunk) => (
-              <Text href="https://policies.google.com/privacy" style={{ display: "inline" }}>
+              <Text
+                href="https://policies.google.com/privacy"
+                style={{ display: "inline" }}
+                underlined={true}
+              >
                 {chunk}
               </Text>
             ),
             terms: (chunk) => (
-              <Text href="https://policies.google.com/terms" style={{ display: "inline" }}>
+              <Text
+                href="https://policies.google.com/terms"
+                style={{ display: "inline" }}
+                underlined={true}
+              >
                 {chunk}
               </Text>
             ),

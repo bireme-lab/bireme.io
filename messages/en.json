@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "We create tools to help others build theirs - Bireme Lab",
-    "description": "We support the self-employed, VSEs and SMEs in their digital transformation, offering personalized web services that precisely meet their unique needs."
+    "title": "We create services to help others build theirs - Bireme Lab",
+    "description": "Experts in the creation of specialized applications and services for content creators and businesses. Subscribe to our newsletter for exclusive insights."
   },
   "components": {
     "Checkbox": {
@@ -46,7 +46,8 @@
       "already_subscribed": "You are already subscribed to our newsletter"
     },
     "NewsBanner": {
-      "new": "New"
+      "new": "New",
+      "text": "Hello, World! Find out more about Bireme Lab project"
     },
     "PublishedAt": {
       "published_on": "Published on {date}",
@@ -67,11 +68,12 @@
   },
   "pages": {
     "Home": {
-      "title": "We create tools to help others build theirs.",
-      "description": "We support the self-employed, VSEs and SMEs in their digital transformation, offering personalized web services that precisely meet their unique needs.",
+      "title": "We create services to help others build theirs",
+      "description": "Experts in the creation of specialized applications and services for content creators and businesses. <NewsletterTrigger>Subscribe to our newsletter for exclusive insights.</NewsletterTrigger>",
       "latest_post": "Our most recent post",
       "all_posts": "All the stories we wrote",
-      "no_posts": "Available soon!"
+      "no_posts": "Available soon!",
+      "learn_more": "Learn more about Bireme Lab"
     },
     "PostPage": {
       "breadcrumb": {

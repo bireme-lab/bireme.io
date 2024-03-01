@@ -35,6 +35,7 @@ export const generateMetadata = async ({ params }: PageParams) => {
   return match(page)
     .with(Option.P.Some(P.select()), (page) => ({
       title: page.title,
+      description: page.seo.description,
     }))
     .otherwise(() => {});
 };

@@ -33,7 +33,7 @@ export const newsBanner = responsiveStyle({
       gap: vars.sizes[12],
     },
   ],
-  desktop: columnCount(4),
+  desktop: columnCount(5),
 });
 
 export const newsBannerTag = responsiveStyle({
@@ -84,9 +84,34 @@ export const container = style({
 });
 
 export const titleWrapper = responsiveStyle({
-  mobile: columnCount(2),
+  mobile: [
+    columnCount(2),
+    {
+      display: "flex",
+      flexDirection: "column",
+      gap: vars.sizes[8],
+    },
+  ],
   tablet: columnCount(2),
   desktop: columnCount(5),
+});
+
+export const learnMoreWrapper = style({
+  display: "flex",
+  alignItems: "center",
+  gap: vars.sizes[8],
+});
+
+export const learnMore = style({
+  display: "inline-flex",
+});
+
+export const learnMoreIcon = style({
+  width: vars.sizes[16],
+  height: vars.sizes[16],
+  minWidth: vars.sizes[16],
+  minHeight: vars.sizes[16],
+  color: vars.color.primary[500],
 });
 
 export const descriptionWrapper = responsiveStyle({

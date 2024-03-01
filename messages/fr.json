@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Nous créons des outils pour aider les autres à construire les leurs - Bireme Lab",
-    "description": "Nous accompagnons les indépendants, les TPE et les PME dans leur transformation digitale, en offrant des services web personnalisés qui répondent précisément à leurs besoins uniques."
+    "title": "Nous créons des services pour aider les autres à concevoir les leurs - Bireme Lab",
+    "description": "Experts dans la création d'applications et services spécialisés pour créateurs de contenu et entreprises. Inscrivez-vous à notre newsletter pour bénéficier d'insights exclusifs."
   },
   "components": {
     "Checkbox": {
@@ -46,7 +46,8 @@
       "already_subscribed": "Vous êtes déjà inscrit à notre newsletter"
     },
     "NewsBanner": {
-      "new": "Nouveau"
+      "new": "Nouveau",
+      "text": "Bonjour, monde ! Apprenez-en davantage sur le projet Bireme Lab"
     },
     "PublishedAt": {
       "published_on": "Publié le {date}",
@@ -67,11 +68,12 @@
   },
   "pages": {
     "Home": {
-      "title": "Nous créons des outils pour aider les autres à construire les leurs.",
-      "description": "Nous accompagnons les indépendants, les TPE et les PME dans leur transformation digitale, en offrant des services web personnalisés qui répondent précisément à leurs besoins uniques.",
+      "title": "Nous créons des services pour aider les autres à concevoir les leurs",
+      "description": "Experts dans la création d'applications et services spécialisés pour créateurs de contenu et entreprises. <NewsletterTrigger>Abonnez-vous à notre newsletter pour bénéficier d'insights exclusifs.</NewsletterTrigger>",
       "latest_post": "Dernière publication",
       "all_posts": "Tous nos articles",
-      "no_posts": "Bientôt disponible !"
+      "no_posts": "Bientôt disponible !",
+      "learn_more": "En savoir plus sur Bireme Lab"
     },
     "PostPage": {
       "breadcrumb": {

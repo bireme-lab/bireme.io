@@ -125,6 +125,17 @@ export const link = recipe({
       },
     },
   },
+  compoundVariants: [
+    {
+      variants: {
+        isUnderlined: true,
+        isHovered: true,
+      },
+      style: {
+        color: `${vars.color.primary[600]}!important`,
+      },
+    },
+  ],
 });
 
 export const translateAnimationContainer = recipe({

@@ -14,6 +14,7 @@ import { Divider } from "../Divider/Divider";
 import { Icon } from "../Icon/Icon";
 import { Image, LocalPublicImage } from "../Image/Image";
 import { data } from "../Image/data";
+import { NewsletterTrigger } from "../NewsletterTrigger/NewsletterTrigger";
 import { Text, type HeadingLevel } from "../Text/Text";
 import * as styles from "./CustomMDX.css";
 
@@ -184,7 +185,8 @@ export const CustomMDX: React.FC<MDXRemoteProps> = async (props) => {
     hr: Divider,
     Callout,
     blockquote: Blockquote,
-    Image: Image,
+    NewsletterTrigger,
+    Image,
   };
 
   return (
