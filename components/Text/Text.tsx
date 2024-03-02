@@ -1,11 +1,8 @@
-"use client";
-
 import { cx } from "@/styles/mixins";
 import type { Color } from "@/styles/theme/index.css";
 import { Locale } from "@/utils/i18n";
 import Link, { type LinkProps as NextLinkProps } from "next/link";
 import { ElementType, type PropsWithChildren } from "react";
-import { mergeProps, useFocusRing, useHover } from "react-aria";
 import { P, isMatching, match } from "ts-pattern";
 import * as styles from "./Text.css";
 
@@ -31,24 +28,21 @@ type TextElementType =
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 type TextProps = {
+  href?: never;
   variant?: TextVariant;
   markup?: Extract<ElementType, TextElementType>;
-  underlined?: boolean;
   color?: Color | "inherit" | "none";
   className?: string;
+  getClassName?: never;
   style?: React.CSSProperties;
 } & React.HTMLAttributes<HTMLElement>;
 
 type LinkProps = {
   variant?: TextVariant;
   markup?: never;
-  underlined?: boolean;
-  color?: Color | "inherit" | "none";
+  color?: never;
   className?: string;
   style?: React.CSSProperties;
-  translateOnHover?: boolean;
-  isHovered?: boolean;
-  isFocused?: boolean;
   locale?: Locale;
 } & NextLinkProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -60,11 +54,10 @@ export const Text: React.FC<Props> = ({
   className,
   style,
   variant,
-  underlined,
   ...props
 }) => {
   const colorClass = color === "none" ? "" : styles.textColor[color];
-  const classNames = cx(styles.text({ variant, isUnderlined: underlined }), colorClass, className);
+  const classNames = cx(styles.text({ variant }), colorClass, className);
 
   return (
     <>
@@ -115,14 +108,7 @@ export const Text: React.FC<Props> = ({
           <figcaption className={classNames} style={style} {...props} />
         ))
         .with({ href: P.string }, (typedProps) => (
-          <LinkComponent
-            {...typedProps}
-            variant={variant}
-            color={color}
-            underlined={underlined}
-            className={className}
-            style={style}
-          />
+          <LinkComponent {...typedProps} variant={variant} className={className} style={style} />
         ))
         .otherwise((props) => (
           <span className={classNames} style={style} {...props} />
@@ -134,61 +120,23 @@ export const Text: React.FC<Props> = ({
 Text.displayName = "Text";
 
 const LinkComponent: React.FC<LinkProps> = ({
-  translateOnHover = false,
-  underlined = true,
-  color = "primary-500",
-  isHovered: isControlledHovered,
-  isFocused: isControlledFocused,
   style,
-  className,
+  className = styles.defaultLink,
   ...props
 }) => {
-  const { isHovered, hoverProps } = useHover({});
-  const { isFocusVisible, focusProps } = useFocusRing({});
   const isChildrenInlineNode = isMatching({ children: P.string }, props);
-  const isUnderlined = underlined && !translateOnHover;
-  const classNames = cx(
-    styles.text({ variant: props.variant }),
-    color === "none" ? "" : styles.textColor[color],
-    className,
-  );
+  const classNames = cx(styles.text({ variant: props.variant }), className);
 
   return (
     <Link
-      className={cx(
-        styles.link({
-          isUnderlined,
-          isHovered: isControlledHovered ?? isHovered,
-          isFocused: isControlledFocused ?? isFocusVisible,
-        }),
-        isChildrenInlineNode && translateOnHover ? "" : classNames,
-      )}
-      style={match([isChildrenInlineNode, translateOnHover])
-        .with([true, true], () => ({
-          display: style?.display ? style?.display : "inline-flex",
-          overflow: "hidden",
-          ...style,
-        }))
-        .with([true, false], () => style)
-        .otherwise(() => ({ display: style?.display ? style?.display : "block", ...style }))}
-      {...mergeProps(props, hoverProps, focusProps)}
+      className={classNames}
+      style={match(isChildrenInlineNode)
+        .with(true, () => style)
+        .with(false, () => ({ display: style?.display ? style?.display : "block", ...style }))
+        .exhaustive()}
+      {...props}
     >
-      {isChildrenInlineNode && translateOnHover ? (
-        <span
-          className={cx(
-            styles.translateAnimationContainer({
-              isHovered: isControlledHovered ?? isHovered,
-              isFocused: isControlledFocused ?? isFocusVisible,
-            }),
-            classNames,
-          )}
-          data-content={props.children}
-        >
-          {props.children}
-        </span>
-      ) : (
-        props.children
-      )}
+      {props.children}
     </Link>
   );
 };

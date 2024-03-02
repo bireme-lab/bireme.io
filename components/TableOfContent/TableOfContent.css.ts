@@ -1,5 +1,5 @@
 import { responsiveStyle } from "@/styles/mixins";
-import { transitionDuration, vars } from "@/styles/theme/index.css";
+import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -8,11 +8,11 @@ export const container = responsiveStyle({
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    gap: vars.sizes[12],
+    gap: vars.sizes[20],
   },
   desktop: {
     position: "sticky",
-    top: vars.sizes[24],
+    top: vars.sizes[28],
   },
 });
 
@@ -41,46 +41,43 @@ export const anchorList = style({
   flexDirection: "column",
 });
 
-export const anchor = recipe({
+export const anchorListItem = recipe({
   base: {
     padding: `${vars.sizes[4]} 0`,
-    transition: `color ${transitionDuration}ms ease-out`,
   },
   variants: {
     level: {
       2: {
         marginTop: vars.sizes[12],
-        color: vars.color.primary[500],
 
-        ":hover": {
-          color: vars.color.primary[700],
+        ":first-of-type": {
+          marginTop: 0,
         },
       },
       3: {
         position: "relative",
-        color: vars.color.primary[700],
         paddingLeft: vars.sizes[16],
-
-        ":hover": {
-          color: vars.color.primary[500],
-        },
       },
       4: {
         position: "relative",
-        color: vars.color.primary[700],
         paddingLeft: vars.sizes[32],
-
-        ":hover": {
-          color: vars.color.primary[500],
-        },
       },
-      5: {
-        color: vars.color.primary[700],
-      },
-      6: {
-        color: vars.color.primary[700],
-      },
+      5: {},
+      6: {},
     },
+  },
+});
+
+export const anchor = style({
+  color: vars.color.primary[700],
+
+  ":hover": {
+    color: vars.color.secondary[500],
+  },
+
+  ":focus-visible": {
+    outline: "none",
+    color: vars.color.secondary[500],
   },
 });
 

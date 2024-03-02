@@ -6,23 +6,19 @@ export const grid = style({
   display: "flex",
   flexDirection: "column",
   gap: vars.sizes[24],
-  marginTop: vars.sizes[24],
+  marginTop: vars.sizes[48],
 });
 
-export const title = style({
-  marginTop: vars.sizes[8],
-});
-
-export const threeCols = responsiveStyle({
+export const side = responsiveStyle({
   mobile: [columnCount(2)],
   tablet: [columnCount(2)],
   desktop: [columnCount(3)],
 });
 
-export const fiveCols = responsiveStyle({
+export const body = responsiveStyle({
   mobile: [columnCount(2)],
   tablet: [columnCount(4)],
-  desktop: [columnCount(5)],
+  desktop: [columnCount(6)],
 });
 
 export const postBodyWrapper = style({

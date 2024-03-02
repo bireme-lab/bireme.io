@@ -52,7 +52,7 @@ export const tooltip = style({
   justifyContent: "space-between",
   padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
   borderRadius: vars.sizes[2],
-  backgroundColor: vars.color.neutral[900],
+  backgroundColor: vars.color.neutral[800],
 });
 
 export const tooltipContent = style({

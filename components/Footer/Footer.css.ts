@@ -10,15 +10,15 @@ export const footer = responsiveStyle({
     backgroundColor: vars.color.neutral[900],
   },
   desktop: {
-    paddingTop: vars.sizes[72],
-    paddingBottom: vars.sizes[72],
+    paddingTop: vars.sizes[24],
+    paddingBottom: vars.sizes[24],
   },
 });
 
 export const container = style({
   display: "flex",
-  flexDirection: "column",
-  gap: vars.sizes[24],
+  justifyContent: "space-between",
+  alignItems: "center",
 });
 
 export const logoLink = style({
@@ -29,15 +29,15 @@ export const logoLink = style({
     color: vars.color.primary[600],
   },
 
-  ":focus": {
+  ":focus-visible": {
     outline: "none",
     color: vars.color.primary[600],
   },
 });
 
 export const logo = style({
-  width: "140px",
-  height: "24px",
+  width: "120px",
+  height: "16px",
   color: "inherit",
 });
 
@@ -51,7 +51,7 @@ export const form = responsiveStyle({
     },
   ],
   tablet: columnCount(3),
-  desktop: columnCount(4),
+  desktop: columnCount(3),
 });
 
 export const legalLinks = responsiveStyle({
@@ -59,11 +59,24 @@ export const legalLinks = responsiveStyle({
     display: "flex",
     flexDirection: "column",
     gap: vars.sizes[12],
-    marginTop: vars.sizes[16],
     listStyle: "none",
   },
   tablet: {
     flexDirection: "row",
     gap: vars.sizes[16],
+  },
+});
+
+export const legalLink = style({
+  color: vars.color.primary[700],
+
+  ":hover": {
+    color: vars.color.primary[500],
+  },
+
+  ":focus-visible": {
+    outline: `1px solid ${vars.color.secondary[500]}`,
+    outlineOffset: 2,
+    borderRadius: vars.sizes[2],
   },
 });

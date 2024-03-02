@@ -5,10 +5,10 @@ export const listItem = style({
   display: "list-item",
   marginBottom: vars.sizes[12],
   fontFamily: vars.font.sans,
-  fontSize: "0.9375rem",
+  fontSize: "1rem",
   fontWeight: 400,
   lineHeight: "1.5625rem",
-  color: vars.color.primary[600],
+  color: vars.color.primary[700],
 
   ":last-of-type": {
     marginBottom: 0,
@@ -17,7 +17,7 @@ export const listItem = style({
 
 globalStyle(`${listItem} strong, b`, {
   fontWeight: 500,
-  color: vars.color.primary[500],
+  color: vars.color.primary[600],
 });
 
 export const list = style({
@@ -31,6 +31,11 @@ export const heading = style({
 export const headingLink = style({
   alignItems: "center",
   gap: vars.sizes[4],
+
+  ":focus-visible": {
+    outline: "none",
+    color: vars.color.secondary[500],
+  },
 });
 
 export const headingLinkIcon = style({
@@ -42,9 +47,15 @@ export const headingLinkIcon = style({
   color: vars.color.primary[700],
   transition: `opacity ${transitionDuration}ms ease-out`,
   opacity: 0,
+  position: "relative",
+  top: "4px",
+  marginLeft: vars.sizes[4],
 
   selectors: {
     [`${headingLink}:hover &`]: {
+      opacity: 1,
+    },
+    [`${headingLink}:focus-visible &`]: {
       opacity: 1,
     },
   },
@@ -72,32 +83,48 @@ export const calloutChildrenContainer = style({
 });
 
 globalStyle(`${calloutChildrenContainer} *`, {
-  fontSize: "0.8125rem!important",
-  lineHeight: "1.1875rem!important",
+  fontSize: "0.875rem",
+  fontWeight: 400,
+  lineHeight: "1.3125rem",
+  color: vars.color.primary[500],
 });
 
 export const blockquote = style({
   display: "flex",
   alignItems: "center",
   gap: vars.sizes[4],
-  padding: `${vars.sizes[16]} ${vars.sizes[16]} ${vars.sizes[16]} ${vars.sizes[24]}`,
+  padding: `${vars.sizes[16]} ${vars.sizes[16]} ${vars.sizes[16]} ${vars.sizes[20]}`,
   borderRadius: vars.radii[2],
-  backgroundColor: vars.color.neutral[900],
+  backgroundColor: vars.color.neutral[800],
   borderLeft: `2px solid ${vars.color.secondary[500]}`,
   // fontStyle: "italic",
+});
+
+export const link = style({
+  color: vars.color.secondary[500],
+
+  ":hover": {
+    color: vars.color.secondary[300],
+  },
+
+  ":focus-visible": {
+    outline: `1px solid ${vars.color.secondary[500]}`,
+    outlineOffset: 2,
+    borderRadius: vars.sizes[2],
+  },
 });
 
 export const paragraph = style({});
 
 globalStyle(`${paragraph} strong, b`, {
   fontWeight: 500,
-  color: vars.color.primary[500],
+  color: vars.color.primary[600],
 });
 
 export const pre = style({
   paddingTop: vars.sizes[20],
   paddingBottom: vars.sizes[20],
-  backgroundColor: vars.color.neutral[900],
+  backgroundColor: vars.color.neutral[800],
   overflowX: "auto",
 });
 
@@ -105,7 +132,7 @@ export const preTitle = style({
   display: "flex",
   alignItems: "center",
   padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
-  backgroundColor: vars.color.neutral[900],
+  backgroundColor: vars.color.neutral[800],
 });
 
 export const code = style({
@@ -208,8 +235,8 @@ globalStyle(`${table} tbody td`, {
 
 globalStyle(`${table} th, td`, {
   fontFamily: vars.font.sans,
-  fontSize: "0.8125rem",
+  fontSize: "0.875rem",
   fontWeight: 400,
-  lineHeight: "1.1875rem",
+  lineHeight: "1.3125rem",
   padding: `${vars.sizes[8]} ${vars.sizes[12]}`,
 });

@@ -55,7 +55,6 @@ export const Header: React.FC = () => {
               aria-pressed={isPressed}
               color="none"
               variant="comment"
-              underlined={true}
               className={styles.commentButton({ isHovered, isFocused: isFocusVisible, isPressed })}
               onClick={handleButtonPress}
               {...mergeProps(pressProps, hoverProps, focusProps)}

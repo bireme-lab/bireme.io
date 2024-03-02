@@ -9,11 +9,10 @@ import * as styles from "./Newsletter.css";
 
 type Props = {
   content: string;
-  underlined?: boolean;
   variant?: TextVariant;
 };
 
-export const NewsletterTrigger: React.FC<Props> = ({ content, underlined = true }) => {
+export const NewsletterTrigger: React.FC<Props> = ({ content }) => {
   const { isFocusVisible, focusProps } = useFocusRing();
   const { isHovered, hoverProps } = useHover({});
   const overlayTriggerState = useOverlayTriggerState({
@@ -36,7 +35,6 @@ export const NewsletterTrigger: React.FC<Props> = ({ content, underlined = true 
         aria-label={content}
         aria-pressed={isPressed}
         color="none"
-        underlined={underlined}
         onClick={handleButtonPress}
         className={styles.trigger({ isHovered, isFocused: isFocusVisible, isPressed })}
         {...mergeProps(pressProps, hoverProps, focusProps)}

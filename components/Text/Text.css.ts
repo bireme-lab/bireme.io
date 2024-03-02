@@ -1,4 +1,3 @@
-import { responsiveStyle } from "@/styles/mixins";
 import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
@@ -7,6 +6,11 @@ export const text = recipe({
   base: {
     fontFamily: vars.font.sans,
     display: "inline",
+    zIndex: 1,
+    position: "relative",
+    transitionProperty: "color",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
   },
   variants: {
     variant: {
@@ -19,10 +23,10 @@ export const text = recipe({
         lineHeight: "1.1875rem",
       },
       "small-mono": {
-        fontSize: "0.75rem",
+        fontSize: "0.8125rem",
         fontWeight: 400,
         fontFamily: vars.font.mono,
-        lineHeight: "0.75rem",
+        lineHeight: "0.8125rem",
         textTransform: "uppercase",
       },
       "small-flat": {
@@ -31,19 +35,19 @@ export const text = recipe({
         lineHeight: "0.8125rem",
       },
       anchor: {
-        fontSize: "0.875rem",
+        fontSize: "0.938rem",
         fontWeight: 400,
-        lineHeight: "1.3125rem",
+        lineHeight: "1.563rem",
       },
       "anchor-flat": {
-        fontSize: "0.875rem",
+        fontSize: "0.938rem",
         fontWeight: 400,
-        lineHeight: "0.875rem",
+        lineHeight: "0.938rem",
       },
       body: {
-        fontSize: "0.9375rem",
+        fontSize: "1rem",
         fontWeight: 400,
-        lineHeight: "1.5625rem",
+        lineHeight: "1.75rem",
       },
       "section-heading": {
         fontFamily: vars.font.mono,
@@ -66,11 +70,6 @@ export const text = recipe({
         fontSize: "2rem",
         fontWeight: 600,
         lineHeight: "2.5rem",
-      },
-    },
-    isUnderlined: {
-      true: {
-        textDecoration: "underline",
       },
     },
   },
@@ -97,83 +96,22 @@ export const underlinedLink = style({
   textDecoration: "underline",
 });
 
-export const link = recipe({
-  base: {
-    zIndex: 1,
-    position: "relative",
-    background: `linear-gradient(to top, ${vars.color.secondary[500]} 0%, ${vars.color.secondary[500]} 100%) no-repeat`,
-    backgroundSize: "0% 100%",
-    transitionProperty: "color, background",
-    transitionDuration: `${transitionDuration}ms`,
-    transitionTimingFunction: "ease-out",
-  },
-  variants: {
-    isUnderlined: {
-      true: {
-        textDecoration: "underline",
-        fontWeight: 500,
-      },
-    },
-    isHovered: {
-      true: {},
-    },
-    isFocused: {
-      true: {
-        outline: "none",
-        color: `${vars.color.neutral[900]}!important`,
-        backgroundSize: "100% 100%",
-      },
-    },
-  },
-  compoundVariants: [
-    {
-      variants: {
-        isUnderlined: true,
-        isHovered: true,
-      },
-      style: {
-        color: `${vars.color.primary[600]}!important`,
-      },
-    },
-  ],
-});
+export const defaultLink = style({
+  zIndex: 1,
+  position: "relative",
+  transitionProperty: "color",
+  transitionDuration: `${transitionDuration}ms`,
+  transitionTimingFunction: "ease-out",
+  color: vars.color.primary[700],
 
-export const translateAnimationContainer = recipe({
-  base: {
-    position: "relative",
-    transitionProperty: "transform, color",
-    transitionDuration: "300ms",
-    transitionTimingFunction: "ease-out",
-    color: "inherit",
-
-    "::after": {
-      position: "absolute",
-      content: "attr(data-content)",
-      bottom: "-100%",
-      left: 0,
-      transition: "transform 300ms ease-out",
-    },
+  ":hover": {
+    color: vars.color.secondary[500],
   },
-  variants: {
-    isHovered: {
-      true: responsiveStyle({
-        mobile: {},
-        desktop: {
-          transform: "translateY(-100%)",
-        },
-      }),
-    },
-    isFocused: {
-      true: responsiveStyle({
-        mobile: {
-          color: `${vars.color.neutral[900]}!important`,
-          outline: "none",
-        },
-        desktop: {
-          transform: "translateY(-100%)",
-        },
-      }),
-    },
+
+  ":focus-visible": {
+    outline: `1px solid ${vars.color.secondary[500]}`,
+    outlineOffset: 2,
+    borderRadius: vars.sizes[2],
   },
 });
 

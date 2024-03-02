@@ -2,7 +2,7 @@ import { vars } from "@/styles/theme/index.css";
 import { keyframes, style } from "@vanilla-extract/css";
 
 export const html = style({
-  backgroundColor: vars.color.neutral[800],
+  backgroundColor: vars.color.neutral[900],
   overflowX: "hidden",
 });
 

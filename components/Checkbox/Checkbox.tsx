@@ -33,10 +33,14 @@ export const Checkbox: React.FC<Props> = (props) => {
   );
 
   const { isFocusVisible, focusProps } = useFocusRing();
-  const { isHovered, hoverProps } = useHover({});
-  const { isPressed, pressProps } = usePress({
+  const { isHovered: isElementHovered, hoverProps } = useHover({});
+  const { isPressed: isElementPressed, pressProps } = usePress({
     ref,
   });
+
+  const isFocused = !inputProps.disabled && isFocusVisible;
+  const isHovered = !inputProps.disabled && isElementHovered;
+  const isPressed = !inputProps.disabled && isElementPressed;
 
   return (
     <label
@@ -67,9 +71,17 @@ export const Checkbox: React.FC<Props> = (props) => {
             d="M9 6.5c2 5 4.5 8.5 8.5 13.5"
           />
         </svg>
-        <div className={cx(styles.checkbox({ isFocused: isFocusVisible, isHovered, isPressed }))} />
+        <div
+          className={cx(
+            styles.checkbox({ isDisabled: inputProps.disabled, isFocused, isHovered, isPressed }),
+          )}
+        />
       </div>
-      {props.children && <Text variant="anchor">{props.children}</Text>}
+      {props.children && (
+        <Text variant="anchor" color={inputProps.disabled ? "primary-700" : "primary-500"}>
+          {props.children}
+        </Text>
+      )}
     </label>
   );
 };

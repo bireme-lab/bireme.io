@@ -58,7 +58,7 @@ export const post = recipe({
     tablet: {
       flexDirection: "row",
       alignItems: "center",
-      gap: vars.sizes[16],
+      gap: vars.sizes[24],
     },
   }),
   variants: {
@@ -87,7 +87,7 @@ const postRowContent = style({
 
 const postRowContentHovered = style({
   color: `${vars.color.neutral[900]}!important`,
-  transform: `translateX(${vars.sizes[12]})`,
+  transform: `translateX(${vars.sizes[24]})`,
 });
 
 export const postRowTitle = recipe({

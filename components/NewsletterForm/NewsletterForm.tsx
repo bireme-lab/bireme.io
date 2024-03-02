@@ -6,6 +6,7 @@ import {
 } from "@/app/api/newsletter/subscribe/route";
 import { useGoogleReCaptcha } from "@/hooks/useGoogleReCaptcha";
 import { cx } from "@/styles/mixins";
+import { Locale } from "@/utils/i18n";
 import { request } from "@/utils/request";
 import { isEmpty } from "@/utils/types";
 import { AsyncData, Result } from "@swan-io/boxed";
@@ -188,7 +189,12 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
         </Field>
         <Field name="marketingOptIn">
           {({ value, onChange, onBlur }) => (
-            <Checkbox isSelected={value} onChange={onChange} onBlur={onBlur}>
+            <Checkbox
+              isSelected={value}
+              onChange={onChange}
+              onBlur={onBlur}
+              isDisabled={requestState.isLoading() || isFormSubmitSuccess}
+            >
               {t("optIn.label")}
             </Checkbox>
           )}
@@ -242,15 +248,13 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
         <Text variant="small" markup="p" className={styles.mention} color="primary-700">
           {t.rich("disclaimer", {
             privacy: (chunk) => (
-              <Text href="/" style={{ display: "inline" }} underlined={true}>
-                {chunk}
-              </Text>
-            ),
-            gdpr: (chunk) => (
               <Text
-                href="https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique"
+                href={match(locale as Locale)
+                  .with("fr", () => "/fr/politique-de-confidentialite")
+                  .with("en", () => "/en/privacy-policy")
+                  .exhaustive()}
                 style={{ display: "inline" }}
-                underlined={true}
+                className={styles.link}
               >
                 {chunk}
               </Text>
@@ -263,7 +267,8 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
               <Text
                 href="https://policies.google.com/privacy"
                 style={{ display: "inline" }}
-                underlined={true}
+                target="_blank"
+                className={styles.link}
               >
                 {chunk}
               </Text>
@@ -272,7 +277,8 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
               <Text
                 href="https://policies.google.com/terms"
                 style={{ display: "inline" }}
-                underlined={true}
+                target="_blank"
+                className={styles.link}
               >
                 {chunk}
               </Text>

@@ -43,9 +43,9 @@ export const comment = style({
 
 export const commentButton = recipe({
   base: {
-    transition: `color ${transitionDuration}ms ease-out`,
     color: vars.color.secondary[500],
     cursor: "pointer",
+    textDecoration: "underline",
 
     ":focus-visible": {
       outline: "none",
@@ -54,19 +54,19 @@ export const commentButton = recipe({
   variants: {
     isHovered: {
       true: {
-        color: vars.color.secondary[600],
+        color: vars.color.secondary[300],
       },
     },
     isFocused: {
       true: {
         outline: "none",
-        color: vars.color.secondary[600],
+        color: vars.color.secondary[300],
       },
     },
     isPressed: {
       true: {
         outline: "none",
-        color: vars.color.secondary[700],
+        color: vars.color.secondary[200],
       },
     },
   },

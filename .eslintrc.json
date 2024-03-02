@@ -12,6 +12,7 @@
     "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "react/prop-types": "off",
+    "react/jsx-no-comment-textnodes": "off",
     "no-console": "warn",
     "no-implicit-coercion": "error"
   },

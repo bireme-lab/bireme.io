@@ -31,9 +31,7 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
               href={href}
               title={label}
               variant="anchor-flat"
-              translateOnHover={true}
-              className={styles.link}
-              color={index === lastIndex ? "primary-500" : "primary-700"}
+              className={styles.link({ isLast: index === lastIndex })}
             >
               {label}
             </Text>
@@ -44,7 +42,7 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
                 className={styles.separator}
                 aria-hidden={true}
               >
-                /
+                //
               </Text>
             )}
           </Fragment>

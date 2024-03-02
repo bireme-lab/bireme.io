@@ -11,7 +11,6 @@ export const container = style({
 
 export const checkboxContainer = style({
   position: "relative",
-  top: "-1.5px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -38,6 +37,12 @@ export const checkbox = recipe({
     transitionTimingFunction: "ease-out",
   },
   variants: {
+    isDisabled: {
+      true: {
+        borderColor: vars.color.primary[800],
+        backgroundColor: vars.color.primary[800],
+      },
+    },
     isFocused: {
       true: {
         borderColor: vars.color.primary[500],

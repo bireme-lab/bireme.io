@@ -62,11 +62,11 @@ const Page = async ({ params }: PageParams) => {
       <Container>
         <Breadcrumb steps={breadcrumbSteps} />
         <Grid className={styles.grid}>
-          <div className={styles.threeCols}>
+          <div className={styles.side}>
             <TableOfContent headings={page.headings} />
           </div>
-          <div className={cx(styles.fiveCols, styles.postBodyWrapper)}>
-            <Text markup="h1" variant="title1" className={styles.title}>
+          <div className={cx(styles.body, styles.postBodyWrapper)}>
+            <Text markup="h1" variant="title1">
               {page.title}
             </Text>
             <CustomMDX source={page.body} />

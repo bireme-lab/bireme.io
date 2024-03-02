@@ -41,3 +41,16 @@ export const mentionsWrapper = style({
   flexDirection: "column",
   gap: vars.sizes[8],
 });
+
+export const link = style({
+  color: vars.color.primary[500],
+
+  ":focus-visible": {
+    outline: `1px solid ${vars.color.secondary[500]}`,
+    outlineOffset: 2,
+    borderRadius: vars.sizes[2],
+  },
+  ":hover": {
+    color: vars.color.primary[600],
+  },
+});

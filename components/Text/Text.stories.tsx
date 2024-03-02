@@ -39,8 +39,6 @@ export const Variants: Story = {
       <Text variant="body" {...props} />
       <Text variant="section-heading" {...props} />
       <Text variant="title3" {...props} />
-      <Text markup="h2" variant="title2" {...props} />
-      <Text markup="h1" variant="title1" {...props} />
     </>
   ),
 };
@@ -71,14 +69,6 @@ export const InlineNodes: Story = {
     <>
       <Text {...props} />
     </>
-  ),
-};
-
-export const RelativeLink: Story = {
-  render: () => (
-    <Text href="https://google.com" translateOnHover>
-      Revenir en arrière
-    </Text>
   ),
 };
 

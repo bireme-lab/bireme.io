@@ -20,6 +20,7 @@ export const button = recipe({
     transitionProperty: "color, transform, background, border",
     transitionDuration: `${transitionDuration}ms`,
     transitionTimingFunction: "ease-out",
+    cursor: "pointer",
 
     // Prevents flickering on Safari
     backfaceVisibility: "hidden",
@@ -57,7 +58,9 @@ export const button = recipe({
       true: {},
     },
     isDisabled: {
-      true: {},
+      true: {
+        cursor: "not-allowed",
+      },
     },
   },
   compoundVariants: [
@@ -96,7 +99,6 @@ export const button = recipe({
       style: {
         color: vars.color.primary[900],
         backgroundColor: vars.color.primary[600],
-        pointerEvents: "none",
       },
     },
     {
@@ -144,7 +146,6 @@ export const button = recipe({
         backgroundColor: vars.color.neutral[700],
         border: `1px solid ${vars.color.neutral[700]}`,
         color: vars.color.primary[600],
-        pointerEvents: "none",
       },
     },
   ],

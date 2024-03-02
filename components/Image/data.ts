@@ -1,4 +1,10 @@
 export const data = {
+  "/images/antoine-et-frederic.webp": {
+    name: "antoine-et-frederic.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAL0lEQVR4nGMQEBDQUlGSEBPzC/RlkJcW///n9Yen92PDQxj4ONiK0+KsTAwsjIwAzEELUVRWyukAAAAASUVORK5CYII=",
+  },
   "/images/avatars/antoine.webp": {
     name: "antoine.webp",
     extension: ".webp",
@@ -10,6 +16,12 @@ export const data = {
     extension: ".webp",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAP0lEQVR4nAE0AMv/AP/8+NfKxebWz6OXlADx392wm5vQu7nWyMcAi4WKjYGGe3F1nZSXAGFgZwoEEExLUaelrH0SHWyL7iq4AAAAAElFTkSuQmCC",
+  },
+  "/images/devant-ecrans.webp": {
+    name: "devant-ecrans.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAMklEQVR4nAEnANj/AA0NDfv//t3l6Tk0KwAFBQXAwMCUlZJAPzcACgoKyNDWcHmCEhMPRLwPTtqxA9cAAAAASUVORK5CYII=",
   },
   "/images/gustave.png": {
     name: "gustave.png",

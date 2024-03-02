@@ -18,9 +18,9 @@ export const input = recipe({
     borderStyle: "solid",
     borderColor: vars.color.neutral[800],
     fontFamily: vars.font.sans,
-    fontSize: "0.875rem",
+    fontSize: "1rem",
     fontWeight: 400,
-    lineHeight: "0.875rem",
+    lineHeight: "1rem",
     color: vars.color.primary[500],
     transitionProperty: "border, background, color",
     transitionDuration: `${transitionDuration}ms`,
@@ -32,7 +32,6 @@ export const input = recipe({
 
     ":focus-visible": {
       outline: "none",
-      borderColor: vars.color.primary[500],
     },
   },
   variants: {

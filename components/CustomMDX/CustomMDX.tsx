@@ -52,9 +52,7 @@ const MDXHeading: React.FC<MDXHeadingProps> = async ({ level, color, ...props })
       <Text
         href={`#${props.id}`}
         variant={variant}
-        color="primary-500"
-        underlined={false}
-        style={{ display: "inline-flex" }}
+        style={{ display: "inline" }}
         className={styles.headingLink}
       >
         {props.children}
@@ -134,19 +132,19 @@ export const CustomMDX: React.FC<MDXRemoteProps> = async (props) => {
     h5: (props) => <MDXHeading level={5} {...props} />,
     h6: (props) => <MDXHeading level={6} {...props} />,
     p: (props) => (
-      <Text variant="body" markup="p" {...props} className={styles.paragraph} color="primary-600" />
+      <Text variant="body" markup="p" {...props} className={styles.paragraph} color="primary-700" />
     ),
-    a: (props) => (
-      <Text variant="body" href={props.href} {...props} color="primary-500" underlined={true} />
+    a: ({ color, ...props }) => (
+      <Text variant="body" href={props.href} className={styles.link} {...props} />
     ),
     ol: (props) => <ol className={styles.list} {...props} />,
     ul: (props) => <ul className={styles.list} {...props} />,
     li: (props) => <li className={styles.listItem} {...props} />,
-    strong: (props) => <Text variant="body" markup="strong" {...props} color="primary-500" />,
-    b: (props) => <Text variant="body" markup="strong" {...props} color="primary-500" />,
-    em: (props) => <Text variant="body" markup="em" {...props} color="primary-600" />,
-    s: (props) => <Text variant="body" markup="s" {...props} color="primary-600" />,
-    small: (props) => <Text variant="small" markup="small" {...props} color="primary-600" />,
+    strong: (props) => <Text variant="body" markup="strong" {...props} color="primary-700" />,
+    b: (props) => <Text variant="body" markup="strong" {...props} color="primary-700" />,
+    em: (props) => <Text variant="body" markup="em" {...props} color="primary-700" />,
+    s: (props) => <Text variant="body" markup="s" {...props} color="primary-700" />,
+    small: (props) => <Text variant="small" markup="small" {...props} color="primary-700" />,
     code: (props) => <code className={styles.code} {...props} />,
     figcaption: (props) => {
       if (Object.defineProperty(props, "data-rehype-pretty-code-title", { value: "" })) {

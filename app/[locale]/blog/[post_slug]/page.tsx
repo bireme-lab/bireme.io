@@ -76,7 +76,6 @@ const PostPage = async ({ params }: PostPageParams) => {
   const t = await getTranslations("pages.PostPage");
 
   const post = await MDX.findPostBySlugOrNotFound(params.post_slug, params.locale);
-  const isBodyStartingWithHeading = post.body.slice(0, 20).startsWith("##");
 
   const breadcrumbSteps: Step[] = [
     {
@@ -94,30 +93,28 @@ const PostPage = async ({ params }: PostPageParams) => {
       <Container>
         <Breadcrumb steps={breadcrumbSteps} />
         <article className={styles.article}>
-          <Text variant="title1" markup="h1">
-            {post.title}
-          </Text>
           <div className={styles.heroContent}>
+            <Text variant="title1" markup="h1">
+              {post.title}
+            </Text>
             <PublishedAt
               authors={post.authors}
               publishedAt={post.publishedAt}
               disableTooltips={false}
             />
-            <Text variant="body" markup="p" color="primary-600">
-              <Text variant="section-heading" color="primary-700">
-                TLDR;&nbsp;
-              </Text>
-              {post.tldr}
-            </Text>
           </div>
           <Divider />
           <Grid className={styles.grid}>
-            <div className={styles.threeCols}>
+            <div className={styles.side}>
               <TableOfContent headings={post.headings} />
             </div>
-            <div
-              className={cx(styles.fiveCols, styles.postBodyWrapper({ isBodyStartingWithHeading }))}
-            >
+            <div className={cx(styles.body, styles.postBodyWrapper)}>
+              <Text variant="section-heading" color="primary-500">
+                //&nbsp;tl;dr&nbsp;
+              </Text>
+              <Text variant="body" markup="p" color="primary-700">
+                {post.tldr}
+              </Text>
               <CustomMDX source={post.body} />
             </div>
           </Grid>

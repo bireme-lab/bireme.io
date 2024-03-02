@@ -1,9 +1,9 @@
 import { Container } from "@/components/Container/Container";
 import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
+import { LatestPost } from "@/components/LatestPost/LatestPost";
 import { NewsletterTrigger } from "@/components/NewsletterTrigger/NewsletterTrigger";
 import { PostRow } from "@/components/PostRow/PostRow";
-import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
 import { Text } from "@/components/Text/Text";
 import { Locale } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
@@ -39,37 +39,6 @@ const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
 
 NewsBanner.displayName = "NewsBanner";
 
-type LatestPostProps = {
-  post: MDX.Post;
-};
-
-const LatestPost: React.FC<LatestPostProps> = ({ post }) => {
-  return (
-    <div className={styles.latestPost}>
-      <div>
-        <Text
-          variant="title2"
-          href={post.href}
-          underlined={false}
-          className={styles.latestPostTitle}
-        >
-          {post.title}
-        </Text>
-      </div>
-      <Text variant="body" markup="p" color="primary-600">
-        {post.seo.description}
-      </Text>
-      <PublishedAt
-        authors={post.authors}
-        publishedAt={post.publishedAt}
-        className={styles.latestPostPublishedAt}
-      />
-    </div>
-  );
-};
-
-LatestPost.displayName = "LatestPost";
-
 const Home = async ({
   params: { locale },
 }: Readonly<{
@@ -93,7 +62,7 @@ const Home = async ({
             <Text variant="title1" markup="h1">
               {t("title")}
             </Text>
-            <div className={styles.learnMoreWrapper}>
+            {/* <div className={styles.learnMoreWrapper}>
               <Text
                 href={match(locale)
                   .with("fr", () => MDX.generateHref("a-propos-de-bireme-lab", locale, "Post"))
@@ -106,7 +75,7 @@ const Home = async ({
                 {t("learn_more")}
               </Text>
               <Icon name="arrow_right" title={t("learn_more")} className={styles.learnMoreIcon} />
-            </div>
+            </div> */}
           </div>
           <div className={styles.descriptionWrapper}>
             <Text variant="body" markup="p" color="primary-600">
@@ -125,7 +94,7 @@ const Home = async ({
                 markup="h2"
                 className={styles.latestPostSectionHeading}
               >
-                {t("latest_post")}
+                // {t("latest_post")}
                 <Icon
                   name="handwritten_underline"
                   title={t("latest_post")}
@@ -140,10 +109,10 @@ const Home = async ({
           .otherwise(() => null)}
         <div className={styles.allPostsWrapper}>
           <Text variant="section-heading" markup="h2" className={styles.allPostsSectionHeading}>
-            {t("all_posts")}
+            // {t("all_posts")}
           </Text>
           {match(postsOption)
-            .with(Option.Some(P.select(P.when((posts) => posts.length < 1))), (posts) => {
+            .with(Option.Some(P.select(P.when((posts) => posts.length > 1))), (posts) => {
               posts.shift();
               const postsLength = posts.length;
 

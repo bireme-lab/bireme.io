@@ -1,14 +1,11 @@
-"use client";
-
-import { Container } from "@/components/Container/Container";
-import { Icon } from "@/components/Icon/Icon";
-import { Text } from "@/components/Text/Text";
 import { Locale } from "@/utils/i18n";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { match } from "ts-pattern";
-import { Grid } from "../Grid/Grid";
-import NewsletterForm from "../NewsletterForm/NewsletterForm";
+import { Container } from "../Container/Container";
+import { Icon } from "../Icon/Icon";
+import { Text } from "../Text/Text";
 import * as styles from "./Footer.css";
 
 export const resolveAfter = <T,>(delay: number, value?: T): Promise<T | void> =>
@@ -16,19 +13,16 @@ export const resolveAfter = <T,>(delay: number, value?: T): Promise<T | void> =>
     setTimeout(() => resolve(value), delay);
   });
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC = async () => {
   const locale = useLocale() as Locale;
-  const t = useTranslations("components.Footer");
+  const t = await getTranslations("components.Footer");
 
   return (
     <footer className={styles.footer}>
       <Container className={styles.container}>
         <Link href="/" className={styles.logoLink}>
-          <Icon name="logo_with_reflection" title={t("homepage")} className={styles.logo} />
+          <Icon name="logo" title={t("homepage")} className={styles.logo} />
         </Link>
-        <Grid>
-          <NewsletterForm className={styles.form} />
-        </Grid>
         <ul className={styles.legalLinks}>
           <li>
             <Text
@@ -37,8 +31,7 @@ export const Footer: React.FC = () => {
                 .with("en", () => "/en/legal-notice")
                 .exhaustive()}
               variant="small-flat"
-              translateOnHover={true}
-              color="primary-700"
+              className={styles.legalLink}
             >
               {t("legal_links.legal_notice")}
             </Text>
@@ -50,8 +43,7 @@ export const Footer: React.FC = () => {
                 .with("en", () => "/en/privacy-policy")
                 .exhaustive()}
               variant="small-flat"
-              translateOnHover={true}
-              color="primary-700"
+              className={styles.legalLink}
             >
               {t("legal_links.privacy_policy")}
             </Text>

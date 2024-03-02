@@ -13,7 +13,7 @@ export const newsBanner = responsiveStyle({
       flexDirection: "column",
       alignItems: "flex-start",
       padding: `${vars.sizes[16]} ${vars.sizes[16]}`,
-      backgroundColor: vars.color.neutral[900],
+      backgroundColor: vars.color.neutral[800],
       gap: vars.sizes[8],
       transitionProperty: "background-color, border",
       transitionDuration: `${transitionDuration}ms`,
@@ -30,10 +30,10 @@ export const newsBanner = responsiveStyle({
     columnCount(3),
     {
       flexDirection: "row",
-      gap: vars.sizes[12],
+      gap: vars.sizes[16],
     },
   ],
-  desktop: columnCount(5),
+  desktop: columnCount(6),
 });
 
 export const newsBannerTag = responsiveStyle({
@@ -41,12 +41,24 @@ export const newsBannerTag = responsiveStyle({
     position: "relative",
   },
   tablet: {
-    top: "5px",
+    top: "5.5px",
   },
 });
 
 // LatestPosts
 // -------------------------------------------o
+
+export const latestPostWrapper = responsiveStyle({
+  mobile: {
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    gap: vars.sizes[20],
+  },
+  desktop: {
+    marginTop: vars.sizes[80],
+  },
+});
 
 export const latestPost = responsiveStyle({
   mobile: [
@@ -54,7 +66,7 @@ export const latestPost = responsiveStyle({
     {
       display: "flex",
       flexDirection: "column",
-      gap: vars.sizes[8],
+      gap: vars.sizes[12],
     },
   ],
   tablet: columnCount(3),
@@ -71,6 +83,15 @@ export const latestPostTitle = style({
 
 export const latestPostPublishedAt = style({
   marginTop: vars.sizes[4],
+});
+
+export const handwrittenUnderline = style({
+  position: "absolute",
+  left: 0,
+  bottom: "-12px",
+  width: "180px",
+  height: "7px",
+  color: vars.color.secondary[500],
 });
 
 // Home
@@ -93,7 +114,7 @@ export const titleWrapper = responsiveStyle({
     },
   ],
   tablet: columnCount(2),
-  desktop: columnCount(5),
+  desktop: columnCount(6),
 });
 
 export const learnMoreWrapper = style({
@@ -123,32 +144,11 @@ export const descriptionWrapper = responsiveStyle({
     },
   ],
   tablet: columnCount(2),
-  desktop: columnCount(3),
-});
-
-export const latestPostWrapper = responsiveStyle({
-  mobile: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    gap: vars.sizes[20],
-  },
-  desktop: {
-    marginTop: vars.sizes[80],
-  },
+  desktop: columnCount(4),
 });
 
 export const latestPostSectionHeading = style({
   position: "relative",
-});
-
-export const handwrittenUnderline = style({
-  position: "absolute",
-  left: 0,
-  bottom: "-10px",
-  width: "150px",
-  height: "7px",
-  color: vars.color.secondary[500],
 });
 
 export const allPostsWrapper = style({

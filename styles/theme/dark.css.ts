@@ -115,11 +115,11 @@ export const dark = createTheme(vars, {
       gutter: sizes[24],
     },
     desktop: {
-      count: "8",
+      count: "12",
       width: "100%",
-      maxWidth: "1024px",
-      margin: "0",
-      gutter: sizes[24],
+      maxWidth: "1440px",
+      margin: sizes[48],
+      gutter: sizes[48],
     },
   },
   radii: {

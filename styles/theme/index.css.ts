@@ -2,7 +2,7 @@ import { createThemeContract } from "@vanilla-extract/css";
 
 export const breakpoints = {
   tablet: "768px",
-  desktop: "1072px",
+  desktop: "1100px",
 };
 
 export const sizes = {
