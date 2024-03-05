@@ -27,7 +27,7 @@ export const TableOfContent: React.FC<Props> = async ({ headings }) => {
             .with({ level: 1 }, () => null)
             .with({ level: 2, slug: P.string, text: P.string }, ({ level, slug, text }) => (
               <li key={slug} className={styles.anchorListItem({ level })}>
-                <Text href={`#${slug}`} variant="small" className={styles.anchor}>
+                <Text href={`#${slug}`} variant="body" className={styles.anchor}>
                   {text}
                 </Text>
               </li>
@@ -38,7 +38,7 @@ export const TableOfContent: React.FC<Props> = async ({ headings }) => {
                   className={styles.anchorDecoration({ indentation: "none" })}
                   aria-hidden={true}
                 />
-                <Text href={`#${slug}`} variant="small" className={styles.anchor}>
+                <Text href={`#${slug}`} variant="body" className={styles.anchor}>
                   {text}
                 </Text>
               </li>
@@ -53,7 +53,7 @@ export const TableOfContent: React.FC<Props> = async ({ headings }) => {
                   className={styles.anchorDecoration({ indentation: "simple" })}
                   aria-hidden={true}
                 />
-                <Text href={`#${slug}`} variant="small" className={styles.anchor}>
+                <Text href={`#${slug}`} variant="body" className={styles.anchor}>
                   {text}
                 </Text>
               </li>

@@ -5,9 +5,9 @@ export const listItem = style({
   display: "list-item",
   marginBottom: vars.sizes[12],
   fontFamily: vars.font.sans,
-  fontSize: "1rem",
+  fontSize: "0.938rem",
   fontWeight: 400,
-  lineHeight: "1.5625rem",
+  lineHeight: "1.563rem",
   color: vars.color.primary[700],
 
   ":last-of-type": {
