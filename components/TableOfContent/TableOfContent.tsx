@@ -20,7 +20,7 @@ export const TableOfContent: React.FC<Props> = async ({ headings }) => {
         <Icon name="table_of_content" title={t("title")} className={styles.icon} />
         <Text variant="body">{t("title")}</Text>
       </div> */}
-      <Text variant="section-heading">// {t("title")}</Text>
+      <Text variant="section-heading">{t("title")}</Text>
       <ul className={styles.anchorList}>
         {headings.map((heading) => {
           return match(heading)

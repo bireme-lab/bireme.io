@@ -42,7 +42,7 @@ export const generateMetadata = async ({ params }: PostPageParams): Promise<Meta
       const url = `${ORIGIN}${MDX.generateHref(post.slug, params.locale, "Post")}`;
 
       return {
-        title: post.seo.title,
+        title: `${post.seo.title} - Bireme Lab`,
         description: post.seo.description,
         alternates: {
           canonical: url,
@@ -110,7 +110,7 @@ const PostPage = async ({ params }: PostPageParams) => {
             </div>
             <div className={cx(styles.body, styles.postBodyWrapper)}>
               <Text variant="section-heading" color="primary-500">
-                //&nbsp;tl;dr&nbsp;
+                tl;dr&nbsp;
               </Text>
               <Text variant="body" markup="p" color="primary-700">
                 {post.tldr}

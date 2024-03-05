@@ -20,14 +20,17 @@ export const PostRow: React.FC<Props> = ({ post, isFirstIndex, isLastIndex }) =>
   const { isFocusVisible, focusProps } = useFocusRing({});
 
   return (
-    <li key={post.slug} className={styles.postRow({ isFirst: isFirstIndex })}>
+    <li
+      key={post.slug}
+      className={styles.postRow({ isFirst: isFirstIndex, isHovered, isFocused: isFocusVisible })}
+    >
       <Link
         href={post.href}
         className={styles.post({ isHovered, isFocused: isFocusVisible })}
         {...mergeProps(hoverProps, focusProps)}
       >
         <Text
-          variant="anchor"
+          variant="body"
           className={styles.postRowTitle({ isHovered, isFocused: isFocusVisible })}
         >
           {post.title}

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Nous créons des services pour aider les autres à concevoir les leurs - Bireme Lab",
-    "description": "Experts dans la création d'applications et services spécialisés pour créateurs de contenu et entreprises. Inscrivez-vous à notre newsletter pour bénéficier d'insights exclusifs."
+    "description": "Experts dans la création d'applications et services spécialisés pour créateurs de contenu et entreprises. Abonnez-vous à notre newsletter pour bénéficier d'insights exclusifs."
   },
   "components": {
     "Checkbox": {
@@ -12,15 +12,15 @@
     },
     "Header": {
       "homepage": "Accueil",
-      "create_account": "Créer un compte",
-      "soon_available": "Bientôt disponible !",
-      "be_informed": "Être informé"
+      "subscribe_to_newsletter": "Obtenez un accès anticipé à nos produits en vous <NewsletterTrigger>abonnant à notre newsletter</NewsletterTrigger>"
     },
     "Footer": {
       "homepage": "Accueil",
+      "rss_feed": "Flux RSS",
       "legal_links": {
         "legal_notice": "Mentions légales",
-        "privacy_policy": "Politique de confidentialité"
+        "privacy_policy": "Politique de confidentialité",
+        "cookie_policy": "Politique des cookies"
       }
     },
     "NewsletterForm": {
@@ -69,7 +69,7 @@
   "pages": {
     "Home": {
       "title": "Nous créons des services pour aider les autres à concevoir les leurs",
-      "description": "Experts dans la création d'applications et services spécialisés pour créateurs de contenu et entreprises. <NewsletterTrigger>Abonnez-vous à notre newsletter pour bénéficier d'insights exclusifs.</NewsletterTrigger>",
+      "description": "Experts dans la création d'applications et services spécialisés pour les créateurs de contenu et entreprises. Pour obtenir un accès anticipé à nos produits vous pouvez vous <NewsletterTrigger>abonner à notre newsletter.</NewsletterTrigger>",
       "latest_post": "Dernière publication",
       "all_posts": "Tous nos articles",
       "no_posts": "Bientôt disponible !",

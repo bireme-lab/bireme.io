@@ -108,7 +108,7 @@ export const dark = createTheme(vars, {
       gutter: sizes[24],
     },
     tablet: {
-      count: "4",
+      count: "6",
       width: "100%",
       maxWidth: "100%",
       margin: sizes[24],

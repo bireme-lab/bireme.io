@@ -8,6 +8,7 @@ export type IconName =
   | "handwritten_cross"
   | "handwritten_shape"
   | "handwritten_underline"
+  | "handwritten_underline_2"
   | "link"
   | "logo"
   | "logo_with_reflection"

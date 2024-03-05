@@ -5,35 +5,51 @@ import { style } from "@vanilla-extract/css";
 // NewsBanner
 // -------------------------------------------o
 
-export const newsBanner = responsiveStyle({
+export const newsBannerWrapper = responsiveStyle({
   mobile: [
     columnCount(2),
     {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      padding: `${vars.sizes[16]} ${vars.sizes[16]}`,
+      borderRadius: vars.sizes[2],
+      transition: `background ${transitionDuration}ms ease-out`,
       backgroundColor: vars.color.neutral[800],
-      gap: vars.sizes[8],
-      transitionProperty: "background-color, border",
-      transitionDuration: `${transitionDuration}ms`,
-      transitionTimingFunction: "ease-out",
-      border: `1px solid ${vars.color.neutral[900]}`,
+      backgroundImage: `linear-gradient(150deg, #E4CC4C 0, rgba(255,255,255,0) 50%)`,
+      padding: 1,
 
-      ":focus": {
-        outline: "none",
-        borderColor: vars.color.primary[500],
+      ":focus-within": {
+        backgroundColor: vars.color.secondary[500],
+      },
+
+      ":hover": {
+        backgroundColor: vars.color.secondary[500],
       },
     },
   ],
-  tablet: [
-    columnCount(3),
-    {
-      flexDirection: "row",
-      gap: vars.sizes[16],
+  tablet: [columnCount(4)],
+  desktop: columnCount(7),
+});
+
+export const newsBanner = responsiveStyle({
+  mobile: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: vars.sizes[8],
+    borderRadius: vars.sizes[2],
+    padding: 15,
+    backgroundColor: vars.color.neutral[800],
+    transitionProperty: "background-color, border",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
+
+    ":focus": {
+      outline: "none",
+      // borderColor: vars.color.primary[500],
     },
-  ],
-  desktop: columnCount(6),
+  },
+  tablet: {
+    flexDirection: "row",
+    gap: vars.sizes[16],
+  },
 });
 
 export const newsBannerTag = responsiveStyle({
@@ -89,7 +105,7 @@ export const handwrittenUnderline = style({
   position: "absolute",
   left: 0,
   bottom: "-12px",
-  width: "180px",
+  width: "160px",
   height: "7px",
   color: vars.color.secondary[500],
 });
@@ -101,7 +117,7 @@ export const container = style({
   display: "flex",
   flexDirection: "column",
   gap: vars.sizes[48],
-  minHeight: "600px",
+  minHeight: "735px",
 });
 
 export const titleWrapper = responsiveStyle({
@@ -113,8 +129,37 @@ export const titleWrapper = responsiveStyle({
       gap: vars.sizes[8],
     },
   ],
-  tablet: columnCount(2),
+  tablet: columnCount(4),
   desktop: columnCount(6),
+});
+
+export const title = responsiveStyle({
+  mobile: {
+    fontSize: "2.5rem!important",
+    lineHeight: "2.5rem!important",
+    background: "linear-gradient(to right bottom, #F9EADE 30%, #E4CC4C) text",
+    boxDecorationBreak: "clone",
+    WebkitTextFillColor: "transparent",
+    color: "unset",
+    textWrap: "balance",
+    marginBottom: vars.sizes[24],
+  },
+  tablet: {
+    fontSize: "3rem!important",
+    lineHeight: "3rem!important",
+  },
+});
+
+export const titleSpan = style({
+  display: "inline-block",
+  verticalAlign: "top",
+  textDecoration: "inherit",
+  textWrap: "balance",
+
+  "::selection": {
+    backgroundColor: `rgba(228, 204, 76, 0.5)`,
+    color: vars.color.neutral[900],
+  },
 });
 
 export const learnMoreWrapper = style({

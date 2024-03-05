@@ -50,9 +50,22 @@ globalStyle("input[type='text'], input[type='email']", {
   MozAppearance: "none",
 });
 
-globalStyle("::selection", {
+const selection: React.CSSProperties = {
   backgroundColor: vars.color.secondary[500],
   color: vars.color.neutral[900],
-});
+};
+
+const selectionDim: React.CSSProperties = {
+  backgroundColor: `rgba(228, 204, 76, 0.5)`,
+  color: vars.color.neutral[900],
+};
+
+globalStyle("::selection", selection);
+globalStyle("::-moz-selection", selection);
+globalStyle("::-webkit-selection", selection);
+
+globalStyle("h1::selection", selectionDim);
+globalStyle("h1::-moz-selection", selectionDim);
+globalStyle("h1::-webkit-selection", selectionDim);
 
 globalStyle(".grecaptcha-badge", { visibility: "hidden" });

@@ -69,7 +69,6 @@ export default function RootLayout({
         <meta name="application-name" content="Bireme Lab" />
         <meta name="msapplication-TileColor" content="#151515" />
         <meta name="theme-color" content="#ffffff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </head>
       <body className={styles.body}>
         <NextIntlClientProvider messages={messages}>

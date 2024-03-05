@@ -36,7 +36,7 @@ export const Input: React.FC<Props> = (props) => {
   return (
     <div className={cx(styles.container, props.className)} style={props.style} {...hoverProps}>
       {isNotNullish(props.label) && isNotEmpty(props.label) && (
-        <Text markup="label" variant="anchor" {...labelProps} color="primary-700">
+        <Text markup="label" variant="body" {...labelProps} color="primary-700">
           {props.label}
           {props.isRequired && <span className={styles.requiredMarker}>&nbsp;*</span>}
         </Text>
@@ -63,7 +63,7 @@ export const Input: React.FC<Props> = (props) => {
           },
           ({ description }) => (
             <div {...descriptionProps}>
-              <Text variant="anchor" color="primary-700">
+              <Text variant="body" color="primary-700">
                 {description}
               </Text>
             </div>
@@ -72,13 +72,13 @@ export const Input: React.FC<Props> = (props) => {
         .with({ hideError: true }, () => null)
         .with({ errorMessage: P.string.minLength(1) }, ({ errorMessage }) => (
           <div {...errorMessageProps}>
-            <Text variant="anchor" color="negative-500">
+            <Text variant="body" color="negative-500">
               {errorMessage}
             </Text>
           </div>
         ))
         .otherwise(() => (
-          <Text variant="anchor" aria-hidden={true}>
+          <Text variant="body" aria-hidden={true}>
             &nbsp;
           </Text>
         ))}

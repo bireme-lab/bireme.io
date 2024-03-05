@@ -34,7 +34,7 @@ export const generateMetadata = async ({ params }: PageParams) => {
 
   return match(page)
     .with(Option.P.Some(P.select()), (page) => ({
-      title: page.title,
+      title: `${page.title} - Bireme Lab`,
       description: page.seo.description,
     }))
     .otherwise(() => {});
@@ -59,14 +59,17 @@ const Page = async ({ params }: PageParams) => {
 
   return (
     <>
-      <Container>
+      <Container className={styles.container}>
         <Breadcrumb steps={breadcrumbSteps} />
+        <Text markup="h1" variant="title1" className={styles.mobileTitle}>
+          {page.title}
+        </Text>
         <Grid className={styles.grid}>
           <div className={styles.side}>
             <TableOfContent headings={page.headings} />
           </div>
           <div className={cx(styles.body, styles.postBodyWrapper)}>
-            <Text markup="h1" variant="title1">
+            <Text markup="h1" variant="title1" className={styles.title}>
               {page.title}
             </Text>
             <CustomMDX source={page.body} />

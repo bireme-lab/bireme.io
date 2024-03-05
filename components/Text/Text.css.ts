@@ -34,20 +34,15 @@ export const text = recipe({
         fontWeight: 400,
         lineHeight: "0.8125rem",
       },
-      anchor: {
+      body: {
         fontSize: "0.938rem",
         fontWeight: 400,
         lineHeight: "1.563rem",
       },
-      "anchor-flat": {
+      "body-flat": {
         fontSize: "0.938rem",
         fontWeight: 400,
         lineHeight: "0.938rem",
-      },
-      body: {
-        fontSize: "1rem",
-        fontWeight: 400,
-        lineHeight: "1.75rem",
       },
       "section-heading": {
         fontFamily: vars.font.mono,
@@ -63,12 +58,12 @@ export const text = recipe({
       },
       title2: {
         fontSize: "1.25rem",
-        fontWeight: 500,
+        fontWeight: 400,
         lineHeight: "1.625rem",
       },
       title1: {
         fontSize: "2rem",
-        fontWeight: 600,
+        fontWeight: 500,
         lineHeight: "2.5rem",
       },
     },

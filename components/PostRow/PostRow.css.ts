@@ -1,13 +1,31 @@
 import { responsiveStyle } from "@/styles/mixins";
 import { transitionDuration, vars } from "@/styles/theme/index.css";
-import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 // PostRow
 // -------------------------------------------o
 
 export const postRow = recipe({
-  base: {},
+  base: {
+    position: "relative",
+    width: "100%",
+
+    "::after": {
+      zIndex: -1,
+      content: "''",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: vars.color.secondary[500],
+      transition: "transform 300ms ease-out",
+      transformOrigin: "bottom",
+      transform: "scaleY(0)",
+    },
+  },
   variants: {
     isFirst: {
       true: {
@@ -18,34 +36,34 @@ export const postRow = recipe({
         borderBottom: `1px solid ${vars.color.primary[900]}`,
       },
     },
+    isHovered: {
+      true: {
+        ":after": {
+          transform: "scaleY(1)",
+        },
+      },
+    },
+    isFocused: {
+      true: {
+        ":after": {
+          transform: "scaleY(1)",
+        },
+      },
+    },
   },
 });
 
 export const post = recipe({
   base: responsiveStyle({
     mobile: {
-      position: "relative",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       gap: vars.sizes[8],
       padding: `${vars.sizes[20]} 0`,
-
-      "::after": {
-        zIndex: -1,
-        content: "''",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: "100%",
-        height: "100%",
-        backgroundColor: vars.color.secondary[500],
-        transition: "transform 300ms ease-out",
-        transformOrigin: "bottom",
-        transform: "scaleY(0)",
-      },
+      transitionProperty: "color, transform",
+      transitionDuration: `${transitionDuration}ms`,
+      transitionTimingFunction: "ease-out",
 
       ":focus-within": {
         outline: "none",
@@ -64,79 +82,67 @@ export const post = recipe({
   variants: {
     isHovered: {
       true: {
-        ":after": {
-          transform: "scaleY(1)",
-        },
+        transform: `translateX(${vars.sizes[24]})`,
       },
     },
     isFocused: {
       true: {
-        ":after": {
-          transform: "scaleY(1)",
-        },
+        transform: `translateX(${vars.sizes[24]})`,
       },
     },
   },
 });
 
-const postRowContent = style({
-  transitionProperty: "color, transform",
-  transitionDuration: `${transitionDuration}ms`,
-  transitionTimingFunction: "ease-out",
-});
-
-const postRowContentHovered = style({
-  color: `${vars.color.neutral[900]}!important`,
-  transform: `translateX(${vars.sizes[24]})`,
-});
-
 export const postRowTitle = recipe({
-  base: [
-    postRowContent,
-    {
-      color: vars.color.primary[500],
-    },
-  ],
+  base: {
+    color: `${vars.color.primary[500]}!important`,
+  },
   variants: {
     isHovered: {
-      true: postRowContentHovered,
+      true: {
+        color: `${vars.color.neutral[900]}!important`,
+      },
     },
     isFocused: {
-      true: postRowContentHovered,
+      true: {
+        color: `${vars.color.neutral[900]}!important`,
+      },
     },
   },
 });
 
 export const postRowPublishedAt = recipe({
-  base: [
-    postRowContent,
-    {
-      color: vars.color.primary[700],
-    },
-  ],
+  base: {
+    color: `${vars.color.primary[700]}!important`,
+  },
   variants: {
     isHovered: {
-      true: postRowContentHovered,
+      true: {
+        color: `${vars.color.neutral[900]}!important`,
+      },
     },
     isFocused: {
-      true: postRowContentHovered,
+      true: {
+        color: `${vars.color.neutral[900]}!important`,
+      },
     },
   },
 });
 
 export const postRowComment = recipe({
-  base: [
-    postRowContent,
-    {
-      color: vars.color.secondary[500],
-    },
-  ],
+  base: {
+    color: `${vars.color.secondary[500]}!important`,
+  },
   variants: {
     isHovered: {
-      true: postRowContentHovered,
+      true: {
+        color: `${vars.color.neutral[900]}!important`,
+      },
     },
     isFocused: {
-      true: postRowContentHovered,
+      true: {
+        color: `${vars.color.neutral[900]}!important`,
+      },
     },
   },
 });

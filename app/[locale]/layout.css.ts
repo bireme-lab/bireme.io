@@ -1,7 +1,9 @@
+import { responsiveStyle } from "@/styles/mixins";
 import { vars } from "@/styles/theme/index.css";
 import { keyframes, style } from "@vanilla-extract/css";
 
 export const html = style({
+  // backgroundColor: "#040404",
   backgroundColor: vars.color.neutral[900],
   overflowX: "hidden",
 });
@@ -55,7 +57,13 @@ export const light = style({
   animationTimingFunction: "ease-out",
 });
 
-export const main = style({
-  paddingTop: vars.sizes[24],
-  paddingBottom: vars.sizes[96],
+export const main = responsiveStyle({
+  mobile: {
+    marginTop: vars.sizes[24],
+    marginBottom: vars.sizes[96],
+  },
+  tablet: {
+    marginTop: vars.sizes[96],
+    marginBottom: vars.sizes[96],
+  },
 });

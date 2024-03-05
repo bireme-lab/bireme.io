@@ -3,15 +3,19 @@ import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+export const container = responsiveStyle({
+  mobile: {
+    display: "inline-flex",
+    width: "100%",
+  },
+  tablet: {},
+});
+
 export const link = recipe({
   base: responsiveStyle({
     mobile: {
-      whiteSpace: "nowrap",
-      textOverflow: "ellipsis",
-      overflow: "hidden",
-
       ":hover": {
-        color: vars.color.secondary[500],
+        color: vars.color.primary[500],
       },
 
       ":focus-visible": {
@@ -27,7 +31,10 @@ export const link = recipe({
   variants: {
     isLast: {
       true: {
-        color: vars.color.secondary[500],
+        whiteSpace: "nowrap",
+        textOverflow: "ellipsis",
+        overflow: "hidden",
+        color: vars.color.primary[500],
       },
       false: {
         color: vars.color.primary[700],

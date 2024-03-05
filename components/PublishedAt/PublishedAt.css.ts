@@ -11,7 +11,7 @@ export const container = style({
 
 export const time = style([
   text({
-    variant: "anchor-flat",
+    variant: "body-flat",
   }),
   {
     color: "inherit",

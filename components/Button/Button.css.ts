@@ -27,7 +27,9 @@ export const button = recipe({
     transformStyle: "preserve-3d",
 
     ":focus-visible": {
-      outline: "none",
+      outline: `1px solid ${vars.color.secondary[500]}`,
+      outlineOffset: 2,
+      borderRadius: vars.sizes[2],
     },
   },
   variants: {
@@ -35,6 +37,7 @@ export const button = recipe({
       plain: {
         border: "none",
         backgroundColor: vars.color.primary[500],
+        backgroundImage: "linear-gradient(134deg, rgba(255,255,255,0) 5%, #E4CC4C 120%)",
         color: vars.color.neutral[900],
       },
       outline: {
@@ -70,7 +73,7 @@ export const button = recipe({
         isHovered: true,
       },
       style: {
-        backgroundColor: vars.color.primary[600],
+        backgroundColor: vars.color.secondary[500],
       },
     },
     {
@@ -79,7 +82,9 @@ export const button = recipe({
         isFocused: true,
       },
       style: {
-        backgroundColor: vars.color.primary[600],
+        outline: `1px solid ${vars.color.secondary[500]}`,
+        outlineOffset: 4,
+        borderRadius: vars.sizes[2],
       },
     },
     {
@@ -99,6 +104,16 @@ export const button = recipe({
       style: {
         color: vars.color.primary[900],
         backgroundColor: vars.color.primary[600],
+        backgroundImage: "none",
+      },
+    },
+    {
+      variants: {
+        variant: "plain",
+        isSuccess: true,
+      },
+      style: {
+        backgroundImage: "none",
       },
     },
     {

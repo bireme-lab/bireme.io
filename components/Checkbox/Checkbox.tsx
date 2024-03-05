@@ -78,7 +78,7 @@ export const Checkbox: React.FC<Props> = (props) => {
         />
       </div>
       {props.children && (
-        <Text variant="anchor" color={inputProps.disabled ? "primary-700" : "primary-500"}>
+        <Text variant="body" color={inputProps.disabled ? "primary-700" : "primary-500"}>
           {props.children}
         </Text>
       )}

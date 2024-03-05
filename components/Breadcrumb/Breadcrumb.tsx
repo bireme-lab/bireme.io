@@ -24,13 +24,13 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
 
   return (
     <>
-      <div style={{ display: "inline-flex" }}>
+      <div className={styles.container}>
         {steps.map(({ label, href }, index) => (
           <Fragment key={label}>
             <Text
               href={href}
               title={label}
-              variant="anchor-flat"
+              variant="body-flat"
               className={styles.link({ isLast: index === lastIndex })}
             >
               {label}
@@ -42,7 +42,7 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
                 className={styles.separator}
                 aria-hidden={true}
               >
-                //
+                /
               </Text>
             )}
           </Fragment>

@@ -12,15 +12,15 @@
     },
     "Header": {
       "homepage": "Home",
-      "create_account": "Create an account",
-      "soon_available": "Soon available!",
-      "be_informed": "Be informed"
+      "subscribe_to_newsletter": "Get an early access to our products by <NewsletterTrigger>subscribing to our newsletter</NewsletterTrigger>"
     },
     "Footer": {
       "homepage": "Home",
+      "rss_feed": "RSS Feed",
       "legal_links": {
-        "legal_notice": "Legal notice",
-        "privacy_policy": "Privacy policy"
+        "legal_notice": "Legal Notice",
+        "privacy_policy": "Privacy Policy",
+        "cookie_policy": "Cookie Policy"
       }
     },
     "NewsletterForm": {

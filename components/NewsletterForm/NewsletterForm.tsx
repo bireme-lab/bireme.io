@@ -11,7 +11,7 @@ import { request } from "@/utils/request";
 import { isEmpty } from "@/utils/types";
 import { AsyncData, Result } from "@swan-io/boxed";
 import { useLocale, useTranslations } from "next-intl";
-import React, { CSSProperties, FormEvent, useEffect, useState } from "react";
+import React, { CSSProperties, FormEvent, useState } from "react";
 import { hasDefinedKeys, useForm } from "react-ux-form";
 import { P, match } from "ts-pattern";
 import isEmail from "validator/lib/isEmail";
@@ -46,7 +46,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
   const locale = useLocale();
   const { executeRecaptcha } = useGoogleReCaptcha({ enabled: focused, language: locale });
   const t = useTranslations("components.NewsletterForm");
-  const { Field, submitForm, FieldsListener, setFieldError, resetForm } = useForm({
+  const { Field, submitForm, FieldsListener, setFieldError } = useForm({
     email: {
       initialValue: "",
       strategy: "onSuccessOrBlur",
@@ -69,17 +69,6 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
       strategy: "onSuccessOrBlur",
     },
   });
-
-  useEffect(() => {
-    if (requestState.isDone()) {
-      setTimeout(() => {
-        setRequestState(AsyncData.NotAsked());
-        setFormResponseMessage(undefined);
-        resetForm();
-      }, 5000);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [requestState]);
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -215,7 +204,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
               </Button>
               {(email.error || formResponseMessage) && (
                 <Text
-                  variant="anchor"
+                  variant="small"
                   markup="p"
                   className={styles.mention}
                   color={isFormSubmitSuccess ? "positive-500" : "negative-500"}

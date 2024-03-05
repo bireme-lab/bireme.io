@@ -10,7 +10,7 @@ export const container = responsiveStyle({
     flexDirection: "column",
     gap: vars.sizes[20],
   },
-  desktop: {
+  tablet: {
     position: "sticky",
     top: vars.sizes[28],
   },

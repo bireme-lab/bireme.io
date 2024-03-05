@@ -1,6 +1,6 @@
+import { responsiveStyle } from "@/styles/mixins";
 import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 
 export const container = style({
   display: "flex",
@@ -11,79 +11,72 @@ export const container = style({
 });
 
 export const nav = style({
+  position: "relative",
   display: "flex",
+  flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
 });
 
 export const logoLink = style({
+  position: "relative",
   color: vars.color.primary[500],
   transition: `color ${transitionDuration}ms ease-out`,
 
-  ":hover": {
-    color: vars.color.primary[600],
+  // "::before": {
+  //   zIndex: -1,
+  //   content: "",
+  //   position: "absolute",
+  //   width: "100%",
+  //   height: "100%",
+  //   backgroundColor: vars.color.neutral[700],
+  //   boxShadow: `0 0 0 8px ${vars.color.neutral[700]}`,
+  //   borderRadius: vars.sizes[2],
+  //   opacity: 0,
+  //   transition: `opacity ${transitionDuration}ms ease-out`,
+  // },
+
+  ":focus-visible": {
+    outline: `1px solid ${vars.color.secondary[500]}`,
+    outlineOffset: 4,
+    borderRadius: vars.sizes[2],
   },
 
-  ":focus": {
-    outline: "none",
-    color: vars.color.primary[600],
-  },
+  // selectors: {
+  //   "&:hover::before": {
+  //     opacity: 1,
+  //   }
+  // }
 });
 
 export const logo = style({
-  width: "138px",
-  height: "20px",
+  width: "110px",
+  height: "25px",
   color: "inherit",
 });
 
-export const comment = style({
-  alignSelf: "flex-end",
-  userSelect: "none",
+export const newsletterText = responsiveStyle({
+  mobile: {
+    display: "none!important",
+  },
+  tablet: {
+    display: "inline!important",
+  },
 });
 
-export const commentButton = recipe({
-  base: {
+export const handwrittenShape = responsiveStyle({
+  mobile: {
+    position: "absolute",
+    width: "190px",
+    height: "70px",
+    top: 0,
+    right: 0,
+    bottom: 0,
     color: vars.color.secondary[500],
-    cursor: "pointer",
-    textDecoration: "underline",
-
-    ":focus-visible": {
-      outline: "none",
-    },
+    pointerEvents: "none",
+    display: "none",
   },
-  variants: {
-    isHovered: {
-      true: {
-        color: vars.color.secondary[300],
-      },
-    },
-    isFocused: {
-      true: {
-        outline: "none",
-        color: vars.color.secondary[300],
-      },
-    },
-    isPressed: {
-      true: {
-        outline: "none",
-        color: vars.color.secondary[200],
-      },
-    },
+  tablet: {
+    display: "inline",
   },
-});
-
-export const buttonWrapper = style({
-  position: "relative",
-});
-
-export const handwrittenShape = style({
-  position: "absolute",
-  width: "150px",
-  height: "50px",
-  top: "-8px",
-  right: 0,
-  left: 0,
-  bottom: 0,
-  color: vars.color.secondary[500],
-  pointerEvents: "none",
 });

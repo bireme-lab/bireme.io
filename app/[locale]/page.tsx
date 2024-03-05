@@ -28,12 +28,14 @@ const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
     .exhaustive();
 
   return (
-    <Link href={href} className={styles.newsBanner}>
-      <Text variant="small-mono" color="secondary-500" className={styles.newsBannerTag}>
-        {t("new")}
-      </Text>
-      <Text variant="anchor">{t("text")}</Text>
-    </Link>
+    <div className={styles.newsBannerWrapper}>
+      <Link href={href} className={styles.newsBanner}>
+        <Text variant="small-mono" color="secondary-500" className={styles.newsBannerTag}>
+          {t("new")}
+        </Text>
+        <Text variant="body">{t("text")}</Text>
+      </Link>
+    </div>
   );
 };
 
@@ -59,8 +61,8 @@ const Home = async ({
         </Grid>
         <Grid>
           <div className={styles.titleWrapper}>
-            <Text variant="title1" markup="h1">
-              {t("title")}
+            <Text variant="title1" markup="h1" className={styles.title}>
+              <span className={styles.titleSpan}>{t("title")}</span>
             </Text>
             {/* <div className={styles.learnMoreWrapper}>
               <Text
@@ -68,7 +70,7 @@ const Home = async ({
                   .with("fr", () => MDX.generateHref("a-propos-de-bireme-lab", locale, "Post"))
                   .with("en", () => MDX.generateHref("about-bireme-lab", locale, "Post"))
                   .exhaustive()}
-                variant="anchor"
+                variant="body"
                 translateOnHover={true}
                 className={styles.learnMore}
               >
@@ -81,7 +83,7 @@ const Home = async ({
             <Text variant="body" markup="p" color="primary-600">
               {t.rich("description", {
                 NewsletterTrigger: (chunk) =>
-                  chunk && <NewsletterTrigger key="home-description" content={chunk.toString()} />,
+                  chunk && <NewsletterTrigger content={chunk.toString()} />,
               })}
             </Text>
           </div>
@@ -94,7 +96,7 @@ const Home = async ({
                 markup="h2"
                 className={styles.latestPostSectionHeading}
               >
-                // {t("latest_post")}
+                {t("latest_post")}
                 <Icon
                   name="handwritten_underline"
                   title={t("latest_post")}
@@ -109,7 +111,7 @@ const Home = async ({
           .otherwise(() => null)}
         <div className={styles.allPostsWrapper}>
           <Text variant="section-heading" markup="h2" className={styles.allPostsSectionHeading}>
-            // {t("all_posts")}
+            {t("all_posts")}
           </Text>
           {match(postsOption)
             .with(Option.Some(P.select(P.when((posts) => posts.length > 1))), (posts) => {

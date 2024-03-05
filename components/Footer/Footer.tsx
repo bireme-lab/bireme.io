@@ -1,3 +1,4 @@
+import { socials } from "@/content/socials";
 import { Locale } from "@/utils/i18n";
 import { useLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
@@ -20,10 +21,36 @@ export const Footer: React.FC = async () => {
   return (
     <footer className={styles.footer}>
       <Container className={styles.container}>
-        <Link href="/" className={styles.logoLink}>
-          <Icon name="logo" title={t("homepage")} className={styles.logo} />
-        </Link>
+        <div className={styles.nav}>
+          <div className={styles.logoWrapper}>
+            <Link href="/" className={styles.logoLink}>
+              <Icon name="logo" title={t("homepage")} className={styles.logo} />
+            </Link>
+            <Text variant="small-flat" color="primary-700">
+              © {new Date().getFullYear()}
+            </Text>
+          </div>
+          <ul className={styles.socialLinks}>
+            <li>
+              <Text href={socials.twitter} variant="small-flat" target="_blank">
+                <Icon name="x" title={socials.twitter} className={styles.socialIcon} />
+              </Text>
+            </li>
+          </ul>
+        </div>
         <ul className={styles.legalLinks}>
+          <li>
+            <Text
+              href={match(locale)
+                .with("fr", () => "/fr/rss.xml")
+                .with("en", () => "/en/rss.xml")
+                .exhaustive()}
+              variant="small-flat"
+              className={styles.legalLink}
+            >
+              {t("rss_feed")}
+            </Text>
+          </li>
           <li>
             <Text
               href={match(locale)
@@ -46,6 +73,18 @@ export const Footer: React.FC = async () => {
               className={styles.legalLink}
             >
               {t("legal_links.privacy_policy")}
+            </Text>
+          </li>
+          <li>
+            <Text
+              href={match(locale)
+                .with("fr", () => "/fr/politique-des-cookies")
+                .with("en", () => "/en/cookie-policy")
+                .exhaustive()}
+              variant="small-flat"
+              className={styles.legalLink}
+            >
+              {t("legal_links.cookie_policy")}
             </Text>
           </li>
         </ul>

@@ -93,7 +93,7 @@ export const Button: React.FC<Props> = ({
         </div>
         <Text
           color="inherit"
-          variant="anchor-flat"
+          variant="body-flat"
           className={styles.label({
             showArrow,
             isHovered,
