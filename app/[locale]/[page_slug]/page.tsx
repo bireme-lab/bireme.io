@@ -1,6 +1,7 @@
 import { Breadcrumb, Step } from "@/components/Breadcrumb/Breadcrumb";
 import { Container } from "@/components/Container/Container";
 import { CustomMDX } from "@/components/CustomMDX/CustomMDX";
+import { Divider } from "@/components/Divider/Divider";
 import { Grid } from "@/components/Grid/Grid";
 import { TableOfContent } from "@/components/TableOfContent/TableOfContent";
 import { Text } from "@/components/Text/Text";
@@ -81,24 +82,37 @@ const Page = async ({ params }: PageParams) => {
     },
   ];
 
+  const isBodyBeginWithHeading = page.body.startsWith("#");
+
   return (
     <>
-      <Container className={styles.container}>
+      <Container>
         <Breadcrumb steps={breadcrumbSteps} />
-        <Text markup="h1" variant="title1" className={styles.mobileTitle}>
-          {page.title}
-        </Text>
-        <Grid className={styles.grid}>
-          <div className={styles.side}>
-            <TableOfContent headings={page.headings} />
-          </div>
-          <div className={cx(styles.body, styles.postBodyWrapper)}>
-            <Text markup="h1" variant="title1" className={styles.title}>
-              {page.title}
-            </Text>
-            <CustomMDX source={page.body} />
-          </div>
-        </Grid>
+        <div className={styles.container}>
+          <Grid className={styles.grid}>
+            <div className={styles.side} />
+            <div className={cx(styles.body, styles.heroContent)}>
+              <Text markup="h1" variant="title1">
+                {page.title}
+              </Text>
+            </div>
+          </Grid>
+          <Divider />
+          <Grid className={styles.grid}>
+            <div className={styles.side}>
+              <TableOfContent headings={page.headings} />
+            </div>
+            <div
+              className={cx(
+                styles.body,
+                styles.postBodyWrapper,
+                isBodyBeginWithHeading && styles.bodyBeginWithHeading,
+              )}
+            >
+              <CustomMDX source={page.body} />
+            </div>
+          </Grid>
+        </div>
       </Container>
       <script
         type="application/ld+json"

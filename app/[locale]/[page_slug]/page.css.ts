@@ -1,20 +1,29 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
 import { vars } from "@/styles/theme/index.css";
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.sizes[48],
+  gap: vars.sizes[24],
+  marginTop: vars.sizes[24],
 });
 
 export const grid = responsiveStyle({
   mobile: {
-    gap: vars.sizes[24],
+    marginTop: vars.sizes[24],
+    rowGap: vars.sizes[48],
   },
-  tablet: {
-    marginTop: vars.sizes[48],
+  desktop: {
+    rowGap: "unset",
   },
+});
+
+export const heroContent = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.sizes[12],
+  marginBottom: vars.sizes[24],
 });
 
 export const side = responsiveStyle({
@@ -35,20 +44,11 @@ export const postBodyWrapper = style({
   gap: vars.sizes[24],
 });
 
-export const title = responsiveStyle({
-  mobile: {
-    display: "none",
-  },
-  tablet: {
-    display: "inline",
-  },
-});
+export const bodyBeginWithHeading = style({});
 
-export const mobileTitle = responsiveStyle({
-  mobile: {
-    display: "inline",
+globalStyle(
+  `${bodyBeginWithHeading} h2:first-of-type, h3:first-of-type, h4:first-of-type, h5:first-of-type, h6:first-of-type`,
+  {
+    paddingTop: 0,
   },
-  tablet: {
-    display: "none",
-  },
-});
+);

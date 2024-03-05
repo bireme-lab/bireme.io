@@ -94,16 +94,19 @@ const PostPage = async ({ params }: PostPageParams) => {
       <Container>
         <Breadcrumb steps={breadcrumbSteps} />
         <article className={styles.article}>
-          <div className={styles.heroContent}>
-            <Text variant="title1" markup="h1">
-              {post.title}
-            </Text>
-            <PublishedAt
-              authors={post.authors}
-              publishedAt={post.publishedAt}
-              disableTooltips={false}
-            />
-          </div>
+          <Grid>
+            <div className={styles.side} />
+            <div className={cx(styles.body, styles.heroContent)}>
+              <Text variant="title1" markup="h1">
+                {post.title}
+              </Text>
+              <PublishedAt
+                authors={post.authors}
+                publishedAt={post.publishedAt}
+                disableTooltips={false}
+              />
+            </div>
+          </Grid>
           <Divider />
           <Grid className={styles.grid}>
             <div className={styles.side}>

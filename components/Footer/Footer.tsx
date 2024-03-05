@@ -42,6 +42,18 @@ export const Footer: React.FC = async () => {
           <li>
             <Text
               href={match(locale)
+                .with("fr", () => "/en")
+                .with("en", () => "/fr")
+                .exhaustive()}
+              variant="small-flat"
+              className={styles.legalLink}
+            >
+              {t("see_website_localized")}
+            </Text>
+          </li>
+          <li>
+            <Text
+              href={match(locale)
                 .with("fr", () => "/fr/rss.xml")
                 .with("en", () => "/en/rss.xml")
                 .exhaustive()}

@@ -17,6 +17,7 @@
     "Footer": {
       "homepage": "Home",
       "rss_feed": "RSS Feed",
+      "see_website_localized": "Voir le site en français",
       "legal_links": {
         "legal_notice": "Legal Notice",
         "privacy_policy": "Privacy Policy",
@@ -47,7 +48,7 @@
     },
     "NewsBanner": {
       "new": "New",
-      "text": "Hello, World! Find out more about Bireme Lab project"
+      "text": "Company update: announcing Bireme Lab"
     },
     "PublishedAt": {
       "published_on": "Published on {date}",

@@ -13,6 +13,7 @@ export const heroContent = style({
   display: "flex",
   flexDirection: "column",
   gap: vars.sizes[12],
+  marginBottom: vars.sizes[24],
 });
 
 export const grid = responsiveStyle({

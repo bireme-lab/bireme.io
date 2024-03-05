@@ -50,8 +50,8 @@ export const logoLink = style({
 });
 
 export const logo = style({
-  width: "110px",
-  height: "25px",
+  width: "115px",
+  height: "27px",
   color: "inherit",
 });
 
