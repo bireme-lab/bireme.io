@@ -85,5 +85,10 @@
         "homepage": "Accueil"
       }
     }
+  },
+  "route": {
+    "rss": {
+      "read_more": "Lire l'article complet sur le site internet"
+    }
   }
 }

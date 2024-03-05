@@ -85,5 +85,10 @@
         "homepage": "Home"
       }
     }
+  },
+  "route": {
+    "rss": {
+      "read_more": "Read the full article on the website"
+    }
   }
 }
