@@ -35,7 +35,7 @@ export async function GET(request: Request) {
       posts.map((post) => {
         feed.item({
           title: post.title,
-          description: post.seo.description,
+          description: post.body,
           url: `${url.origin}/${locale}/${post.slug}`,
           guid: post.slug,
           date: post.publishedAt,

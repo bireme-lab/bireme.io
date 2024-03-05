@@ -33,7 +33,7 @@ export const data = {
     name: "logo.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAACE4AAAhOAFFljFgAAAASElEQVR4nGOQlJT8Ly4u/l9CUvI/iM3AzsHxv6+r9f+zezf+8/Hx/WdgY2P/v3b54v//f3/7Lygk9J8BpAyEhYVF/ouLS/wHAJdLG9WSfiIsAAAAAElFTkSuQmCC",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQUlEQVR4nGMQEhT8z8XN/Z+Lm+e/gIDAfwYeHp7/f74+///iwbn/IDYDSPb3l/v/X9w/DlbJICIi8p+NjR2MQVoAu2kcejQ2s/MAAAAASUVORK5CYII=",
   },
   "/images/opengraph-images/base.png": {
     name: "base.png",
