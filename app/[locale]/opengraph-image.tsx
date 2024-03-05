@@ -36,7 +36,7 @@ const Image = async ({ params }: { params: { locale: Locale } }) => {
         }}
       >
         <img
-          src={`${ORIGIN}/images/opengraph-images/${params}.png`}
+          src={`${ORIGIN}/images/opengraph-images/${params.locale}.png`}
           alt={t("title")}
           width={1200}
           height={630}
