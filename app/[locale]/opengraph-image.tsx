@@ -35,9 +35,18 @@ const Image = async ({ params }: { params: { locale: Locale } }) => {
           display: "flex",
         }}
       >
-        <img src={`${ORIGIN}/images/opengraph-images/${params}.png`} alt={t("title")} />
+        <img
+          src={`${ORIGIN}/images/opengraph-images/${params}.png`}
+          alt={t("title")}
+          width={1200}
+          height={630}
+        />
       </div>
     ),
+    {
+      width: 1200,
+      height: 630,
+    },
   );
 };
 

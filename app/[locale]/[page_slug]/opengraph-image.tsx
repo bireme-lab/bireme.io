@@ -257,6 +257,10 @@ const Image = async ({ params }: Props) => {
         </svg>
       </div>
     ),
+    {
+      width: 1200,
+      height: 630,
+    },
   );
 };
 
