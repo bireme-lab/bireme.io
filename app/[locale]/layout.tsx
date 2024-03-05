@@ -10,6 +10,7 @@ import { i18n, type Locale } from "@/utils/i18n";
 import { generateMDXFilesRecord } from "@/utils/mdx";
 import { ORIGIN } from "@/utils/vars";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
@@ -81,6 +82,7 @@ export default function RootLayout({
           <Footer />
         </NextIntlClientProvider>
         <Analytics />
+        <SpeedInsights />
         <script
           type="application/ld+json"
           suppressHydrationWarning
