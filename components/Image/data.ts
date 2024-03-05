@@ -35,10 +35,22 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAACE4AAAhOAFFljFgAAAASElEQVR4nGOQlJT8Ly4u/l9CUvI/iM3AzsHxv6+r9f+zezf+8/Hx/WdgY2P/v3b54v//f3/7Lygk9J8BpAyEhYVF/ouLS/wHAJdLG9WSfiIsAAAAAElFTkSuQmCC",
   },
+  "/images/opengraph-images/base.png": {
+    name: "base.png",
+    extension: ".png",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAK0lEQVR4nGMQERH+b2tj9X/Rgin/v3+6959BQlz8f4C//39FRcX/CgrS/wEMkQ92YzDTJQAAAABJRU5ErkJggg==",
+  },
+  "/images/opengraph-images/en.png": {
+    name: "en.png",
+    extension: ".png",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAALUlEQVR4nAEiAN3/ACoqKf+ioJ7/kZCN/+bi1f8AICAg/5KRkP9UVFP/FxcX/zyDEfQX9djmAAAAAElFTkSuQmCC",
+  },
   "/images/opengraph-images/fr.png": {
     name: "fr.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAALUlEQVR4nAEiAN3/AC0tLP/Ozcj/u7q3/97c0/8AIyMj/9bU0v+Eg4L/Ghob/2OvFFhuQkTNAAAAAElFTkSuQmCC",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKElEQVR4nGMw0Nf7v3vXdjC+c/v8fwZlZeX/165c+t/S3PRfSkr6PwBeABQhJMJfvgAAAABJRU5ErkJggg==",
   },
 };

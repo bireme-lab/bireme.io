@@ -35,7 +35,7 @@ export const generateStaticParams = async ({ params }: PostPageParams) => {
 
 export const generateMetadata = async ({ params }: PostPageParams): Promise<Metadata> => {
   const post = await MDX.Post.findBySlug(params.post_slug, params.locale);
-  const meta = await getMeta(params.locale);
+  const defaultMeta = await getMeta(params.locale);
 
   return match(post)
     .with(Option.P.Some(P.select()), (post) => {
@@ -47,14 +47,15 @@ export const generateMetadata = async ({ params }: PostPageParams): Promise<Meta
         alternates: {
           canonical: url,
           languages: post.alternates,
+          types: defaultMeta.alternates!.types,
         },
         twitter: {
-          ...meta.twitter,
+          ...defaultMeta.twitter,
           title: post.seo.title,
           description: post.seo.description,
         },
         openGraph: {
-          ...meta.openGraph,
+          ...defaultMeta.openGraph,
           title: post.seo.title,
           description: post.seo.description,
           url,
@@ -63,7 +64,7 @@ export const generateMetadata = async ({ params }: PostPageParams): Promise<Meta
           name: authors[author].fullName,
           url: authors[author].twitterProfileUrl,
         })),
-      } as Metadata;
+      };
     })
     .otherwise(() => {
       throw new Error(`Post not found for slug: ${params.post_slug}`);

@@ -4,6 +4,7 @@ import { CustomMDX } from "@/components/CustomMDX/CustomMDX";
 import { Grid } from "@/components/Grid/Grid";
 import { TableOfContent } from "@/components/TableOfContent/TableOfContent";
 import { Text } from "@/components/Text/Text";
+import { getMeta } from "@/content/meta";
 import { cx } from "@/styles/mixins";
 import { Locale } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
@@ -31,13 +32,36 @@ export const generateStaticParams = async ({ params }: PageParams) => {
 
 export const generateMetadata = async ({ params }: PageParams) => {
   const page = await MDX.Page.findBySlug(params.page_slug, params.locale);
+  const defaultMeta = await getMeta(params.locale);
 
   return match(page)
-    .with(Option.P.Some(P.select()), (page) => ({
-      title: `${page.title} - Bireme Lab`,
-      description: page.seo.description,
-    }))
-    .otherwise(() => {});
+    .with(Option.P.Some(P.select()), (page) => {
+      const url = `${ORIGIN}${MDX.generateHref(page.slug, params.locale, "Page")}`;
+
+      return {
+        title: `${page.title} - Bireme Lab`,
+        description: page.seo.description,
+        alternates: {
+          canonical: url,
+          languages: page.alternates,
+          types: defaultMeta.alternates!.types,
+        },
+        twitter: {
+          ...defaultMeta.twitter,
+          title: page.seo.title,
+          description: page.seo.description,
+        },
+        openGraph: {
+          ...defaultMeta.openGraph,
+          title: page.seo.title,
+          description: page.seo.description,
+          url,
+        },
+      };
+    })
+    .otherwise(() => {
+      throw new Error(`Page not found for slug: ${params.page_slug}`);
+    });
 };
 
 const Page = async ({ params }: PageParams) => {

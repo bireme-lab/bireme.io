@@ -26,5 +26,16 @@ export const getMeta = async (locale: Locale): Promise<Metadata> => {
       locale,
     },
     publisher: "Bireme Lab",
+    alternates: {
+      canonical: `${ORIGIN}/${locale}`,
+      languages: {
+        fr: `${ORIGIN}/fr`,
+        en: `${ORIGIN}/en`,
+        "x-default": `${ORIGIN}/fr`,
+      },
+      types: {
+        "application/rss+xml": `${ORIGIN}/${locale}/rss.xml`,
+      },
+    },
   };
 };
