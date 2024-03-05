@@ -35,4 +35,10 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAACE4AAAhOAFFljFgAAAASElEQVR4nGOQlJT8Ly4u/l9CUvI/iM3AzsHxv6+r9f+zezf+8/Hx/WdgY2P/v3b54v//f3/7Lygk9J8BpAyEhYVF/ouLS/wHAJdLG9WSfiIsAAAAAElFTkSuQmCC",
   },
+  "/images/opengraph-images/fr.png": {
+    name: "fr.png",
+    extension: ".png",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAALUlEQVR4nAEiAN3/AC0tLP/Ozcj/u7q3/97c0/8AIyMj/9bU0v+Eg4L/Ghob/2OvFFhuQkTNAAAAAElFTkSuQmCC",
+  },
 };
