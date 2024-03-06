@@ -9,7 +9,7 @@ import { Text } from "@/components/Text/Text";
 import { authors } from "@/content/authors";
 import { getMeta } from "@/content/meta";
 import { cx } from "@/styles/mixins";
-import { formatDateForSchema } from "@/utils/date";
+import { formatDateForSitemap } from "@/utils/date";
 import { Locale } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
 import { ORIGIN } from "@/utils/vars";
@@ -186,9 +186,9 @@ const PostPage = async ({ params }: PostPageParams) => {
               "@type": "WebPage",
               "@id": MDX.generateHref(post.slug, params.locale, "Post"),
             },
-            datePublished: formatDateForSchema(post.publishedAt),
-            dateCreated: formatDateForSchema(post.publishedAt),
-            dateModified: post.modifiedAt ? formatDateForSchema(post.modifiedAt) : undefined,
+            datePublished: formatDateForSitemap(post.publishedAt),
+            dateCreated: formatDateForSitemap(post.publishedAt),
+            dateModified: post.modifiedAt ? formatDateForSitemap(post.modifiedAt) : undefined,
             description: post.seo.description,
             author: {
               "@type": "Person",
