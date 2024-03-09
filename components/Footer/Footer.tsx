@@ -32,7 +32,7 @@ export const Footer: React.FC = async () => {
           </div>
           <ul className={styles.socialLinks}>
             <li>
-              <a href={socials.twitter} target="_blank">
+              <a href={socials.twitter} target="_blank" className={styles.socialLink}>
                 <Icon name="x" title={socials.twitter} className={styles.socialIcon} />
               </a>
             </li>

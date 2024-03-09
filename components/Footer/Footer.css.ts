@@ -8,7 +8,6 @@ export const footer = responsiveStyle({
     width: "100%",
     paddingTop: vars.sizes[48],
     paddingBottom: vars.sizes[48],
-    backgroundColor: vars.color.neutral[900],
   },
   desktop: {
     paddingTop: vars.sizes[24],
@@ -97,6 +96,21 @@ export const socialLinks = responsiveStyle({
   tablet: {
     flexDirection: "row",
     marginTop: 0,
+  },
+});
+
+export const socialLink = style({
+  transition: `color ${transitionDuration}ms ease-out`,
+  color: vars.color.primary[700],
+
+  ":hover": {
+    color: vars.color.primary[500],
+  },
+
+  ":focus-visible": {
+    outline: `1px solid ${vars.color.secondary[500]}`,
+    outlineOffset: 2,
+    borderRadius: vars.sizes[2],
   },
 });
 

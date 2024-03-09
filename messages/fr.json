@@ -85,6 +85,11 @@
       "breadcrumb": {
         "homepage": "Accueil"
       }
+    },
+    "NotFound": {
+      "title": "Page non trouvée",
+      "content": "La page que vous cherchez n'existe pas ou a été déplacée.",
+      "get_back": "Retourner à l'accueil"
     }
   },
   "route": {

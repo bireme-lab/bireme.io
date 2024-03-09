@@ -1,0 +1,41 @@
+import { text } from "@/components/Text/Text.css";
+import { responsiveStyle } from "@/styles/mixins";
+import { vars } from "@/styles/theme/index.css";
+import { style } from "@vanilla-extract/css";
+
+export const container = responsiveStyle({
+  mobile: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: vars.sizes[8],
+    marginTop: vars.sizes[128],
+    textAlign: "center",
+  },
+  tablet: {
+    marginTop: vars.sizes[128],
+  },
+});
+
+export const description = style({
+  maxWidth: "300px",
+});
+
+export const legalLink = style([
+  text({ variant: "body-flat" }),
+  {
+    marginTop: vars.sizes[16],
+    color: vars.color.secondary[500],
+
+    ":hover": {
+      color: vars.color.secondary[300],
+    },
+
+    ":focus-visible": {
+      outline: `1px solid ${vars.color.secondary[500]}`,
+      outlineOffset: 2,
+      borderRadius: vars.sizes[2],
+    },
+  },
+]);

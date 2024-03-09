@@ -61,9 +61,11 @@ export const main = responsiveStyle({
   mobile: {
     marginTop: vars.sizes[24],
     marginBottom: vars.sizes[96],
+    minHeight: "calc(100vh - 400px - 120px)", // 355px: header + footer height, 120px: margins
   },
   tablet: {
     marginTop: vars.sizes[96],
     marginBottom: vars.sizes[96],
+    minHeight: "calc(100vh - 150px - 192px)", // 150px: header + footer height, 192px: margins
   },
 });

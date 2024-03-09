@@ -85,6 +85,11 @@
       "breadcrumb": {
         "homepage": "Home"
       }
+    },
+    "NotFound": {
+      "title": "Page not found",
+      "content": "The page you are looking for does not exist or has been moved.",
+      "get_back": "Get back to the homepage"
     }
   },
   "route": {

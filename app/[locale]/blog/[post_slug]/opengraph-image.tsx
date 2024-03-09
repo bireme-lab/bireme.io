@@ -6,6 +6,7 @@ import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { GeistSans } from "geist/font/sans";
 import { ImageResponse } from "next/og";
+import { NextResponse } from "next/server";
 import { match, P } from "ts-pattern";
 
 // Route segment config
@@ -14,9 +15,7 @@ export const runtime = "nodejs";
 const getPost = async (slug: string, locale: Locale) => {
   return match(await MDX.Post.findBySlug(slug, locale))
     .with(Option.P.Some(P.select()), (post) => post)
-    .otherwise(() => {
-      throw new Error(`Post not found for slug: ${slug}`);
-    });
+    .otherwise(() => undefined);
 };
 
 type Props = {
@@ -28,6 +27,10 @@ type Props = {
 
 export async function generateImageMetadata({ params }: Props) {
   const post = await getPost(params.post_slug, params.locale);
+
+  if (!post) {
+    return [];
+  }
 
   return [
     {
@@ -41,6 +44,12 @@ export async function generateImageMetadata({ params }: Props) {
 
 const Image = async ({ params }: Props) => {
   const post = await getPost(params.post_slug, params.locale);
+
+  if (!post) {
+    return new NextResponse(null, {
+      status: 404,
+    });
+  }
 
   return new ImageResponse(
     (

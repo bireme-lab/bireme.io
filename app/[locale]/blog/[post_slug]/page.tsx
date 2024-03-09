@@ -16,6 +16,7 @@ import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { Metadata } from "next";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { BlogPosting, WebPage, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
@@ -67,7 +68,7 @@ export const generateMetadata = async ({ params }: PostPageParams): Promise<Meta
       };
     })
     .otherwise(() => {
-      throw new Error(`Post not found for slug: ${params.post_slug}`);
+      notFound();
     });
 };
 

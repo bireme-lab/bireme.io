@@ -6,6 +6,7 @@ import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { GeistSans } from "geist/font/sans";
 import { ImageResponse } from "next/og";
+import { NextResponse } from "next/server";
 import { match, P } from "ts-pattern";
 
 // Route segment config
@@ -14,9 +15,7 @@ export const runtime = "nodejs";
 const getPage = async (slug: string, locale: Locale) => {
   return match(await MDX.Page.findBySlug(slug, locale))
     .with(Option.P.Some(P.select()), (page) => page)
-    .otherwise(() => {
-      throw new Error(`Page not found for slug: ${slug}`);
-    });
+    .otherwise(() => undefined);
 };
 
 type Props = {
@@ -28,6 +27,10 @@ type Props = {
 
 export async function generateImageMetadata({ params }: Props) {
   const page = await getPage(params.page_slug, params.locale);
+
+  if (!page) {
+    return [];
+  }
 
   return [
     {
@@ -41,6 +44,12 @@ export async function generateImageMetadata({ params }: Props) {
 
 const Image = async ({ params }: Props) => {
   const page = await getPage(params.page_slug, params.locale);
+
+  if (!page) {
+    return new NextResponse(null, {
+      status: 404,
+    });
+  }
 
   return new ImageResponse(
     (

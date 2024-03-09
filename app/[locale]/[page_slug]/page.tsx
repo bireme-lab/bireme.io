@@ -12,6 +12,7 @@ import * as MDX from "@/utils/mdx";
 import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { WebPage, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
@@ -61,7 +62,7 @@ export const generateMetadata = async ({ params }: PageParams) => {
       };
     })
     .otherwise(() => {
-      throw new Error(`Page not found for slug: ${params.page_slug}`);
+      notFound();
     });
 };
 
