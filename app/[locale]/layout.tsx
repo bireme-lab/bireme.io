@@ -19,6 +19,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { Gloria_Hallelujah } from "next/font/google";
 import { Organization, WithContext } from "schema-dts";
 import * as styles from "./layout.css";
+import { NProgress } from "./nprogress";
 
 const GloriaHallelujah = Gloria_Hallelujah({
   weight: "400",
@@ -83,6 +84,7 @@ export default function RootLayout({
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
+        <NProgress />
         <script
           type="application/ld+json"
           suppressHydrationWarning
