@@ -1,9 +1,12 @@
 import { cx } from "@/styles/mixins";
 import type { Color } from "@/styles/theme/index.css";
-import { Locale } from "@/utils/i18n";
-import Link, { type LinkProps as NextLinkProps } from "next/link";
-import { ElementType, type PropsWithChildren } from "react";
-import { P, isMatching, match } from "ts-pattern";
+import {
+  AnchorHTMLAttributes,
+  DetailedHTMLProps,
+  ElementType,
+  type PropsWithChildren,
+} from "react";
+import { P, match } from "ts-pattern";
 import * as styles from "./Text.css";
 
 export type TextVariant = keyof typeof styles.text.classNames.variants.variant;
@@ -33,19 +36,17 @@ type TextProps = {
   markup?: Extract<ElementType, TextElementType>;
   color?: Color | "inherit" | "none";
   className?: string;
-  getClassName?: never;
   style?: React.CSSProperties;
 } & React.HTMLAttributes<HTMLElement>;
 
 type LinkProps = {
+  href: string;
   variant?: TextVariant;
   markup?: never;
   color?: never;
   className?: string;
   style?: React.CSSProperties;
-  locale?: Locale;
-} & NextLinkProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement>;
+} & DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
 type Props = PropsWithChildren<TextProps | LinkProps>;
 
@@ -107,9 +108,30 @@ export const Text: React.FC<Props> = ({
         .with({ markup: "figcaption", children: P.string }, ({ markup, ...props }) => (
           <figcaption className={classNames} style={style} {...props} />
         ))
-        .with({ href: P.string }, (typedProps) => (
-          <LinkComponent {...typedProps} variant={variant} className={className} style={style} />
-        ))
+        .with(
+          {
+            href: P.string,
+            children: P.string,
+          },
+          (typedProps) => {
+            return (
+              <a
+                className={cx(styles.text({ variant }), className)}
+                style={style}
+                {...typedProps}
+              />
+            );
+          },
+        )
+        .with({ href: P.string }, (typedProps) => {
+          return (
+            <a
+              className={cx(styles.text({ variant }), className)}
+              style={{ display: style?.display ? style?.display : "block", ...style }}
+              {...typedProps}
+            />
+          );
+        })
         .otherwise((props) => (
           <span className={classNames} style={style} {...props} />
         ))}
@@ -118,27 +140,3 @@ export const Text: React.FC<Props> = ({
 };
 
 Text.displayName = "Text";
-
-const LinkComponent: React.FC<LinkProps> = ({
-  style,
-  className = styles.defaultLink,
-  ...props
-}) => {
-  const isChildrenInlineNode = isMatching({ children: P.string }, props);
-  const classNames = cx(styles.text({ variant: props.variant }), className);
-
-  return (
-    <Link
-      className={classNames}
-      style={match(isChildrenInlineNode)
-        .with(true, () => style)
-        .with(false, () => ({ display: style?.display ? style?.display : "block", ...style }))
-        .exhaustive()}
-      {...props}
-    >
-      {props.children}
-    </Link>
-  );
-};
-
-LinkComponent.displayName = "LinkComponent";

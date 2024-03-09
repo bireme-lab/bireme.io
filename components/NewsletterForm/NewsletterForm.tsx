@@ -5,6 +5,7 @@ import {
   NewsletterSubscriptionResponseSuccess,
 } from "@/app/api/newsletter/subscribe/route";
 import { useGoogleReCaptcha } from "@/hooks/useGoogleReCaptcha";
+import { Link } from "@/navigation";
 import { cx } from "@/styles/mixins";
 import { Locale } from "@/utils/i18n";
 import { request } from "@/utils/request";
@@ -237,16 +238,21 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
         <Text variant="small" markup="p" className={styles.mention} color="primary-700">
           {t.rich("disclaimer", {
             privacy: (chunk) => (
-              <Text
-                href={match(locale as Locale)
-                  .with("fr", () => "/fr/politique-de-confidentialite")
-                  .with("en", () => "/en/privacy-policy")
-                  .exhaustive()}
+              <Link
+                href={{
+                  pathname: "/[page_slug]",
+                  params: {
+                    page_slug: match(locale as Locale)
+                      .with("fr", () => "politique-de-confidentialite")
+                      .with("en", () => "privacy-policy")
+                      .exhaustive(),
+                  },
+                }}
                 style={{ display: "inline" }}
                 className={styles.link}
               >
                 {chunk}
-              </Text>
+              </Link>
             ),
           })}
         </Text>

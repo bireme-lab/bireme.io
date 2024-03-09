@@ -1,8 +1,8 @@
 import { socials } from "@/content/socials";
+import { Link } from "@/navigation";
 import { Locale } from "@/utils/i18n";
 import { useLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
 import { match } from "ts-pattern";
 import { Container } from "../Container/Container";
 import { Icon } from "../Icon/Icon";
@@ -32,72 +32,70 @@ export const Footer: React.FC = async () => {
           </div>
           <ul className={styles.socialLinks}>
             <li>
-              <Text href={socials.twitter} variant="small-flat" target="_blank">
+              <a href={socials.twitter} target="_blank">
                 <Icon name="x" title={socials.twitter} className={styles.socialIcon} />
-              </Text>
+              </a>
             </li>
           </ul>
         </div>
         <ul className={styles.legalLinks}>
           <li>
-            <Text
-              href={match(locale)
-                .with("fr", () => "/en")
-                .with("en", () => "/fr")
-                .exhaustive()}
-              variant="small-flat"
-              className={styles.legalLink}
-            >
+            <Link href="/" locale={locale === "fr" ? "en" : "fr"} className={styles.legalLink}>
               {t("see_website_localized")}
-            </Text>
+            </Link>
           </li>
           <li>
-            <Text
-              href={match(locale)
-                .with("fr", () => "/fr/rss.xml")
-                .with("en", () => "/en/rss.xml")
-                .exhaustive()}
-              variant="small-flat"
-              className={styles.legalLink}
-            >
+            <Link href="/rss.xml" className={styles.legalLink}>
               {t("rss_feed")}
-            </Text>
+            </Link>
           </li>
           <li>
-            <Text
-              href={match(locale)
-                .with("fr", () => "/fr/mentions-legales")
-                .with("en", () => "/en/legal-notice")
-                .exhaustive()}
-              variant="small-flat"
+            <Link
+              href={{
+                pathname: "/[page_slug]",
+                params: {
+                  page_slug: match(locale)
+                    .with("fr", () => "mentions-legales")
+                    .with("en", () => "legal-notice")
+                    .exhaustive(),
+                },
+              }}
               className={styles.legalLink}
             >
               {t("legal_links.legal_notice")}
-            </Text>
+            </Link>
           </li>
           <li>
-            <Text
-              href={match(locale)
-                .with("fr", () => "/fr/politique-de-confidentialite")
-                .with("en", () => "/en/privacy-policy")
-                .exhaustive()}
-              variant="small-flat"
+            <Link
+              href={{
+                pathname: "/[page_slug]",
+                params: {
+                  page_slug: match(locale)
+                    .with("fr", () => "politique-de-confidentialite")
+                    .with("en", () => "privacy-policy")
+                    .exhaustive(),
+                },
+              }}
               className={styles.legalLink}
             >
               {t("legal_links.privacy_policy")}
-            </Text>
+            </Link>
           </li>
           <li>
-            <Text
-              href={match(locale)
-                .with("fr", () => "/fr/politique-des-cookies")
-                .with("en", () => "/en/cookie-policy")
-                .exhaustive()}
-              variant="small-flat"
+            <Link
+              href={{
+                pathname: "/[page_slug]",
+                params: {
+                  page_slug: match(locale)
+                    .with("fr", () => "politique-des-cookies")
+                    .with("en", () => "cookie-policy")
+                    .exhaustive(),
+                },
+              }}
               className={styles.legalLink}
             >
               {t("legal_links.cookie_policy")}
-            </Text>
+            </Link>
           </li>
         </ul>
       </Container>

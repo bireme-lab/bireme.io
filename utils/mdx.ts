@@ -1,3 +1,4 @@
+import { getPathname } from "@/navigation";
 import { slugifyWithCounter } from "@sindresorhus/slugify";
 import { Option } from "@swan-io/boxed";
 import fm from "front-matter";
@@ -9,7 +10,7 @@ import { P, match } from "ts-pattern";
 import { z } from "zod";
 import { authorSlugSchema } from "../content/authors";
 import { sortDateDesc } from "./date";
-import { Locale } from "./i18n";
+import { Locale, i18n } from "./i18n";
 import { ORIGIN } from "./vars";
 
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
@@ -227,10 +228,10 @@ export const generateMDXFilesRecord = async () => {
 export const generateHref = (slug: string, locale: Locale, documentType: DocumentType) => {
   return match(documentType)
     .with("Post", () => {
-      return `/${locale}/blog/${slug}`;
+      return `${locale === i18n.defaultLocale ? "" : `/${locale}`}${getPathname({ locale, href: { pathname: "/blog/[post_slug]", params: { post_slug: slug } } })}`;
     })
     .with("Page", () => {
-      return `/${locale}/${slug}`;
+      return `${locale === i18n.defaultLocale ? "" : `/${locale}`}${getPathname({ locale, href: { pathname: "/[page_slug]", params: { page_slug: slug } } })}`;
     })
     .exhaustive();
 };

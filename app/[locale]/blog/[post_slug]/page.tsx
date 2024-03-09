@@ -85,9 +85,16 @@ const PostPage = async ({ params }: PostPageParams) => {
     },
     {
       label: post.title,
-      href: MDX.generateHref(post.slug, params.locale, "Post"),
+      href: {
+        pathname: "/blog/[post_slug]",
+        params: {
+          post_slug: post.slug,
+        },
+      },
     },
   ];
+
+  const postUrl = `${ORIGIN}${MDX.generateHref(post.slug, params.locale, "Post")}`;
 
   return (
     <>
@@ -132,7 +139,7 @@ const PostPage = async ({ params }: PostPageParams) => {
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: "Bireme Lab",
-            url: MDX.generateHref(post.slug, params.locale, "Post"),
+            url: postUrl,
             logo: "https://bireme.io/images/logo.png",
             publisher: {
               "@context": "https://schema.org",
@@ -181,10 +188,10 @@ const PostPage = async ({ params }: PostPageParams) => {
             "@type": "BlogPosting",
             headline: post.title,
             genre: "article",
-            url: MDX.generateHref(post.slug, params.locale, "Post"),
+            url: postUrl,
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": MDX.generateHref(post.slug, params.locale, "Post"),
+              "@id": postUrl,
             },
             datePublished: formatDateForSitemap(post.publishedAt),
             dateCreated: formatDateForSitemap(post.publishedAt),

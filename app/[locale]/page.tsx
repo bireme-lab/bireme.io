@@ -5,12 +5,12 @@ import { LatestPost } from "@/components/LatestPost/LatestPost";
 import { NewsletterTrigger } from "@/components/NewsletterTrigger/NewsletterTrigger";
 import { PostRow } from "@/components/PostRow/PostRow";
 import { Text } from "@/components/Text/Text";
+import { Link } from "@/navigation";
 import { Locale } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
 import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import Link from "next/link";
 import { WebPage, WebSite, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
@@ -22,14 +22,20 @@ type NewsBannerProps = {
 const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
   const t = await getTranslations("components.NewsBanner");
 
-  const href = match(locale)
-    .with("fr", () => MDX.generateHref("a-propos-de-bireme-lab", locale, "Post"))
-    .with("en", () => MDX.generateHref("about-bireme-lab", locale, "Post"))
+  const slug = match(locale)
+    .with("fr", () => "a-propos-de-bireme-lab")
+    .with("en", () => "about-bireme-lab")
     .exhaustive();
 
   return (
     <div className={styles.newsBannerWrapper}>
-      <Link href={href} className={styles.newsBanner}>
+      <Link
+        href={{
+          pathname: "/blog/[post_slug]",
+          params: { post_slug: slug },
+        }}
+        className={styles.newsBanner}
+      >
         <Text variant="small-mono" color="secondary-500" className={styles.newsBannerTag}>
           {t("new")}
         </Text>

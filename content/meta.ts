@@ -1,10 +1,10 @@
-import { Locale } from "@/utils/i18n";
+import { Locale, i18n } from "@/utils/i18n";
 import { ORIGIN } from "@/utils/vars";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export const getMeta = async (locale: Locale): Promise<Metadata> => {
-  const t = await getTranslations("meta");
+  const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
     metadataBase: new URL(ORIGIN),
@@ -27,14 +27,14 @@ export const getMeta = async (locale: Locale): Promise<Metadata> => {
     },
     publisher: "Bireme Lab",
     alternates: {
-      canonical: `${ORIGIN}/${locale}`,
+      canonical: locale === i18n.defaultLocale ? ORIGIN : `${ORIGIN}/${locale}`,
       languages: {
-        fr: `${ORIGIN}/fr`,
+        fr: ORIGIN,
         en: `${ORIGIN}/en`,
-        "x-default": `${ORIGIN}/fr`,
+        "x-default": ORIGIN,
       },
       types: {
-        "application/rss+xml": `${ORIGIN}/${locale}/rss.xml`,
+        "application/rss+xml": `${locale === i18n.defaultLocale ? ORIGIN : `${ORIGIN}/${locale}`}/rss.xml`,
       },
     },
   };

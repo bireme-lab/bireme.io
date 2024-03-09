@@ -1,20 +1,25 @@
+import { Link } from "@/navigation";
 import { envs } from "@/publicEnvs";
+import { cx } from "@/styles/mixins";
+import { pathnames } from "@/utils/i18n";
 import { PROTOCOL } from "@/utils/vars";
-import { Fragment } from "react";
+import { ComponentProps, Fragment } from "react";
 import { BreadcrumbList, WithContext } from "schema-dts";
 import { Text } from "../Text/Text";
+import { text as textStyle } from "../Text/Text.css";
 import * as styles from "./Breadcrumb.css";
 
-export type Step = {
-  href: string;
+export type Step<Pathname extends keyof typeof pathnames = keyof typeof pathnames> = {
   label: string;
+} & ComponentProps<typeof Link<Pathname>>;
+
+type Props<Pathname extends keyof typeof pathnames> = {
+  steps: Step<Pathname>[];
 };
 
-type Props = {
-  steps: Step[];
-};
-
-export const Breadcrumb: React.FC<Props> = ({ steps }) => {
+export function Breadcrumb<Pathname extends keyof typeof pathnames = keyof typeof pathnames>({
+  steps,
+}: Props<Pathname>) {
   const stepsLength = steps.length;
   const lastIndex = stepsLength - 1;
 
@@ -27,14 +32,16 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
       <div className={styles.container}>
         {steps.map(({ label, href }, index) => (
           <Fragment key={label}>
-            <Text
+            <Link
               href={href}
               title={label}
-              variant="body-flat"
-              className={styles.link({ isLast: index === lastIndex })}
+              className={cx(
+                textStyle({ variant: "body-flat" }),
+                styles.link({ isLast: index === lastIndex }),
+              )}
             >
               {label}
-            </Text>
+            </Link>
             {index !== lastIndex && (
               <Text
                 variant="small-flat"
@@ -69,6 +76,6 @@ export const Breadcrumb: React.FC<Props> = ({ steps }) => {
       />
     </>
   );
-};
+}
 
 Breadcrumb.displayName = "Breadcrumb";

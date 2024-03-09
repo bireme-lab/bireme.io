@@ -59,13 +59,13 @@ export const Avatar: React.FC<Props> = ({
               </Text>
             </div>
           </div>
-          <Text href={twitterProfileUrl} target="_blank" rel="noopener noreferrer">
+          <a href={twitterProfileUrl} target="_blank" rel="noopener noreferrer">
             <Icon
               name="x"
               title={t("follow_on_twitter", { name: `${firstName} ${lastName}` })}
               className={styles.networkIcon}
             />
-          </Text>
+          </a>
         </>
       )}
     >

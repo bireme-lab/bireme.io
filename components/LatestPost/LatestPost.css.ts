@@ -1,6 +1,7 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
 import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
+import { text } from "../Text/Text.css";
 
 // LatestPosts
 // -------------------------------------------o
@@ -30,18 +31,21 @@ export const latestPost = responsiveStyle({
   desktop: columnCount(5),
 });
 
-export const latestPostTitle = style({
-  color: vars.color.primary[500],
+export const latestPostTitle = style([
+  text({ variant: "title2" }),
+  {
+    color: vars.color.primary[500],
 
-  ":hover": {
-    color: vars.color.secondary[500],
-  },
+    ":hover": {
+      color: vars.color.secondary[500],
+    },
 
-  ":focus-visible": {
-    outline: "none",
-    color: vars.color.secondary[500],
+    ":focus-visible": {
+      outline: "none",
+      color: vars.color.secondary[500],
+    },
   },
-});
+]);
 
 export const latestPostPublishedAt = style({
   marginTop: vars.sizes[4],

@@ -1,11 +1,21 @@
+import { Pathnames } from "next-intl/navigation";
 import { getRequestConfig } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { z } from "zod";
-import { ORIGIN } from "./vars";
+
+export const pathnames = {
+  // If all locales use the same pathname, a
+  // single external path can be provided.
+  "/": "/",
+  "/[page_slug]": "/[page_slug]",
+  "/blog/[post_slug]": "/blog/[post_slug]",
+  "/rss.xml": "/rss.xml",
+} satisfies Pathnames<typeof i18n.locales>;
 
 export const i18n = {
   defaultLocale: "fr",
   locales: ["fr", "en"],
+  localePrefix: "as-needed",
 } as const;
 
 export const localeEnum = z.enum(["fr", "en"]);
@@ -18,7 +28,7 @@ export type Locale = (typeof i18n)["locales"][number];
 
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!isLocale) {
+  if (!isLocale(locale)) {
     return notFound();
   }
 
@@ -26,11 +36,3 @@ export default getRequestConfig(async ({ locale }) => {
     messages: (await import(`../messages/${locale}.json`)).default,
   };
 });
-
-export const getUrl = (locale: Locale, path: string) => {
-  if (path === "/") {
-    return `${ORIGIN}/${locale}`;
-  }
-
-  return `${ORIGIN}/${locale}/${path}`;
-};

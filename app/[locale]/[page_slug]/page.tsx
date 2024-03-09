@@ -78,11 +78,17 @@ const Page = async ({ params }: PageParams) => {
     },
     {
       label: page.title,
-      href: MDX.generateHref(params.page_slug, params.locale, "Page"),
+      href: {
+        pathname: "/[page_slug]",
+        params: {
+          page_slug: params.page_slug,
+        },
+      },
     },
   ];
 
   const isBodyBeginWithHeading = page.body.startsWith("#");
+  const pageUrl = `${ORIGIN}${MDX.generateHref(page.slug, params.locale, "Post")}`;
 
   return (
     <>
@@ -122,7 +128,7 @@ const Page = async ({ params }: PageParams) => {
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: "Bireme Lab",
-            url: MDX.generateHref(params.page_slug, params.locale, "Page"),
+            url: pageUrl,
             logo: "https://bireme.io/images/logo.png",
             publisher: {
               "@context": "https://schema.org",

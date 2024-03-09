@@ -4,11 +4,12 @@ import { cx } from "@/styles/mixins";
 import { getTranslations } from "next-intl/server";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { ImageProps } from "next/image";
+import Link from "next/link";
 import type { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from "react";
 import rehypePrettyCode, { type Options as RehypePrettyCodeOptions } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import { match } from "ts-pattern";
+import { P, match } from "ts-pattern";
 import { z } from "zod";
 import { Divider } from "../Divider/Divider";
 import { Icon } from "../Icon/Icon";
@@ -134,9 +135,20 @@ export const CustomMDX: React.FC<MDXRemoteProps> = async (props) => {
     p: (props) => (
       <Text variant="body" markup="p" {...props} className={styles.paragraph} color="primary-700" />
     ),
-    a: ({ color, ...props }) => (
-      <Text variant="body" href={props.href} className={styles.link} {...props} />
-    ),
+    a: ({ color, ...props }) =>
+      match(props)
+        .with({ href: P.string }, (props) => (
+          <Link
+            href={props.href}
+            className={styles.link}
+            title={props.title}
+            target={props.target}
+            rel={props.target === "_blank" ? "noopener noreferrer" : undefined}
+          >
+            {props.children}
+          </Link>
+        ))
+        .otherwise(() => null),
     ol: (props) => <ol className={styles.list} {...props} />,
     ul: (props) => <ul className={styles.list} {...props} />,
     li: (props) => <li className={styles.listItem} {...props} />,

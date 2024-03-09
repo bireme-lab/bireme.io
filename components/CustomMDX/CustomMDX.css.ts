@@ -1,5 +1,6 @@
 import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { globalStyle, style } from "@vanilla-extract/css";
+import { text } from "../Text/Text.css";
 
 export const listItem = style({
   display: "list-item",
@@ -100,19 +101,22 @@ export const blockquote = style({
   // fontStyle: "italic",
 });
 
-export const link = style({
-  color: vars.color.secondary[500],
+export const link = style([
+  text({ variant: "body" }),
+  {
+    color: vars.color.secondary[500],
 
-  ":hover": {
-    color: vars.color.secondary[300],
-  },
+    ":hover": {
+      color: vars.color.secondary[300],
+    },
 
-  ":focus-visible": {
-    outline: `1px solid ${vars.color.secondary[500]}`,
-    outlineOffset: 2,
-    borderRadius: vars.sizes[2],
+    ":focus-visible": {
+      outline: `1px solid ${vars.color.secondary[500]}`,
+      outlineOffset: 2,
+      borderRadius: vars.sizes[2],
+    },
   },
-});
+]);
 
 export const paragraph = style({});
 

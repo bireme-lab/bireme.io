@@ -26,14 +26,6 @@ export const Default: Story = {
         label: "Home",
         href: "/",
       },
-      {
-        label: "Category",
-        href: "/category",
-      },
-      {
-        label: "Product",
-        href: "/product",
-      },
     ],
   },
   render: (props) => <Breadcrumb {...props} />,

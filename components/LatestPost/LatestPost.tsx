@@ -1,3 +1,4 @@
+import { Link } from "@/navigation";
 import * as MDX from "@/utils/mdx";
 import { PublishedAt } from "../PublishedAt/PublishedAt";
 import { Text } from "../Text/Text";
@@ -11,9 +12,15 @@ export const LatestPost: React.FC<Props> = ({ post }) => {
   return (
     <div className={styles.latestPost}>
       <div>
-        <Text variant="title2" href={post.href} className={styles.latestPostTitle}>
+        <Link
+          href={{
+            pathname: "/blog/[post_slug]",
+            params: { post_slug: post.slug },
+          }}
+          className={styles.latestPostTitle}
+        >
           {post.title}
-        </Text>
+        </Link>
       </div>
       <Text variant="body" markup="p" color="primary-600">
         {post.seo.description}

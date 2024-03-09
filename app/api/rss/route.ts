@@ -11,9 +11,9 @@ export const dynamic = "force-dynamic"; // defaults to auto
 export async function GET(request: Request) {
   const url = new URL(request.url);
 
-  const locale = match(url.searchParams.get("locale"))
-    .with(P.string.regex("fr"), () => i18n.locales["0"])
-    .with(P.string.regex("en"), () => i18n.locales["1"])
+  const locale = match(url.pathname)
+    .with(P.string.includes("fr"), () => i18n.locales["0"])
+    .with(P.string.includes("en"), () => i18n.locales["1"])
     .otherwise(() => i18n.defaultLocale);
 
   const meta = await getMeta(locale);
@@ -23,7 +23,7 @@ export async function GET(request: Request) {
   const feed = new RSS({
     title: meta.title as string,
     description: meta.description as string,
-    site_url: `${url.origin}/${locale}`,
+    site_url: locale === i18n.defaultLocale ? url.origin : `${url.origin}/${locale}`,
     feed_url: url.href,
     copyright: `© ${new Date().getFullYear()} Bireme Lab. ${
       locale === "fr" ? "Tous droits réservés." : "All rights reserved."

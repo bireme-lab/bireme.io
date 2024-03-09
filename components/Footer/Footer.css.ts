@@ -1,6 +1,7 @@
 import { responsiveStyle } from "@/styles/mixins";
 import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
+import { text } from "../Text/Text.css";
 
 export const footer = responsiveStyle({
   mobile: {
@@ -63,19 +64,22 @@ export const legalLinks = responsiveStyle({
   },
 });
 
-export const legalLink = style({
-  color: vars.color.primary[700],
+export const legalLink = style([
+  text({ variant: "small-flat" }),
+  {
+    color: vars.color.primary[700],
 
-  ":hover": {
-    color: vars.color.primary[500],
-  },
+    ":hover": {
+      color: vars.color.primary[500],
+    },
 
-  ":focus-visible": {
-    outline: `1px solid ${vars.color.secondary[500]}`,
-    outlineOffset: 2,
-    borderRadius: vars.sizes[2],
+    ":focus-visible": {
+      outline: `1px solid ${vars.color.secondary[500]}`,
+      outlineOffset: 2,
+      borderRadius: vars.sizes[2],
+    },
   },
-});
+]);
 
 export const logoWrapper = style({
   display: "flex",
