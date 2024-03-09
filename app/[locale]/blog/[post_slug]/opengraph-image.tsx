@@ -5,8 +5,8 @@ import * as MDX from "@/utils/mdx";
 import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { GeistSans } from "geist/font/sans";
+import { getTranslations } from "next-intl/server";
 import { ImageResponse } from "next/og";
-import { NextResponse } from "next/server";
 import { match, P } from "ts-pattern";
 
 // Route segment config
@@ -27,9 +27,17 @@ type Props = {
 
 export async function generateImageMetadata({ params }: Props) {
   const post = await getPost(params.post_slug, params.locale);
+  const t = await getTranslations("meta");
 
   if (!post) {
-    return [];
+    return [
+      {
+        id: "default",
+        size: { width: 1200, height: 630 },
+        alt: t("title"),
+        contentType: "image/png",
+      },
+    ];
   }
 
   return [
@@ -44,11 +52,33 @@ export async function generateImageMetadata({ params }: Props) {
 
 const Image = async ({ params }: Props) => {
   const post = await getPost(params.post_slug, params.locale);
+  const t = await getTranslations("meta");
 
   if (!post) {
-    return new NextResponse(null, {
-      status: 404,
-    });
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            fontSize: 128,
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+          }}
+        >
+          <img
+            src={`${ORIGIN}/images/opengraph-images/${params.locale}.png`}
+            alt={t("title")}
+            width={1200}
+            height={630}
+          />
+        </div>
+      ),
+      {
+        width: 1200,
+        height: 630,
+      },
+    );
   }
 
   return new ImageResponse(
