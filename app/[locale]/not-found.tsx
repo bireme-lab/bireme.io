@@ -3,7 +3,7 @@ import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
 import * as styles from "./not-found.css";
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
   const t = useTranslations("pages.NotFound");
 
   return (

@@ -24,6 +24,8 @@ type PageParams = {
   };
 };
 
+export const dynamic = "force-dynamic";
+
 export const generateStaticParams = async ({ params }: PageParams) => {
   return match(await MDX.Page.all(params.locale))
     .with(Option.P.Some(P.select()), (pages) =>

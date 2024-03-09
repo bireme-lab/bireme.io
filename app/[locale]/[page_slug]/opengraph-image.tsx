@@ -27,7 +27,7 @@ type Props = {
 
 export async function generateImageMetadata({ params }: Props) {
   const page = await getPage(params.page_slug, params.locale);
-  const t = await getTranslations("meta");
+  const t = await getTranslations({ locale: params.locale, namespace: "meta" });
 
   if (!page) {
     return [
@@ -52,7 +52,7 @@ export async function generateImageMetadata({ params }: Props) {
 
 const Image = async ({ params }: Props) => {
   const page = await getPage(params.page_slug, params.locale);
-  const t = await getTranslations("meta");
+  const t = await getTranslations({ locale: params.locale, namespace: "meta" });
 
   if (!page) {
     return new ImageResponse(

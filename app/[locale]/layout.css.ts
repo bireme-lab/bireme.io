@@ -14,7 +14,6 @@ export const body = style({
   MozOsxFontSmoothing: "grayscale",
   display: "flex",
   flexDirection: "column",
-  // overflowX: "hidden",
 });
 
 export const lighContainer = style({

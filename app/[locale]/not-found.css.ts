@@ -10,12 +10,10 @@ export const container = responsiveStyle({
     alignItems: "center",
     justifyContent: "center",
     gap: vars.sizes[8],
-    marginTop: vars.sizes[128],
     textAlign: "center",
+    height: "50vh",
   },
-  tablet: {
-    marginTop: vars.sizes[128],
-  },
+  tablet: {},
 });
 
 export const description = style({
@@ -25,7 +23,7 @@ export const description = style({
 export const legalLink = style([
   text({ variant: "body-flat" }),
   {
-    marginTop: vars.sizes[16],
+    marginTop: vars.sizes[8],
     color: vars.color.secondary[500],
 
     ":hover": {

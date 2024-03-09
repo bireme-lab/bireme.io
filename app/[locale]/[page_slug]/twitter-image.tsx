@@ -1,10 +1,11 @@
+import { Locale } from "@/utils/i18n";
 import { getTranslations } from "next-intl/server";
 import Image from "./opengraph-image";
 
 export const runtime = "nodejs";
 
-export async function generateImageMetadata() {
-  const t = await getTranslations("meta");
+export async function generateImageMetadata({ params }: { params: { locale: Locale } }) {
+  const t = await getTranslations({ locale: params.locale, namespace: "meta" });
 
   return [
     {
