@@ -25,6 +25,7 @@ export const Default: Story = {
       {
         label: "Home",
         href: "/",
+        path: "",
       },
     ],
   },

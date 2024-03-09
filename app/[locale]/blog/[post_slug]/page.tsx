@@ -82,6 +82,7 @@ const PostPage = async ({ params }: PostPageParams) => {
     {
       label: t("breadcrumb.homepage"),
       href: "/",
+      path: "",
     },
     {
       label: post.title,
@@ -91,6 +92,7 @@ const PostPage = async ({ params }: PostPageParams) => {
           post_slug: post.slug,
         },
       },
+      path: MDX.generateHref(post.slug, params.locale, "Post"),
     },
   ];
 

@@ -1,8 +1,7 @@
 import { Link } from "@/navigation";
-import { envs } from "@/publicEnvs";
 import { cx } from "@/styles/mixins";
 import { pathnames } from "@/utils/i18n";
-import { PROTOCOL } from "@/utils/vars";
+import { ORIGIN } from "@/utils/vars";
 import { ComponentProps, Fragment } from "react";
 import { BreadcrumbList, WithContext } from "schema-dts";
 import { Text } from "../Text/Text";
@@ -11,6 +10,7 @@ import * as styles from "./Breadcrumb.css";
 
 export type Step<Pathname extends keyof typeof pathnames = keyof typeof pathnames> = {
   label: string;
+  path: string;
 } & ComponentProps<typeof Link<Pathname>>;
 
 type Props<Pathname extends keyof typeof pathnames> = {
@@ -62,13 +62,13 @@ export function Breadcrumb<Pathname extends keyof typeof pathnames = keyof typeo
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            itemListElement: steps.map(({ label, href }, index) => ({
+            itemListElement: steps.map(({ label, href, path }, index) => ({
               "@type": "ListItem",
               position: index + 1,
               item: {
                 "@id": href,
                 name: label,
-                url: `${PROTOCOL}://${envs.NEXT_PUBLIC_HOST}${href}`,
+                url: `${ORIGIN}${path}`,
               },
             })),
           } as WithContext<BreadcrumbList>),

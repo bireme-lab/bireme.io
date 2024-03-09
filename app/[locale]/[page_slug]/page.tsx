@@ -75,6 +75,7 @@ const Page = async ({ params }: PageParams) => {
     {
       label: t("breadcrumb.homepage"),
       href: "/",
+      path: "",
     },
     {
       label: page.title,
@@ -84,6 +85,7 @@ const Page = async ({ params }: PageParams) => {
           page_slug: params.page_slug,
         },
       },
+      path: MDX.generateHref(page.slug, params.locale, "Page"),
     },
   ];
 
