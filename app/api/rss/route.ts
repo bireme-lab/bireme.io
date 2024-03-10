@@ -1,6 +1,7 @@
 import { getMeta } from "@/content/meta";
 import { i18n } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
+import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { getTranslations } from "next-intl/server";
 import RSS from "rss";
@@ -53,6 +54,7 @@ export async function GET(request: Request) {
     headers: {
       "Content-Type": "application/xml",
       "Cache-Control": "s-maxage=86400",
+      Link: `<${locale === "fr" ? `${ORIGIN}/rss.xml` : `${ORIGIN}/en/rss.xml`}>; rel="canonical"`,
     },
   });
 }
