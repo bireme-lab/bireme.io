@@ -62,11 +62,11 @@ export function Breadcrumb<Pathname extends keyof typeof pathnames = keyof typeo
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            itemListElement: steps.map(({ label, href, path }, index) => ({
+            itemListElement: steps.map(({ label, path }, index) => ({
               "@type": "ListItem",
               position: index + 1,
               item: {
-                "@id": href,
+                "@id": `${ORIGIN}${path}`,
                 name: label,
                 url: `${ORIGIN}${path}`,
               },
