@@ -6,7 +6,7 @@ export const container = style({
   display: "flex",
   alignItems: "center",
   gap: vars.sizes[12],
-  color: vars.color.primary[700],
+  color: vars.color.neutral[100],
 });
 
 export const time = style([

@@ -144,8 +144,9 @@ export const close = recipe({
     height: vars.sizes[24],
     minWidth: vars.sizes[24],
     minHeight: vars.sizes[24],
-    borderRadius: vars.radii[2],
+    borderRadius: vars.sizes[4],
     transition: `background-color ${transitionDuration}ms ease-out`,
+    cursor: "pointer",
 
     ":focus-within": {
       outline: "none",
@@ -154,17 +155,17 @@ export const close = recipe({
   variants: {
     isHovered: {
       true: {
-        backgroundColor: vars.color.primary[900],
+        backgroundColor: vars.color.neutral[700],
       },
     },
     isFocused: {
       true: {
-        backgroundColor: vars.color.primary[900],
+        backgroundColor: vars.color.neutral[700],
       },
     },
     isPressed: {
       true: {
-        backgroundColor: vars.color.primary[800],
+        backgroundColor: vars.color.neutral[600],
       },
     },
   },
@@ -175,5 +176,5 @@ export const closeIcon = style({
   height: vars.sizes[20],
   minWidth: vars.sizes[20],
   minHeight: vars.sizes[20],
-  color: vars.color.primary[500],
+  color: vars.color.neutral[50],
 });

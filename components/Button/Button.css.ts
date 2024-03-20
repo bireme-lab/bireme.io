@@ -16,7 +16,7 @@ export const button = recipe({
     overflow: "hidden",
     padding: `${vars.sizes[12]} ${vars.sizes[16]}`,
     width: "auto",
-    borderRadius: vars.sizes[2],
+    borderRadius: vars.sizes[4],
     transitionProperty: "color, transform, background, border",
     transitionDuration: `${transitionDuration}ms`,
     transitionTimingFunction: "ease-out",
@@ -26,24 +26,24 @@ export const button = recipe({
     backfaceVisibility: "hidden",
     transformStyle: "preserve-3d",
 
+    ":focus": {
+      outline: "none",
+    },
     ":focus-visible": {
-      outline: `1px solid ${vars.color.secondary[500]}`,
-      outlineOffset: 2,
-      borderRadius: vars.sizes[2],
+      outline: "none",
     },
   },
   variants: {
     variant: {
       plain: {
-        border: "none",
-        backgroundColor: vars.color.primary[500],
-        backgroundImage: "linear-gradient(134deg, rgba(255,255,255,0) 5%, #E4CC4C 120%)",
-        color: vars.color.neutral[900],
+        backgroundColor: vars.color.primary[800],
+        border: `solid 1px ${vars.color.primary[500]}`,
+        color: vars.color.invariant.white.a100,
       },
       outline: {
-        border: `1px solid ${vars.color.primary[700]}`,
+        border: `1px solid ${vars.color.neutral[500]}`,
         backgroundColor: vars.color.invariant.transparent,
-        color: vars.color.primary[500],
+        color: vars.color.neutral[50],
       },
     },
     isHovered: {
@@ -60,6 +60,9 @@ export const button = recipe({
     isSuccess: {
       true: {},
     },
+    isLoading: {
+      true: {},
+    },
     isDisabled: {
       true: {
         cursor: "not-allowed",
@@ -73,7 +76,7 @@ export const button = recipe({
         isHovered: true,
       },
       style: {
-        backgroundColor: vars.color.secondary[500],
+        backgroundColor: vars.color.primary[700],
       },
     },
     {
@@ -82,7 +85,7 @@ export const button = recipe({
         isFocused: true,
       },
       style: {
-        outline: `1px solid ${vars.color.secondary[500]}`,
+        outline: `1px solid ${vars.color.primary[500]}!important`,
         outlineOffset: 4,
         borderRadius: vars.sizes[2],
       },
@@ -93,7 +96,17 @@ export const button = recipe({
         isPressed: true,
       },
       style: {
-        backgroundColor: vars.color.primary[700],
+        backgroundColor: vars.color.primary[600],
+      },
+    },
+    {
+      variants: {
+        variant: "plain",
+        isLoading: true,
+      },
+      style: {
+        backgroundImage:
+          "linear-gradient(134deg, rgba(255,255,255,0) 5%, rgba(255,255,255,0) 120%)",
       },
     },
     {
@@ -102,9 +115,10 @@ export const button = recipe({
         isDisabled: true,
       },
       style: {
-        color: vars.color.primary[900],
-        backgroundColor: vars.color.primary[600],
+        color: vars.color.neutral[600],
+        backgroundColor: vars.color.neutral[300],
         backgroundImage: "none",
+        border: `solid 1px ${vars.color.neutral[300]}`,
       },
     },
     {
@@ -114,6 +128,7 @@ export const button = recipe({
       },
       style: {
         backgroundImage: "none",
+        border: `solid 1px ${vars.color.positive[500]}`,
       },
     },
     {
@@ -122,7 +137,7 @@ export const button = recipe({
         isHovered: true,
       },
       style: {
-        borderColor: vars.color.primary[500],
+        borderColor: vars.color.neutral[200],
       },
     },
     {
@@ -131,7 +146,9 @@ export const button = recipe({
         isFocused: true,
       },
       style: {
-        backgroundColor: vars.color.neutral[700],
+        outline: `1px solid ${vars.color.primary[500]}!important`,
+        outlineOffset: 4,
+        borderRadius: vars.sizes[2],
       },
     },
     {
@@ -140,7 +157,7 @@ export const button = recipe({
         isPressed: true,
       },
       style: {
-        backgroundColor: vars.color.neutral[700],
+        borderColor: vars.color.neutral[300],
       },
     },
     {
@@ -160,7 +177,7 @@ export const button = recipe({
       style: {
         backgroundColor: vars.color.neutral[700],
         border: `1px solid ${vars.color.neutral[700]}`,
-        color: vars.color.primary[600],
+        color: vars.color.neutral[300],
       },
     },
   ],
@@ -315,7 +332,7 @@ export const loaderElement = recipe({
         backgroundColor: vars.color.neutral[900],
       },
       outline: {
-        backgroundColor: vars.color.primary[500],
+        backgroundColor: vars.color.neutral[200],
       },
     },
     loaderIsVisible: {

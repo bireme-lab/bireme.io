@@ -80,6 +80,7 @@ export const Button: React.FC<Props> = ({
             isPressed,
             isDisabled: props.isDisabled,
             isSuccess,
+            isLoading: loaderIsVisible,
           }),
           className,
         )}

@@ -36,7 +36,7 @@ const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
         }}
         className={styles.newsBanner}
       >
-        <Text variant="small-mono" color="secondary-500" className={styles.newsBannerTag}>
+        <Text variant="small-mono" color="primary-500" className={styles.newsBannerTag}>
           {t("new")}
         </Text>
         <Text variant="body">{t("text")}</Text>
@@ -86,7 +86,7 @@ const Home = async ({
             </div> */}
           </div>
           <div className={styles.descriptionWrapper}>
-            <Text variant="body" markup="p" color="primary-600">
+            <Text variant="body" markup="p" color="neutral-100">
               {t.rich("description", {
                 NewsletterTrigger: (chunk) =>
                   chunk && <NewsletterTrigger content={chunk.toString()} />,

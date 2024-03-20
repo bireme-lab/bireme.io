@@ -11,7 +11,7 @@ const NotFound: React.FC = () => {
       <Text markup="h1" variant="title1">
         {t("title")}
       </Text>
-      <Text color="primary-700" className={styles.description}>
+      <Text color="neutral-100" className={styles.description}>
         {t("content")}
       </Text>
       <Link href="/" className={styles.legalLink}>

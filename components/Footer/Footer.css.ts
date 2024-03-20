@@ -28,15 +28,10 @@ export const container = responsiveStyle({
 });
 
 export const logoLink = style({
-  color: vars.color.primary[500],
   transition: `color ${transitionDuration}ms ease-out`,
 
-  ":hover": {
-    color: vars.color.primary[600],
-  },
-
   ":focus-visible": {
-    outline: `1px solid ${vars.color.secondary[500]}`,
+    outline: `1px solid ${vars.color.primary[500]}`,
     outlineOffset: 4,
     borderRadius: vars.sizes[2],
   },
@@ -66,14 +61,14 @@ export const legalLinks = responsiveStyle({
 export const legalLink = style([
   text({ variant: "small-flat" }),
   {
-    color: vars.color.primary[700],
+    color: vars.color.neutral[200],
 
     ":hover": {
-      color: vars.color.primary[500],
+      color: vars.color.neutral[50],
     },
 
     ":focus-visible": {
-      outline: `1px solid ${vars.color.secondary[500]}`,
+      outline: `1px solid ${vars.color.primary[500]}`,
       outlineOffset: 2,
       borderRadius: vars.sizes[2],
     },
@@ -101,16 +96,15 @@ export const socialLinks = responsiveStyle({
 
 export const socialLink = style({
   transition: `color ${transitionDuration}ms ease-out`,
-  color: vars.color.primary[700],
+  color: vars.color.neutral[200],
 
   ":hover": {
-    color: vars.color.primary[500],
+    color: vars.color.neutral[50],
   },
 
   ":focus-visible": {
-    outline: `1px solid ${vars.color.secondary[500]}`,
-    outlineOffset: 2,
-    borderRadius: vars.sizes[2],
+    outline: "none",
+    color: vars.color.neutral[50],
   },
 });
 

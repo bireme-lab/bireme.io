@@ -26,13 +26,18 @@ export const Footer: React.FC = async () => {
             <Link href="/" className={styles.logoLink}>
               <Icon name="logo" title={t("homepage")} className={styles.logo} />
             </Link>
-            <Text variant="small-flat" color="primary-700">
+            <Text variant="small-flat" color="neutral-200">
               © {new Date().getFullYear()}
             </Text>
           </div>
           <ul className={styles.socialLinks}>
             <li>
-              <a href={socials.twitter} target="_blank" className={styles.socialLink}>
+              <a
+                href={socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+              >
                 <Icon name="x" title={socials.twitter} className={styles.socialIcon} />
               </a>
             </li>

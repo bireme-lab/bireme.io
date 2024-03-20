@@ -24,14 +24,14 @@ export const legalLink = style([
   text({ variant: "body-flat" }),
   {
     marginTop: vars.sizes[8],
-    color: vars.color.secondary[500],
+    color: vars.color.neutral[50],
 
     ":hover": {
-      color: vars.color.secondary[300],
+      color: vars.color.neutral[300],
     },
 
     ":focus-visible": {
-      outline: `1px solid ${vars.color.secondary[500]}`,
+      outline: `1px solid ${vars.color.neutral[50]}`,
       outlineOffset: 2,
       borderRadius: vars.sizes[2],
     },

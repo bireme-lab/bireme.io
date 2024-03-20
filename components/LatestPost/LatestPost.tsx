@@ -22,7 +22,7 @@ export const LatestPost: React.FC<Props> = ({ post }) => {
           {post.title}
         </Link>
       </div>
-      <Text variant="body" markup="p" color="primary-600">
+      <Text variant="body" markup="p" color="neutral-100">
         {post.seo.description}
       </Text>
       <PublishedAt

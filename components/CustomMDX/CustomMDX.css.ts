@@ -9,7 +9,7 @@ export const listItem = style({
   fontSize: "0.938rem",
   fontWeight: 400,
   lineHeight: "1.563rem",
-  color: vars.color.primary[700],
+  color: vars.color.neutral[100],
 
   ":last-of-type": {
     marginBottom: 0,
@@ -18,7 +18,7 @@ export const listItem = style({
 
 globalStyle(`${listItem} strong, b`, {
   fontWeight: 500,
-  color: vars.color.primary[600],
+  color: vars.color.neutral[50],
 });
 
 export const list = style({
@@ -35,7 +35,7 @@ export const headingLink = style({
 
   ":focus-visible": {
     outline: "none",
-    color: vars.color.secondary[500],
+    color: vars.color.primary[500],
   },
 });
 
@@ -45,7 +45,7 @@ export const headingLinkIcon = style({
   height: vars.sizes[20],
   minWidth: vars.sizes[20],
   minHeight: vars.sizes[20],
-  color: vars.color.primary[700],
+  color: vars.color.neutral[200],
   transition: `opacity ${transitionDuration}ms ease-out`,
   opacity: 0,
   position: "relative",
@@ -67,7 +67,7 @@ export const callout = style({
   alignItems: "center",
   gap: vars.sizes[4],
   padding: vars.sizes[16],
-  borderRadius: vars.radii[2],
+  borderRadius: vars.sizes[2],
   backgroundColor: vars.color.neutral[900],
 });
 
@@ -87,7 +87,7 @@ globalStyle(`${calloutChildrenContainer} *`, {
   fontSize: "0.875rem",
   fontWeight: 400,
   lineHeight: "1.3125rem",
-  color: vars.color.primary[500],
+  color: vars.color.neutral[50],
 });
 
 export const blockquote = style({
@@ -95,23 +95,23 @@ export const blockquote = style({
   alignItems: "center",
   gap: vars.sizes[4],
   padding: `${vars.sizes[16]} ${vars.sizes[16]} ${vars.sizes[16]} ${vars.sizes[20]}`,
-  borderRadius: vars.radii[2],
+  borderRadius: vars.sizes[2],
   backgroundColor: vars.color.neutral[800],
-  borderLeft: `2px solid ${vars.color.secondary[500]}`,
+  borderLeft: `2px solid ${vars.color.primary[500]}`,
   // fontStyle: "italic",
 });
 
 export const link = style([
   text({ variant: "body" }),
   {
-    color: vars.color.secondary[500],
+    color: vars.color.primary[500],
 
     ":hover": {
-      color: vars.color.secondary[300],
+      color: vars.color.primary[300],
     },
 
     ":focus-visible": {
-      outline: `1px solid ${vars.color.secondary[500]}`,
+      outline: `1px solid ${vars.color.primary[500]}`,
       outlineOffset: 2,
       borderRadius: vars.sizes[2],
     },
@@ -122,7 +122,7 @@ export const paragraph = style({});
 
 globalStyle(`${paragraph} strong, b`, {
   fontWeight: 500,
-  color: vars.color.primary[600],
+  color: vars.color.neutral[50],
 });
 
 export const pre = style({
@@ -139,12 +139,20 @@ export const preTitle = style({
   backgroundColor: vars.color.neutral[800],
 });
 
+export const img = style({
+  display: "block",
+  maxWidth: "100%",
+  height: "auto",
+  overflow: "hidden",
+  borderRadius: vars.sizes[4],
+});
+
 export const code = style({
   fontFamily: vars.font.mono,
   fontSize: "0.8125rem",
   lineHeight: "1.5625rem",
-  borderRadius: vars.radii[2],
-  color: vars.color.primary[200],
+  borderRadius: vars.sizes[2],
+  color: vars.color.neutral[100],
 
   "::before": {
     content: "`",
@@ -159,7 +167,7 @@ globalStyle(`figure[data-rehype-pretty-code-figure=""]`, {
   display: "flex",
   flexDirection: "column",
   gap: vars.sizes[2],
-  borderRadius: vars.radii[2],
+  borderRadius: vars.sizes[2],
 });
 
 globalStyle(`${pre} code`, {
@@ -202,12 +210,12 @@ globalStyle(`${pre} [data-highlighted-line]`, {
 globalStyle(`${pre} mark`, {
   background: vars.color.neutral[700],
   boxShadow: `0 0 0 4px ${vars.color.neutral[700]}`,
-  borderRadius: vars.radii[2],
+  borderRadius: vars.sizes[2],
 });
 
 export const tableContainer = style({
   width: "100%",
-  borderRadius: vars.radii[2],
+  borderRadius: vars.sizes[2],
   overflow: "hidden",
 });
 
@@ -225,7 +233,7 @@ globalStyle(`${table} thead`, {
 
 globalStyle(`${table} thead th`, {
   // borderBottom: `1px solid ${vars.color.neutral[800]}`,
-  color: vars.color.primary[500],
+  color: vars.color.neutral[50],
 });
 
 globalStyle(`${table} tbody`, {
@@ -233,8 +241,8 @@ globalStyle(`${table} tbody`, {
 });
 
 globalStyle(`${table} tbody td`, {
-  color: vars.color.primary[700],
-  borderTop: `1px solid ${vars.color.primary[900]}`,
+  color: vars.color.neutral[300],
+  borderTop: `1px solid ${vars.color.neutral[700]}`,
 });
 
 globalStyle(`${table} th, td`, {

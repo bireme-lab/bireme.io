@@ -51,7 +51,7 @@ export const tooltip = style({
   alignItems: "center",
   justifyContent: "space-between",
   padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
-  borderRadius: vars.sizes[2],
+  borderRadius: vars.sizes[4],
   backgroundColor: vars.color.neutral[800],
 });
 
@@ -68,7 +68,7 @@ export const networkIcon = style({
   transition: `color ${transitionDuration}ms ease-out`,
 
   ":hover": {
-    color: vars.color.primary[600],
+    color: vars.color.neutral[50],
   },
 });
 

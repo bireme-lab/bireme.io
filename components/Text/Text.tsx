@@ -51,7 +51,7 @@ type LinkProps = {
 type Props = PropsWithChildren<TextProps | LinkProps>;
 
 export const Text: React.FC<Props> = ({
-  color = "primary-500",
+  color = "neutral-50",
   className,
   style,
   variant,

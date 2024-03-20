@@ -9,18 +9,18 @@ export const newsBannerWrapper = responsiveStyle({
   mobile: [
     columnCount(2),
     {
-      borderRadius: vars.sizes[2],
+      borderRadius: vars.sizes[4],
       transition: `background ${transitionDuration}ms ease-out`,
       backgroundColor: vars.color.neutral[800],
-      backgroundImage: `linear-gradient(150deg, #E4CC4C 0, rgba(255,255,255,0) 50%)`,
+      backgroundImage: `linear-gradient(150deg, #FFC799 0, rgba(255,255,255,0) 50%)`,
       padding: 1,
 
       ":focus-within": {
-        backgroundColor: vars.color.secondary[500],
+        backgroundColor: vars.color.primary[500],
       },
 
       ":hover": {
-        backgroundColor: vars.color.secondary[500],
+        backgroundColor: vars.color.primary[500],
       },
     },
   ],
@@ -34,8 +34,8 @@ export const newsBanner = responsiveStyle({
     flexDirection: "column",
     alignItems: "flex-start",
     gap: vars.sizes[8],
-    borderRadius: vars.sizes[2],
-    padding: 15,
+    borderRadius: vars.sizes[4],
+    padding: vars.sizes[16],
     backgroundColor: vars.color.neutral[800],
     transitionProperty: "background-color, border",
     transitionDuration: `${transitionDuration}ms`,
@@ -93,7 +93,7 @@ export const latestPostTitle = style({
   transition: `color ${transitionDuration}ms ease-out`,
 
   ":hover": {
-    color: vars.color.primary[600],
+    color: vars.color.neutral[100],
   },
 });
 
@@ -107,7 +107,7 @@ export const handwrittenUnderline = style({
   bottom: "-12px",
   width: "160px",
   height: "7px",
-  color: vars.color.secondary[500],
+  color: vars.color.primary[500],
 });
 
 // Home
@@ -137,7 +137,7 @@ export const title = responsiveStyle({
   mobile: {
     fontSize: "2.5rem!important",
     lineHeight: "2.5rem!important",
-    background: "linear-gradient(to right bottom, #F9EADE 30%, #E4CC4C) text",
+    background: "linear-gradient(to right bottom, #F9EADE 30%, #FFC799) text",
     boxDecorationBreak: "clone",
     WebkitTextFillColor: "transparent",
     color: "unset",
@@ -177,7 +177,7 @@ export const learnMoreIcon = style({
   height: vars.sizes[16],
   minWidth: vars.sizes[16],
   minHeight: vars.sizes[16],
-  color: vars.color.primary[500],
+  color: vars.color.neutral[50],
 });
 
 export const descriptionWrapper = responsiveStyle({

@@ -50,35 +50,21 @@ export const Checkbox: React.FC<Props> = (props) => {
       <VisuallyHidden>
         <input {...mergeProps(inputProps, focusProps)} ref={ref} />
       </VisuallyHidden>
-      <div className={styles.checkboxContainer}>
-        <svg width={24} height={24} viewBox={`0 0 ${24} ${24}`} fill="none" className={styles.svg}>
-          <path
-            className={styles.path({ isChecked: inputProps.checked })}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="2"
-            strokeDashoffset="0px"
-            pathLength="1"
-            d="M6 18.5c5.5-7 5.5-7 11-13"
-          />
-          <path
-            className={styles.path({ isChecked: inputProps.checked })}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="2"
-            strokeDashoffset="0px"
-            pathLength="1"
-            d="M9 6.5c2 5 4.5 8.5 8.5 13.5"
-          />
-        </svg>
-        <div
-          className={cx(
-            styles.checkbox({ isDisabled: inputProps.disabled, isFocused, isHovered, isPressed }),
-          )}
-        />
+      <div
+        className={cx(
+          styles.checkbox({
+            isDisabled: inputProps.disabled,
+            isFocused,
+            isHovered,
+            isPressed,
+            isChecked: inputProps.checked,
+          }),
+        )}
+      >
+        <div className={styles.checkmark({ isChecked: inputProps.checked })} />
       </div>
       {props.children && (
-        <Text variant="body" color={inputProps.disabled ? "primary-700" : "primary-500"}>
+        <Text variant="body" color={inputProps.disabled ? "neutral-500" : "neutral-50"}>
           {props.children}
         </Text>
       )}

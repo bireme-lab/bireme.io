@@ -69,15 +69,15 @@ export const anchorListItem = recipe({
 });
 
 export const anchor = style({
-  color: vars.color.primary[700],
+  color: vars.color.neutral[200],
 
   ":hover": {
-    color: vars.color.secondary[500],
+    color: vars.color.primary[500],
   },
 
   ":focus-visible": {
     outline: "none",
-    color: vars.color.secondary[500],
+    color: vars.color.primary[500],
   },
 });
 

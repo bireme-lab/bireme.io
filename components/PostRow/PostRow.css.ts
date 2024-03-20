@@ -20,7 +20,7 @@ export const postRow = recipe({
       bottom: 0,
       width: "100%",
       height: "100%",
-      backgroundColor: vars.color.secondary[500],
+      backgroundColor: vars.color.primary[500],
       transition: "transform 300ms ease-out",
       transformOrigin: "bottom",
       transform: "scaleY(0)",
@@ -131,7 +131,7 @@ export const postRowPublishedAt = recipe({
 
 export const postRowComment = recipe({
   base: {
-    color: `${vars.color.secondary[500]}!important`,
+    color: `${vars.color.primary[500]}!important`,
   },
   variants: {
     isHovered: {

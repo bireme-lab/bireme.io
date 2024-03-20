@@ -48,7 +48,7 @@ export const light = style({
   margin: "0 auto",
   width: "1500px",
   height: "1000px",
-  background: vars.color.secondary[500],
+  background: vars.color.primary[500],
   opacity: 0.1,
   borderRadius: "50%",
   filter: "blur(150px)",

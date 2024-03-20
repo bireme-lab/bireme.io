@@ -15,11 +15,11 @@ export const link = recipe({
   base: responsiveStyle({
     mobile: {
       ":hover": {
-        color: vars.color.primary[500],
+        color: vars.color.neutral[50],
       },
 
       ":focus-visible": {
-        outline: `1px solid ${vars.color.secondary[500]}`,
+        outline: `1px solid ${vars.color.primary[500]}`,
         outlineOffset: 2,
         borderRadius: vars.sizes[2],
       },
@@ -34,10 +34,10 @@ export const link = recipe({
         whiteSpace: "nowrap",
         textOverflow: "ellipsis",
         overflow: "hidden",
-        color: vars.color.primary[500],
+        color: vars.color.neutral[50],
       },
       false: {
-        color: vars.color.primary[700],
+        color: vars.color.neutral[200],
       },
     },
   },

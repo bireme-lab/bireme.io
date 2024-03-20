@@ -6,56 +6,98 @@ export const container = style({
   display: "inline-flex",
   alignItems: "flex-start",
   WebkitTapHighlightColor: "transparent",
-  gap: vars.sizes[2],
-});
-
-export const checkboxContainer = style({
-  position: "relative",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: vars.sizes[24],
-  height: vars.sizes[24],
-  minWidth: vars.sizes[24],
-  minHeight: vars.sizes[24],
+  gap: vars.sizes[8],
+  cursor: "pointer",
 });
 
 export const checkbox = recipe({
   base: {
     zIndex: 1,
-    width: vars.sizes[12],
-    height: vars.sizes[12],
-    minWidth: vars.sizes[12],
-    minHeight: vars.sizes[12],
+    width: vars.sizes[16],
+    height: vars.sizes[16],
+    minWidth: vars.sizes[16],
+    minHeight: vars.sizes[16],
     position: "relative",
+    top: "4px",
     borderStyle: "solid",
     borderWidth: "1px",
-    borderRadius: vars.sizes[2],
-    borderColor: vars.color.primary[800],
+    borderRadius: vars.sizes[4],
+    borderColor: vars.color.neutral[500],
     transitionProperty: "transform, border, background, outline",
     transitionDuration: `${transitionDuration}ms`,
     transitionTimingFunction: "ease-out",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   variants: {
     isDisabled: {
       true: {
-        borderColor: vars.color.primary[800],
-        backgroundColor: vars.color.primary[800],
+        borderColor: vars.color.neutral[500],
+        backgroundColor: vars.color.neutral[500],
       },
     },
     isFocused: {
       true: {
-        borderColor: vars.color.primary[500],
+        borderColor: vars.color.neutral[50],
       },
     },
     isHovered: {
       true: {
-        borderColor: vars.color.primary[500],
+        borderColor: vars.color.neutral[50],
       },
     },
     isPressed: {
       true: {
-        borderColor: vars.color.primary[800],
+        borderColor: vars.color.neutral[300],
+      },
+    },
+    isChecked: {
+      true: {
+        backgroundColor: vars.color.neutral[900],
+        borderColor: vars.color.neutral[300],
+      },
+    },
+  },
+});
+
+// export const checkmark = recipe({
+//   base: {
+//     position: "relative",
+//     top: "-1px",
+//     left: "-1px",
+//     width: vars.sizes[20],
+//     height: vars.sizes[20],
+//     minWidth: vars.sizes[20],
+//     minHeight: vars.sizes[20],
+//     color: vars.color.primary[500],
+//     transition: `transform ${transitionDuration}ms ease-out`,
+//     transform: "scale(0)",
+//   },
+//   variants: {
+//     isChecked: {
+//       true: {
+//         transform: "scale(1)",
+//       },
+//     },
+//   },
+// });
+export const checkmark = recipe({
+  base: {
+    position: "relative",
+    width: vars.sizes[8],
+    height: vars.sizes[8],
+    minWidth: vars.sizes[8],
+    minHeight: vars.sizes[8],
+    backgroundColor: vars.color.primary[500],
+    transition: `transform ${transitionDuration}ms ease-out`,
+    transform: "scale(0)",
+    borderRadius: vars.sizes[2],
+  },
+  variants: {
+    isChecked: {
+      true: {
+        transform: "scale(1)",
       },
     },
   },
@@ -65,7 +107,7 @@ export const svg = style({
   zIndex: 2,
   position: "absolute",
   top: "-1px",
-  color: vars.color.secondary[500],
+  color: vars.color.primary[500],
 });
 
 const fillStrokePath1 = keyframes({

@@ -46,11 +46,11 @@ export const link = style({
   color: vars.color.primary[500],
 
   ":focus-visible": {
-    outline: `1px solid ${vars.color.secondary[500]}`,
+    outline: `1px solid ${vars.color.primary[500]}`,
     outlineOffset: 2,
     borderRadius: vars.sizes[2],
   },
   ":hover": {
-    color: vars.color.primary[600],
+    color: vars.color.primary[300],
   },
 });

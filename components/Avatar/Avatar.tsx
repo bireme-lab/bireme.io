@@ -54,7 +54,7 @@ export const Avatar: React.FC<Props> = ({
               <Text variant="small-flat">
                 {firstName} {lastName}
               </Text>
-              <Text variant="small-flat" color="primary-700">
+              <Text variant="small-flat" color="neutral-200">
                 {position}
               </Text>
             </div>

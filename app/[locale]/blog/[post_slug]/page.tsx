@@ -123,10 +123,10 @@ const PostPage = async ({ params }: PostPageParams) => {
               <TableOfContent headings={post.headings} />
             </div>
             <div className={cx(styles.body, styles.postBodyWrapper)}>
-              <Text variant="section-heading" color="primary-500">
+              <Text variant="section-heading" color="neutral-50">
                 tl;dr&nbsp;
               </Text>
-              <Text variant="body" markup="p" color="primary-700">
+              <Text variant="body" markup="p" color="neutral-200">
                 {post.tldr}
               </Text>
               <CustomMDX source={post.body} />

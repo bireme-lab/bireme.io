@@ -34,28 +34,19 @@ export const latestPost = responsiveStyle({
 export const latestPostTitle = style([
   text({ variant: "title2" }),
   {
-    color: vars.color.primary[500],
+    color: vars.color.invariant.white.a100,
 
     ":hover": {
-      color: vars.color.secondary[500],
+      color: vars.color.primary[500],
     },
 
     ":focus-visible": {
       outline: "none",
-      color: vars.color.secondary[500],
+      color: vars.color.primary[500],
     },
   },
 ]);
 
 export const latestPostPublishedAt = style({
   marginTop: vars.sizes[4],
-});
-
-export const handwrittenUnderline = style({
-  position: "absolute",
-  left: 0,
-  bottom: "-12px",
-  width: "180px",
-  height: "7px",
-  color: vars.color.secondary[500],
 });

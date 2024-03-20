@@ -51,7 +51,7 @@ globalStyle("input[type='text'], input[type='email']", {
 });
 
 const selection: React.CSSProperties = {
-  backgroundColor: vars.color.secondary[500],
+  backgroundColor: vars.color.primary[500],
   color: vars.color.neutral[900],
 };
 

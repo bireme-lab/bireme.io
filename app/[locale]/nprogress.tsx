@@ -7,7 +7,7 @@ export const NProgress: React.FC = () => {
   return (
     <ProgressBar
       height="0px"
-      color={vars.color.secondary[500]}
+      color={vars.color.primary[500]}
       options={{ showSpinner: true }}
       shallowRouting
       delay={200}

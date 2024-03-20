@@ -4,11 +4,11 @@ import { recipe } from "@vanilla-extract/recipes";
 export const trigger = recipe({
   base: {
     transition: `color ${transitionDuration}ms ease-out`,
-    color: vars.color.secondary[500],
+    color: vars.color.primary[500],
     cursor: "pointer",
 
     ":focus-visible": {
-      outline: `1px solid ${vars.color.secondary[500]}`,
+      outline: `1px solid ${vars.color.primary[500]}`,
       outlineOffset: 2,
       borderRadius: vars.sizes[2],
     },
@@ -16,12 +16,12 @@ export const trigger = recipe({
   variants: {
     isHovered: {
       true: {
-        color: vars.color.secondary[200],
+        color: vars.color.primary[200],
       },
     },
     isFocused: {
       true: {
-        outline: `1px solid ${vars.color.secondary[500]}`,
+        outline: `1px solid ${vars.color.primary[500]}`,
         outlineOffset: 2,
         borderRadius: vars.sizes[2],
       },
@@ -29,7 +29,7 @@ export const trigger = recipe({
     isPressed: {
       true: {
         outline: "none",
-        color: vars.color.secondary[300],
+        color: vars.color.primary[300],
       },
     },
   },

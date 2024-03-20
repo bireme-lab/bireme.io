@@ -20,7 +20,7 @@ export const nav = style({
 
 export const logoLink = style({
   position: "relative",
-  color: vars.color.primary[500],
+  color: vars.color.invariant.white.a100,
   transition: `color ${transitionDuration}ms ease-out`,
 
   // "::before": {
@@ -37,7 +37,7 @@ export const logoLink = style({
   // },
 
   ":focus-visible": {
-    outline: `1px solid ${vars.color.secondary[500]}`,
+    outline: `1px solid ${vars.color.primary[500]}`,
     outlineOffset: 4,
     borderRadius: vars.sizes[2],
   },
@@ -72,7 +72,7 @@ export const handwrittenShape = responsiveStyle({
     top: 0,
     right: 0,
     bottom: 0,
-    color: vars.color.secondary[500],
+    color: vars.color.primary[500],
     pointerEvents: "none",
     display: "none",
   },

@@ -226,7 +226,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
         </FieldsListener>
       </div>
       <div className={styles.mentionsWrapper}>
-        <Text variant="small" markup="p" className={styles.mention} color="primary-700">
+        <Text variant="small" markup="p" className={styles.mention} color="neutral-200">
           {t.rich("required_fields", {
             asterisk: (chunk) => (
               <Text variant="small" color="negative-500">
@@ -235,7 +235,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
             ),
           })}
         </Text>
-        <Text variant="small" markup="p" className={styles.mention} color="primary-700">
+        <Text variant="small" markup="p" className={styles.mention} color="neutral-200">
           {t.rich("disclaimer", {
             privacy: (chunk) => (
               <Link
@@ -256,7 +256,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
             ),
           })}
         </Text>
-        <Text variant="small" markup="p" className={styles.mention} color="primary-700">
+        <Text variant="small" markup="p" className={styles.mention} color="neutral-200">
           {t.rich("google_disclaimer", {
             privacy: (chunk) => (
               <Text

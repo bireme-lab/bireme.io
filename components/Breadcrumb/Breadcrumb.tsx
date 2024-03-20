@@ -45,7 +45,7 @@ export function Breadcrumb<Pathname extends keyof typeof pathnames = keyof typeo
             {index !== lastIndex && (
               <Text
                 variant="small-flat"
-                color="primary-800"
+                color="neutral-500"
                 className={styles.separator}
                 aria-hidden={true}
               >

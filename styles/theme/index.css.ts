@@ -49,18 +49,6 @@ export const vars = createThemeContract({
       800: null,
       900: null,
     },
-    secondary: {
-      50: null,
-      100: null,
-      200: null,
-      300: null,
-      400: null,
-      500: null,
-      600: null,
-      700: null,
-      800: null,
-      900: null,
-    },
     negative: {
       50: null,
       100: null,
@@ -152,13 +140,6 @@ export const vars = createThemeContract({
       margin: null,
       gutter: null,
     },
-  },
-  radii: {
-    2: null,
-    4: null,
-    6: null,
-    8: null,
-    pill: null,
   },
   sizes,
 });
