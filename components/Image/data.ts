@@ -39,18 +39,18 @@ export const data = {
     name: "base.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAK0lEQVR4nGMQERH+b2tj9X/Rgin/v3+6959BQlz8f4C//39FRcX/CgrS/wEMkQ92YzDTJQAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAK0lEQVR4nGOQlZH+b2xk8H/l4vn/Xz66+Z+huKjwf1Fh/n8BAf7/Jkb6/wEfGxDdYusBRgAAAABJRU5ErkJggg==",
   },
   "/images/opengraph-images/en.png": {
     name: "en.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAALUlEQVR4nAEiAN3/ACoqKf+ioJ7/kZCN/+bi1f8AICAg/5KRkP9UVFP/FxcX/zyDEfQX9djmAAAAAElFTkSuQmCC",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKUlEQVR4nGNQV1P7v3jB/P+TJ/T9//35zX8GWVnZ/2FhYf91dXX/g9gANWsREOaNSQQAAAAASUVORK5CYII=",
   },
   "/images/opengraph-images/fr.png": {
     name: "fr.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKElEQVR4nGMw0Nf7v3vXdjC+c/v8fwZlZeX/165c+t/S3PRfSkr6PwBeABQhJMJfvgAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKUlEQVR4nGNQV1P7P3/u7P+LF8z///vzm/8MsrKy/0uKiv57e3v9B7EBPvIR5RLUP/oAAAAASUVORK5CYII=",
   },
 };

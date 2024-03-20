@@ -34,7 +34,7 @@ export const latestPost = responsiveStyle({
 export const latestPostTitle = style([
   text({ variant: "title2" }),
   {
-    color: vars.color.invariant.white.a100,
+    color: vars.color.neutral[50],
 
     ":hover": {
       color: vars.color.primary[500],
