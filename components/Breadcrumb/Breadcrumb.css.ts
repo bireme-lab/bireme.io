@@ -34,7 +34,7 @@ export const link = recipe({
         whiteSpace: "nowrap",
         textOverflow: "ellipsis",
         overflow: "hidden",
-        color: vars.color.neutral[50],
+        color: vars.color.invariant.white.a100,
       },
       false: {
         color: vars.color.neutral[200],

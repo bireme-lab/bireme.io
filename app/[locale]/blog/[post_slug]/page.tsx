@@ -107,7 +107,7 @@ const PostPage = async ({ params }: PostPageParams) => {
           <Grid>
             <div className={styles.side} />
             <div className={cx(styles.body, styles.heroContent)}>
-              <Text variant="title1" markup="h1">
+              <Text variant="title1" markup="h1" color="white-a100">
                 {post.title}
               </Text>
               <PublishedAt
@@ -123,7 +123,7 @@ const PostPage = async ({ params }: PostPageParams) => {
               <TableOfContent headings={post.headings} />
             </div>
             <div className={cx(styles.body, styles.postBodyWrapper)}>
-              <Text variant="section-heading" color="neutral-50">
+              <Text variant="section-heading" color="white-a100">
                 tl;dr&nbsp;
               </Text>
               <Text variant="body" markup="p" color="neutral-200">

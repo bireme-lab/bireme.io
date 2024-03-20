@@ -156,7 +156,7 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
 
   return (
     <form onSubmit={onSubmit} className={cx(styles.form, className)} style={style}>
-      <Text variant="title3" markup="h3">
+      <Text variant="title3" markup="h3" color="white-a100">
         {t("headline")}
       </Text>
       <div className={styles.inputsWrapper}>

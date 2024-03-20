@@ -18,7 +18,7 @@ export const listItem = style({
 
 globalStyle(`${listItem} strong, b`, {
   fontWeight: 500,
-  color: vars.color.neutral[50],
+  color: vars.color.invariant.white.a100,
 });
 
 export const list = style({
@@ -32,6 +32,7 @@ export const heading = style({
 export const headingLink = style({
   alignItems: "center",
   gap: vars.sizes[4],
+  color: vars.color.invariant.white.a100,
 
   ":focus-visible": {
     outline: "none",
@@ -87,7 +88,7 @@ globalStyle(`${calloutChildrenContainer} *`, {
   fontSize: "0.875rem",
   fontWeight: 400,
   lineHeight: "1.3125rem",
-  color: vars.color.neutral[50],
+  color: vars.color.invariant.white.a100,
 });
 
 export const blockquote = style({
@@ -122,7 +123,7 @@ export const paragraph = style({});
 
 globalStyle(`${paragraph} strong, b`, {
   fontWeight: 500,
-  color: vars.color.neutral[50],
+  color: vars.color.invariant.white.a100,
 });
 
 export const pre = style({
@@ -233,7 +234,7 @@ globalStyle(`${table} thead`, {
 
 globalStyle(`${table} thead th`, {
   // borderBottom: `1px solid ${vars.color.neutral[800]}`,
-  color: vars.color.neutral[50],
+  color: vars.color.invariant.white.a100,
 });
 
 globalStyle(`${table} tbody`, {
@@ -243,6 +244,10 @@ globalStyle(`${table} tbody`, {
 globalStyle(`${table} tbody td`, {
   color: vars.color.neutral[300],
   borderTop: `1px solid ${vars.color.neutral[700]}`,
+});
+
+globalStyle(`${table} tbody td strong`, {
+  color: vars.color.invariant.white.a100,
 });
 
 globalStyle(`${table} th, td`, {

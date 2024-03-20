@@ -39,7 +39,7 @@ const MDXHeading: React.FC<MDXHeadingProps> = async ({ level, color, ...props })
       <Text
         markup={`h${level}`}
         className={cx(styles.heading, props.className)}
-        color="neutral-50"
+        color="white-a100"
         {...props}
       >
         {props.children}

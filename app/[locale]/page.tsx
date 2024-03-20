@@ -39,7 +39,9 @@ const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
         <Text variant="small-mono" color="primary-500" className={styles.newsBannerTag}>
           {t("new")}
         </Text>
-        <Text variant="body">{t("text")}</Text>
+        <Text variant="body" color="white-a100">
+          {t("text")}
+        </Text>
       </Link>
     </div>
   );
@@ -100,6 +102,7 @@ const Home = async ({
               <Text
                 variant="section-heading"
                 markup="h2"
+                color="white-a100"
                 className={styles.latestPostSectionHeading}
               >
                 {t("latest_post")}
@@ -116,7 +119,12 @@ const Home = async ({
           ))
           .otherwise(() => null)}
         <div className={styles.allPostsWrapper}>
-          <Text variant="section-heading" markup="h2" className={styles.allPostsSectionHeading}>
+          <Text
+            variant="section-heading"
+            markup="h2"
+            color="white-a100"
+            className={styles.allPostsSectionHeading}
+          >
             {t("all_posts")}
           </Text>
           {match(postsOption)
