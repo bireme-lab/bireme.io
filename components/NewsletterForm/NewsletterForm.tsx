@@ -9,7 +9,6 @@ import { Link } from "@/navigation";
 import { cx } from "@/styles/mixins";
 import { Locale } from "@/utils/i18n";
 import { request } from "@/utils/request";
-import { isEmpty } from "@/utils/types";
 import { AsyncData, Result } from "@swan-io/boxed";
 import { useLocale, useTranslations } from "next-intl";
 import React, { CSSProperties, FormEvent, useState } from "react";
@@ -194,10 +193,6 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
             <div className={styles.buttonWrapper}>
               <Button
                 type="submit"
-                showArrow={true}
-                isDisabled={
-                  isEmpty(email.value) || !isEmail(email.value) || requestState.isLoading()
-                }
                 isLoading={requestState.isLoading()}
                 isSuccess={isFormSubmitSuccess}
               >

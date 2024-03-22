@@ -29,7 +29,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: "Créer un compte",
-    showArrow: true,
     isLoading: false,
     isSuccess: false,
     isDisabled: false,

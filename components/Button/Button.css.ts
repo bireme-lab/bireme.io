@@ -36,9 +36,10 @@ export const button = recipe({
   variants: {
     variant: {
       plain: {
-        backgroundColor: vars.color.primary[800],
-        border: `solid 1px ${vars.color.primary[500]}`,
-        color: vars.color.invariant.white.a100,
+        border: "none",
+        backgroundColor: vars.color.invariant.white.a100,
+        backgroundImage: "linear-gradient(98deg, rgba(255,255,255,0) -63.78%, #FFC799 100%)",
+        color: vars.color.neutral[900],
       },
       outline: {
         border: `1px solid ${vars.color.neutral[500]}`,
@@ -61,7 +62,9 @@ export const button = recipe({
       true: {},
     },
     isLoading: {
-      true: {},
+      true: {
+        cursor: "not-allowed",
+      },
     },
     isDisabled: {
       true: {
@@ -76,7 +79,7 @@ export const button = recipe({
         isHovered: true,
       },
       style: {
-        backgroundColor: vars.color.primary[700],
+        backgroundColor: vars.color.primary[500],
       },
     },
     {
@@ -96,7 +99,7 @@ export const button = recipe({
         isPressed: true,
       },
       style: {
-        backgroundColor: vars.color.primary[600],
+        backgroundColor: vars.color.primary[300],
       },
     },
     {
@@ -105,8 +108,7 @@ export const button = recipe({
         isLoading: true,
       },
       style: {
-        backgroundImage:
-          "linear-gradient(134deg, rgba(255,255,255,0) 5%, rgba(255,255,255,0) 120%)",
+        backgroundColor: vars.color.primary[300],
       },
     },
     {
@@ -115,10 +117,9 @@ export const button = recipe({
         isDisabled: true,
       },
       style: {
-        color: vars.color.neutral[600],
+        color: vars.color.neutral[800],
         backgroundColor: vars.color.neutral[300],
         backgroundImage: "none",
-        border: `solid 1px ${vars.color.neutral[300]}`,
       },
     },
     {
@@ -127,8 +128,7 @@ export const button = recipe({
         isSuccess: true,
       },
       style: {
-        backgroundImage: "none",
-        border: `solid 1px ${vars.color.positive[500]}`,
+        backgroundColor: vars.color.primary[300],
       },
     },
     {
@@ -202,77 +202,6 @@ export const label = recipe({
     hideLabel: {
       true: {
         opacity: 0,
-      },
-    },
-  },
-  compoundVariants: [
-    {
-      variants: {
-        showArrow: true,
-        isHovered: true,
-      },
-      style: {
-        marginRight: vars.sizes[20],
-      },
-    },
-    {
-      variants: {
-        showArrow: true,
-        isFocused: true,
-      },
-      style: {
-        marginRight: vars.sizes[20],
-      },
-    },
-  ],
-});
-
-export const icon = recipe({
-  base: {
-    position: "absolute",
-    right: vars.sizes[16],
-    margin: 0,
-    padding: 0,
-    width: 0,
-    height: 0,
-    transform: "rotate(-120deg)",
-    transformOrigin: "center",
-    transitionProperty: "transform, width, height",
-    transitionDuration: `${transitionDuration}ms`,
-    transitionTimingFunction: "ease-out",
-
-    // Prevents flickering on Safari
-    backfaceVisibility: "hidden",
-    transformStyle: "preserve-3d",
-  },
-  variants: {
-    show: {
-      false: {
-        display: "none",
-      },
-    },
-    isHovered: {
-      true: {
-        width: vars.sizes[16],
-        height: vars.sizes[16],
-        transform: "rotate(0deg)",
-      },
-    },
-    isFocused: {
-      true: {
-        width: vars.sizes[16],
-        height: vars.sizes[16],
-        transform: "rotate(0deg)",
-      },
-    },
-    isPressed: {
-      true: {},
-    },
-    hideArrow: {
-      true: {
-        width: 0,
-        height: 0,
-        transform: "rotate(-120deg)",
       },
     },
   },

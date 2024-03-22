@@ -20,7 +20,6 @@ export type ButtonVariant = "plain" | "outline";
 type Props = Omit<AriaButtonProps, "elementType"> & {
   variant?: ButtonVariant;
   children: string;
-  showArrow?: boolean;
   isLoading?: boolean;
   isSuccess?: boolean;
   className?: string;
@@ -30,7 +29,6 @@ type Props = Omit<AriaButtonProps, "elementType"> & {
 export const Button: React.FC<Props> = ({
   variant = "plain",
   children,
-  showArrow = false,
   isLoading = false,
   isSuccess = false,
   onPress,
@@ -51,7 +49,6 @@ export const Button: React.FC<Props> = ({
   const { isFocusVisible, focusProps } = useFocusRing();
 
   const isFocused = !nonInteractiveState && isFocusVisible;
-  const arrowIsVisible = showArrow && !nonInteractiveState && (isHovered || isFocused);
   const loaderIsVisible = isLoading && !isSuccess;
 
   const handlePress = (event: PressEvent) => {
@@ -96,7 +93,6 @@ export const Button: React.FC<Props> = ({
           color="inherit"
           variant="body-flat"
           className={styles.label({
-            showArrow,
             isHovered,
             isFocused,
             hideLabel: isLoading || isSuccess,
@@ -105,19 +101,6 @@ export const Button: React.FC<Props> = ({
         >
           {children}
         </Text>
-        <Icon
-          key="button-icon"
-          name="arrow_right"
-          title={children}
-          className={styles.icon({
-            show: showArrow,
-            isHovered,
-            isFocused,
-            isPressed,
-            hideArrow: !arrowIsVisible,
-          })}
-          aria-hidden={!arrowIsVisible}
-        />
         <div className={styles.successBackground({ isSuccess, variant })} aria-hidden={!isSuccess}>
           <Icon
             key="button-success-icon"

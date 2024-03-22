@@ -8,9 +8,7 @@ export const text = recipe({
     display: "inline",
     zIndex: 1,
     position: "relative",
-    transitionProperty: "color",
-    transitionDuration: `${transitionDuration}ms`,
-    transitionTimingFunction: "ease-out",
+    transition: `all ${transitionDuration}ms ease-out`,
   },
   variants: {
     variant: {
