@@ -69,7 +69,7 @@ export const callout = style({
   gap: vars.sizes[4],
   padding: vars.sizes[16],
   borderRadius: vars.sizes[2],
-  backgroundColor: vars.color.neutral[900],
+  backgroundColor: vars.color.neutral[800],
 });
 
 export const calloutEmoji = style({
