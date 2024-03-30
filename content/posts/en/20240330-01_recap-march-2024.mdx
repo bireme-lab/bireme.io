@@ -1,0 +1,122 @@
+---
+title: "Monthly recap for march 2024"
+publishedAt: "2024-04-02T18:00:00"
+authors:
+  - "antoine-lin"
+  - "frederic-godin"
+tags:
+  - "company"
+seo:
+  title: "Monthly recap for march 2024"
+  description: "Monthly recap for march 2024"
+tldr: "Monthly recap for march 2024"
+---
+
+## Summary of work carried out in relation to strategic choices, marketing and communications
+
+### Determining potential market segments and end-users
+
+This month we started by drawing up a list of market segments to determine which people we could help with editorial content sent by email (the RMS project).
+
+**We have listed the following 6 segments:**
+
+**For growing companies, the appeal lies in discovering email marketing tools that combine simplicity, affordability, and clear added value over existing solutions often deemed complex and costly. This search is driven by the need to stand out in a competitive environment, while carefully managing limited resources. We consider our end customers to be founders, product managers and marketing and communications departments.
+
+**Real estate agencies, along with their agents and branch managers, are specifically looking for tools that enable them to segment and personalize their newsletters effectively. This requirement stems from the desire to optimize communication with their customers, in order to differentiate themselves from competing agencies. The services available are often not very specialized, suggesting an opportunity for a more tailored solution.
+
+**Content creators:** including freelancers, bloggers and YouTubers, are motivated by the use of tools that support and strengthen their communities without compromising the quality of the established relationship. Their main selection criteria are ease of use, efficiency and the ability to offer added value without negatively impacting the dynamic with their audience.
+
+**The event industry:** event organizers are looking for solutions that offer them great flexibility and the ability to personalize their communications. This demand is driven by the need to reflect the uniqueness and specificity of each event, underlining the importance of tools capable of adapting to a variety of contexts and requirements.
+
+**Marketing and communication agencies:** digital marketers and customer account managers aim to find solutions that promise an easy transition from their current tools. Their reluctance to change is only overcome when the new solution demonstrates a substantial advantage in terms of ease of use, cost and performance over existing options.
+
+**In regulated sectors:** such as healthcare and law, legal executives and compliance officers prefer solutions that guarantee security and regulatory compliance. Their openness to the adoption of new technologies is conditioned by the ability of these tools to meet strict compliance criteria, especially as we believe we need to educate them on the benefits of email-based editorial communication for such sectors.
+
+We were interested in defining end-user profiles with whom we'd like to exchange ideas in order to identify and list key functionalities, potential drivers of our differentiation.
+
+We continued this analysis with **3 interviews** of different profiles in relation to the growth segment.
+
+Here is a brief summary of the discussions:
+- For the time being, we've been able to validate our hypotheses concerning the cost and complexity of existing solutions,
+- We discovered some interesting issues, as well as some ideas for relevant functionalities that we hadn't thought of,
+- We have benefited from feedback on product creation and communication, which has enriched our knowledge of the subject.
+
+We plan to conduct several dozen interviews over the next few weeks to enrich our lists of hypotheses and identify recurring issues in order to define a bridgehead market and an end-user persona.
+
+### Bireme Lab communication preparation
+
+During the month of March, we discreetly took out the https://bireme.io site to write blog content and create precedence for our online presence, with a few ideas for articles we're working on. We'd like to share our monthly progress, discoveries and mood posts.
+
+We've also created our newsletter to start collecting contacts to activate by email. We plan to transform this newsletter into a *waiting list* once our first product is available in closed beta access.
+
+## Work related to product design and development
+
+### Creation of the payment and user management platform
+
+Heimdall represents a common, pre-requisite foundation for all Bireme Lab services. Its role is to centralize billing management, organization, team and user profile configurations. This is all important information that we will use in each of our products.
+
+We decided to develop Heimdall now to ensure that all our applications benefit from the same platform, thus promoting upselling and enabling us to concentrate fully on the development of business functionalities later on. Working on this part of the product in parallel with conducting interviews allows us to take the time to objectively list the key functionality to be designed for RMS, while at the same time making progress on a necessary technical prerequisite.
+
+### Product tasks completed during the month
+
+**Product focus of the month:** Heimdall
+
+**Specifications:** we took the time to fully specify the data models and functionalities that will be present at the launch of the first product:
+- Ability to create and manage one or more organizations,
+- Management of user invitations,
+- Ability to create teams linked to an organization and invite users to them,
+- Permission management at both team and user levels,
+- Centralized payment information and billing management for all Bireme Lab products,
+- Interactive onboarding for account and organization creation.
+
+**UX/UI:** we have begun to format the mock-ups of all the functionalities present in Heimdall V1.
+To date, we have completed webdesign work on the following sections:
+- **User login:** login page, OTP code validation,
+- **User onboarding:** step-by-step form for users to fill in the information required to configure their workspace,
+- **Organization creation onboarding:** step-by-step form for users to fill in the information required to create an organization,
+- **Invitation page:** page for accepting an invitation to join an organization.
+
+#### Focus on: permissions management
+
+In drawing up the list of functionalities required to keep our products *scale*, maintainable and simple in the future, we hypothesized that reworking user management to enable the creation of organizations, teams and permissions management would be a nightmare once RMS was available for use.
+
+We therefore decided to work actively, for Heimdall V1, on creating an organization management system enabling users to create teams, invite users and configure different levels of permissions.
+
+We established permissions at two levels:
+- at team level: the administrator of an organization can create a team, and determine the permissions that team members will have "by default" within the organization,
+- at user level: an organization's administrator will be able to add permissions in addition to those inherited from the configuration of the team of which the user will be a member.
+
+In this way, an administrator who configures his teams correctly can effectively segment access rights and uses of Bireme Lab products within his organization. This means greater speed, since the invited collaborator will, by default, have the permissions configured at team level, and greater security in terms of who is entitled to do what with the company's tools.
+
+We have also established the following rules:
+- A user cannot have fewer permissions than those of the team of which he or she is a member,
+- By default, each organization will have an "Admin" team that cannot be deleted: each of its members will be considered the organization's administrator and will have full permissions.
+
+TODO: Include permission management mock-ups with an explanation of how it works.
+
+#### Focus sur : la rédaction des spécifications chez Bireme Lab
+
+Avec un historique de profils plutôt tech, nous avons décidé de centraliser nos documentations et nos spécifications produits sur GitHub.
+
+Nous trouvons cette manière de travailler très naturel grâce aux fonctionnalités natif à l'outil pour collaborer sur la rédaction et sur les révisions.
+
+Pour chaque ajout ou modification nous créons une nouvelle branche, une *pull request* <sup>1</sup> avec les informations suivantes dans la description :
+
+- Name of affected product,
+- List of affected features,
+- Motivations :
+  - for the new feature, what it brings
+  - for the redesign, what's wrong with the current version and what does the new version bring?
+  - For minor changes, why do we need to update the specification?
+- Brief description of the changes,
+- List any doubts you have about specific points related to the product/UX/design.
+- List any doubts you have about technical feasibility
+
+In this way, each modification to the specification is subject to revision, and we keep an efficient versioning of our work, accessible at all times.
+We've created a repository dedicated to writing specifications, which we've named **Papyrus**.
+
+TODO: Include screenshots of Github PRs on Papyrus.
+
+---
+
+<sup>1</sup>: TODO:
