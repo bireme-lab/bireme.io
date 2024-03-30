@@ -9,7 +9,7 @@ export const listItem = style({
   fontSize: "0.938rem",
   fontWeight: 400,
   lineHeight: "1.563rem",
-  color: vars.color.neutral[100],
+  color: vars.color.neutral[200],
 
   ":last-of-type": {
     marginBottom: 0,
