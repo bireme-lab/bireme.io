@@ -29,11 +29,11 @@ export const postRow = recipe({
   variants: {
     isFirst: {
       true: {
-        borderTop: `1px solid ${vars.color.primary[900]}`,
-        borderBottom: `1px solid ${vars.color.primary[900]}`,
+        borderTop: `1px solid ${vars.color.neutral[700]}`,
+        borderBottom: `1px solid ${vars.color.neutral[700]}`,
       },
       false: {
-        borderBottom: `1px solid ${vars.color.primary[900]}`,
+        borderBottom: `1px solid ${vars.color.neutral[700]}`,
       },
     },
     isHovered: {
@@ -95,7 +95,7 @@ export const post = recipe({
 
 export const postRowTitle = recipe({
   base: {
-    color: `${vars.color.primary[500]}!important`,
+    color: `${vars.color.invariant.white.a100}!important`,
   },
   variants: {
     isHovered: {
@@ -113,7 +113,7 @@ export const postRowTitle = recipe({
 
 export const postRowPublishedAt = recipe({
   base: {
-    color: `${vars.color.primary[700]}!important`,
+    color: `${vars.color.neutral[200]}!important`,
   },
   variants: {
     isHovered: {

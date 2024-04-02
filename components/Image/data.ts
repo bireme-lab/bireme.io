@@ -35,6 +35,60 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQUlEQVR4nGMQEhT8z8XN/Z+Lm+e/gIDAfwYeHp7/f74+///iwbn/IDYDSPb3l/v/X9w/DlbJICIi8p+NjR2MQVoAu2kcejQ2s/MAAAAASUVORK5CYII=",
   },
+  "/images/march-recap-clerk.webp": {
+    name: "march-recap-clerk.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGNgZGQsLy+fPGl6fFwSg4yMzLsPn//+/Xvr1i0Ae7sM7i3LmMwAAAAASUVORK5CYII=",
+  },
+  "/images/march-recap-create-invite-permissions.webp": {
+    name: "march-recap-create-invite-permissions.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGNwdnYODAwsKCiQkpJiWL9+/aNHj/r7+9XV1QF4HQowixeKRgAAAABJRU5ErkJggg==",
+  },
+  "/images/march-recap-invite.webp": {
+    name: "march-recap-invite.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGMIDQ01NjbW0NAwNjZmsLW11dDQ+Pv7m4KCAgBRAAcn7MTkDgAAAABJRU5ErkJggg==",
+  },
+  "/images/march-recap-onboarding.webp": {
+    name: "march-recap-onboarding.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAH0lEQVR4nGNQAwN+fv4Ld88yqKmp+fn58fPznzp1AgBOSAdx4rHr8AAAAABJRU5ErkJggg==",
+  },
+  "/images/march-recap-org.webp": {
+    name: "march-recap-org.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAH0lEQVR4nGNQVVWNiIhQBQMGFhaWPz+/7ty2hYWFBQBRIAd7esrPJQAAAABJRU5ErkJggg==",
+  },
+  "/images/march-recap-papyrus-mermaid.webp": {
+    name: "march-recap-papyrus-mermaid.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGOIiYnp7+9PiE9gZmZm2Llz56+ffz9//rZ9+3YAk8kOBqpengAAAAAASUVORK5CYII=",
+  },
+  "/images/march-recap-papyrus-prs.webp": {
+    name: "march-recap-papyrus-prs.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGNgYWGZ0D952bJlRkZGDAEBAR8/fvz7929ERAQAgmoMCUCZvBkAAAAASUVORK5CYII=",
+  },
+  "/images/march-recap-sign-in.webp": {
+    name: "march-recap-sign-in.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAH0lEQVR4nGPoam/98/OrGxgw5OTkJMTFNDY2qqqqAgCdpwp1lUat7AAAAABJRU5ErkJggg==",
+  },
+  "/images/march-recap-user-onboarding.webp": {
+    name: "march-recap-user-onboarding.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAJUlEQVR4nAEaAOX/AJ+fn//+/5aWlgQEBACfn5/39/rU1NRQUFDF3g7Ze6VlQgAAAABJRU5ErkJggg==",
+  },
   "/images/opengraph-images/base.png": {
     name: "base.png",
     extension: ".png",

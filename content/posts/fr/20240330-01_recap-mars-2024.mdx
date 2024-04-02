@@ -1,6 +1,6 @@
 ---
 title: "Récapitulatif du mois de mars 2024"
-publishedAt: "2024-04-02T18:00:00"
+publishedAt: "2024-04-03T18:00:00"
 authors:
   - "antoine-lin"
   - "frederic-godin"
@@ -8,8 +8,8 @@ tags:
   - "company"
 seo:
   title: "Récapitulatif du mois de mars 2024"
-  description: "Récapitulatif du mois de mars 2024"
-tldr: "Récapitulatif du mois de mars 2024"
+  description: "Au cours du mois de mars 2024 nous avons eu le temps d'avancer concrètement sur la stratégie de l'entreprise ainsi que de progresser sur les fondations de nos produits"
+tldr: "Nous avons progressé dans la création de notre écosystème de micro-SaaS, en axant le développement sur notre premier produit dédié à la communication par email. Six segments de marché ont été identifiés, avec des interviews en cours pour affiner les fonctionnalités. Un site et une newsletter ont été lancés pour renforcer la présence en ligne. Le développement technique s'est concentré sur Heimdall, notre plateforme pour la gestion des utilisateurs et des paiements."
 ---
 
 ## Récapitulatif du travail effectué lié au choix stratégiques, au marketing et à la communication
@@ -37,7 +37,7 @@ L'intérêt pour nous était de définir des profils d'utilisateurs finaux avec 
 Nous avons poursuivis cette analyse avec **3 interviews** de profils différents en rapport au segment des entreprises en croissances.
 
 Voici un court résumé des échanges :
-- Nous avons eu, pour le moment, validations concernant nos hypothèses de coût set de complexités des solutions existantes,
+- Nous avons eu, pour le moment, validations concernant nos hypothèses de coûts et de complexités des solutions existantes,
 - Nous avons découvert des problématiques intéressantes ainsi que quelques idées de fonctionnalités pertinentes auxquelles nous n'avions pas pensé,
 - Nous avons bénéficié de retours d'expériences liés à la création d'un produit et sur la communication, ce qui nous a permit d'enrichir nos connaissances en la matière
 
@@ -47,15 +47,19 @@ Nous prévoyons de réaliser plusieurs dizaines d'interviews d'ici les prochaine
 
 Au cours du mois de mars, nous avons discrètement sortie le site https://bireme.io pour rédiger du contenu de blog et créer de l'antériorité dans notre présence en ligne, avec quelques idées d'articles sur lesquels nous travaillons. Nous souhaitons y partager notre avancée tous les mois, nos découvertes ainsi que des billets d'humeurs.
 
-Nous avons également créé notre newsletter pour commencer à récupérer des contacts à activer par email. Nous prévoyons de transformer cette newsletter en *waiting list* une fois notre premier produit disponible en accès beta fermé.
+Nous avons également créé notre newsletter pour commencer à récupérer des contacts à activer par email. Nous prévoyons de transformer cette newsletter en *waiting list* une fois notre premier produit disponible en accès beta privée.
 
 ## Travail lié à la conception et au développement produit
 
 ### Création de la plateforme de gestion des paiements et de nos utilisateurs
 
-Heimdall représente un socle commun, pré-requis, à tous les services Bireme Lab. Son rôle consiste à centraliser la gestion de la facturation, les configurations des organisations, des équipes et des profils utilisateurs. Autant d'informations importantes que nous utiliserons dans chacun de nos produits.
+Comme nous avons l'ambitions de créer un écosysteme de micro-SaaS, nous avons décidé de commencer par créer un socle commun sur lequel se basera l'ensemble des services Bireme Lab.
+Son rôle consiste à centraliser la gestion de la facturation, les configurations des organisations, des équipes et des profils utilisateurs. Autant d'informations importantes que nous utiliserons dans chacun de nos produits.
 
-Nous avons décidé de développer Heimdall maintenant pour assurer que toutes nos applications bénéficient de la même plateforme, favorisant l'upselling et nous permettant de se concentrer pleinement sur le développement des fonctionnalités métier par la suite. Travailler sur cette partie du produit en parallèle de la conduite des interviews nous permet de prendre le temps de lister, objectivement, les fonctionnalité clés à concevoir pour RMS tout en avançant sur un pré-requis technique nécessaire.
+Nous avons nommé cette application Heimdall, en référence au gardien du Bifröst dans la mythologie nordique.
+
+Nous avons décidé de développer Heimdall maintenant pour assurer que toutes nos applications bénéficient de la même plateforme, favorisant les interconnexions entre services et nous offrant la possibilité de nous concentrer pleinement sur le développement des fonctionnalités métier par la suite.
+Travailler sur cette partie du produit en parallèle de la conduite des interviews nous permet de prendre le temps de lister, objectivement, les fonctionnalité clés à concevoir pour notre premier produit RMS tout en avançant sur un pré-requis technique nécessaire.
 
 ### Les tâches produits accomplies durant le mois
 
@@ -67,14 +71,71 @@ Nous avons décidé de développer Heimdall maintenant pour assurer que toutes n
 - Possibilité de créer des équipes liées à une organisation et d'y inviter des utilisateurs,
 - Gestion des permissions à la fois au niveau des équipes mais aussi au niveau des utilisateurs,
 - Centralisation des informations de paiement, et de la gestion de la facturation, tout produit Bireme Lab confondu,
-- Onboarding interactif à la création de compte, et à la création d'organisations.
+- Onboarding interactif à la création de compte.
 
 **UX/UI :** nous avons commencé à mettre en forme les maquettes de toutes les fonctionnalités présente dans la V1 d'Heimdall.
+
 À ce jour nous avons terminé le travail de webdesign sur les sections suivantes :
-- **Connexion des utilisateurs :** page de connexion, de validation de code OTP,
-- **Onboarding d'un utilisateur :** formulaire par étapes pour qu'un utilisateur renseigne les informations nécessaire à la configuration de son espace de travail,
-- **Onboarding de la création d'une organisation :** formulaire par étapes pour qu'un utilisateur renseigne les informations nécessaire à la création d'une organisation,
-- **Page d'invitation :** page pour accepter une invitation à rejoindre une organisation.
+
+**Connexion des utilisateurs :** page de connexion, de validation de code OTP,
+
+<Image
+  src="/images/march-recap-sign-in.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Onboarding d'un utilisateur :** formulaire par étapes pour qu'un utilisateur renseigne les informations nécessaire à la configuration de son espace de travail,
+
+<Image
+  src="/images/march-recap-onboarding.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Création d'une organisation :** formulaire par étapes pour qu'un utilisateur renseigne les informations nécessaire à la création d'une organisation,
+
+<Image
+  src="/images/march-recap-org.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Page d'invitation :** page pour accepter une invitation à rejoindre une organisation.
+
+<Image
+  src="/images/march-recap-invite.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
 
 #### Focus sur : la gestion des permissions
 
@@ -92,7 +153,18 @@ De cette manière, un administrateur qui configure correctement ses équipes pou
 - Un utilisateur ne peut pas avoir moins de permissions que celles de l'équipe dont il est membre,
 - Par défaut chaque organisation possèdera une équipe "Admin" qui ne pourra pas être supprimée : chacun de ses membres sera considéré administrateur de l'organisation et bénéficiera de toutes les permissions.
 
-TODO: Inclure les maquettes de la gestion des permissions avec une explication du fonctionnement
+<Image
+  src="/images/march-recap-create-invite-permissions.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
 
 #### Focus sur : la rédaction des spécifications chez Bireme Lab
 
@@ -113,10 +185,122 @@ Pour chaque ajout ou modification nous créons une nouvelle branche, une *pull r
 - Liste des doutes que vous avez sur la faisabilité technique
 
 De cette manière chaque modification des spécification est soumise à révision, nous conservons également un versionnement efficace de notre travail, accessible à tout moment.
-Nous avons créé un repository dédié à la rédaction des spécifications que nous avons nommé **Papyrus**.
 
-TODO: Inclure screenshot des PR Github sur Papyrus.
+<Image
+  src="/images/march-recap-papyrus-prs.webp"
+  alt="Rédaction des specs via Github et Pull requests"
+  title="Rédaction des specs via Github et Pull requests"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+Autre avantage important, Github intègre nativement [Mermaid](https://mermaid.js.org/) et permet de visualiser rapidement les diagrammes et les schémas que nous ajoutons dans les spécifications produits de cette manière.
+
+<Image
+  src="/images/march-recap-papyrus-mermaid.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+## Travail de développement
+
+**Focus tech du mois :** Heimdall
+
+### Les tâches tech accomplies durant le mois
+
+**Création de l'environnement de développement :** mise en place de l'architecture technique des produits
+
+**Création de l'API GraphQL :** création d'un serveur wweb en Rust avec des fonctions permettant de lire, traiter et sauvegarder les données dans nos bases de données.
+
+**Développement de l'authentification des utilisateurs :** intégration du service externe [Clerk](https://clerk.com) pour gérer l'authentification des utilisateurs, développement des pages pour se connecter aux produits
+
+<Image
+  src="/images/march-recap-clerk.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Développement de l'onboarding utilisateur :**  création des pages permettant aux utilisateurs de renseigner leurs informations lors de la première connexion
+
+<Image
+  src="/images/march-recap-user-onboarding.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Gestion et centralisation des journeaux d'erreurs :** mise en place du système d'alertes pour simplifier l'identification et le traitement des problèmes techniques que les utilisateurs pourraient rencontrer en utilisant nos produits
+
+### Focus sur : notre environnement de développement
+
+Pour nos applications, nous avons décider de choisir les technologies suivantes:
+- [Rust](https://www.rust-lang.org/) pour le back-end avec les librairies:
+    - [Rocket](https://rocket.rs/) qui permet de créer un server web
+    - [Juniper](https://github.com/graphql-rust/juniper) qui permet de créer une API GraphQL
+    - [SQLx](https://github.com/launchbadge/sqlx) pour communiquer avec notre base de données
+- [TypeScript](https://www.typescriptlang.org/) pour le frontend avec les librairies:
+    - [Vite](https://vitejs.dev/) pour compiler et minifier notre application
+    - [React](https://reactjs.org/) pour le développement de l'interface utilisateur
+    - [@swan-io/use-form](https://github.com/swan-io/use-form) pour la gestion des formulaires
+    - [@swan-io/chicane](https://github.com/swan-io/chicane) pour la gestion des routes
+    - [Clerk](https://clerk.dev/) pour l'authentification des utilisateurs
+    - [gql.tada](https://gql-tada.0no.co/) pour la communication avec notre API GraphQL
+
+
+Lorsque nous développons notre application, nous avons 2 serveurs tournant en parallèle:
+- le serveur back-end qui s'occupe de servir l'API GraphQL
+- un serveur créé par Vite qui s'occupe de transpiller notre code TypeScript à chaque modification.
+
+Afin d'éviter les problèmes de CORS, nous avons configurer Vite pour qu'il créé un proxy vers notre serveur back-end.  
+
+Et lorsque nous packagons notre application, le serveur back-end contient les fichiers statiques de notre application frontend et s'occupe de les servir.
+
+Cela nous apporte ces avantages:
+- nous n'avons pas besoin de spécifier l'URL du serveur back-end dans notre application frontend
+- nous n'avons pas besoin de gérer les CORS côté back-end
+- nous avons qu'un seul serveur à gérer en production (donc pas besoin de synchroniser le déploiement de 2 serveurs)
+
+### Focus sur : création de l'API GraphQL
+
+Comme précisé dans la partie précédente, nous avons décidé de créer une API GraphQL pour notre application.
+Cela nous apporte des avantages à la fois technique mais aussi sur l'organisation de notre équipe :
+- la communication entre le frontend et le back-end est *type-safe* <sup>2</sup>, rendant le développement plus fluide et évite des oublies en cas de modification de l'API
+- permet de créer une API générique et flexible côté produit. Nous permettant d'afficher davantage d'informations sans avoir à modifier le back-end.
+
+Pour le développement de cette API, nous nous sommes tourné vers Rust. Nous avons conscience que c'est un choix particulier car Rust est un langage qui demande de l'expérience et n'a pas une communauté aussi grande que le JavaScript, notamment pour le développement web.  
+Mais Rust a un ecosysteme assez grand pour créer des applications web robustes et performantes :
+- [Rocket](https://rocket.rs/) permet de créer facilemenent un server web qui combine à la fois le multi-threading et le code asynchrone pour créer des applications performantes,
+- l'utilisation de [SQLx](https://github.com/launchbadge/sqlx) nous permet d'écrire des requêtes SQL qui sont validées à la compilation et donc rends le développement plus rapide en nous indiquant les erreurs de syntaxe avant l'exécution. Cela nous permet aussi de nous indiqué toutes les requêtes SQL à modifier en cas de modification modèle de données,
+- Et avec [Juniper](https://github.com/graphql-rust/juniper) nous pouvons créer une API GraphQL qui se base sur le system de typage de Rust. Donc toute modification dans le code est automatiquement répercuté sur le schéma GraphQL, schéma qui est ensuite utilisé par notre application frontend pour inférer le typage des requêtes.
+
+Au final nous avons réussi à créer du code *type-safe* de notre base de données, jusqu'à l'interface utilisateur en passant par notre serveur back-end. Ce qui nous rend confiant pour déployer des mises à jour rapidement et sans régressions.
 
 ---
 
-<sup>1</sup> : TODO:
+<sup>1</sup> : abréviation de "Pull Request" en anglais. C'est une fonctionnalité pour proposer et discuter des modifications de code avant de les fusionner avec le reste du projet<br />
+<sup>2</sup> : Le terme *type-safe* fait référence à un code écrit dans un langage de programmation typé statiquement, où les types de données sont vérifiés au moment de la compilation, ce qui garantit une exécution plus sûre du code en prévenant les erreurs de type potentielles.

@@ -1,6 +1,6 @@
 ---
 title: "Monthly recap for march 2024"
-publishedAt: "2024-04-02T18:00:00"
+publishedAt: "2024-04-03T18:00:00"
 authors:
   - "antoine-lin"
   - "frederic-godin"
@@ -8,8 +8,8 @@ tags:
   - "company"
 seo:
   title: "Monthly recap for march 2024"
-  description: "Monthly recap for march 2024"
-tldr: "Monthly recap for march 2024"
+  description: "During March 2024 we had time to make concrete progress on our corporate strategy, as well as on the foundations of our products."
+tldr: "We have made progress in the creation of our micro-SaaS ecosystem, focusing development on our first product dedicated to email communication. Six market segments have been identified, with interviews underway to refine functionalities. A website and newsletter have been launched to strengthen online presence. Technical development focused on Heimdall, our user and payment management platform."
 ---
 
 ## Summary of work carried out in relation to strategic choices, marketing and communications
@@ -47,7 +47,7 @@ We plan to conduct several dozen interviews over the next few weeks to enrich ou
 
 During the month of March, we discreetly took out the https://bireme.io site to write blog content and create precedence for our online presence, with a few ideas for articles we're working on. We'd like to share our monthly progress, discoveries and mood posts.
 
-We've also created our newsletter to start collecting contacts to activate by email. We plan to transform this newsletter into a *waiting list* once our first product is available in closed beta access.
+We've also created our newsletter to start collecting contacts to activate by email. We plan to transform this newsletter into a waiting list once our first product is available in closed beta access.
 
 ## Work related to product design and development
 
@@ -70,11 +70,68 @@ We decided to develop Heimdall now to ensure that all our applications benefit f
 - Interactive onboarding for account and organization creation.
 
 **UX/UI:** we have begun to format the mock-ups of all the functionalities present in Heimdall V1.
+
 To date, we have completed webdesign work on the following sections:
-- **User login:** login page, OTP code validation,
-- **User onboarding:** step-by-step form for users to fill in the information required to configure their workspace,
-- **Organization creation onboarding:** step-by-step form for users to fill in the information required to create an organization,
-- **Invitation page:** page for accepting an invitation to join an organization.
+
+**User login:** login page, OTP code validation,
+
+<Image
+  src="/images/march-recap-sign-in.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**User onboarding:** step-by-step form for users to fill in the information required to configure their workspace,
+
+<Image
+  src="/images/march-recap-onboarding.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Organization creation onboarding:** step-by-step form for users to fill in the information required to create an organization,
+
+<Image
+  src="/images/march-recap-org.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Invitation page:** page for accepting an invitation to join an organization.
+
+<Image
+  src="/images/march-recap-invite.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
 
 #### Focus on: permissions management
 
@@ -92,15 +149,26 @@ We have also established the following rules:
 - A user cannot have fewer permissions than those of the team of which he or she is a member,
 - By default, each organization will have an "Admin" team that cannot be deleted: each of its members will be considered the organization's administrator and will have full permissions.
 
-TODO: Include permission management mock-ups with an explanation of how it works.
+<Image
+  src="/images/march-recap-create-invite-permissions.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
 
-#### Focus sur : la rédaction des spécifications chez Bireme Lab
+#### Focus on : how we write product specifications at Bireme Lab
 
-Avec un historique de profils plutôt tech, nous avons décidé de centraliser nos documentations et nos spécifications produits sur GitHub.
+With a history of rather techy profiles, we decided to centralize our documentation and product specifications on GitHub.
 
-Nous trouvons cette manière de travailler très naturel grâce aux fonctionnalités natif à l'outil pour collaborer sur la rédaction et sur les révisions.
+We find this a very natural way of working, thanks to the tool's native features for collaborating on writing and revisions.
 
-Pour chaque ajout ou modification nous créons une nouvelle branche, une *pull request* <sup>1</sup> avec les informations suivantes dans la description :
+For each addition or modification we create a new branch, a pull request <sup>1</sup> with the following information in the description :
 
 - Name of affected product,
 - List of affected features,
@@ -113,10 +181,122 @@ Pour chaque ajout ou modification nous créons une nouvelle branche, une *pull r
 - List any doubts you have about technical feasibility
 
 In this way, each modification to the specification is subject to revision, and we keep an efficient versioning of our work, accessible at all times.
+
+<Image
+  src="/images/march-recap-papyrus-prs.webp"
+  alt="Rédaction des specs via Github et Pull requests"
+  title="Rédaction des specs via Github et Pull requests"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
 We've created a repository dedicated to writing specifications, which we've named **Papyrus**.
 
-TODO: Include screenshots of Github PRs on Papyrus.
+<Image
+  src="/images/march-recap-papyrus-mermaid.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+## Development work
+
+**Focus tech of the month:** Heimdall
+
+### Tech tasks accomplished during the month
+
+**Creation of the development environment:** implementation of the technical architecture of the products.
+
+**GraphQL API creation:** creation of a web server in Rust with functions for reading, processing and saving data in our databases.
+
+**Development of user authentication:** integration of the external service [Clerk](https://clerk.com) to manage user authentication, development of product login pages.
+
+<Image
+  src="/images/march-recap-clerk.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Development of user onboarding:** creation of pages enabling users to enter their information on first login
+
+<Image
+  src="/images/march-recap-user-onboarding.webp"
+  alt="Diagrammes mermaid"
+  title="Diagrammes mermaid"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Management and centralization of error logs:** implementation of an alert system to simplify the identification and handling of technical problems that users may encounter when using our products.
+
+### Focus on: our development environment
+
+For our applications, we decided to use the following technologies:
+- [Rust](https://www.rust-lang.org/) for the back-end libraries:
+    - [Rocket](https://rocket.rs/) to create a web server
+    - [Juniper](https://github.com/graphql-rust/juniper) to create a GraphQL API
+    - [SQLx](https://github.com/launchbadge/sqlx) to communicate with our database
+- TypeScript](https://www.typescriptlang.org/) for front-end libraries:
+    - [Vite](https://vitejs.dev/) to compile and minify our application
+    - [React](https://reactjs.org/) for user interface development
+    - [@swan-io/use-form](https://github.com/swan-io/use-form) for form management
+    - [@swan-io/chicane](https://github.com/swan-io/chicane) for route management
+    - [Clerk](https://clerk.dev/) for user authentication
+    - [gql.tada](https://gql-tada.0no.co/) for communication with our GraphQL API
+
+When we develop our application, we have 2 servers running in parallel:
+- the back-end server serving the GraphQL API
+- a server created by Vite, which transpiles our TypeScript code each time it is modified.
+
+To avoid CORS problems, we configured Vite to create a proxy to our back-end server.  
+
+And when we package our application, the back-end server contains the static files of our front-end application and takes care of serving them.
+
+This gives us these advantages
+- we don't need to specify the URL of the back-end server in our front-end application
+- we don't need to manage CORS on the back-end
+- we only have one server to manage in production (so no need to synchronize the deployment of 2 servers)
+
+### Focus on: creating the GraphQL API
+
+As explained in the previous section, we decided to create a GraphQL API for our application.
+This gives us both technical and organizational advantages for our team:
+- communication between front-end and back-end is type-safe <sup>2</sup>, making development smoother and avoiding oversights in the event of API modification
+- creates a generic, flexible API on the product side. Allowing us to display more information without having to modify the back-end.
+
+For the development of this API, we turned to Rust. We're aware that this is a particular choice, as Rust is a language that requires experience and doesn't have as large a community as JavaScript, especially for web development.  
+But Rust has a large enough ecosystem to create robust, high-performance web applications:
+- Rocket](https://rocket.rs/) makes it easy to create a web server that combines multi-threading and asynchronous code to create high-performance applications,
+- the use of [SQLx](https://github.com/launchbadge/sqlx) allows us to write SQL queries that are validated at compile time, thus speeding up development by indicating syntax errors before execution. It also tells us which SQL queries to modify in the event of a data model change,
+- And with [Juniper](https://github.com/graphql-rust/juniper) we can create a GraphQL API based on the Rust typing system. So any modification in the code is automatically reflected in the GraphQL schema, which is then used by our front-end application to infer query typing.
+
+In the end, we succeeded in creating *type-safe* code from our database, through our back-end server, right up to the user interface. This gives us the confidence to deploy updates quickly and without regressions.
 
 ---
 
-<sup>1</sup>: TODO:
+<sup>1</sup>: short for "Pull Request". C'est une fonctionnalité pour proposer et discuter des modifications de code avant de les fusionner avec le reste du projet<br />
+<sup>2</sup>: The term type-safe refers to code written in a statically typed programming language, where data types are checked at compile time, ensuring safer code execution by preventing potential type errors.
+
