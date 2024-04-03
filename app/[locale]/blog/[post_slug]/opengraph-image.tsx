@@ -102,7 +102,7 @@ const Image = async ({ params }: Props) => {
             left: 0,
             right: 0,
           }}
-          src={`${ORIGIN}/images/opengraph-images/base.png`}
+          src={`${ORIGIN}/images/opengraph-images/default.png`}
           alt={post.title}
         />
         <div

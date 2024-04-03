@@ -89,8 +89,8 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAJUlEQVR4nAEaAOX/AJ+fn//+/5aWlgQEBACfn5/39/rU1NRQUFDF3g7Ze6VlQgAAAABJRU5ErkJggg==",
   },
-  "/images/opengraph-images/base.png": {
-    name: "base.png",
+  "/images/opengraph-images/default.png": {
+    name: "default.png",
     extension: ".png",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAK0lEQVR4nGOQlZH+b2xk8H/l4vn/Xz66+Z+huKjwf1Fh/n8BAf7/Jkb6/wEfGxDdYusBRgAAAABJRU5ErkJggg==",
