@@ -1,10 +1,10 @@
-import { getPathname } from "@/navigation";
+import { getPathname, redirect } from "@/navigation";
 import { slugifyWithCounter } from "@sindresorhus/slugify";
 import { Option } from "@swan-io/boxed";
 import fm from "front-matter";
 import fs from "fs-extra";
 import GithubSlugger from "github-slugger";
-import { RedirectType, notFound, redirect } from "next/navigation";
+import { RedirectType, notFound } from "next/navigation";
 import path from "path";
 import { P, match } from "ts-pattern";
 import { z } from "zod";
@@ -476,13 +476,31 @@ export const Page = {
 export const findPostBySlugOrNotFound = async (slug: string, locale: Locale) => {
   return match(await Post.findBySlug(slug, locale))
     .with(Option.P.Some(P.select()), (post) =>
-      post.slug === slug ? post : redirect(`/blog/${post.slug}`, RedirectType.replace),
+      post.slug === slug
+        ? post
+        : redirect(
+            {
+              pathname: "/blog/[post_slug]",
+              params: { post_slug: post.slug },
+            },
+            RedirectType.replace,
+          ),
     )
     .otherwise(() => notFound());
 };
 
 export const findPageBySlugOrNotFound = async (slug: string, locale: Locale) => {
   return match(await Page.findBySlug(slug, locale))
-    .with(Option.P.Some(P.select()), (page) => page)
+    .with(Option.P.Some(P.select()), (page) =>
+      page.slug === slug
+        ? page
+        : redirect(
+            {
+              pathname: "/[page_slug]",
+              params: { page_slug: page.slug },
+            },
+            RedirectType.replace,
+          ),
+    )
     .otherwise(() => notFound());
 };
