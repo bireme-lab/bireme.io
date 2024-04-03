@@ -4,7 +4,7 @@ import { Option } from "@swan-io/boxed";
 import fm from "front-matter";
 import fs from "fs-extra";
 import GithubSlugger from "github-slugger";
-import { notFound } from "next/navigation";
+import { RedirectType, notFound, redirect } from "next/navigation";
 import path from "path";
 import { P, match } from "ts-pattern";
 import { z } from "zod";
@@ -152,6 +152,18 @@ export const getFilesFromRecord = async (
   }));
 };
 
+const findMDXidBySlug = async (
+  slug: string,
+  documentType: DocumentType,
+): Promise<Option<string>> => {
+  const files = (
+    await Promise.all(i18n.locales.map((locale) => getFilesFromRecord(locale, documentType)))
+  ).flat();
+  const foundedFile = files.find((file) => file.slug === slug);
+
+  return Option.fromNullable(foundedFile?.id);
+};
+
 const findMDXfileBySlug = async (
   slug: string,
   locale: Locale,
@@ -160,7 +172,17 @@ const findMDXfileBySlug = async (
   const files = await getFilesFromRecord(locale, documentType);
   const foundedFile = files.find((file) => file.slug === slug);
 
-  return foundedFile ? Option.Some(foundedFile) : Option.None();
+  if (foundedFile != null) {
+    return Option.Some(foundedFile);
+  }
+
+  const id = await findMDXidBySlug(slug, documentType);
+
+  if (id.isNone()) {
+    return Option.None();
+  }
+
+  return findMDXfileById(id.get(), locale, documentType);
 };
 
 const findMDXfileById = async (
@@ -342,9 +364,9 @@ export const Post = {
       return Option.None();
     }
 
-    const { file, id } = fileOption.get();
+    const { file, slug: fileSlug, id } = fileOption.get();
     const post = await parseMDX({
-      slug,
+      slug: fileSlug,
       locale,
       filePath: `${POSTS_DIR}/${locale}/${file}`,
       validationSchema: POST_ATTRIBUTES_SCHEMA,
@@ -402,9 +424,9 @@ export const Page = {
       return Option.None();
     }
 
-    const { file, id } = fileOption.get();
+    const { file, slug: fileSlug, id } = fileOption.get();
     const page = await parseMDX({
-      slug,
+      slug: fileSlug,
       locale,
       filePath: `${PAGES_DIR}/${locale}/${file}`,
       validationSchema: PAGE_ATTRIBUTES_SCHEMA,
@@ -453,7 +475,9 @@ export const Page = {
 
 export const findPostBySlugOrNotFound = async (slug: string, locale: Locale) => {
   return match(await Post.findBySlug(slug, locale))
-    .with(Option.P.Some(P.select()), (post) => post)
+    .with(Option.P.Some(P.select()), (post) =>
+      post.slug === slug ? post : redirect(`/blog/${post.slug}`, RedirectType.replace),
+    )
     .otherwise(() => notFound());
 };
 
