@@ -8,14 +8,14 @@ const NotFound: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <Text markup="h1" variant="title1">
+      <Text markup="h1" color="white-a100" variant="title1">
         {t("title")}
       </Text>
       <Text color="neutral-100" className={styles.description}>
         {t("content")}
       </Text>
       <Link href="/" className={styles.legalLink}>
-        {t("get_back")}
+        <Text color="primary-500">{t("get_back")}</Text>
       </Link>
     </div>
   );

@@ -7,12 +7,11 @@ import { TableOfContent } from "@/components/TableOfContent/TableOfContent";
 import { Text } from "@/components/Text/Text";
 import { getMeta } from "@/content/meta";
 import { cx } from "@/styles/mixins";
-import { Locale } from "@/utils/i18n";
+import { Locale, i18n } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
 import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
 import { WebPage, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
@@ -26,12 +25,35 @@ type PageParams = {
 
 export const dynamic = "force-dynamic";
 
-export const generateStaticParams = async ({ params }: PageParams) => {
-  return match(await MDX.Page.all(params.locale))
-    .with(Option.P.Some(P.select()), (pages) =>
-      pages.filter((page) => !["home", "accueil"].includes(page.slug)).map((page) => page.slug),
-    )
-    .otherwise(() => []);
+// Override by force-dynamic for now to fix 500 issue caused by next-intl
+export const generateStaticParams = async () => {
+  const pages = await i18n.locales.reduce<Promise<{ locale: Locale; page: MDX.Page }[]>>(
+    async (accPromise, locale) => {
+      const pagesOption = await MDX.Page.all(locale);
+      const acc = await accPromise;
+
+      if (pagesOption.isSome()) {
+        const pages = pagesOption.get();
+        const formattedPages = pages.map((page) => ({ locale, page }));
+
+        return [...acc, ...formattedPages];
+      }
+
+      return acc;
+    },
+    Promise.resolve([]),
+  );
+
+  if (pages.length === 0) {
+    return [];
+  }
+
+  return pages
+    .filter(({ page }) => !["home", "accueil"].includes(page.slug))
+    .map(({ page, locale }) => ({
+      page_slug: page.slug,
+      locale,
+    }));
 };
 
 export const generateMetadata = async ({ params }: PageParams) => {
@@ -63,9 +85,7 @@ export const generateMetadata = async ({ params }: PageParams) => {
         },
       };
     })
-    .otherwise(() => {
-      notFound();
-    });
+    .otherwise(() => ({}));
 };
 
 const Page = async ({ params }: PageParams) => {

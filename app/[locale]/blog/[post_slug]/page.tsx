@@ -10,13 +10,12 @@ import { authors } from "@/content/authors";
 import { getMeta } from "@/content/meta";
 import { cx } from "@/styles/mixins";
 import { formatDateForSitemap } from "@/utils/date";
-import { Locale } from "@/utils/i18n";
+import { Locale, i18n } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
 import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
 import { Metadata } from "next";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
 import { BlogPosting, WebPage, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
@@ -28,10 +27,35 @@ type PostPageParams = {
   };
 };
 
-export const generateStaticParams = async ({ params }: PostPageParams) => {
-  return match(await MDX.Post.all(params.locale))
-    .with(Option.P.Some(P.select()), (posts) => posts.map((post) => post.slug))
-    .otherwise(() => []);
+export const dynamic = "force-dynamic";
+
+// Override by force-dynamic for now to fix 500 issue caused by next-intl
+export const generateStaticParams = async () => {
+  const posts = await i18n.locales.reduce<Promise<{ locale: Locale; post: MDX.Post }[]>>(
+    async (accPromise, locale) => {
+      const postsOption = await MDX.Post.all(locale);
+      const acc = await accPromise;
+
+      if (postsOption.isSome()) {
+        const posts = postsOption.get();
+        const formattedPosts = posts.map((post) => ({ locale, post }));
+
+        return [...acc, ...formattedPosts];
+      }
+
+      return acc;
+    },
+    Promise.resolve([]),
+  );
+
+  if (posts.length === 0) {
+    return [];
+  }
+
+  return posts.map(({ post, locale }) => ({
+    post_slug: post.slug,
+    locale,
+  }));
 };
 
 export const generateMetadata = async ({ params }: PostPageParams): Promise<Metadata> => {
@@ -67,17 +91,14 @@ export const generateMetadata = async ({ params }: PostPageParams): Promise<Meta
         })),
       };
     })
-    .otherwise(() => {
-      notFound();
-    });
+    .otherwise(() => ({}));
 };
 
 const PostPage = async ({ params }: PostPageParams) => {
   unstable_setRequestLocale(params.locale);
+  const post = await MDX.findPostBySlugOrNotFound(params.post_slug, params.locale);
 
   const t = await getTranslations("pages.PostPage");
-
-  const post = await MDX.findPostBySlugOrNotFound(params.post_slug, params.locale);
 
   const breadcrumbSteps: Step[] = [
     {
