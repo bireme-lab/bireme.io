@@ -1,4 +1,4 @@
-import { getPathname, redirect } from "@/navigation";
+import { getPathname, permanentRedirect } from "@/navigation";
 import { slugifyWithCounter } from "@sindresorhus/slugify";
 import { Option } from "@swan-io/boxed";
 import fm from "front-matter";
@@ -478,7 +478,7 @@ export const findPostBySlugOrNotFound = async (slug: string, locale: Locale) => 
     .with(Option.P.Some(P.select()), (post) =>
       post.slug === slug
         ? post
-        : redirect(
+        : permanentRedirect(
             {
               pathname: "/blog/[post_slug]",
               params: { post_slug: post.slug },
@@ -494,7 +494,7 @@ export const findPageBySlugOrNotFound = async (slug: string, locale: Locale) => 
     .with(Option.P.Some(P.select()), (page) =>
       page.slug === slug
         ? page
-        : redirect(
+        : permanentRedirect(
             {
               pathname: "/[page_slug]",
               params: { page_slug: page.slug },
