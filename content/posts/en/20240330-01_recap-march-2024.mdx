@@ -20,9 +20,9 @@ This month we started by drawing up a list of market segments to determine which
 
 **We have listed the following 6 segments:**
 
-**For growing companies, the appeal lies in discovering email marketing tools that combine simplicity, affordability, and clear added value over existing solutions often deemed complex and costly. This search is driven by the need to stand out in a competitive environment, while carefully managing limited resources. We consider our end customers to be founders, product managers and marketing and communications departments.
+**For growing companies:** the appeal lies in discovering email marketing tools that combine simplicity, affordability, and clear added value over existing solutions often deemed complex and costly. This search is driven by the need to stand out in a competitive environment, while carefully managing limited resources. We consider our end customers to be founders, product managers and marketing and communications departments.
 
-**Real estate agencies, along with their agents and branch managers, are specifically looking for tools that enable them to segment and personalize their newsletters effectively. This requirement stems from the desire to optimize communication with their customers, in order to differentiate themselves from competing agencies. The services available are often not very specialized, suggesting an opportunity for a more tailored solution.
+**Real estate agencies:** along with their agents and branch managers, are specifically looking for tools that enable them to segment and personalize their newsletters effectively. This requirement stems from the desire to optimize communication with their customers, in order to differentiate themselves from competing agencies. The services available are often not very specialized, suggesting an opportunity for a more tailored solution.
 
 **Content creators:** including freelancers, bloggers and YouTubers, are motivated by the use of tools that support and strengthen their communities without compromising the quality of the established relationship. Their main selection criteria are ease of use, efficiency and the ability to offer added value without negatively impacting the dynamic with their audience.
 
@@ -259,7 +259,7 @@ For our applications, we decided to use the following technologies:
     - [Rocket](https://rocket.rs/) to create a web server
     - [Juniper](https://github.com/graphql-rust/juniper) to create a GraphQL API
     - [SQLx](https://github.com/launchbadge/sqlx) to communicate with our database
-- TypeScript](https://www.typescriptlang.org/) for front-end libraries:
+- [TypeScript](https://www.typescriptlang.org/) for front-end libraries:
     - [Vite](https://vitejs.dev/) to compile and minify our application
     - [React](https://reactjs.org/) for user interface development
     - [@swan-io/use-form](https://github.com/swan-io/use-form) for form management
@@ -289,7 +289,7 @@ This gives us both technical and organizational advantages for our team:
 
 For the development of this API, we turned to Rust. We're aware that this is a particular choice, as Rust is a language that requires experience and doesn't have as large a community as JavaScript, especially for web development.  
 But Rust has a large enough ecosystem to create robust, high-performance web applications:
-- Rocket](https://rocket.rs/) makes it easy to create a web server that combines multi-threading and asynchronous code to create high-performance applications,
+- [Rocket](https://rocket.rs/) makes it easy to create a web server that combines multi-threading <sup>3</sup> and asynchronous code to create high-performance applications,
 - the use of [SQLx](https://github.com/launchbadge/sqlx) allows us to write SQL queries that are validated at compile time, thus speeding up development by indicating syntax errors before execution. It also tells us which SQL queries to modify in the event of a data model change,
 - And with [Juniper](https://github.com/graphql-rust/juniper) we can create a GraphQL API based on the Rust typing system. So any modification in the code is automatically reflected in the GraphQL schema, which is then used by our front-end application to infer query typing.
 
@@ -297,6 +297,6 @@ In the end, we succeeded in creating *type-safe* code from our database, through
 
 ---
 
-<sup>1</sup>: short for "Pull Request". C'est une fonctionnalité pour proposer et discuter des modifications de code avant de les fusionner avec le reste du projet<br />
-<sup>2</sup>: The term type-safe refers to code written in a statically typed programming language, where data types are checked at compile time, ensuring safer code execution by preventing potential type errors.
-
+<sup>1</sup>: short for "Pull Request". C'est une fonctionnalité pour proposer et discuter des modifications de code avant de les fusionner avec le reste du projet  
+<sup>2</sup>: The term type-safe refers to code written in a statically typed programming language, where data types are checked at compile time, ensuring safer code execution by preventing potential type errors.  
+<sup>3</sup>: Multi-threading is a programming technique that allows a program to execute several tasks or code sections in parallel on several processor cores, as if they were running at the same time. JavaScript is a single-thread language and uses a single processor core, unlike Rust.
