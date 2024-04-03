@@ -108,7 +108,7 @@ const Image = async ({ params }: Props) => {
         <div
           style={{
             position: "relative",
-            left: 0,
+            left: 50,
             display: "flex",
             maxWidth: 800,
           }}
@@ -130,7 +130,7 @@ const Image = async ({ params }: Props) => {
             position: "absolute",
             top: 50,
             right: 0,
-            left: 0,
+            left: 50,
             width: 192,
             height: 46,
           }}
