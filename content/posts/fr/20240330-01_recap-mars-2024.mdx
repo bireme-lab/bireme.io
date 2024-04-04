@@ -139,7 +139,7 @@ Travailler sur cette partie du produit en parallèle de la conduite des intervie
 
 #### Focus sur : la gestion des permissions
 
-En établissant la liste des fonctionnalités essentielles au bon fonctionnement, à la maintenance et pour simplifier l'évolution de nos produits dans le futur, nous avons émis l'hypothèse que de retravailler la gestion des utilisateurs pour permettre de créer des organisations, des équipes et de gérer des permissions serait un cauchemard une fois RMS disponible à l'usage.
+En établissant la liste des fonctionnalités essentielles au bon fonctionnement, à la maintenance et pour simplifier l'évolution de nos produits dans le futur, nous avons émis l'hypothèse que de retravailler la gestion des utilisateurs pour permettre de créer des organisations, des équipes et de gérer des permissions serait un cauchemar une fois RMS disponible à l'usage.
 
 Nous avons donc décidé de travailler activement, pour la V1 d'Heimdall, sur la **création d'une gestion d'organisations** permettant aux utilisateurs de **créer des équipes**, d'**inviter des utilisateurs** et de **configurer différents niveaux de permissions**.
 
@@ -260,7 +260,7 @@ Autre avantage important, Github intègre nativement [Mermaid](https://mermaid.j
 
 Pour nos applications, nous avons décider de choisir les technologies suivantes:
 - [Rust](https://www.rust-lang.org/) pour le back-end avec les librairies:
-    - [Rocket](https://rocket.rs/) qui permet de créer un server web
+    - [Rocket](https://rocket.rs/) qui permet de créer un serveur web
     - [Juniper](https://github.com/graphql-rust/juniper) qui permet de créer une API GraphQL
     - [SQLx](https://github.com/launchbadge/sqlx) pour communiquer avec notre base de données
 - [TypeScript](https://www.typescriptlang.org/) pour le front-end avec les librairies:
@@ -272,11 +272,11 @@ Pour nos applications, nous avons décider de choisir les technologies suivantes
     - [gql.tada](https://gql-tada.0no.co/) pour la communication avec notre API GraphQL
 
 
-Lorsque nous développons notre application, nous avons 2 serveurs tournant en parallèle:
+Lorsque nous développons notre application, nous avons 2 serveurs en parallèle:
 - le serveur back-end qui s'occupe de servir l'API GraphQL
 - un serveur créé par Vite qui s'occupe de transpiller notre code front-end à chaque modification.
 
-Afin d'éviter les problèmes de CORS, nous avons configurer Vite pour qu'il **créé un proxy vers notre serveur back-end**.  
+Afin d'éviter les problèmes de CORS, nous avons configuré Vite pour qu'il **créé un proxy vers notre serveur back-end**.  
 
 Et lorsque nous préparons notre application à la mise en production, le serveur back-end contient les fichiers statiques de notre application front-end et s'occupe de les servir.
 
