@@ -8,8 +8,14 @@ import { ImageResponse } from "next/og";
 // Route segment config
 export const runtime = "nodejs";
 
-export async function generateImageMetadata() {
-  const t = await getTranslations("meta");
+type Props = {
+  params: {
+    locale: Locale;
+  };
+};
+
+export async function generateImageMetadata({ params }: Props) {
+  const t = await getTranslations({ locale: params.locale, namespace: "meta" });
 
   return [
     {
@@ -21,8 +27,8 @@ export async function generateImageMetadata() {
   ];
 }
 
-const Image = async ({ params }: { params: { locale: Locale } }) => {
-  const t = await getTranslations("meta");
+const Image = async ({ params }: Props) => {
+  const t = await getTranslations({ locale: params.locale, namespace: "meta" });
 
   return new ImageResponse(
     (

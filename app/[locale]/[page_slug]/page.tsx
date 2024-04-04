@@ -23,9 +23,6 @@ type PageParams = {
   };
 };
 
-export const dynamic = "force-dynamic";
-
-// Override by force-dynamic for now to fix 500 issue caused by next-intl
 export const generateStaticParams = async () => {
   const pages = await i18n.locales.reduce<Promise<{ locale: Locale; page: MDX.Page }[]>>(
     async (accPromise, locale) => {
