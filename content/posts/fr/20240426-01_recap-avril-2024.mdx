@@ -1,0 +1,152 @@
+---
+title: "Récapitulatif du mois d'avril 2024"
+publishedAt: "2024-05-01T18:00:00"
+authors:
+  - "antoine-lin"
+  - "frederic-godin"
+tags:
+  - "company"
+seo:
+  title: "Récapitulatif du mois d'avril 2024"
+  description: "TODO"
+tldr: "TODO"
+---
+## Récapitulatif du travail effectué au cours du mois d'avril 2024
+
+Ce mois-ci nous avons concentré nos efforts sur le développement de notre plateforme de gestion des utilisateurs : **Heimdall**.
+
+Sujet abordé lors de notre [récapitulatif du mois dernier](/blog/recap-mars-2024), centraliser dès le début notre gestion des utilisateurs nous permet d'assurer que **toutes nos applications bénéficient de la même plateforme** et simplifie, ultérieurement, la création de nos produits.
+
+Et c'est chose faite lors de ce mois d'avril 2024 puisqu'**Heimdall est actuellement prêt à l'usage pour une phase de beta**.
+
+À l'heure actuelle voici toutes les fonctionnalités disponibles qui seront donc inclus aux produits dès leurs lancements :
+- **Onboarding utilisateur :** expérience utilisateur optimisée et agréable pour compléter son profil et nous transmettre suffisamment d'informations pour personnaliser nos interfaces,
+- **Gestion des organisation :** chaque utilisateur pourra être membre d'une organisation ou créer sa propre organisation,
+- **Gestion des équipes :** chaque organisation pourra avoir ses propres équipes, avec une possibilité de définir des permissions d'usage des produits ou des paramètres liés à l'écosystème Bireme Lab (gestion de l'organisation, des informations de facturations etc),
+- **Gestion des membres :** avec la possibilité d'inviter des collaborateurs et leur donner accès aux outils Bireme Lab de l'organisation, de définir des permissions d'usage et d'attribuer chaque membre à une ou plusieurs équipes.
+
+Si vous êtes curieux d'en apprendre davantage sur le fonctionnement de notre gestion des permissions vous pouvez lire notre section **"Focus sur : la gestion des permissions"** disponible sur [l'article récap du mois de mars 2024](/blog/recap-mars-2024#focus-sur--la-gestion-des-permissions).
+Si vous voulez en savoir plus sur la gestion des membres, rendez-vous plus bas dans l'article pour notre ["Focus sur : la gestion des membres"](#focus-sur--la-gestion-des-membres)
+
+Un point que nous avons abordé le mois dernier et que nous avons décidé de repousser : **la gestion de la facturation**.
+
+Fonctionnalité dépendante du modèle économique final des produits, nous estimons qu'il est préférable de se concentrer sur le développement des fonctionnalités qui apportent de la valeur et de déterminer une politique tarifaire adéquate.
+
+Pour simplifier le tunnel de conversion, réduire le nombre de clics, et favoriser *le cross-selling* <sup>1</sup> nous souhaitons que l'utilisateur, propriétaire de l'organisation, puisse choisir en un clic, un plan, par produit, de façon simple, transparente et intuitive avec toutes les informations nécessaires pour une prise de décision éclairée.
+
+Nous imaginons difficilement pouvoir concevoir un parcours utilisateur optimal, sous cet angle, à l'instant T du développement de Bireme Lab.
+
+Nous préférons donc avancer sur le produit et revenir sur cette problématique ultérieurement.
+
+## Travail lié à la conception et au développement produit
+
+### Les tâches produits accomplies durant le mois
+
+**Focus produit du mois :** Heimdall
+
+**Spécifications :** l'avancement de l'UX/UI de la plateforme nous a permis de revoir certains sujets et de mettre à jour nos spécifications :
+- Modification des informations à afficher sur les pages d'invitations pour les rendre plus *friendly*, et distinction des informations à afficher en fonction du statut de l'invitation (en attente, expirée, annulée),
+- "Humanisation" du formattage des dates dans l'application pour rendre l'information plus compréhensible (par exemple : "dernière activité de l'utilisateur : le 27/04/2024" devient "dernière activité de l'utilisateur : ce matin à 09:39"),
+- Simplicification et détail du processus de suppression d'une organisation. Par exemple, nous sommes revenu sur la décision produit de ne pas pouvoir supprimer une organisation si elle contient des membres en plus du propriétaire,
+- Retrait de la fonctionnalité de "suspendre un utilisateur". Nous préférons faire simple et réduire les cas particuliers liés aux invitations. Dorénavent, un utilisateur qui retiré d'une organisation est simplement supprimé et devra se faire inviter à nouveau pour rejoindre l'organisation,
+- Mise à jour des informations à afficher sur la liste des membres et sur la page de profil d'un membre (par exemple : afficher la date et l'heure de la dernière activité du membre sur l'écosystème Bireme Lab),
+- Rendre une invitation modifiable avant qu'elle ne soit acceptée. Et de rendre, par exemple, possible de mettre à jour les permissions que le nouveau membre aura lorsqu'il rejoindra l'organisation,
+- Quelques oublis comme les distinctions à prendre en compte sur la page de profil d'un membre en transformant, par exemple, l'option "retirer de l'organisation" par "quitter l'organisation",
+
+**UX/UI :** toutes les interfaces de la V1 d'Heimdall sont terminés. Voici quelques exemples :
+
+**Layout d'une page avec la navigation sur le côté**
+
+<Image
+  src="/images/april-recap-dashboard-layout.webp"
+  alt="Layout du dashboard Heimdall avec la sidebar"
+  title="Layout du dashboard Heimdall avec la sidebar"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Liste des membres d'une organisation**
+
+<Image
+  src="/images/april-recap-members-list.webp"
+  alt="Liste des membres"
+  title="Liste des membres"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Page d'un membre de l'organisation et distinction entre membre et invitation**
+
+<Image
+  src="/images/april-recap-member-page.webp"
+  alt="Page d'un membre de l'organisation"
+  title="Page d'un membre de l'organisation"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Page de configuration de son profil Bireme Lab**
+
+<Image
+  src="/images/april-recap-profile-page.webp"
+  alt="Page de profil utilisateur"
+  title="Page de profil utilisateur"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Page d'accueil et liens rapides**
+
+<Image
+  src="/images/april-recap-home-page.webp"
+  alt="Page d'accueil"
+  title="Page d'accueil"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+### Focus sur : la gestion des membres
+
+Tout produit à orientation B2B qui se respecte possède une gestion de membres et la possibilité d'inviter des collaborateurs à utiliser, conjointement, les différents outils de l'entreprise.
+
+Avec la plateforme Heimdall, Bireme Lab n'y fera pas défaut. Nous avons conçu et développer une gestion complète et centralisé des organisations, comme pierre angulaire de chacun de nos futurs produits.
+
+Dans le détail, Heimdall permet de :
+- Créer une, ou plusieurs organisations : l'organisation peut-être indépendante, dans le cas d'un solopreneur ou d'un créateur de contenu, comme composée d'équipes et de membres. Les souscriptions aux produits Bireme Lab seront segmentés au niveau des organisations (un utilisateur pourra souscrire à un produit A sur l'organisation 1 et un produit B sur l'organisation 2, indépendamment),
+- Créer des équipes : dans le cas d'une organisation type "collaboration", l'utlisateur pourra segmenter ses usages par équipe(s) avec des permissions spécifiques. Par exemple : une équipe chargée de la rédaction des contenus, une équipe finance avec accès aux paramètres de configuration, etc.,
+- Définir des permissions au niveau d'un seul membre pour lui transférer plus d'accès au sein de l'écosystème Bireme Lab,
+
+Comme mentionné plus tôt, travailler sur cette composante, aussi tôt dans le développement de l'entreprise, nous permet de s'assurer que chaque produit bénéficiera d'un socle de fonctionnalités "ressources humaines" avancés dès leur mise sur le marché.
+D'autant plus qu'elle nous permet de débloquer des possibilités de modèles économiques comme la tarification en fonction du nombre de membres dans l'organisation.
+
+## Travail de développement
+
+### Les tâches tech accomplies durant le mois
+
+---
+<sup>1</sup> : on peut traduire "cross-selling" en français par "vente croisée". Cette technique commerciale vise à suggérer au client un ou plusieurs produits complémentaires à celui qu'il a d'abord envisagé.
