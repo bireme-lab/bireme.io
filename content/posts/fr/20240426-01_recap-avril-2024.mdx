@@ -15,28 +15,22 @@ tldr: "TODO"
 
 Ce mois-ci nous avons concentré nos efforts sur le développement de notre plateforme de gestion des utilisateurs : **Heimdall**.
 
-Sujet abordé lors de notre [récapitulatif du mois dernier](/blog/recap-mars-2024), centraliser dès le début notre gestion des utilisateurs nous permet d'assurer que **toutes nos applications bénéficient de la même plateforme** et simplifie, ultérieurement, la création de nos produits.
+Nous vous en parlions [au cours du récapitulatif du mois dernier](/blog/recap-mars-2024), Heimdall sera le socle commun de chacun de nos produits. Et pendant le mois d'avril nous avons terminé de développer une première version contenant les fonctionnalités suivantes :
 
-Et c'est chose faite lors de ce mois d'avril 2024 puisqu'**Heimdall est actuellement prêt à l'usage pour une phase de beta**.
-
-À l'heure actuelle voici toutes les fonctionnalités disponibles qui seront donc inclus aux produits dès leurs lancements :
 - **Onboarding utilisateur :** expérience utilisateur optimisée et agréable pour compléter son profil et nous transmettre suffisamment d'informations pour personnaliser nos interfaces,
 - **Gestion des organisation :** chaque utilisateur pourra être membre d'une organisation ou créer sa propre organisation,
-- **Gestion des équipes :** chaque organisation pourra avoir ses propres équipes, avec une possibilité de définir des permissions d'usage des produits ou des paramètres liés à l'écosystème Bireme Lab (gestion de l'organisation, des informations de facturations etc),
-- **Gestion des membres :** avec la possibilité d'inviter des collaborateurs et leur donner accès aux outils Bireme Lab de l'organisation, de définir des permissions d'usage et d'attribuer chaque membre à une ou plusieurs équipes.
+- **Gestion des équipes :** chaque organisation pourra avoir ses propres équipes, avec une possibilité de définir des permissions par défaut à un groupe de membres,
+- **Gestion des membres :** avec la possibilité d'inviter des collaborateurs et leur donner accès aux outils Bireme Lab de l'organisation, de définir des permissions et d'attribuer chaque membre à une ou plusieurs équipes.
 
 Si vous êtes curieux d'en apprendre davantage sur le fonctionnement de notre gestion des permissions vous pouvez lire notre section **"Focus sur : la gestion des permissions"** disponible sur [l'article récap du mois de mars 2024](/blog/recap-mars-2024#focus-sur--la-gestion-des-permissions).
+
 Si vous voulez en savoir plus sur la gestion des membres, rendez-vous plus bas dans l'article pour notre ["Focus sur : la gestion des membres"](#focus-sur--la-gestion-des-membres)
 
-Un point que nous avons abordé le mois dernier et que nous avons décidé de repousser : **la gestion de la facturation**.
-
-Fonctionnalité dépendante du modèle économique final des produits, nous estimons qu'il est préférable de se concentrer sur le développement des fonctionnalités qui apportent de la valeur et de déterminer une politique tarifaire adéquate.
+Le mois dernier nous avions plannifié de mettre en place la **gestion de la facturation**, mais finalement, nous préférons consacrer nos efforts sur les besoins métiers et y revenir une fois le modèle économique défini.
 
 Pour simplifier le tunnel de conversion, réduire le nombre de clics, et favoriser *le cross-selling* <sup>1</sup> nous souhaitons que l'utilisateur, propriétaire de l'organisation, puisse choisir en un clic, un plan, par produit, de façon simple, transparente et intuitive avec toutes les informations nécessaires pour une prise de décision éclairée.
 
 Nous imaginons difficilement pouvoir concevoir un parcours utilisateur optimal, sous cet angle, à l'instant T du développement de Bireme Lab.
-
-Nous préférons donc avancer sur le produit et revenir sur cette problématique ultérieurement.
 
 ## Travail lié à la conception et au développement produit
 
@@ -44,13 +38,13 @@ Nous préférons donc avancer sur le produit et revenir sur cette problématique
 
 **Focus produit du mois :** Heimdall
 
-**Spécifications :** l'avancement de l'UX/UI de la plateforme nous a permis de revoir certains sujets et de mettre à jour nos spécifications :
-- Modification des informations à afficher sur les pages d'invitations pour les rendre plus *friendly*, et distinction des informations à afficher en fonction du statut de l'invitation (en attente, expirée, annulée),
-- "Humanisation" du formattage des dates dans l'application pour rendre l'information plus compréhensible (par exemple : "dernière activité de l'utilisateur : le 27/04/2024" devient "dernière activité de l'utilisateur : ce matin à 09:39"),
-- Simplicification et détail du processus de suppression d'une organisation. Par exemple, nous sommes revenu sur la décision produit de ne pas pouvoir supprimer une organisation si elle contient des membres en plus du propriétaire,
-- Retrait de la fonctionnalité de "suspendre un utilisateur". Nous préférons faire simple et réduire les cas particuliers liés aux invitations. Dorénavent, un utilisateur qui retiré d'une organisation est simplement supprimé et devra se faire inviter à nouveau pour rejoindre l'organisation,
-- Mise à jour des informations à afficher sur la liste des membres et sur la page de profil d'un membre (par exemple : afficher la date et l'heure de la dernière activité du membre sur l'écosystème Bireme Lab),
-- Rendre une invitation modifiable avant qu'elle ne soit acceptée. Et de rendre, par exemple, possible de mettre à jour les permissions que le nouveau membre aura lorsqu'il rejoindra l'organisation,
+**Spécifications :** nous avons revu certains sujets UX/UI et nous avons pris le temps de mettre à jour nos spécifications :
+- Nous avons modifié les informations à afficher sur les pages d'invitations pour les rendre plus accessibles, et pour distinguer plus clairement leur statut (en attente, expirée, annulée),
+- Nous avons revu le format des dates avec l'usage d'un langage plus naturel pour rendre l'information plus compréhensible (par exemple : "dernière activité de l'utilisateur : le 27/04/2024" devient "dernière activité de l'utilisateur : ce matin à 09:39"),
+- Nous avons simplifié et détaillé le processus de suppression d'une organisation. Par exemple, nous sommes revenu sur la décision produit de ne pas pouvoir supprimer une organisation si elle contient des membres en plus du propriétaire,
+- Nous nous sommes rendu compte qu'une fonctionnalité "suspendre un utilisateur" n'est pas si évidente à développer et n'apporte pas une grande plus-value à nos produits,
+- Nous avons mis à jour les informations à afficher sur la liste des membres et sur la page de profil d'un membre (par exemple : afficher la date et l'heure de la dernière activité du membre sur l'écosystème Bireme Lab),
+- Nous avons décidé de permettre qu'une invitation soit modifiable avant qu'elle ne soit acceptée. Et de, par exemple, rendre possible la mise à jour des permissions attribuées au nouveau membre avant son arrivée dans l'organisation,
 - Quelques oublis comme les distinctions à prendre en compte sur la page de profil d'un membre en transformant, par exemple, l'option "retirer de l'organisation" par "quitter l'organisation",
 
 **UX/UI :** toutes les interfaces de la V1 d'Heimdall sont terminés. Voici quelques exemples :
