@@ -13,18 +13,18 @@ tldr: "TODO"
 ---
 ## Récapitulatif du travail effectué au cours du mois d'avril 2024
 
-Ce mois-ci nous avons concentré nos efforts sur le développement de notre plateforme de gestion des utilisateurs : **Heimdall**.
+Ce mois-ci nous avons concentré nos efforts sur le développement de notre plateforme de gestion des utilisateurs : **Heimdall**.
 
 Nous vous en parlions [au cours du récapitulatif du mois dernier](/blog/recap-mars-2024), Heimdall sera le socle commun de chacun de nos produits. Et pendant le mois d'avril nous avons terminé de développer une première version contenant les fonctionnalités suivantes :
 
-- **Onboarding utilisateur :** expérience utilisateur optimisée et agréable pour compléter son profil et nous transmettre suffisamment d'informations pour personnaliser nos interfaces,
-- **Gestion des organisation :** chaque utilisateur pourra être membre d'une organisation ou créer sa propre organisation,
-- **Gestion des équipes :** chaque organisation pourra avoir ses propres équipes, avec une possibilité de définir des permissions par défaut à un groupe de membres,
-- **Gestion des membres :** avec la possibilité d'inviter des collaborateurs et leur donner accès aux outils Bireme Lab de l'organisation, de définir des permissions et d'attribuer chaque membre à une ou plusieurs équipes.
+- **Onboarding utilisateur :** expérience utilisateur optimisée et agréable pour compléter son profil et nous transmettre suffisamment d'informations pour personnaliser nos interfaces,
+- **Gestion des organisation :** chaque utilisateur pourra être membre d'une organisation ou créer sa propre organisation,
+- **Gestion des équipes :** chaque organisation pourra avoir ses propres équipes, avec une possibilité de définir des permissions par défaut à un groupe de membres,
+- **Gestion des membres :** avec la possibilité d'inviter des collaborateurs et leur donner accès aux outils Bireme Lab de l'organisation, de définir des permissions et d'attribuer chaque membre à une ou plusieurs équipes.
 
-Si vous êtes curieux d'en apprendre davantage sur le fonctionnement de notre gestion des permissions vous pouvez lire notre section **"Focus sur : la gestion des permissions"** disponible sur [l'article récap du mois de mars 2024](/blog/recap-mars-2024#focus-sur--la-gestion-des-permissions).
+Si vous êtes curieux d'en apprendre davantage sur le fonctionnement de notre gestion des permissions vous pouvez lire notre section **"Focus sur : la gestion des permissions"** disponible sur [l'article récap du mois de mars 2024](/blog/recap-mars-2024#focus-sur--la-gestion-des-permissions).
 
-Si vous voulez en savoir plus sur la gestion des membres, rendez-vous plus bas dans l'article pour notre ["Focus sur : la gestion des membres"](#focus-sur--la-gestion-des-membres)
+Si vous voulez en savoir plus sur la gestion des membres, rendez-vous plus bas dans l'article pour notre ["Focus sur : la gestion des membres"](#focus-sur--la-gestion-des-membres)
 
 Le mois dernier nous avions plannifié de mettre en place la **gestion de la facturation**, mais finalement, nous préférons consacrer nos efforts sur les besoins métiers et y revenir une fois le modèle économique défini.
 
@@ -36,18 +36,18 @@ Nous imaginons difficilement pouvoir concevoir un parcours utilisateur optimal, 
 
 ### Les tâches produits accomplies durant le mois
 
-**Focus produit du mois :** Heimdall
+**Focus produit du mois :** Heimdall
 
-**Spécifications :** nous avons revu certains sujets UX/UI et nous avons pris le temps de mettre à jour nos spécifications :
+**Spécifications :** nous avons revu certains sujets UX/UI et nous avons pris le temps de mettre à jour nos spécifications :
 - Nous avons modifié les informations à afficher sur les pages d'invitations pour les rendre plus accessibles, et pour distinguer plus clairement leur statut (en attente, expirée, annulée),
-- Nous avons revu le format des dates avec l'usage d'un langage plus naturel pour rendre l'information plus compréhensible (par exemple : "dernière activité de l'utilisateur : le 27/04/2024" devient "dernière activité de l'utilisateur : ce matin à 09:39"),
+- Nous avons revu le format des dates avec l'usage d'un langage plus naturel pour rendre l'information plus compréhensible (par exemple : "dernière activité de l'utilisateur : le 27/04/2024" devient "dernière activité de l'utilisateur : ce matin à 09:39"),
 - Nous avons simplifié et détaillé le processus de suppression d'une organisation. Par exemple, nous sommes revenu sur la décision produit de ne pas pouvoir supprimer une organisation si elle contient des membres en plus du propriétaire,
 - Nous nous sommes rendu compte qu'une fonctionnalité "suspendre un utilisateur" n'est pas si évidente à développer et n'apporte pas une grande plus-value à nos produits,
-- Nous avons mis à jour les informations à afficher sur la liste des membres et sur la page de profil d'un membre (par exemple : afficher la date et l'heure de la dernière activité du membre sur l'écosystème Bireme Lab),
+- Nous avons mis à jour les informations à afficher sur la liste des membres et sur la page de profil d'un membre (par exemple : afficher la date et l'heure de la dernière activité du membre sur l'écosystème Bireme Lab),
 - Nous avons décidé de permettre qu'une invitation soit modifiable avant qu'elle ne soit acceptée. Et de, par exemple, rendre possible la mise à jour des permissions attribuées au nouveau membre avant son arrivée dans l'organisation,
 - Quelques oublis comme les distinctions à prendre en compte sur la page de profil d'un membre en transformant, par exemple, l'option "retirer de l'organisation" par "quitter l'organisation",
 
-**UX/UI :** toutes les interfaces de la V1 d'Heimdall sont terminés. Voici quelques exemples :
+**UX/UI :** toutes les interfaces de la V1 d'Heimdall sont terminés. Voici quelques exemples :
 
 **Layout d'une page avec la navigation sur le côté**
 
@@ -124,15 +124,15 @@ Nous imaginons difficilement pouvoir concevoir un parcours utilisateur optimal, 
   sizes="(min-width: 768px) 1728px, 1280px"
 />
 
-### Focus sur : la gestion des membres
+### Focus sur : la gestion des membres
 
 Tout produit à orientation B2B qui se respecte possède une gestion de membres et la possibilité d'inviter des collaborateurs à utiliser, conjointement, les différents outils de l'entreprise.
 
 Avec la plateforme Heimdall, Bireme Lab n'y fera pas défaut. Nous avons conçu et développer une gestion complète et centralisé des organisations, comme pierre angulaire de chacun de nos futurs produits.
 
-Dans le détail, Heimdall permet de :
-- Créer une, ou plusieurs organisations : l'organisation peut-être indépendante, dans le cas d'un solopreneur ou d'un créateur de contenu, comme composée d'équipes et de membres. Les souscriptions aux produits Bireme Lab seront segmentés au niveau des organisations (un utilisateur pourra souscrire à un produit A sur l'organisation 1 et un produit B sur l'organisation 2, indépendamment),
-- Créer des équipes : dans le cas d'une organisation type "collaboration", l'utlisateur pourra segmenter ses usages par équipe(s) avec des permissions spécifiques. Par exemple : une équipe chargée de la rédaction des contenus, une équipe finance avec accès aux paramètres de configuration, etc.,
+Dans le détail, Heimdall permet de :
+- Créer une, ou plusieurs organisations : l'organisation peut-être indépendante, dans le cas d'un solopreneur ou d'un créateur de contenu, comme composée d'équipes et de membres. Les souscriptions aux produits Bireme Lab seront segmentés au niveau des organisations (un utilisateur pourra souscrire à un produit A sur l'organisation 1 et un produit B sur l'organisation 2, indépendamment),
+- Créer des équipes : dans le cas d'une organisation type "collaboration", l'utlisateur pourra segmenter ses usages par équipe(s) avec des permissions spécifiques. Par exemple : une équipe chargée de la rédaction des contenus, une équipe finance avec accès aux paramètres de configuration, etc.,
 - Définir des permissions au niveau d'un seul membre pour lui transférer plus d'accès au sein de l'écosystème Bireme Lab,
 
 Comme mentionné plus tôt, travailler sur cette composante, aussi tôt dans le développement de l'entreprise, nous permet de s'assurer que chaque produit bénéficiera d'un socle de fonctionnalités "ressources humaines" avancés dès leur mise sur le marché.
@@ -142,5 +142,63 @@ D'autant plus qu'elle nous permet de débloquer des possibilités de modèles é
 
 ### Les tâches tech accomplies durant le mois
 
+Côté tech, le mois d'Avril était principalement dédié au développement de l'UI d'Heimdall avec les composants suivant:
+  - Avatar
+  - Button
+  - Callout
+  - Checkbox
+  - ContextMenu
+  - InputFile
+  - InputText
+  - Modal
+  - Table
+  - Tag
+  - Toast
+  - Tooltip
+
+// Screenshots des composants:
+- InputFile
+- Modal
+- Table (avec ContextMenu ouvert)
+- Toast
+
+### Focus sur : Création des composants `ContextMenu` et `Tooltip`
+
+Pour le développement de ces composants, nous avions besoin de faire apparaitre une bulle contextuelle sur un élément en fonction des intéractions de l'utilisateur.
+
+// Screenshot Tooltip + ContextMenu
+
+Le développement peut paraître simple aux premiers abords, mais peut devenir complexe :
+- si l'élément cible change de position,
+- dans le cas où il manque suffisamment d'espace entre la cible et le bord de l'écran pour afficher entièrement la bulle,
+- pour afficher une flèche centrée par rapport à la cible alors que la bulle doit être décentré par manque d'espace.
+
+Nous nous sommes tourné vers la librairie [Floating UI](https://floating-ui.com/) qui propose une API à la fois simple et modulaire pour répondre à ces problèmatiques.
+
+Par défaut `Floating UI` va simplement positionner la bulle à côté de l'élément cible.
+Mais grâce au système de *middleware*<sup>2</sup>, on peut très simplement rendre le positionnement de la bulle plus intelligente pour résoudre les points cités plus tôt.
+
+Vous pouvez retrouver la liste des *middlewares* fournis [sur la documentation officielle de Floating UI](https://floating-ui.com/docs/middleware).
+
+Dans notre cas, nous avons utilisé les *middlewares* suivant:
+- `offset` qui permet d'ajouter un espace entre la bulle et l'élément cible
+- `flip` qui permet de changer automatiquement la position de la bulle de gauche à droite, ou de haut en bas s'il manque de l'espace entre la cible et le bord de l'écran
+- `shift` qui permet de décentrer la bulle par rapport à l'élément cible au cas où elle sort partiellement du bord de l'écran.
+
+### Focus sur : Workflow Designer => Développeur
+
+Avec nos années d'expériences en tant que développeurs, nous avons pris conscience à quelle point il était important de créer des maquettes pensées dès le début pour leur développement.
+
+Nous avons donc décider de définir les primitives qui constitueront le design de nos application avec les même conventions à la fois dans Figma côté designer et dans le code source de nos application côté développeur:
+- la liste des couleurs
+- la liste des différentes typographie
+
+Du côté design, on s'assure de garder une cohérence graphique dans l'ensemble de l'application.  
+Du côté développement, on facilite l'intégration en utilisant uniquement les variables définies.  
+
+Antoine n'est pas un mec parfait, mais on ne peut pas lui reprocher de vouloir bien faire les choses et s'améliorer (à part pour les blagues de uc mais bon personne n'est parfait)
+
+
 ---
-<sup>1</sup> : on peut traduire "cross-selling" en français par "vente croisée". Cette technique commerciale vise à suggérer au client un ou plusieurs produits complémentaires à celui qu'il a d'abord envisagé.
+<sup>1</sup> : on peut traduire "cross-selling" en français par "vente croisée". Cette technique commerciale vise à suggérer au client un ou plusieurs produits complémentaires à celui qu'il a d'abord envisagé.
+<sup>2</sup> : les middlewares sont des fonctions qui sont appelées les une après les autres pour modifier le comportement d'une librairie
