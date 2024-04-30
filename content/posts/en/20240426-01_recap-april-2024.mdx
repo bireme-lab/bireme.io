@@ -8,6 +8,233 @@ tags:
   - "company"
 seo:
   title: "Monthly recap for april 2024"
-  description: "TODO"
-tldr: "TODO"
+  description: "We look back at the work done during April: first version of our member management platform. Focus on organization management and the use of Floating UI."
+tldr: "In April, we devoted most of our time to completing the first version of Heimdall, our user management platform."
 ---
+## Summary of work done for the month of april 2024
+
+This month we've been concentrating our efforts on developing our user management platform: **Heimdall**.
+
+As we told you [in last month's recap](/blog/recap-march-2024), Heimdall will be the common base for all our products. And during April we finished developing a first version containing the following features:
+
+- **User onboarding:** optimized, pleasant user experience for completing your profile and providing us with sufficient information to personalize our interfaces,
+- **Organization management:** each user can be a member of an organization or create their own,
+- **Team management:** each organization can have its own teams, with the possibility of defining default permissions for a group of members,
+- **Member management:** with the ability to invite collaborators and give them access to the organization's Bireme Lab tools, define permissions and assign each member to one or more teams.
+
+If you're curious to learn more about how our permissions management works, you can read our section **"Focus on: permissions management ”** available on [the recap article for March 2024](/blog/recap-march-2024#focus-sur--la-gestion-des-permissions).
+
+If you'd like to find out more about member management, head further down the article for our [“Focus on: member management”](#focus-on--member-management)
+
+Last month, we had planned to implement **billing management**, but in the end, we prefer to focus our efforts on business needs and come back to it once the business model has been defined.
+
+To simplify the conversion tunnel, reduce the number of clicks, and promote cross-selling <sup>1</sup> we want the user, the organization's owner, to be able to choose a plan, by product, with just one click, in a simple, transparent and intuitive way, with all the information needed to make an informed decision.
+
+It's hard to imagine how we could design an optimal user experience from this angle at this point in Bireme Lab's development.
+
+## Work related to product design and development
+
+### Product tasks completed during the month
+
+**Product focus of the month:** Heimdall
+
+**Specifications:** we've reviewed some UX/UI topics and taken the time to update our specifications:
+- We modified the information to be displayed on invitation pages to make them more accessible, and to distinguish more clearly their status (pending, expired, cancelled),
+- We've revised the date format, using more natural language to make the information more understandable (for example: “last user activity: 04/27/2024” becomes “last user activity: this morning at 09:39”),
+- We have simplified and detailed the process of deleting an organization. For example, we have reversed the product decision not to be able to delete an organization if it contains members in addition to the owner,
+- We realized that a “suspend a user” feature is not so easy to develop and doesn't add much value to our products,
+- We have updated the information to be displayed on the list of members and on a member's profile page (for example: display the date and time of the member's last activity on the Bireme Lab ecosystem),
+- We've decided to allow an invitation to be modified before it's accepted. And to, for example, make it possible to update the permissions assigned to a new member before he or she joins the organization,
+- A few omissions, such as the distinctions to be taken into account on a member's profile page by changing, for example, the “remove from organization” option to “leave organization”,
+
+**All Heimdall V1 interfaces are now complete. Here are a few examples:
+
+**Layout of a page with side navigation**
+
+<Image
+  src="/images/april-recap-dashboard-layout.webp"
+  alt="Layout of a page with side navigation"
+  title="Layout of a page with side navigation"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**List of members of an organization**
+
+<Image
+  src="/images/april-recap-members-list.webp"
+  alt="List of members of an organization"
+  title="List of members of an organization"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Organization member's page and distinction between member and invitation**
+
+<Image
+  src="/images/april-recap-member-page.webp"
+  alt="Organization member's page and distinction between member and invitation"
+  title="Organization member's page and distinction between member and invitation"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Bireme Lab profile configuration page**
+
+<Image
+  src="/images/april-recap-profile-page.webp"
+  alt="Bireme Lab profile configuration page"
+  title="Bireme Lab profile configuration page"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+### Focus on: member management
+
+Every self-respecting B2B product has member management and the ability to invite collaborators to jointly use the company's various tools.
+
+With the Heimdall platform, Bireme Lab will not be lacking in this respect. We have designed and developed comprehensive, centralized organization management as the cornerstone of each of our future products.
+
+In detail, Heimdall lets you :
+- Create one or more organizations: the organization can be independent, in the case of a solopreneur or content creator, or composed of teams and members. Subscriptions to Bireme Lab products will be segmented at organization level (a user may subscribe to product A on organization 1 and product B on organization 2, independently),
+- Create teams: in the case of a “collaborative” organization, users can segment their usage by team(s) with specific permissions. For example: a team responsible for editing content, a finance team with access to configuration parameters, etc,
+- Define permissions for a single member to transfer more access to the Bireme Lab ecosystem,
+
+<Image
+  src="/images/april-recap-members.webp"
+  alt="Member management"
+  title="Member management"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+As mentioned earlier, working on this component so early in the company's development enables us to ensure that each product will benefit from an advanced “human resources” functionality base as soon as it goes to market.
+What's more, it allows us to unlock business model possibilities such as pricing based on the number of members in the organization.
+
+## Development work
+
+**Focus tech of the month:** Heimdall
+
+### Tech tasks accomplished during the month
+
+On the tech side, April was mainly dedicated to the development of Heimdall's UI, with the following components:
+  - Avatar
+  - Button
+  - Callout
+  - Checkbox
+  - ContextMenu
+  - InputFile
+  - InputText
+  - Modal
+  - Table
+  - Tag
+  - Toast
+  - Tooltip
+
+**InputFile**
+
+<Image
+  src="/images/april-recap-input-file.webp"
+  alt="InputFile"
+  title="InputFile"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Modal**
+
+<Image
+  src="/images/april-recap-modal.webp"
+  alt="Modal"
+  title="Modal"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Toast**
+
+<Image
+  src="/images/april-recap-toast.webp"
+  alt="Toast"
+  title="Toast"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+### Focus on: Creating the “ContextMenu” and “Tooltip” components
+
+For the development of these components, we needed to make a contextual bubble appear on an element depending on user interaction.
+
+<Image
+  src="/images/april-recap-floating.webp"
+  alt="Components using floating UI"
+  title="Components using floating UI"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+Development may seem simple at first glance, but it can become complex:
+- if the target element changes position,
+- if there isn't enough space between the target and the edge of the screen to fully display the bubble,
+- to display an arrow centered on the target when the bubble must be off-center due to lack of space.
+
+We decided to use the [Floating UI library](https://floating-ui.com/), which offers a simple, modular API to solve these problems.
+
+By default, Floating UI simply positions the bubble next to the target element.
+But thanks to the middleware <sup>2</sup> system, we can very simply make the bubble positioning smarter to solve the points mentioned earlier.
+
+You can find the list of middlewares supplied [on the official Floating UI documentation](https://floating-ui.com/docs/middleware).
+
+In our case, we used the following middlewares:
+- `offset`, which adds a space between the bubble and the target element
+- `flip`, which automatically changes the position of the bubble from left to right, or from top to bottom if there's not enough space between the target and the edge of the screen
+- `shift`, which offsets the bubble from the target element if it protrudes from the screen.
+
+---
+<sup>1</sup>: “cross-selling” is a sales technique aims to suggest to the customer one or more complementary products to the one they first considered.  
+<sup>2</sup>: middleware functions are called one after the other to modify the behavior of a library.
