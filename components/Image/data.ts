@@ -9,31 +9,55 @@ export const data = {
     name: "april-recap-dashboard-layout.webp",
     extension: ".webp",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAHElEQVR4nGM4dfzY39/fNMCAYee2LaeOH1MAAwCyLQtwIGB2pwAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGP49/vXv9+/8vLyIiIiGK5cuZKXlyciIhIREQEA1GUNQ2TGrQIAAAAASUVORK5CYII=",
   },
-  "/images/april-recap-home-page.webp": {
-    name: "april-recap-home-page.webp",
+  "/images/april-recap-floating.webp": {
+    name: "april-recap-floating.webp",
     extension: ".webp",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAGUlEQVR4nGPYDwMvX75kkJGRMQOD/fv3AwDGYg1IHcc8rAAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGOwt7d/9uixlpaWvb09AwMDg7i4eEFBgb29PQBn/Qb2P+WvJwAAAABJRU5ErkJggg==",
+  },
+  "/images/april-recap-input-file.webp": {
+    name: "april-recap-input-file.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAH0lEQVR4nGNQA4MbF09nZWUxqKmpBQUFTejtiY4MAwBp+wiyOzu3ZAAAAABJRU5ErkJggg==",
   },
   "/images/april-recap-member-page.webp": {
     name: "april-recap-member-page.webp",
     extension: ".webp",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGOIiIgoLSpQVVV1c3NjWLduXVd7q6qq6pNHdwFzuQpT6WDC9QAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGNobGyUk5OLjo728vJi+PLlS3R0dHdvx7YtGwGAUgt15SJGmgAAAABJRU5ErkJggg==",
   },
   "/images/april-recap-members-list.webp": {
     name: "april-recap-members-list.webp",
     extension: ".webp",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGPo6+v7/uXjzp07OTg4GBLj4t3c3BLj4jk4OAClLgnwS940LAAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGN4/uSxl5dXdHS0l5cXQ2Njo5ycXHZGpra2NgCNeQkWuaaWhQAAAABJRU5ErkJggg==",
+  },
+  "/images/april-recap-members.webp": {
+    name: "april-recap-members.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGNIT0/39PTcsGFtY2Mjw7Fjx1hZWT98+PDo0SMAl/0NeDwiIYAAAAAASUVORK5CYII=",
+  },
+  "/images/april-recap-modal.webp": {
+    name: "april-recap-modal.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGOQk5PbuHHjuzdv9LR1GOTk5IoK8i5duiQnJwcAiTgKM+qX8y4AAAAASUVORK5CYII=",
   },
   "/images/april-recap-profile-page.webp": {
     name: "april-recap-profile-page.webp",
     extension: ".webp",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGMICQlhZWXNysqys7Nj+P7mDSsr6/+v39KTUwFqmgn7sKFVgAAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGPQ09NjZma2sbHR09NjWLtwITMz88dnD/T09ABG1gcL7BzHTgAAAABJRU5ErkJggg==",
+  },
+  "/images/april-recap-toast.webp": {
+    name: "april-recap-toast.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGO4cvFSeUlJUlLSlYuXGF6+fJmUlGRtbf3y5UsAwd0OwbHrLR8AAAAASUVORK5CYII=",
   },
   "/images/avatars/antoine.webp": {
     name: "antoine.webp",

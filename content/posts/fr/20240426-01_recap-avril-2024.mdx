@@ -8,9 +8,10 @@ tags:
   - "company"
 seo:
   title: "Récapitulatif du mois d'avril 2024"
-  description: "TODO"
-tldr: "TODO"
+  description: "Nous revenons sur le travail effectué au cours du mois d'avril : première version de notre plateforme de gestion des membres. Focus sur la gestion des organisations et sur l'usage de Floating UI"
+tldr: "Au mois d'avril, nous avons principalement consacré notre temps à achever la première version d'Heimdall, notre plateforme de gestion des utilisateurs."
 ---
+
 ## Récapitulatif du travail effectué au cours du mois d'avril 2024
 
 Ce mois-ci nous avons concentré nos efforts sur le développement de notre plateforme de gestion des utilisateurs : **Heimdall**.
@@ -109,12 +110,21 @@ Nous imaginons difficilement pouvoir concevoir un parcours utilisateur optimal, 
   sizes="(min-width: 768px) 1728px, 1280px"
 />
 
-**Page d'accueil et liens rapides**
+### Focus sur : la gestion des membres
+
+Tout produit à orientation B2B qui se respecte possède une gestion de membres et la possibilité d'inviter des collaborateurs à utiliser, conjointement, les différents outils de l'entreprise.
+
+Avec la plateforme Heimdall, Bireme Lab n'y fera pas défaut. Nous avons conçu et développer une gestion complète et centralisé des organisations, comme pierre angulaire de chacun de nos futurs produits.
+
+Dans le détail, Heimdall permet de :
+- Créer une, ou plusieurs organisations : l'organisation peut-être indépendante, dans le cas d'un solopreneur ou d'un créateur de contenu, ou bien, composée d'équipes et de membres. Les souscriptions aux produits Bireme Lab seront segmentés au niveau des organisations (un utilisateur pourra souscrire à un produit A sur l'organisation 1 et un produit B sur l'organisation 2, indépendamment),
+- Créer des équipes : dans le cas d'une organisation type "collaboration", l'utlisateur pourra segmenter ses usages par équipe(s) avec des permissions spécifiques. Par exemple : une équipe chargée de la rédaction des contenus, une équipe finance avec accès aux paramètres de configuration, etc.,
+- Définir des permissions au niveau d'un seul membre pour lui transférer plus d'accès au sein de l'écosystème Bireme Lab,
 
 <Image
-  src="/images/april-recap-home-page.webp"
-  alt="Page d'accueil"
-  title="Page d'accueil"
+  src="/images/april-recap-members.webp"
+  alt="Gestion des membres"
+  title="Gestion des membres"
   width={864}
   height={350}
   quality={100}
@@ -124,21 +134,12 @@ Nous imaginons difficilement pouvoir concevoir un parcours utilisateur optimal, 
   sizes="(min-width: 768px) 1728px, 1280px"
 />
 
-### Focus sur : la gestion des membres
-
-Tout produit à orientation B2B qui se respecte possède une gestion de membres et la possibilité d'inviter des collaborateurs à utiliser, conjointement, les différents outils de l'entreprise.
-
-Avec la plateforme Heimdall, Bireme Lab n'y fera pas défaut. Nous avons conçu et développer une gestion complète et centralisé des organisations, comme pierre angulaire de chacun de nos futurs produits.
-
-Dans le détail, Heimdall permet de :
-- Créer une, ou plusieurs organisations : l'organisation peut-être indépendante, dans le cas d'un solopreneur ou d'un créateur de contenu, comme composée d'équipes et de membres. Les souscriptions aux produits Bireme Lab seront segmentés au niveau des organisations (un utilisateur pourra souscrire à un produit A sur l'organisation 1 et un produit B sur l'organisation 2, indépendamment),
-- Créer des équipes : dans le cas d'une organisation type "collaboration", l'utlisateur pourra segmenter ses usages par équipe(s) avec des permissions spécifiques. Par exemple : une équipe chargée de la rédaction des contenus, une équipe finance avec accès aux paramètres de configuration, etc.,
-- Définir des permissions au niveau d'un seul membre pour lui transférer plus d'accès au sein de l'écosystème Bireme Lab,
-
 Comme mentionné plus tôt, travailler sur cette composante, aussi tôt dans le développement de l'entreprise, nous permet de s'assurer que chaque produit bénéficiera d'un socle de fonctionnalités "ressources humaines" avancés dès leur mise sur le marché.
 D'autant plus qu'elle nous permet de débloquer des possibilités de modèles économiques comme la tarification en fonction du nombre de membres dans l'organisation.
 
 ## Travail de développement
+
+**Focus tech du mois :** Heimdall
 
 ### Les tâches tech accomplies durant le mois
 
@@ -156,17 +157,67 @@ Côté tech, le mois d'Avril était principalement dédié au développement de 
   - Toast
   - Tooltip
 
-// Screenshots des composants:
-- InputFile
-- Modal
-- Table (avec ContextMenu ouvert)
-- Toast
+**InputFile**
 
-### Focus sur : Création des composants `ContextMenu` et `Tooltip`
+<Image
+  src="/images/april-recap-input-file.webp"
+  alt="Input d'upload de fichier"
+  title="Input d'upload de fichier"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Modal**
+
+<Image
+  src="/images/april-recap-modal.webp"
+  alt="Composant : modal"
+  title="Composant : modal"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Toast**
+
+<Image
+  src="/images/april-recap-toast.webp"
+  alt="Composant : toast"
+  title="Composant : toast"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+### Focus sur : Création des composants "ContextMenu" et "Tooltip"
 
 Pour le développement de ces composants, nous avions besoin de faire apparaitre une bulle contextuelle sur un élément en fonction des intéractions de l'utilisateur.
 
-// Screenshot Tooltip + ContextMenu
+<Image
+  src="/images/april-recap-floating.webp"
+  alt="Composants développés avec Floating UI"
+  title="Composants développés avec Floating UI"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
 
 Le développement peut paraître simple aux premiers abords, mais peut devenir complexe :
 - si l'élément cible change de position,
@@ -175,30 +226,16 @@ Le développement peut paraître simple aux premiers abords, mais peut devenir c
 
 Nous nous sommes tourné vers la librairie [Floating UI](https://floating-ui.com/) qui propose une API à la fois simple et modulaire pour répondre à ces problèmatiques.
 
-Par défaut `Floating UI` va simplement positionner la bulle à côté de l'élément cible.
-Mais grâce au système de *middleware*<sup>2</sup>, on peut très simplement rendre le positionnement de la bulle plus intelligente pour résoudre les points cités plus tôt.
+Par défaut Floating UI va simplement positionner la bulle à côté de l'élément cible.
+Mais grâce au système de *middleware* <sup>2</sup>, on peut très simplement rendre le positionnement de la bulle plus intelligente pour résoudre les points cités plus tôt.
 
 Vous pouvez retrouver la liste des *middlewares* fournis [sur la documentation officielle de Floating UI](https://floating-ui.com/docs/middleware).
 
 Dans notre cas, nous avons utilisé les *middlewares* suivant:
 - `offset` qui permet d'ajouter un espace entre la bulle et l'élément cible
 - `flip` qui permet de changer automatiquement la position de la bulle de gauche à droite, ou de haut en bas s'il manque de l'espace entre la cible et le bord de l'écran
-- `shift` qui permet de décentrer la bulle par rapport à l'élément cible au cas où elle sort partiellement du bord de l'écran.
-
-### Focus sur : Workflow Designer => Développeur
-
-Avec nos années d'expériences en tant que développeurs, nous avons pris conscience à quelle point il était important de créer des maquettes pensées dès le début pour leur développement.
-
-Nous avons donc décider de définir les primitives qui constitueront le design de nos application avec les même conventions à la fois dans Figma côté designer et dans le code source de nos application côté développeur:
-- la liste des couleurs
-- la liste des différentes typographie
-
-Du côté design, on s'assure de garder une cohérence graphique dans l'ensemble de l'application.  
-Du côté développement, on facilite l'intégration en utilisant uniquement les variables définies.  
-
-Antoine n'est pas un mec parfait, mais on ne peut pas lui reprocher de vouloir bien faire les choses et s'améliorer (à part pour les blagues de uc mais bon personne n'est parfait)
-
+- `shift` qui permet de décentrer la bulle par rapport à l'élément cible si elle dépasse de l'écran.
 
 ---
-<sup>1</sup> : on peut traduire "cross-selling" en français par "vente croisée". Cette technique commerciale vise à suggérer au client un ou plusieurs produits complémentaires à celui qu'il a d'abord envisagé.
+<sup>1</sup> : on peut traduire "cross-selling" en français par "vente croisée". Cette technique commerciale vise à suggérer au client un ou plusieurs produits complémentaires à celui qu'il a d'abord envisagé.  
 <sup>2</sup> : les middlewares sont des fonctions qui sont appelées les une après les autres pour modifier le comportement d'une librairie
