@@ -89,6 +89,36 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQUlEQVR4nGMQEhT8z8XN/Z+Lm+e/gIDAfwYeHp7/f74+///iwbn/IDYDSPb3l/v/X9w/DlbJICIi8p+NjR2MQVoAu2kcejQ2s/MAAAAASUVORK5CYII=",
   },
+  "/images/mai-recap-can-i-email.webp": {
+    name: "mai-recap-can-i-email.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGNgYmKSl5evryyRl5dn+PHxjZqyirGmlry8PABNXwZSqY+dYgAAAABJRU5ErkJggg==",
+  },
+  "/images/mai-recap-custom-vscode-theme.webp": {
+    name: "mai-recap-custom-vscode-theme.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAG0lEQVR4nGO4detWdHS0urr6rVu3GKaDAYQPAKo5C7Pvr1BLAAAAAElFTkSuQmCC",
+  },
+  "/images/mai-recap-dedale-ui.webp": {
+    name: "mai-recap-dedale-ui.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAH0lEQVR4nGNQVFT0BgNFRUWGF08fMjMzx8TEvHj6EABaBgkCf8ibsAAAAABJRU5ErkJggg==",
+  },
+  "/images/mai-recap-monaco-editor-in-ui.webp": {
+    name: "mai-recap-monaco-editor-in-ui.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAH0lEQVR4nGNgYmJKiItvbqjV1tZmePfmZUdHizYYAABpMgh+CVto/QAAAABJRU5ErkJggg==",
+  },
+  "/images/mai-recap-preview.webp": {
+    name: "mai-recap-preview.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAG0lEQVR4nGPIzMw0BYPly5cz+Pr6ngIDX19fAH23CvlndTY3AAAAAElFTkSuQmCC",
+  },
   "/images/march-recap-clerk.webp": {
     name: "march-recap-clerk.webp",
     extension: ".webp",

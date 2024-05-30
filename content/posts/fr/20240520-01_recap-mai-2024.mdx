@@ -1,0 +1,237 @@
+---
+title: "Récapitulatif du mois de mai 2024"
+publishedAt: "2024-06-03T18:00:00"
+authors:
+  - "antoine-lin"
+  - "frederic-godin"
+tags:
+  - "company"
+seo:
+  title: "Récapitulatif du mois de mai 2024"
+  description: "En mai, nous avons développé Dédale dans le cadre du projet RMS, un outil de création de modèles d'emails. Version gratuite et beta privée prochainement disponibles."
+tldr: "En mai, nous avons avancé avec le projet RMS en développant Dédale, un outil innovant pour la création de modèles d'emails afin de combler les lacunes des services actuels."
+---
+
+## Récapitulatif du travail effectué au cours du mois de mai 2024
+
+### Le projet "RMS"
+
+Depuis le début du mois de mai nous travaillons activement sur la stratégie à adopter pour **optimiser les chances de générer des revenus avec notre premier SaaS** : le projet nom de code "RMS".
+De manière générale nous essayons de **définir nos idées de produit** en fonction de **problématiques que nous rencontrons** et de répondre à nos besoins par des solutions "maison" qui peuvent devenir, à terme, des services en ligne par abonnement.
+
+Un des besoins en question est apparu relativement tôt dans le développement de Bireme Lab : comment faire pour gérer, facilement et à moindre coût, une liste de contacts à activer par email ?
+
+Nous avons envisagé la plupart des services disponibles en ligne sans avoir trouvé ce qui nous convient :
+- soit les **tarifs** sont trop **élevés**,
+- soit les **modèles économiques** sont **limitants** avec une facturation au nombre de contacts qui n'est pas représentatif de l'évolution du chiffre d'affaires de la société, ce qui peut rapidement devenir un handicap,
+- soit ils offrent une **multitude de fonctionnalités superflues**, alors que nous souhaiterions simplement nous **concentrer sur l'essentiel** : gérer une liste de contacts et envoyer des emails.
+
+Un exemple parfait de sujet que nous aimerions traiter dans le cadre d'un premier produit.
+
+### Définition de la stratégie à adopter pour lancer RMS
+
+Notre stratégie à cours terme est de **produire de la valeur** pour **créer une audience** de personnes susceptibles de faire des retours, ce qui nous permettrait de répondre activement à des besoins et donc de susciter un intérêt que nous monétiserions.
+Nous souhaitons éviter l'écueil de "l'idée miracle" qu'absolument personne n'attend, et préférons **lancer une dynamique** pour **connecter avec des personnes** qui **rencontrent des problématiques similaires**, discuter et écouter leur(s) besoin(s), et ainsi formuler une **proposition commerciale adéquate**.
+
+Nous vous en parlions lors du [récapitulatif du mois de mars](/blog/recap-mars-2024) mais nous avons déjà réalisé des interviews avec des responsables de départements marketing/communication de société de différentes tailles pour dresser une première **liste de priorités**.
+
+Un retour commun concernait la création et le développement de modèles d'email. Notre expérience personnelle ainsi que la plupart des interviews nous ont permis de déterminer que les services existants ne font pas l'unanimité pour accélérer, simplifier et rendre plus intuitive l'intégration des modèles dans les campagnes marketing :
+- soit le service propose un WYSIWYG <sup>1</sup> limité qui permet de créer des modèles génériques sans originalité,
+- soit le service nécessite que l'utilisateur fasse appel à un développeur pour créer le modèle et l'importer.
+
+**Question :** pourquoi le développement d'un modèle d'email est important pour la communication et le marketing d'un projet ?
+
+1. **Cohérence de la marque :** Un modèle d'email assure que tous les emails envoyés sont alignés avec l'identité visuelle de la marque, renforçant ainsi la reconnaissance et la crédibilité,
+2. **Gain de temps :** Avec des modèles prêts à l'emploi, les équipes marketing peuvent déployer des campagnes plus rapidement sans avoir à créer de nouveaux designs à chaque envoi.
+3. **Professionnalisme :** Des emails bien conçus projettent une image professionnelle et soignée de l'organisation, impactant positivement la perception des destinataires.
+4. **Personnalisation et segmentation :** Les modèles peuvent être adaptés et personnalisés pour différents segments de marché, permettant des campagnes plus ciblées et efficaces.
+5. **Optimisation des conversions :** Un bon modèle intègre des éléments d'appel à l'action clairs et optimisés, augmentant les taux de clics et de conversion.
+
+Parfait ! Nous allons donc concentrer nos efforts sur **la création d'un outil qui permet de développer des modèles d'email** avec l'approche suivante :
+
+1. **Sortie d'une version gratuite et ouverte à tous :**
+  - Nous voulons que notre outil soit **ouvert à tous**. Un produit **gratuit** permet d'abaisser les barrières d'entrée et de **maximiser la portée initiale**,
+  - En offrant quelque chose de valeur gratuitement, nous espérons **attirer un large public** qui pourra tester et adopter notre outil.
+2. **Amélioration de l'expérience utilisateur via une beta privée :**
+  - Pour ceux qui souhaitent aller plus loin, nous proposons une version **beta privée** avec des **fonctionnalités avancées** accessibles sur liste d'attente,
+  - Cette phase nous permettra également de recueillir des retours précieux et de peaufiner notre outil avant de communiquer à plus grande échelle,
+  - nous espérons également pouvoir **développer des relations** plus proches avec des utilisateurs qui souhaiteraient échanger davantage sur leurs attentes.
+3. **Ajout de la notion de "collaboration" :**
+  - Pour lancer des fonctionnalités collaboratives, comme le partage et l'édition en temps réel entre équipes, la création de comptes utilisateur sera nécessaire. Cela nous permettra également de mieux comprendre et **analyser les besoins de nos utilisateurs**,
+  - En introduisant lentement des fonctionnalités nécessitant un compte, nous espérons **convertir les utilisateurs gratuits en utilisateurs inscrits**, créant ainsi une base d'utilisateurs engagés.
+4. **Transition vers la monétisation :**
+  - Enfin, une fois que nous aurons une base d'utilisateurs satisfaite et engagée, nous prévoyons de commencer la monétisation. Cela pourrait inclure des abonnements pour des fonctionnalités avancées ou des services additionnels.
+
+Cet outil sera considéré comme une **fonctionnalité du projet RMS**. Nous avons décidé de lui donner un petit nom, dérivé de la mythologie grecque comme à notre habitude : **Dédale**.
+
+## Travail lié à la conception et au développement produit
+
+### Les tâches produits accomplies durant le mois
+
+**Focus produit du mois :** Dédale
+
+**Spécifications sur le fonctionnement de Dédale :**
+- Nous avons listé toutes nos idées que nous avons triées et priorisées pour déterminer l'ordre de chaque release produit en fonction des critères suivants :
+  - Intérêt pour l'utilisateur final déterminé par les retours d'interviews,
+  - Temps de développement,
+  - Logique dans l'ordre de développement (une fonctionnalité peut reposer sur une autre qui devient donc prioritaire),
+  - Pertinence stratégique.
+- Nous avons rédigé les spécifications de chaque fonctionnalité (MVP <sup>2</sup> et post-MVP) :
+  - Description générique de la disposition de chaque élément dans l'interface pour une optimisation de l'espace et un accès intuitif à chaque fonctionnalité,
+  - Pour chaque élément nous avons défini l'ensemble des comportements et des actions réalisables pour concevoir et développer chaque état et chaque intéraction possible,
+- Préparation des sujets annexes que nous souhaitons proposer à la sortie du produit :
+  - Création de la documentation,
+  - Ajout d'un _changelog_ <sup>3</sup> sur le site internet,
+  - Création d'une page _roadmap_ pour plus de transparence sur les prochaines fonctionnalités et pour mettre en avant l'intérêt de s'inscrire à la beta,
+  - Création d'un support permettant aux utilisateurs de faire remonter des demandes (ou des préférences) concernant les fonctionnalités que nous devrions ajouter et/ou modifier.
+
+**UX/UI :**
+- Toutes les fonctionnalités qui composeront la version beta du produit et certaines qui seront ajoutées par la suite,
+- Tous les modèles d'emails que nous utiliserons pour l'intégration de notre newsletter et de notre liste d'attente à la beta de Dédale,
+
+Quelques exemples du travail réalisé au cours du mois :
+
+**Interface de Dédale et fonctionnement des panneaux**
+
+<Image
+  src="/images/mai-recap-dedale-ui.webp"
+  alt="Interface de Dédale et fonctionnement des panneaux"
+  title="Interface de Dédale et fonctionnement des panneaux"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Intégration visuelle de monaco-editor dans l'application**
+
+<Image
+  src="/images/mai-recap-monaco-editor-in-ui.webp"
+  alt="Intégration visuelle de monaco-editor dans l'application"
+  title="Intégration visuelle de monaco-editor dans l'application"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Espace de prévisualisation des modèles d'emails**
+
+<Image
+  src="/images/mai-recap-preview.webp"
+  alt="Espace de prévisualisation des modèles d'emails"
+  title="Espace de prévisualisation des modèles d'emails"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Aperçu d'une future fonctionnalité : intégration de Can I Email?**
+
+<Image
+  src="/images/mai-recap-can-i-email.webp"
+  alt="Aperçu d'une future fonctionnalité : intégration de Can I Email?"
+  title="Aperçu d'une future fonctionnalité : intégration de Can I Email?"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+### Focus sur : La création d'un thème personnalisé pour l'éditeur de texte Visual Studio Code
+
+Lors de la phase d'idéation, nous nous sommes rapidement enthousiasmé sur une fonctionnalité : **l'intégration d'un éditeur de texte** qui permettrait de **coder dans son navigateur**, avec un objectif en tête : égaler ce qu'un [Framer](https://www.framer.com) pourrait proposer dans son interface [Code Components](https://www.framer.com/academy/courses/code-components).
+
+Pour l'intégration nous avons choisi [monaco-editor](https://microsoft.github.io/monaco-editor/) de Microsoft, à propos duquel nous attribuons notre focus tech du mois : [focus sur la mise en place d'un éditeur de code dans une web-app](#focus-sur-la-mise-en-place-dun-éditeur-de-code-dans-une-web-app).
+
+Sur la plupart des éditeurs modernes, il est possible de **personnaliser les couleurs** et le style pour **adapter l'environnement aux préférences des utilisateurs**.  
+Par soucis d'harmonisation visuelle nous avons donc décidé de créer un thème aux couleurs de l'interface (comme Framer).
+
+Par chance `monaco-editor` possède une gestion des thèmes qui se base sur celle de l'éditeur de code natif [Visual Studio Code](https://code.visualstudio.com/), développé également par Microsoft.
+
+Une chance puisque le développement de thème sur Visual Studio Code est un aspect du logiciel plébiscité par les communautés de développeurs, qui partagent leurs conseils et créent des outils ce qui rend le processus beaucoup plus facile et ludique.
+
+**Mais pourquoi développer un thème personnalisé ?**
+
+L'utilisation de couleurs et d'un design cohérent à travers toute notre application est cruciale pour **offrir une expérience utilisateur fluide et professionnelle**. Un **thème personnalisé **dans l'éditeur de texte permet non seulement **d'améliorer l'esthétique**, mais aussi de **renforcer l'identité visuelle de notre produit**.
+Le défi étant de faire en sorte d'**avoir un résultat cohérent** avec le reste de l'interface tout en **garantissant un confort visuel** optimal pour de longues sessions de développement : il faut que le thème soit **lisible**.
+
+Voici une liste des outils et des ressources qui nous ont aidés dans la création du thème :
+- [Yo Code - Extension and Customization Generator](https://github.com/Microsoft/vscode-generator-code), qui permet de générer le dossier avec tous les fichiers nécessaires à la création du thème,
+- [Create a VS Code theme + publish on marketplace!](https://www.youtube.com/watch?v=OikulYVz5ZM), vidéo YouTube par Christian Lempa qui explique en 12 minutes tous ce qu'il faut savoir pour créer un thème.
+- Petite astuce en passant : Visual Studio Code intègre nativement un outil pour afficher le nom de chaque token au survol de la souris (voir capture d'écran ci-dessous), il suffit de chercher la commande "Developer: Inspect editor tokens and scopes".
+
+<Image
+  src="/images/mai-recap-token-panel.webp"
+  alt="Panneau Developer: Inspect editor tokens and scopes"
+  title="Panneau Developer: Inspect editor tokens and scopes"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+Et voici un aperçu du rendu final :
+
+<Image
+  src="/images/mai-recap-custom-vscode-theme.webp"
+  alt="La création d'un thème personnalisé pour l'éditeur de texte Visual Studio Code"
+  title="La création d'un thème personnalisé pour l'éditeur de texte Visual Studio Code"
+  width={864}
+  height={350}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+## Travail de développement
+
+**Focus tech du mois :** Dédale
+
+### Les tâches tech accomplies durant le mois
+
+Sur le plan technique, le mois de mai a été consacré à l'établissement de l'architecture de Dédale et au développement des premières fonctionnalités :
+
+-  Mise en place et configuration de l'éditeur de code.
+-  Développement d'un système pour télécharger les dépendances requises par l'utilisateur.
+-  Mise en place d'un mécanisme pour télécharger les définitions [TypeScript](https://www.typescriptlang.org/) associées aux dépendances.
+-  Stockage des modèles créés par l'utilisateur.
+-  Intégration de [react-email](https://github.com/resend/react-email) pour le rendu des modèles d'emails.
+-  Création d'un panneau pour éditer les variables des modèles.
+-  Intégration d'un canvas redimensionnable pour l'aperçu des modèles.
+
+### Focus sur : La mise en place d'un éditeur de code dans une web-app
+
+Le plus grand défi de ce mois de mai a été la mise en place d'un éditeur de code dans Dédale.  
+Nous souhaitions **offrir une expérience** de développement **digne des meilleurs solutions du marché, **avec de l'autocomplétion <sup>4</sup> et une **validation automatique du code**.
+
+Pour cela, nous nous sommes basés sur [monaco-editor](https://microsoft.github.io/monaco-editor/), une bibliothèque open-source développée par Microsoft qui permet d'intégrer un éditeur de code dans une web-app, similaire au très populaire [Visual Studio Code](https://code.visualstudio.com/).
+
+Bien que `monaco-editor` permette d'intégrer facilement un éditeur de code dans notre application, nous avons rencontré des difficultés pour offrir une expérience comparable à celle de Visual Studio Code. Par exemple, nous avons été surpris de constater qu'il n'y avait **pas de support complet de la colorisation syntaxique** pour le format `.tsx` (TypeScript React) par défaut. Il existe une [discussion sur GitHub](https://github.com/microsoft/monaco-editor/issues/264) à ce sujet qui date de près de huit ans ! Cependant, grâce aux commentaires de la communauté, nous avons trouvé une solution que nous détaillerons dans un futur article.
+
+Une autre problématique que nous avons rencontrée est la mise en place de [TypeScript](https://www.typescriptlang.org/). Bien que `monaco-editor` intègre TypeScript, nous devons lui transmettre les types de données nécessaires pour valider le code de l'utilisateur. Nous avons utilisé [esm.sh](https://esm.sh/), un service qui fournit des packages provenant de [NPM](https://www.npmjs.com/) au format [ESM](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules) avec des définitions de type pour TypeScript.
+
+---
+
+<sup>1</sup> : WYSIWYG signifie "What You See Is What You Get" (ce que vous voyez est ce que vous obtenez). C'est un type d'éditeur qui permet de créer et modifier du contenu visuellement, sans écrire de code.  
+<sup>2</sup> : Un MVP est un Produit Minimum Viable, c'est-à-dire la version la plus minimaliste possible d’un produit permettant de confirmer (ou d'infirmer) la stratégie adoptée et limiter le risque de poursuivre le développement d’un produit qui ne remporte pas le succès escompté.  
+<sup>3</sup> : Un changelog est un document qui liste les modifications apportées à un produit ou service au fil du temps.  
+<sup>4</sup> : L'auto-complétion est une fonctionnalité qui suggère automatiquement des mots ou des morceaux de code pendant que vous tapez, ce qui permet de gagner du temps et de réduire les erreurs.
