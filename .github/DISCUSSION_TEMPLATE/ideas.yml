@@ -40,11 +40,3 @@ body:
       description: How should this feature be implemented?
     validations:
       required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## Upvote and participation
-
-        If you think this feature would be useful to your workflow, please consider to upvote this discussion.
-
-        Don't hesitate to reply to this discussion with any of your ideas you would like to add to this topic.
