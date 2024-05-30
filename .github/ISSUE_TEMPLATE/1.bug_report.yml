@@ -1,0 +1,61 @@
+name: Bug Report
+description: Create a bug report.
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This template is to report bugs inside Bireme Lab products.
+        Feature requests should be opened as [discussions](https://github.com/orgs/bireme-lab/discussions/new?category=ideas).
+
+        Before opening a new issue, please do a [search](https://github.com/bireme-lab/bireme.io/issues) of existing issues and :+1: upvote the existing issue instead. This will result in a quicker resolution.
+
+        If you need help with your own project, you can start a discussion in the ["Help" section](https://github.com/orgs/bireme-lab/discussions/categories/help)
+  - type: textarea
+    attributes:
+      label: To Reproduce
+      description: A step-by-step description of how to reproduce the issue. Screenshots can be provided in the issue body below..
+      placeholder: |
+        1. Open product X
+        2. Click Y
+        3. Z will happen
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Current vs. Expected behavior
+      description: A clear and concise description of what the bug is, and what you expected to happen.
+      placeholder: 'Following the steps from the previous section, I expected A to happen, but I observed B instead'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Provide environment information
+      description: Please give use more informations about your environment.
+      render: bash
+      placeholder: |
+        Device: MacBook Pro 2024 with Apple Silicon M3
+        Browser(s) you tried this on:
+          - Chrome 100.0.0
+          - ...
+        Operating System:
+          Platform: MacOS
+          Arch: arm64
+          Version: Sonoma 14.5 (23F79)
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Which product is related to this bug?
+      options:
+        - 'Not sure'
+        - 'Dédale'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: |
+        Any extra information that might help us investigate? Is the issue only happening in a specific browser? etc.
+      placeholder: |
+        I detected this issue is appearing when my computer is running on battery save mode...
