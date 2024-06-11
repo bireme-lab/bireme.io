@@ -12,7 +12,7 @@ dev: build-icons-sprite generate-images-data
 	bun next dev
 
 storybook: build-icons-sprite generate-images-data
-	bun storybook dev -p 6006
+	bun storybook dev -p 6006 --no-open
 
 test:
 	bun vitest run
