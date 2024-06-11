@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const envs = z
   .object({
-    IS_DEV: z.union([z.literal("true"), z.literal("false")]),
+    IS_DEV: z.string().optional(),
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string(),
     NEXT_PUBLIC_VERCEL_URL: z.string().optional(),
     NEXT_PUBLIC_VERCEL_ENV: z.string().optional(),
