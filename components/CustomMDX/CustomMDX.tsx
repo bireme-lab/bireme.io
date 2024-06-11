@@ -212,7 +212,6 @@ export const CustomMDX: React.FC<MDXRemoteProps> = async (props) => {
           rehypePlugins: [
             rehypeSlug,
             [
-              // @ts-expect-error pain in the ass for types with plugins
               rehypePrettyCode,
               {
                 theme: "vesper",
