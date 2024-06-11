@@ -5,6 +5,9 @@ import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const config: StorybookConfig = {
+  core: {
+    disableTelemetry: true,
+  },
   stories: ["./**/*.mdx", "../components/**/*.mdx", "../**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
