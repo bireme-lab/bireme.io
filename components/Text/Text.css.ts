@@ -33,12 +33,12 @@ export const text = recipe({
         lineHeight: "0.8125rem",
       },
       body: {
-        fontSize: "0.938rem",
+        fontSize: "0.9375rem",
         fontWeight: 400,
         lineHeight: "1.563rem",
       },
       "body-flat": {
-        fontSize: "0.938rem",
+        fontSize: "0.9375rem",
         fontWeight: 400,
         lineHeight: "0.938rem",
       },
@@ -56,13 +56,18 @@ export const text = recipe({
       },
       title2: {
         fontSize: "1.25rem",
-        fontWeight: 400,
+        fontWeight: 500,
         lineHeight: "1.625rem",
       },
       title1: {
         fontSize: "2rem",
-        fontWeight: 500,
+        fontWeight: 600,
         lineHeight: "2.5rem",
+      },
+      gradientTitle: {
+        fontSize: "3rem",
+        fontWeight: 600,
+        lineHeight: "3rem",
       },
     },
   },
