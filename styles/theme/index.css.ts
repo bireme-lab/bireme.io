@@ -2,7 +2,7 @@ import { createThemeContract } from "@vanilla-extract/css";
 
 export const breakpoints = {
   tablet: "768px",
-  desktop: "1100px",
+  desktop: "1280px",
 };
 
 export const sizes = {
@@ -119,26 +119,51 @@ export const vars = createThemeContract({
     hand: null,
   },
   grid: {
-    mobile: {
-      count: null,
-      width: null,
-      maxWidth: null,
-      margin: null,
-      gutter: null,
+    header: {
+      mobile: {
+        count: null,
+        width: null,
+        maxWidth: null,
+        margin: null,
+        gutter: null,
+      },
+      tablet: {
+        count: null,
+        width: null,
+        maxWidth: null,
+        margin: null,
+        gutter: null,
+      },
+      desktop: {
+        count: null,
+        width: null,
+        maxWidth: null,
+        margin: null,
+        gutter: null,
+      },
     },
-    tablet: {
-      count: null,
-      width: null,
-      maxWidth: null,
-      margin: null,
-      gutter: null,
-    },
-    desktop: {
-      count: null,
-      width: null,
-      maxWidth: null,
-      margin: null,
-      gutter: null,
+    body: {
+      mobile: {
+        count: null,
+        width: null,
+        maxWidth: null,
+        margin: null,
+        gutter: null,
+      },
+      tablet: {
+        count: null,
+        width: null,
+        maxWidth: null,
+        margin: null,
+        gutter: null,
+      },
+      desktop: {
+        count: null,
+        width: null,
+        maxWidth: null,
+        margin: null,
+        gutter: null,
+      },
     },
   },
   sizes,

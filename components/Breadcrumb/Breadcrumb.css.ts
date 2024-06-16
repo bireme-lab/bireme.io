@@ -3,12 +3,9 @@ import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-export const container = responsiveStyle({
-  mobile: {
-    display: "inline-flex",
-    width: "100%",
-  },
-  tablet: {},
+export const container = style({
+  display: "inline-flex",
+  width: "100%",
 });
 
 export const link = recipe({

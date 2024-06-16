@@ -197,4 +197,16 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKUlEQVR4nGNQV1P7P3/u7P+LF8z///vzm/8MsrKy/0uKiv57e3v9B7EBPvIR5RLUP/oAAAAASUVORK5CYII=",
   },
+  "/images/product-image.webp": {
+    name: "product-image.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAGklEQVR4nGOQlZX9l5SU9L+7u/v/n5/f/wMAQdMKBtWZE8gAAAAASUVORK5CYII=",
+  },
+  "/images/react-email.webp": {
+    name: "react-email.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAKUlEQVR4nGPIycn5r6qqCsaL5s/7z3Dnzp3/ERER/93c3P6bmppiCgAAkNkaELXudVUAAAAASUVORK5CYII=",
+  },
 };

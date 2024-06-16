@@ -53,6 +53,7 @@ export const tooltip = style({
   padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
   borderRadius: vars.sizes[4],
   backgroundColor: vars.color.neutral[800],
+  border: `1px solid ${vars.color.neutral[700]}`,
 });
 
 export const tooltipContent = style({

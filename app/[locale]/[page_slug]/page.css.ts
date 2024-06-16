@@ -5,31 +5,19 @@ import { globalStyle, style } from "@vanilla-extract/css";
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.sizes[24],
-  marginTop: vars.sizes[24],
+  gap: vars.sizes[48],
 });
 
-export const grid = responsiveStyle({
-  mobile: {
-    marginTop: vars.sizes[24],
-    rowGap: vars.sizes[48],
-  },
-  desktop: {
-    rowGap: "unset",
-  },
+export const breadcrumb = responsiveStyle({
+  mobile: [columnCount(2)],
+  tablet: [columnCount(4)],
+  desktop: [columnCount(6)],
 });
 
 export const heroContent = style({
   display: "flex",
   flexDirection: "column",
   gap: vars.sizes[12],
-  marginBottom: vars.sizes[24],
-});
-
-export const side = responsiveStyle({
-  mobile: [columnCount(2)],
-  tablet: [columnCount(2)],
-  desktop: [columnCount(3)],
 });
 
 export const body = responsiveStyle({
@@ -52,3 +40,9 @@ globalStyle(
     paddingTop: 0,
   },
 );
+
+export const dummy = responsiveStyle({
+  mobile: [columnCount(0)],
+  tablet: [columnCount(0)],
+  desktop: [columnCount(3)],
+});

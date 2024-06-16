@@ -1,24 +1,45 @@
 import { responsiveStyle } from "@/styles/mixins";
 import { vars } from "@/styles/theme/index.css";
+import { recipe } from "@vanilla-extract/recipes";
 
-export const container = responsiveStyle({
-  mobile: {
-    width: vars.grid.mobile.width,
-    maxWidth: vars.grid.mobile.maxWidth,
-    paddingLeft: vars.grid.mobile.margin,
-    paddingRight: vars.grid.mobile.margin,
-  },
-  tablet: {
-    width: vars.grid.tablet.width,
-    maxWidth: vars.grid.tablet.maxWidth,
-    paddingLeft: vars.grid.tablet.margin,
-    paddingRight: vars.grid.tablet.margin,
-  },
-  desktop: {
-    width: vars.grid.desktop.width,
-    maxWidth: vars.grid.desktop.maxWidth,
-    paddingLeft: vars.grid.desktop.margin,
-    paddingRight: vars.grid.desktop.margin,
-    margin: "0 auto",
+export const container = recipe({
+  base: {},
+  variants: {
+    variant: {
+      header: responsiveStyle({
+        mobile: {
+          width: "100%",
+          paddingLeft: vars.grid.header.mobile.margin,
+          paddingRight: vars.grid.header.mobile.margin,
+        },
+        tablet: {
+          width: "100%",
+          paddingLeft: vars.grid.header.tablet.margin,
+          paddingRight: vars.grid.header.tablet.margin,
+        },
+        desktop: {
+          width: "100%",
+          paddingLeft: vars.grid.header.desktop.margin,
+          paddingRight: vars.grid.header.desktop.margin,
+        },
+      }),
+      body: responsiveStyle({
+        mobile: {
+          width: "100%",
+          paddingLeft: vars.grid.body.mobile.margin,
+          paddingRight: vars.grid.body.mobile.margin,
+        },
+        tablet: {
+          width: "100%",
+          paddingLeft: vars.grid.body.tablet.margin,
+          paddingRight: vars.grid.body.tablet.margin,
+        },
+        desktop: {
+          width: "100%",
+          paddingLeft: vars.grid.body.desktop.margin,
+          paddingRight: vars.grid.body.desktop.margin,
+        },
+      }),
+    },
   },
 });

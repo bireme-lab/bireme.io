@@ -4,6 +4,10 @@
     "description": "Experts in the creation of specialized applications and services for independents and small businesses. Subscribe to our newsletter for exclusive insights."
   },
   "components": {
+    "Usage": {
+      "tag_label": "Use case",
+      "read_documentation": "Explore documentation"
+    },
     "Checkbox": {
       "ticked": "Checkbox ticked"
     },
@@ -25,10 +29,11 @@
       }
     },
     "NewsletterForm": {
-      "headline": "Our newsletter is the ideal way to keep up to date with our latest news.",
+      "headline": "Join our newsletter",
+      "subtitle": "Our newsletter is the ideal way to keep up to date with the latest news and upcoming product updates.",
       "email": {
         "label": "Mail address",
-        "placeholder": "charles.edward@mail.com",
+        "placeholder": "alan.turing@gmail.com",
         "empty": "Email field is required",
         "invalid": "Please enter a valid email address"
       },
@@ -38,7 +43,7 @@
       "fetch_error": "An error occurred while sending your data. Please try again later.",
       "recaptcha_error": "reCAPTCHA verification failed. Please try again",
       "server_error": "An error occurred while sending your data. Please try again later.",
-      "subscribe": "Subscribe",
+      "subscribe": "Subscribe to the newsletter",
       "required_fields": "<asterisk>*</asterisk> are required fields",
       "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential.",
       "google_disclaimer": "This site is protected by reCAPTCHA and the Google <privacy>privacy policy</privacy> and <terms>terms of service</terms> apply.",
@@ -46,9 +51,21 @@
       "success": "You are now subscribed to our newsletter",
       "already_subscribed": "You are already subscribed to our newsletter"
     },
-    "NewsBanner": {
-      "new": "New",
-      "text": "Company update: announcing Bireme Lab"
+    "WaitingListForm": {
+      "email": {
+        "placeholder": "alan.turing@gmail.com",
+        "empty": "Email field is required",
+        "invalid": "Please enter a valid email address"
+      },
+      "fetch_error": "An error occurred while sending your data. Please try again later.",
+      "recaptcha_error": "reCAPTCHA verification failed. Please try again",
+      "server_error": "An error occurred while sending your data. Please try again later.",
+      "subscribe": "Subscribe to the newsletter",
+      "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential.",
+      "google_disclaimer": "This site is protected by reCAPTCHA and the Google <privacy>privacy policy</privacy> and <terms>terms of service</terms> apply.",
+      "email_sent": "You will receive a confirmation email shortly",
+      "success": "You are now subscribed to our newsletter",
+      "already_subscribed": "You are already subscribed to our newsletter"
     },
     "PublishedAt": {
       "published_on": "Published on {date}",
@@ -58,7 +75,7 @@
       "first_one": "The first one"
     },
     "TableOfContent": {
-      "title": "In this page"
+      "title": "Table of contents"
     },
     "MDXHeading": {
       "link_to": "Link to {id}"
@@ -69,12 +86,31 @@
   },
   "pages": {
     "Home": {
+      "new": "New",
+      "news_banner": "Company update: announcing Bireme Lab",
       "title": "We create services to help others build theirs",
       "description": "Experts in the creation of specialized applications and services for independents and small businesses. <NewsletterTrigger>Subscribe to our newsletter for exclusive insights.</NewsletterTrigger>",
-      "latest_post": "Our most recent post",
       "all_posts": "All the stories we wrote",
+      "all_posts_subtitle": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
       "no_posts": "Available soon!",
       "learn_more": "Learn more about Bireme Lab"
+    },
+    "Dedale": {
+      "title": "The next-generation e-mail template development environment",
+      "description": "Dédale is a <primary>free service</primary> dedicated to individuals and companies looking to create, develop and organize their e-mail templates with ease.",
+      "integrate_to": "Integrates quickly and easily with these tools",
+      "integrate_to_tooltip": "The tools shown are examples, and any HTML-compatible service can be used.",
+      "features_title": "Everything you need to create high-performance e-mail templates",
+      "features_description": "The ideal tool to help you build e-mail communications with a consistent brand image, while spending as little time as possible.",
+      "usage_title": "A tool for every use case",
+      "usage_description": "Here are three examples of use cases for which an e-mail template can be useful",
+      "react_email_title": "Develop e-mails with React",
+      "react_email_description": "Dédale has been designed with the very latest in email development. We've integrated React Email in an optimized environment with a better preview system.",
+      "react_email_explore_docs": "Explore React Email documentation",
+      "pricing_title": "A free service available with or without registration",
+      "pricing_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "faq_title": "Frequently asked questions",
+      "faq_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API."
     },
     "PostPage": {
       "breadcrumb": {
