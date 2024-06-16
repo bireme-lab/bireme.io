@@ -4,6 +4,10 @@
     "description": "Experts dans la création d'applications et services spécialisés pour indépendants et petites entreprises. Abonnez-vous à notre newsletter pour bénéficier d'insights exclusifs."
   },
   "components": {
+    "Usage": {
+      "tag_label": "Cas d'usage",
+      "read_documentation": "Lire la documentation"
+    },
     "Checkbox": {
       "ticked": "Case cochée"
     },
@@ -25,10 +29,11 @@
       }
     },
     "NewsletterForm": {
-      "headline": "Notre newsletter est le moyen idéal pour ne rien manquer de nos dernières actualités",
+      "headline": "Rejoindre notre newsletter",
+      "subtitle": "Notre newsletter est le moyen idéal pour rester au courant des actualités et des prochaines mises à jour de nos produits",
       "email": {
         "label": "Adresse email",
-        "placeholder": "charles.edward@mail.com",
+        "placeholder": "alan.turing@gmail.com",
         "empty": "Le champ email ne peut pas être vide",
         "invalid": "Veuillez saisir une adresse email valide"
       },
@@ -38,7 +43,7 @@
       "fetch_error": "Une erreur est survenue, veuillez réessayer plus tard",
       "recaptcha_error": "La validation reCAPTCHA a échoué, veuillez réessayer",
       "server_error": "Une erreur est survenue, veuillez réessayer plus tard",
-      "subscribe": "S'abonner",
+      "subscribe": "S'abonner à la newsletter",
       "required_fields": "<asterisk>*</asterisk> sont des champs obligatoires",
       "disclaimer": "En complétant et en envoyant vos données, vous acceptez notre <privacy>politique de confidentialité</privacy>. Toutes les données sont gardées confidentielles.",
       "google_disclaimer": "Ce site est protégé par reCAPTCHA et la <privacy>politique de confidentialité</privacy> et les <terms>conditions d'utilisation</terms> de Google s'appliquent.",
@@ -46,9 +51,21 @@
       "success": "Vous êtes maintenant inscrit à notre newsletter",
       "already_subscribed": "Vous êtes déjà inscrit à notre newsletter"
     },
-    "NewsBanner": {
-      "new": "Nouveau",
-      "text": "Mise à jour concernant l'entreprise : création de Bireme Lab"
+    "WaitingListForm": {
+      "email": {
+        "placeholder": "Votre adresse e-mail",
+        "empty": "Le champ email ne peut pas être vide",
+        "invalid": "Veuillez saisir une adresse email valide"
+      },
+      "fetch_error": "Une erreur est survenue, veuillez réessayer plus tard",
+      "recaptcha_error": "La validation reCAPTCHA a échoué, veuillez réessayer",
+      "server_error": "Une erreur est survenue, veuillez réessayer plus tard",
+      "subscribe": "Demander l'accès",
+      "disclaimer": "En complétant et en envoyant vos données, vous acceptez notre <privacy>politique de confidentialité</privacy>. Toutes les données sont gardées confidentielles.",
+      "google_disclaimer": "Ce site est protégé par reCAPTCHA et la <privacy>politique de confidentialité</privacy> et les <terms>conditions d'utilisation</terms> de Google s'appliquent.",
+      "email_sent": "Nous avons envoyé un lien de confirmation !",
+      "success": "Vous avez rejoint la liste d'attente !",
+      "already_subscribed": "Vous êtes déjà sur la liste d'attente"
     },
     "PublishedAt": {
       "published_on": "Publié le {date}",
@@ -58,7 +75,7 @@
       "first_one": "Le tout premier"
     },
     "TableOfContent": {
-      "title": "Sur cette page"
+      "title": "Table des matières"
     },
     "MDXHeading": {
       "link_to": "Lien vers {id}"
@@ -69,12 +86,47 @@
   },
   "pages": {
     "Home": {
+      "new": "Nouveau",
+      "news_banner": "Mise à jour concernant l'entreprise : création de Bireme Lab",
       "title": "Nous créons des services pour aider les autres à concevoir les leurs",
-      "description": "Experts dans la création d'applications et services spécialisés pour indépendants et petites entreprises. Pour obtenir un accès anticipé à nos produits vous pouvez vous <NewsletterTrigger>abonner à notre newsletter.</NewsletterTrigger>",
-      "latest_post": "Dernière publication",
+      "description": "Experts dans la création de services en ligne sur abonnement spécialisés pour les développeurs, les indépendants ainsi que les petites entreprises",
       "all_posts": "Tous nos articles",
+      "all_posts_subtitle": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
       "no_posts": "Bientôt disponible !",
       "learn_more": "En savoir plus sur Bireme Lab"
+    },
+    "Dedale": {
+      "title": "L’environnement de développement de modèle d'e-mail nouvelle génération",
+      "description": "Dédale est un <primary>service gratuit</primary> dédié aux personnes et entreprises qui cherchent à créer, développer et organiser leurs modèles d'e-mails en toute simplicité",
+      "integrate_to": "S'intègre rapidement et facilement à ces outils",
+      "integrate_to_tooltip": "Les outils présentés servent d'exemple, tout service compatible avec le standard HTML peut être utilisé",
+      "features_title": "Tout ce qu'il vous faut pour faire des modèles d'e-mails performants",
+      "features_description": "L’outil idéal pour vous aider à construire une communication par e-mail avec une image de marque cohérente, tout en y consacrant le moins de temps possible",
+      "usage_title": "Un outil pour tous les cas d’usages",
+      "usage_description": "Voici trois exemples de cas d’usages pour lesquels un modèle d’e-mail peut s’avérer utile",
+      "usage_emailing_title": "E-mailing",
+      "usage_emailing_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "usage_transactional_title": "Transactionnel",
+      "usage_transactional_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "usage_retargeting_title": "Reciblage publicitaire",
+      "usage_retargeting_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "react_email_title": "Développez des e-mails avec React",
+      "react_email_description": "Dédale à été conçu avec ce qui se fait de plus moderne dans le développement d’e-mails. Nous avons intégré React Email dans un environnement optimisé avec un meilleur système de pré-visualisation.",
+      "react_email_explore_docs": "Explorer la documentation de React Email",
+      "pricing_title": "Un service gratuit accessible avec ou sans inscription",
+      "pricing_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "faq_title": "Questions fréquentes",
+      "faq_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "faq_question_1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "faq_answer_1": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "faq_question_2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "faq_answer_2": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "faq_question_3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "faq_answer_3": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "faq_question_4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "faq_answer_4": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "faq_question_5": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "faq_answer_5": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API."
     },
     "PostPage": {
       "breadcrumb": {

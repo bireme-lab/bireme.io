@@ -1,9 +1,9 @@
 import { Breadcrumb, Step } from "@/components/Breadcrumb/Breadcrumb";
-import { Container } from "@/components/Container/Container";
 import { CustomMDX } from "@/components/CustomMDX/CustomMDX";
-import { Divider } from "@/components/Divider/Divider";
 import { Grid } from "@/components/Grid/Grid";
+import { NewsletterSection } from "@/components/NewsletterSection/NewsletterSection";
 import { PublishedAt } from "@/components/PublishedAt/PublishedAt";
+import { Section } from "@/components/Section/Section";
 import { TableOfContent } from "@/components/TableOfContent/TableOfContent";
 import { Text } from "@/components/Text/Text";
 import { authors } from "@/content/authors";
@@ -119,11 +119,17 @@ const PostPage = async ({ params }: PostPageParams) => {
 
   return (
     <>
-      <Container>
-        <Breadcrumb steps={breadcrumbSteps} />
+      <Section>
+        <Grid>
+          <div className={styles.dummy} />
+          <div className={styles.breadcrumb}>
+            <Breadcrumb steps={breadcrumbSteps} />
+          </div>
+          <div className={styles.dummy} />
+        </Grid>
         <article className={styles.article}>
           <Grid>
-            <div className={styles.side} />
+            <div className={styles.dummy} />
             <div className={cx(styles.body, styles.heroContent)}>
               <Text variant="title1" markup="h1" color="white-a100">
                 {post.title}
@@ -133,25 +139,26 @@ const PostPage = async ({ params }: PostPageParams) => {
                 publishedAt={post.publishedAt}
                 disableTooltips={false}
               />
-            </div>
-          </Grid>
-          <Divider />
-          <Grid className={styles.grid}>
-            <div className={styles.side}>
-              <TableOfContent headings={post.headings} />
-            </div>
-            <div className={cx(styles.body, styles.postBodyWrapper)}>
               <Text variant="section-heading" color="white-a100">
                 tl;dr&nbsp;
               </Text>
               <Text variant="body" markup="p" color="neutral-200">
                 {post.tldr}
               </Text>
+            </div>
+            <div className={styles.dummy} />
+          </Grid>
+          <Grid>
+            <div className={styles.dummy} />
+            <div className={cx(styles.body, styles.postBodyWrapper)}>
+              <TableOfContent headings={post.headings} />
               <CustomMDX source={post.body} />
             </div>
+            <div className={styles.dummy} />
           </Grid>
         </article>
-      </Container>
+      </Section>
+      <NewsletterSection />
       <script
         type="application/ld+json"
         suppressHydrationWarning

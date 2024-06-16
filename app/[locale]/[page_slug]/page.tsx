@@ -1,8 +1,7 @@
 import { Breadcrumb, Step } from "@/components/Breadcrumb/Breadcrumb";
-import { Container } from "@/components/Container/Container";
 import { CustomMDX } from "@/components/CustomMDX/CustomMDX";
-import { Divider } from "@/components/Divider/Divider";
 import { Grid } from "@/components/Grid/Grid";
+import { Section } from "@/components/Section/Section";
 import { TableOfContent } from "@/components/TableOfContent/TableOfContent";
 import { Text } from "@/components/Text/Text";
 import { getMeta } from "@/content/meta";
@@ -114,22 +113,26 @@ const Page = async ({ params }: PageParams) => {
 
   return (
     <>
-      <Container>
-        <Breadcrumb steps={breadcrumbSteps} />
+      <Section>
+        <Grid>
+          <div className={styles.dummy} />
+          <div className={styles.breadcrumb}>
+            <Breadcrumb steps={breadcrumbSteps} />
+          </div>
+          <div className={styles.dummy} />
+        </Grid>
         <div className={styles.container}>
-          <Grid className={styles.grid}>
-            <div className={styles.side} />
+          <Grid>
+            <div className={styles.dummy} />
             <div className={cx(styles.body, styles.heroContent)}>
               <Text markup="h1" variant="title1">
                 {page.title}
               </Text>
             </div>
+            <div className={styles.dummy} />
           </Grid>
-          <Divider />
-          <Grid className={styles.grid}>
-            <div className={styles.side}>
-              <TableOfContent headings={page.headings} />
-            </div>
+          <Grid>
+            <div className={styles.dummy} />
             <div
               className={cx(
                 styles.body,
@@ -137,11 +140,13 @@ const Page = async ({ params }: PageParams) => {
                 isBodyBeginWithHeading && styles.bodyBeginWithHeading,
               )}
             >
+              <TableOfContent headings={page.headings} />
               <CustomMDX source={page.body} />
             </div>
+            <div className={styles.dummy} />
           </Grid>
         </div>
-      </Container>
+      </Section>
       <script
         type="application/ld+json"
         suppressHydrationWarning

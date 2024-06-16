@@ -3,24 +3,19 @@ import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { text } from "../Text/Text.css";
 
-export const footer = responsiveStyle({
-  mobile: {
-    width: "100%",
-    paddingTop: vars.sizes[48],
-    paddingBottom: vars.sizes[48],
-  },
-  desktop: {
-    paddingTop: vars.sizes[24],
-    paddingBottom: vars.sizes[24],
-  },
+export const footer = style({
+  backgroundColor: vars.color.neutral[800],
 });
 
 export const container = responsiveStyle({
   mobile: {
+    paddingTop: vars.sizes[48],
+    paddingBottom: vars.sizes[128],
     display: "flex",
     flexDirection: "column",
   },
   tablet: {
+    paddingBottom: vars.sizes[48],
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -38,8 +33,10 @@ export const logoLink = style({
 });
 
 export const logo = style({
-  width: "115px",
-  height: "27px",
+  width: "106px",
+  minWidth: "106px",
+  height: "20px",
+  minHeight: "20px",
   color: "inherit",
 });
 
@@ -84,7 +81,7 @@ export const logoWrapper = style({
 export const socialLinks = responsiveStyle({
   mobile: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     gap: vars.sizes[16],
     listStyle: "none",
   },
@@ -118,5 +115,5 @@ export const socialIcon = style({
 export const nav = style({
   display: "flex",
   alignItems: "center",
-  gap: vars.sizes[48],
+  gap: vars.sizes[24],
 });

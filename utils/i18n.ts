@@ -7,10 +7,13 @@ export const pathnames = {
   // If all locales use the same pathname, a
   // single external path can be provided.
   "/": "/",
+  "/dedale": "/dedale",
   "/[page_slug]": "/[page_slug]",
   "/blog/[post_slug]": "/blog/[post_slug]",
   "/rss.xml": "/rss.xml",
 } satisfies Pathnames<typeof i18n.locales>;
+
+export type Pathname = Exclude<keyof typeof pathnames, "/[page_slug]" | "/blog/[post_slug]">;
 
 export const i18n = {
   defaultLocale: "fr",

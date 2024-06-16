@@ -16,11 +16,7 @@ export const TableOfContent: React.FC<Props> = async ({ headings }) => {
 
   return (
     <aside className={styles.container}>
-      {/* <div className={styles.header}>
-        <Icon name="table_of_content" title={t("title")} className={styles.icon} />
-        <Text variant="body">{t("title")}</Text>
-      </div> */}
-      <Text variant="section-heading" color="white-a100">
+      <Text variant="title3" color="white-a100">
         {t("title")}
       </Text>
       <ul className={styles.anchorList}>

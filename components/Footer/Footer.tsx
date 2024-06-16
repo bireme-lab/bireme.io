@@ -6,7 +6,6 @@ import { getTranslations } from "next-intl/server";
 import { match } from "ts-pattern";
 import { Container } from "../Container/Container";
 import { Icon } from "../Icon/Icon";
-import { Text } from "../Text/Text";
 import * as styles from "./Footer.css";
 
 export const resolveAfter = <T,>(delay: number, value?: T): Promise<T | void> =>
@@ -26,9 +25,6 @@ export const Footer: React.FC = async () => {
             <Link href="/" className={styles.logoLink}>
               <Icon name="logo" title={t("homepage")} className={styles.logo} />
             </Link>
-            <Text variant="small-flat" color="neutral-200">
-              © {new Date().getFullYear()}
-            </Text>
           </div>
           <ul className={styles.socialLinks}>
             <li>
@@ -39,6 +35,16 @@ export const Footer: React.FC = async () => {
                 className={styles.socialLink}
               >
                 <Icon name="x" title={socials.twitter} className={styles.socialIcon} />
+              </a>
+            </li>
+            <li>
+              <a
+                href={socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+              >
+                <Icon name="github" title={socials.github} className={styles.socialIcon} />
               </a>
             </li>
           </ul>

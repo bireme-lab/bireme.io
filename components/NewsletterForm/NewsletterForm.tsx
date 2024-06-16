@@ -11,7 +11,7 @@ import { Locale } from "@/utils/i18n";
 import { request } from "@/utils/request";
 import { AsyncData, Result } from "@swan-io/boxed";
 import { useLocale, useTranslations } from "next-intl";
-import React, { CSSProperties, FormEvent, useState } from "react";
+import { CSSProperties, FormEvent, useState } from "react";
 import { hasDefinedKeys, useForm } from "react-ux-form";
 import { P, match } from "ts-pattern";
 import isEmail from "validator/lib/isEmail";
@@ -155,39 +155,46 @@ const NewsletterForm: React.FC<Props> = ({ className, style, autofocus = false, 
 
   return (
     <form onSubmit={onSubmit} className={cx(styles.form, className)} style={style}>
-      <Text variant="title3" markup="h3" color="white-a100">
-        {t("headline")}
-      </Text>
+      <div className={styles.header}>
+        <Text variant="title1" markup="h2" color="primary-500" className={styles.centeredText}>
+          {t("headline")}
+        </Text>
+        <Text variant="body" className={styles.centeredText}>
+          {t("subtitle")}
+        </Text>
+      </div>
       <div className={styles.inputsWrapper}>
-        <Field name="email">
-          {({ value, error, onChange, onBlur }) => (
-            <Input
-              autoFocus={autofocus}
-              value={value}
-              label={t("email.label")}
-              placeholder={t("email.placeholder")}
-              errorMessage={error}
-              onChange={onChange}
-              onBlur={onBlur}
-              isRequired={true}
-              hideError={true}
-              className={styles.input}
-              onFocus={setFormFocusState}
-            />
-          )}
-        </Field>
-        <Field name="marketingOptIn">
-          {({ value, onChange, onBlur }) => (
-            <Checkbox
-              isSelected={value}
-              onChange={onChange}
-              onBlur={onBlur}
-              isDisabled={requestState.isLoading() || isFormSubmitSuccess}
-            >
-              {t("optIn.label")}
-            </Checkbox>
-          )}
-        </Field>
+        <div className={styles.inputWrapper}>
+          <Field name="email">
+            {({ value, error, onChange, onBlur }) => (
+              <Input
+                autoFocus={autofocus}
+                value={value}
+                label={t("email.label")}
+                placeholder={t("email.placeholder")}
+                errorMessage={error}
+                onChange={onChange}
+                onBlur={onBlur}
+                isRequired={true}
+                hideError={true}
+                className={styles.input}
+                onFocus={setFormFocusState}
+              />
+            )}
+          </Field>
+          <Field name="marketingOptIn">
+            {({ value, onChange, onBlur }) => (
+              <Checkbox
+                isSelected={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                isDisabled={requestState.isLoading() || isFormSubmitSuccess}
+              >
+                {t("optIn.label")}
+              </Checkbox>
+            )}
+          </Field>
+        </div>
         <FieldsListener names={["email"]}>
           {({ email }) => (
             <div className={styles.buttonWrapper}>
