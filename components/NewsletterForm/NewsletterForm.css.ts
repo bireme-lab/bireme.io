@@ -8,8 +8,21 @@ export const form = style({
   gap: vars.sizes[24],
 });
 
+export const header = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.sizes[12],
+});
+
 export const input = style({
-  marginBottom: vars.sizes[12],
+  width: "100%",
+});
+
+export const inputWrapper = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.sizes[12],
+  width: "100%",
 });
 
 export const mention = responsiveStyle({
@@ -17,6 +30,7 @@ export const mention = responsiveStyle({
     columnCount(2),
     {
       display: "inline",
+      // textAlign: "center",
     },
   ],
   tablet: columnCount(3),
@@ -26,7 +40,7 @@ export const mention = responsiveStyle({
 export const inputsWrapper = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.sizes[8],
+  gap: vars.sizes[24],
 });
 
 export const buttonWrapper = style({
@@ -53,4 +67,8 @@ export const link = style({
   ":hover": {
     color: vars.color.primary[300],
   },
+});
+
+export const centeredText = style({
+  textAlign: "center",
 });

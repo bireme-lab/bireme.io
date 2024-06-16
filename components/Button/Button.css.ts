@@ -5,7 +5,7 @@ import { recipe } from "@vanilla-extract/recipes";
 export const buttonContainer = style({
   position: "relative",
   display: "flex",
-  width: "fit-content",
+  height: "100%",
 });
 
 export const button = recipe({
@@ -13,8 +13,8 @@ export const button = recipe({
     position: "relative",
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     overflow: "hidden",
-    padding: `${vars.sizes[12]} ${vars.sizes[16]}`,
     width: "auto",
     borderRadius: vars.sizes[4],
     transitionProperty: "color, transform, background, border",
@@ -46,6 +46,15 @@ export const button = recipe({
         backgroundColor: vars.color.invariant.transparent,
         color: vars.color.neutral[50],
       },
+    },
+    size: {
+      small: {
+        padding: `${vars.sizes[8]} ${vars.sizes[12]}`,
+      },
+      regular: {
+        padding: `${vars.sizes[12]} ${vars.sizes[16]}`,
+      },
+      full: {},
     },
     isHovered: {
       true: {},

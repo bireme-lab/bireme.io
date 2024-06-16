@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 import { Sprite } from "@/components/Icon/Icon";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
 import { getMeta } from "@/content/meta";
 import "@/styles/global.css";
 import { cx } from "@/styles/mixins";
@@ -71,16 +72,17 @@ export default function RootLayout({
         <meta name="application-name" content="Bireme Lab" />
         <meta name="msapplication-TileColor" content="#151515" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </head>
       <body className={styles.body}>
         <NextIntlClientProvider messages={messages}>
           <Sprite />
-          <div className={styles.lighContainer} aria-hidden={true}>
-            <div className={styles.light} />
+          <div className={styles.container}>
+            <Header />
+            <main>{children}</main>
+            <Footer />
           </div>
-          <Header />
-          <main className={styles.main}>{children}</main>
-          <Footer />
+          <Sidebar locale={params.locale} />
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />

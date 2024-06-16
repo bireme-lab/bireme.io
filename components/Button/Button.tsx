@@ -11,11 +11,13 @@ import {
   useHover,
   usePress,
 } from "react-aria";
+import { match } from "ts-pattern";
 import { Icon } from "../Icon/Icon";
 import { Text } from "../Text/Text";
 import * as styles from "./Button.css";
 
 export type ButtonVariant = "plain" | "outline";
+export type ButtonSize = "small" | "regular";
 
 type Props = Omit<AriaButtonProps, "elementType"> & {
   variant?: ButtonVariant;
@@ -23,16 +25,20 @@ type Props = Omit<AriaButtonProps, "elementType"> & {
   isLoading?: boolean;
   isSuccess?: boolean;
   className?: string;
+  containerClassName?: string;
+  size?: ButtonSize;
   style?: CSSProperties;
 };
 
 export const Button: React.FC<Props> = ({
   variant = "plain",
+  size = "regular",
   children,
   isLoading = false,
   isSuccess = false,
   onPress,
   className,
+  containerClassName,
   style,
   ...props
 }) => {
@@ -66,12 +72,13 @@ export const Button: React.FC<Props> = ({
   );
 
   return (
-    <div className={styles.buttonContainer}>
+    <div className={cx(styles.buttonContainer, containerClassName)}>
       <button
         ref={ref}
         className={cx(
           styles.button({
             variant,
+            size,
             isHovered,
             isFocused,
             isPressed,
@@ -91,7 +98,10 @@ export const Button: React.FC<Props> = ({
         </div>
         <Text
           color="inherit"
-          variant="body-flat"
+          variant={match(size)
+            .with("small", () => "small-flat" as const)
+            .with("regular", () => "body-flat" as const)
+            .exhaustive()}
           className={styles.label({
             isHovered,
             isFocused,

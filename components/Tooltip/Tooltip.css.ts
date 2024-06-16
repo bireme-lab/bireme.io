@@ -29,7 +29,7 @@ const fadeOut = keyframes({
 
 export const tooltip = recipe({
   base: {
-    zIndex: 1,
+    zIndex: 12312,
     position: "absolute",
     top: "100%",
   },

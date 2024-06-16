@@ -19,7 +19,7 @@ export const input = recipe({
       borderRadius: vars.sizes[4],
       borderWidth: 1,
       borderStyle: "solid",
-      borderColor: vars.color.neutral[800],
+      borderColor: vars.color.neutral[700],
       color: vars.color.neutral[50],
       transitionProperty: "border, background, color",
       transitionDuration: `${transitionDuration}ms`,
@@ -38,7 +38,7 @@ export const input = recipe({
     isFocused: {
       true: {
         outline: "none",
-        borderColor: vars.color.neutral[200],
+        borderColor: vars.color.primary[500],
       },
     },
     isErrored: {
@@ -48,7 +48,7 @@ export const input = recipe({
     },
     isHovered: {
       true: {
-        borderColor: vars.color.neutral[200],
+        borderColor: vars.color.neutral[500],
       },
     },
     isDisabled: {

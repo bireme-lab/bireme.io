@@ -3,7 +3,7 @@ import { sprite } from "./sprite";
 
 export type IconProps = {
   name: IconName;
-  title: string;
+  title?: string;
   label?: string;
   className?: string;
   style?: React.CSSProperties;

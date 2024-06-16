@@ -2,30 +2,26 @@ import { columnCount, responsiveStyle } from "@/styles/mixins";
 import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
-// NewsBanner
+// Hero
 // -------------------------------------------o
 
-export const newsBannerWrapper = responsiveStyle({
-  mobile: [
-    columnCount(2),
-    {
-      borderRadius: vars.sizes[4],
-      transition: `background ${transitionDuration}ms ease-out`,
-      backgroundColor: vars.color.neutral[800],
-      backgroundImage: `linear-gradient(150deg, #FFC799 0, rgba(255,255,255,0) 50%)`,
-      padding: 1,
-
-      ":focus-within": {
-        backgroundColor: vars.color.primary[500],
-      },
-
-      ":hover": {
-        backgroundColor: vars.color.primary[500],
-      },
-    },
-  ],
-  tablet: [columnCount(4)],
-  desktop: columnCount(7),
+export const hero = responsiveStyle({
+  mobile: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    gap: vars.sizes[36],
+    paddingTop: vars.sizes[36],
+    paddingLeft: vars.sizes[24],
+    paddingRight: vars.sizes[24],
+    borderBottom: `1px solid ${vars.color.neutral[700]}`,
+    overflow: "hidden",
+  },
+  tablet: {
+    paddingTop: vars.sizes[72],
+    paddingLeft: vars.sizes[48],
+    paddingRight: vars.sizes[48],
+  },
 });
 
 export const newsBanner = responsiveStyle({
@@ -33,20 +29,31 @@ export const newsBanner = responsiveStyle({
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
+    alignSelf: "center",
+    width: "100%",
     gap: vars.sizes[8],
-    borderRadius: vars.sizes[4],
+    borderRadius: vars.sizes[8],
     padding: vars.sizes[16],
     backgroundColor: vars.color.neutral[800],
-    transitionProperty: "background-color, border",
-    transitionDuration: `${transitionDuration}ms`,
-    transitionTimingFunction: "ease-out",
+    transition: `border ${transitionDuration}ms ease-out`,
+    border: `1px solid ${vars.color.neutral[700]}`,
+
+    ":hover": {
+      borderColor: vars.color.neutral[500],
+    },
+
+    ":focus-visible": {
+      outline: "none",
+      borderColor: vars.color.primary[500],
+    },
 
     ":focus": {
       outline: "none",
-      // borderColor: vars.color.primary[500],
+      borderColor: vars.color.primary[500],
     },
   },
   tablet: {
+    width: "unset",
     flexDirection: "row",
     gap: vars.sizes[16],
   },
@@ -57,67 +64,23 @@ export const newsBannerTag = responsiveStyle({
     position: "relative",
   },
   tablet: {
-    top: "5.5px",
+    top: "2.4px",
   },
 });
 
-// LatestPosts
-// -------------------------------------------o
-
-export const latestPostWrapper = responsiveStyle({
+export const heroGrid = responsiveStyle({
   mobile: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    gap: vars.sizes[20],
+    gap: vars.sizes[12],
   },
-  desktop: {
-    marginTop: vars.sizes[80],
+  tablet: {
+    gap: vars.sizes[24],
   },
 });
 
-export const latestPost = responsiveStyle({
-  mobile: [
-    columnCount(2),
-    {
-      display: "flex",
-      flexDirection: "column",
-      gap: vars.sizes[12],
-    },
-  ],
-  tablet: columnCount(3),
-  desktop: columnCount(5),
-});
-
-export const latestPostTitle = style({
-  transition: `color ${transitionDuration}ms ease-out`,
-
-  ":hover": {
-    color: vars.color.neutral[100],
-  },
-});
-
-export const latestPostPublishedAt = style({
-  marginTop: vars.sizes[4],
-});
-
-export const handwrittenUnderline = style({
-  position: "absolute",
-  left: 0,
-  bottom: "-12px",
-  width: "160px",
-  height: "7px",
-  color: vars.color.primary[500],
-});
-
-// Home
-// -------------------------------------------o
-
-export const container = style({
-  display: "flex",
-  flexDirection: "column",
-  gap: vars.sizes[48],
-  minHeight: "735px",
+export const titleDummy = responsiveStyle({
+  mobile: columnCount(0),
+  tablet: columnCount(0),
+  desktop: columnCount(2),
 });
 
 export const titleWrapper = responsiveStyle({
@@ -130,7 +93,7 @@ export const titleWrapper = responsiveStyle({
     },
   ],
   tablet: columnCount(4),
-  desktop: columnCount(6),
+  desktop: columnCount(8),
 });
 
 export const title = responsiveStyle({
@@ -142,7 +105,7 @@ export const title = responsiveStyle({
     WebkitTextFillColor: "transparent",
     color: "unset",
     textWrap: "balance",
-    marginBottom: vars.sizes[24],
+    textAlign: "center",
   },
   tablet: {
     fontSize: "3rem!important",
@@ -162,52 +125,142 @@ export const titleSpan = style({
   },
 });
 
-export const learnMoreWrapper = style({
-  display: "flex",
-  alignItems: "center",
-  gap: vars.sizes[8],
-});
-
-export const learnMore = style({
-  display: "inline-flex",
-});
-
-export const learnMoreIcon = style({
-  width: vars.sizes[16],
-  height: vars.sizes[16],
-  minWidth: vars.sizes[16],
-  minHeight: vars.sizes[16],
-  color: vars.color.neutral[50],
+export const descriptionDummy = responsiveStyle({
+  mobile: columnCount(0),
+  tablet: columnCount(0),
+  desktop: columnCount(3),
 });
 
 export const descriptionWrapper = responsiveStyle({
+  mobile: columnCount(2),
+  tablet: columnCount(2),
+  desktop: columnCount(6),
+});
+
+export const description = style({
+  display: "inline-flex!important",
+  textAlign: "center",
+});
+
+export const productCards = responsiveStyle({
+  mobile: {
+    rowGap: vars.sizes[36],
+  },
+  desktop: {
+    rowGap: "unset",
+  },
+});
+
+export const productCardDummy = responsiveStyle({
+  mobile: columnCount(0),
+  tablet: columnCount(2),
+  desktop: columnCount(3),
+});
+
+export const productCard = responsiveStyle({
   mobile: [
     columnCount(2),
     {
       position: "relative",
-      top: "7px",
+      height: "160px",
+      backgroundColor: vars.color.neutral[800],
+      border: `1px solid ${vars.color.neutral[700]}`,
+      borderRadius: vars.sizes[8],
     },
   ],
-  tablet: columnCount(2),
-  desktop: columnCount(4),
+  tablet: [
+    columnCount(2),
+    {
+      borderBottomRightRadius: 0,
+      borderBottomLeftRadius: 0,
+      borderTopLeftRadius: vars.sizes[8],
+      borderTopRightRadius: vars.sizes[8],
+    },
+  ],
+  desktop: [
+    columnCount(3),
+    {
+      transform: "translateY(40px)",
+      transition: `transform ${transitionDuration}ms ease-out`,
+
+      ":hover": {
+        transform: "translateY(30px)",
+      },
+    },
+  ],
 });
 
-export const latestPostSectionHeading = style({
-  position: "relative",
+export const productCardName = style({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  transform: `translate(${vars.sizes[12]}, -50%)`,
+  borderRadius: vars.sizes[4],
+  padding: `${vars.sizes[12]} ${vars.sizes[16]}`,
+  backgroundColor: vars.color.neutral[800],
+  border: `1px solid ${vars.color.neutral[700]}`,
 });
 
-export const allPostsWrapper = style({
+export const productCardIcon = style({
+  height: "20px",
+  minHeight: "20px",
+  width: "80px",
+});
+
+// Home
+// -------------------------------------------o
+
+export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: vars.sizes[20],
+  minHeight: "735px",
 });
 
-export const allPostsSectionHeading = style({
-  marginBottom: vars.sizes[4],
+export const allPostContainer = responsiveStyle({
+  mobile: [
+    columnCount(2),
+    {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: vars.sizes[24],
+    },
+  ],
+  tablet: columnCount(4),
+  desktop: columnCount(6),
 });
 
-export const postsList = style({
-  display: "flex",
-  listStyle: "none",
-  flexDirection: "column",
+export const allPostDummy = responsiveStyle({
+  mobile: columnCount(0),
+  tablet: columnCount(1),
+  desktop: columnCount(3),
+});
+
+export const centeredText = style({
+  textAlign: "center",
+});
+
+export const postsDummy = responsiveStyle({
+  mobile: columnCount(0),
+  tablet: columnCount(0),
+  desktop: columnCount(3),
+});
+
+export const posts = responsiveStyle({
+  mobile: [
+    columnCount(2),
+    {
+      display: "flex",
+      flexDirection: "column",
+      gap: vars.sizes[24],
+      listStyle: "none",
+    },
+  ],
+  tablet: [
+    columnCount(4),
+    {
+      gap: vars.sizes[12],
+    },
+  ],
+  desktop: columnCount(6),
 });

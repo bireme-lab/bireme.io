@@ -1,9 +1,9 @@
-import { Container } from "@/components/Container/Container";
 import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
-import { LatestPost } from "@/components/LatestPost/LatestPost";
-import { NewsletterTrigger } from "@/components/NewsletterTrigger/NewsletterTrigger";
-import { PostRow } from "@/components/PostRow/PostRow";
+import { IconName } from "@/components/Icon/Icon.types";
+import { NewsletterSection } from "@/components/NewsletterSection/NewsletterSection";
+import { Post } from "@/components/Post/Post";
+import { Section } from "@/components/Section/Section";
 import { Text } from "@/components/Text/Text";
 import { Link } from "@/navigation";
 import { Locale } from "@/utils/i18n";
@@ -15,12 +15,27 @@ import { WebPage, WebSite, WithContext } from "schema-dts";
 import { P, match } from "ts-pattern";
 import * as styles from "./page.css";
 
-type NewsBannerProps = {
+type ProductCardProps = {
+  icon: IconName;
+  productName: string;
+};
+
+const ProductCard: React.FC<ProductCardProps> = ({ icon, productName }) => {
+  return (
+    <div className={styles.productCard}>
+      <div className={styles.productCardName}>
+        <Icon name={icon} title={productName} className={styles.productCardIcon} />
+      </div>
+    </div>
+  );
+};
+
+type HeroProps = {
   locale: Locale;
 };
 
-const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
-  const t = await getTranslations("components.NewsBanner");
+const Hero: React.FC<HeroProps> = async ({ locale }) => {
+  const t = await getTranslations("pages.Home");
 
   const slug = match(locale)
     .with("fr", () => "a-propos-de-bireme-lab")
@@ -28,7 +43,7 @@ const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
     .exhaustive();
 
   return (
-    <div className={styles.newsBannerWrapper}>
+    <div className={styles.hero}>
       <Link
         href={{
           pathname: "/blog/[post_slug]",
@@ -39,15 +54,37 @@ const NewsBanner: React.FC<NewsBannerProps> = async ({ locale }) => {
         <Text variant="small-mono" color="primary-500" className={styles.newsBannerTag}>
           {t("new")}
         </Text>
-        <Text variant="body" color="white-a100">
-          {t("text")}
+        <Text variant="small" color="white-a100">
+          {t("news_banner")}
         </Text>
       </Link>
+      <Grid className={styles.heroGrid}>
+        <div className={styles.titleDummy} />
+        <div className={styles.titleWrapper}>
+          <Text variant="gradientTitle" markup="h1" className={styles.title}>
+            <span className={styles.titleSpan}>{t("title")}</span>
+          </Text>
+        </div>
+        <div className={styles.titleDummy} />
+        <div className={styles.descriptionDummy} />
+        <div className={styles.descriptionWrapper}>
+          <Text variant="body" markup="p" color="neutral-100" className={styles.description}>
+            {t("description")}
+          </Text>
+        </div>
+        <div className={styles.descriptionDummy} />
+      </Grid>
+      <Grid className={styles.productCards}>
+        <div className={styles.productCardDummy} />
+        <ProductCard icon="dedale" productName="Dédale" />
+        <ProductCard icon="hermes" productName="Hermes" />
+        <div className={styles.productCardDummy} />
+      </Grid>
     </div>
   );
 };
 
-NewsBanner.displayName = "NewsBanner";
+Hero.displayName = "Hero";
 
 const Home = async ({
   params: { locale },
@@ -63,93 +100,41 @@ const Home = async ({
 
   return (
     <>
-      <Container className={styles.container}>
-        <Grid>
-          <NewsBanner locale={locale} />
-        </Grid>
-        <Grid>
-          <div className={styles.titleWrapper}>
-            <Text variant="title1" markup="h1" className={styles.title}>
-              <span className={styles.titleSpan}>{t("title")}</span>
-            </Text>
-            {/* <div className={styles.learnMoreWrapper}>
-              <Text
-                href={match(locale)
-                  .with("fr", () => MDX.generateHref("a-propos-de-bireme-lab", locale, "Post"))
-                  .with("en", () => MDX.generateHref("about-bireme-lab", locale, "Post"))
-                  .exhaustive()}
-                variant="body"
-                translateOnHover={true}
-                className={styles.learnMore}
-              >
-                {t("learn_more")}
+      <div className={styles.container}>
+        <Hero locale={locale} />
+        <Section>
+          <Grid>
+            <div className={styles.allPostDummy} />
+            <div className={styles.allPostContainer}>
+              <Text markup="h2" variant="title1" color="white-a100">
+                {t("all_posts")}
               </Text>
-              <Icon name="arrow_right" title={t("learn_more")} className={styles.learnMoreIcon} />
-            </div> */}
-          </div>
-          <div className={styles.descriptionWrapper}>
-            <Text variant="body" markup="p" color="neutral-100">
-              {t.rich("description", {
-                NewsletterTrigger: (chunk) =>
-                  chunk && <NewsletterTrigger content={chunk.toString()} />,
-              })}
-            </Text>
-          </div>
-        </Grid>
-        {match(postsOption)
-          .with(Option.Some(P.select()), (posts) => (
-            <div className={styles.latestPostWrapper}>
-              <Text
-                variant="section-heading"
-                markup="h2"
-                color="white-a100"
-                className={styles.latestPostSectionHeading}
-              >
-                {t("latest_post")}
-                <Icon
-                  name="handwritten_underline"
-                  title={t("latest_post")}
-                  className={styles.handwrittenUnderline}
-                />
+              <Text markup="p" variant="body" className={styles.centeredText}>
+                {t("all_posts_subtitle")}
               </Text>
-              <Grid>
-                <LatestPost post={posts[0]} />
-              </Grid>
             </div>
-          ))
-          .otherwise(() => null)}
-        <div className={styles.allPostsWrapper}>
-          <Text
-            variant="section-heading"
-            markup="h2"
-            color="white-a100"
-            className={styles.allPostsSectionHeading}
-          >
-            {t("all_posts")}
-          </Text>
-          {match(postsOption)
-            .with(Option.Some(P.select(P.when((posts) => posts.length > 1))), (posts) => {
-              posts.shift();
-              const postsLength = posts.length;
-
-              return (
-                <ul className={styles.postsList}>
-                  {posts.map((post, index) => (
-                    <PostRow
-                      key={post.slug}
-                      post={post}
-                      isFirstIndex={index === 0}
-                      isLastIndex={index === postsLength - 1}
-                    />
+            <div className={styles.allPostDummy} />
+          </Grid>
+          <Grid>
+            <div className={styles.postsDummy} />
+            {match(postsOption)
+              .with(Option.Some(P.select()), (posts) => (
+                <ul className={styles.posts}>
+                  {posts.map((post) => (
+                    <li key={post.slug}>
+                      <Post post={post} />
+                    </li>
                   ))}
                 </ul>
-              );
-            })
-            .otherwise(() => (
-              <Text variant="body">{t("no_posts")}</Text>
-            ))}
-        </div>
-      </Container>
+              ))
+              .otherwise(() => (
+                <Text variant="body">{t("no_posts")}</Text>
+              ))}
+            <div className={styles.postsDummy} />
+          </Grid>
+        </Section>
+        <NewsletterSection />
+      </div>
       <script
         type="application/ld+json"
         suppressHydrationWarning

@@ -1,7 +1,7 @@
 "use client";
 
 import { cx } from "@/styles/mixins";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import {
   VisuallyHidden,
   mergeProps,

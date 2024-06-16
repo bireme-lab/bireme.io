@@ -1,36 +1,16 @@
-import { responsiveStyle } from "@/styles/mixins";
 import { vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-export const container = responsiveStyle({
-  mobile: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    gap: vars.sizes[20],
-  },
-  tablet: {
-    position: "sticky",
-    top: vars.sizes[28],
-  },
-});
-
-export const header = style({
+export const container = style({
   width: "100%",
-  padding: `${vars.sizes[16]} ${vars.sizes[20]}`,
-  border: `1px solid ${vars.color.neutral[700]}`,
-  borderRadius: vars.sizes[2],
   display: "flex",
-  alignItems: "center",
-  gap: vars.sizes[12],
-});
-
-export const icon = style({
-  width: vars.sizes[24],
-  height: vars.sizes[24],
-  minWidth: vars.sizes[24],
-  minHeight: vars.sizes[24],
+  flexDirection: "column",
+  gap: vars.sizes[20],
+  backgroundColor: vars.color.neutral[800],
+  padding: vars.sizes[36],
+  borderRadius: vars.sizes[8],
+  border: `1px solid ${vars.color.neutral[700]}`,
 });
 
 export const anchorList = style({

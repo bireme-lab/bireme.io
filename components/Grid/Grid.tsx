@@ -5,11 +5,12 @@ import * as styles from "./Grid.css";
 type Props = PropsWithChildren<{
   className?: string;
   style?: React.CSSProperties;
+  variant?: "body" | "header";
 }>;
 
-export const Grid: React.FC<Props> = ({ className, style, children }) => {
+export const Grid: React.FC<Props> = ({ className, style, children, variant = "body" }) => {
   return (
-    <div className={cx(styles.grid, className)} style={style}>
+    <div className={cx(styles.grid({ variant }), className)} style={style}>
       {children}
     </div>
   );

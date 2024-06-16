@@ -5,11 +5,12 @@ import * as styles from "./Container.css";
 type Props = PropsWithChildren<{
   className?: string;
   style?: React.CSSProperties;
+  variant?: "header" | "body";
 }>;
 
-export const Container: React.FC<Props> = ({ children, className, style }) => {
+export const Container: React.FC<Props> = ({ children, className, style, variant = "body" }) => {
   return (
-    <div className={cx(styles.container, className)} style={style}>
+    <div className={cx(styles.container({ variant }), className)} style={style}>
       {children}
     </div>
   );
