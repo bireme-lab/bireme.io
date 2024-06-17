@@ -18,6 +18,9 @@
       "homepage": "Home",
       "subscribe_to_newsletter": "Get an early access to our products by <NewsletterTrigger>subscribing to our newsletter</NewsletterTrigger>"
     },
+    "PricingOption": {
+      "price_tag": "$ / month"
+    },
     "Footer": {
       "homepage": "Home",
       "rss_feed": "RSS Feed",

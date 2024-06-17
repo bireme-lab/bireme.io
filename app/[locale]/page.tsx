@@ -1,12 +1,13 @@
 import { Grid } from "@/components/Grid/Grid";
 import { Icon } from "@/components/Icon/Icon";
 import { IconName } from "@/components/Icon/Icon.types";
+import { Image, ImageSrc } from "@/components/Image/Image";
 import { NewsletterSection } from "@/components/NewsletterSection/NewsletterSection";
 import { Post } from "@/components/Post/Post";
 import { Section } from "@/components/Section/Section";
 import { Text } from "@/components/Text/Text";
 import { Link } from "@/navigation";
-import { Locale } from "@/utils/i18n";
+import { Locale, Pathname } from "@/utils/i18n";
 import * as MDX from "@/utils/mdx";
 import { ORIGIN } from "@/utils/vars";
 import { Option } from "@swan-io/boxed";
@@ -18,15 +19,18 @@ import * as styles from "./page.css";
 type ProductCardProps = {
   icon: IconName;
   productName: string;
+  productImage: ImageSrc;
+  href: Pathname;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ icon, productName }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ icon, productName, productImage, href }) => {
   return (
-    <div className={styles.productCard}>
+    <Link href={href} className={styles.productCard}>
       <div className={styles.productCardName}>
         <Icon name={icon} title={productName} className={styles.productCardIcon} />
       </div>
-    </div>
+      <Image className={styles.productCardImage} src={productImage} fill={true} alt={productName} />
+    </Link>
   );
 };
 
@@ -76,8 +80,12 @@ const Hero: React.FC<HeroProps> = async ({ locale }) => {
       </Grid>
       <Grid className={styles.productCards}>
         <div className={styles.productCardDummy} />
-        <ProductCard icon="dedale" productName="Dédale" />
-        <ProductCard icon="hermes" productName="Hermes" />
+        <ProductCard
+          href="/dedale"
+          icon="dedale"
+          productName="Dédale"
+          productImage="/images/dedale.webp"
+        />
         <div className={styles.productCardDummy} />
       </Grid>
     </div>

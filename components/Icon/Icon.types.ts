@@ -29,5 +29,7 @@ export type IconName =
   | "resend"
   | "salesforce"
   | "sendgrid"
+  | "square_check_neutral"
+  | "square_check_primary"
   | "table_of_content"
   | "x";
