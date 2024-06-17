@@ -75,7 +75,7 @@ export const data = {
     name: "centralized.webp",
     extension: ".webp",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAHElEQVR4nGPgZmX//+zWLTDmYmD6zyAvLYMiAAA7FhLm6UHX5QAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAJElEQVR4nGOQlpD8/+zWLTDmYmD6zxAWEgrmnDl06L+pkdF/AEszFAf7yxHHAAAAAElFTkSuQmCC",
   },
   "/images/dedale.webp": {
     name: "dedale.webp",
