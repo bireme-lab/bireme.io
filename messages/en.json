@@ -47,7 +47,6 @@
       "recaptcha_error": "reCAPTCHA verification failed. Please try again",
       "server_error": "An error occurred while sending your data. Please try again later.",
       "subscribe": "Subscribe to the newsletter",
-      "required_fields": "<asterisk>*</asterisk> are required fields",
       "disclaimer": "By completing and sending your data, you agree to our <privacy>privacy policy</privacy>. All data is kept confidential.",
       "google_disclaimer": "This site is protected by reCAPTCHA and the Google <privacy>privacy policy</privacy> and <terms>terms of service</terms> apply.",
       "email_sent": "You will receive a confirmation email shortly",
