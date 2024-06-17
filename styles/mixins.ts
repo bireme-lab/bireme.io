@@ -68,7 +68,14 @@ export function isResponsiveValue<T>(tested: ResponsiveValue<T> | T): tested is 
 }
 
 export function columnCount(count: number): StyleRule {
+  if (count === 0) {
+    return {
+      display: "none",
+    };
+  }
+
   return {
+    display: "flex",
     gridColumn: `span ${count}`,
   };
 }

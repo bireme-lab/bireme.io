@@ -71,6 +71,18 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAP0lEQVR4nAE0AMv/AP/8+NfKxebWz6OXlADx392wm5vQu7nWyMcAi4WKjYGGe3F1nZSXAGFgZwoEEExLUaelrH0SHWyL7iq4AAAAAElFTkSuQmCC",
   },
+  "/images/centralized.webp": {
+    name: "centralized.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAHElEQVR4nGPgZmX//+zWLTDmYmD6zyAvLYMiAAA7FhLm6UHX5QAAAABJRU5ErkJggg==",
+  },
+  "/images/dedale.webp": {
+    name: "dedale.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAKUlEQVR4nGPQVFf5f//Ivv8ges6E9v8MlZmp/3k4WP7///T4v5SUxH8AIwgRdGEqQp0AAAAASUVORK5CYII=",
+  },
   "/images/devant-ecrans.webp": {
     name: "devant-ecrans.webp",
     extension: ".webp",
@@ -88,6 +100,12 @@ export const data = {
     extension: ".png",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQUlEQVR4nGMQEhT8z8XN/Z+Lm+e/gIDAfwYeHp7/f74+///iwbn/IDYDSPb3l/v/X9w/DlbJICIi8p+NjR2MQVoAu2kcejQ2s/MAAAAASUVORK5CYII=",
+  },
+  "/images/logos.webp": {
+    name: "logos.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAALUlEQVR4nGNgQAf79+/nXbp0qdD+/ftF9+/fzw8S4H716pXg0qVLBX78+CEKAD5DEv2NX36SAAAAAElFTkSuQmCC",
   },
   "/images/mai-recap-can-i-email.webp": {
     name: "mai-recap-can-i-email.webp",
@@ -196,6 +214,12 @@ export const data = {
     extension: ".png",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKUlEQVR4nGNQV1P7P3/u7P+LF8z///vzm/8MsrKy/0uKiv57e3v9B7EBPvIR5RLUP/oAAAAASUVORK5CYII=",
+  },
+  "/images/optimized-environment.webp": {
+    name: "optimized-environment.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAKElEQVR4nGNgZmb+b21t/f/Zg1v/DQwM/jM8f/7sv7uL6/+YwECwAAAUqRD1PNLmAgAAAABJRU5ErkJggg==",
   },
   "/images/product-image.webp": {
     name: "product-image.webp",

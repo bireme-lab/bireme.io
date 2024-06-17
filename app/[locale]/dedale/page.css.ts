@@ -47,7 +47,7 @@ export const heroImage = style({
 });
 
 export const titleDummy = responsiveStyle({
-  mobile: columnCount(0),
+  mobile: columnCount(1),
   tablet: columnCount(1),
   desktop: columnCount(2),
 });
@@ -78,7 +78,7 @@ export const titleSpan = style({
 });
 
 export const descriptionDummy = responsiveStyle({
-  mobile: columnCount(0),
+  mobile: columnCount(1),
   tablet: columnCount(1),
   desktop: columnCount(3),
 });
@@ -124,7 +124,7 @@ export const container = style({
 });
 
 export const waitingListDummy = responsiveStyle({
-  mobile: columnCount(0),
+  mobile: columnCount(1),
   tablet: columnCount(1),
   desktop: columnCount(3),
 });
@@ -244,7 +244,7 @@ export const sectionTitleWrapper = responsiveStyle({
 });
 
 export const sectionTitleDummy = responsiveStyle({
-  mobile: columnCount(0),
+  mobile: columnCount(1),
   tablet: columnCount(1),
   desktop: columnCount(3),
 });
@@ -271,7 +271,7 @@ export const reactEmailScreenshotWrapper = responsiveStyle({
 });
 
 export const reactEmailScreenshotDummy = responsiveStyle({
-  mobile: columnCount(0),
+  mobile: columnCount(1),
   tablet: columnCount(1),
   desktop: columnCount(1),
 });
@@ -333,4 +333,62 @@ export const faqDummy = responsiveStyle({
   mobile: columnCount(0),
   tablet: columnCount(0),
   desktop: columnCount(2),
+});
+
+export const bentoCardFeature1 = responsiveStyle({
+  mobile: columnCount(2),
+  tablet: columnCount(3),
+  desktop: columnCount(8),
+});
+
+export const bentoCardFeature2 = responsiveStyle({
+  mobile: columnCount(2),
+  tablet: columnCount(3),
+  desktop: columnCount(4),
+});
+
+export const bentoCardFeature3 = responsiveStyle({
+  mobile: columnCount(2),
+  tablet: columnCount(3),
+  desktop: columnCount(4),
+});
+
+export const bentoCardFeature4 = responsiveStyle({
+  mobile: columnCount(2),
+  tablet: columnCount(3),
+  desktop: columnCount(8),
+});
+
+export const pricingDummy = responsiveStyle({
+  mobile: columnCount(0),
+  tablet: columnCount(0),
+  desktop: columnCount(3),
+});
+
+export const pricingOption = responsiveStyle({
+  mobile: columnCount(2),
+  tablet: columnCount(3),
+  desktop: columnCount(3),
+});
+
+export const pricingDisclaimerDummy = responsiveStyle({
+  mobile: columnCount(2),
+  tablet: columnCount(1),
+  desktop: columnCount(3),
+});
+
+export const pricingDisclaimerContainer = responsiveStyle({
+  mobile: [
+    columnCount(2),
+    {
+      display: "flex",
+      flexDirection: "column",
+    },
+  ],
+  tablet: columnCount(4),
+  desktop: columnCount(6),
+});
+
+export const pricingDisclaimer = style({
+  textAlign: "center",
 });

@@ -154,7 +154,7 @@ export const productCards = responsiveStyle({
 export const productCardDummy = responsiveStyle({
   mobile: columnCount(0),
   tablet: columnCount(2),
-  desktop: columnCount(3),
+  desktop: columnCount(4),
 });
 
 export const productCard = responsiveStyle({
@@ -178,7 +178,7 @@ export const productCard = responsiveStyle({
     },
   ],
   desktop: [
-    columnCount(3),
+    columnCount(4),
     {
       transform: "translateY(40px)",
       transition: `transform ${transitionDuration}ms ease-out`,
@@ -191,6 +191,7 @@ export const productCard = responsiveStyle({
 });
 
 export const productCardName = style({
+  zIndex: 3,
   position: "absolute",
   top: 0,
   left: 0,
@@ -205,6 +206,13 @@ export const productCardIcon = style({
   height: "20px",
   minHeight: "20px",
   width: "80px",
+});
+
+export const productCardImage = style({
+  height: "100%",
+  width: "100%",
+  objectFit: "cover",
+  borderRadius: vars.sizes[8],
 });
 
 // Home

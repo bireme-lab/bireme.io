@@ -18,6 +18,9 @@
       "homepage": "Accueil",
       "subscribe_to_newsletter": "Obtenez un accès anticipé à nos produits en vous <NewsletterTrigger>abonnant à notre newsletter</NewsletterTrigger>"
     },
+    "PricingOption": {
+      "price_tag": "€ / mois"
+    },
     "Footer": {
       "homepage": "Accueil",
       "rss_feed": "Flux RSS",
@@ -102,6 +105,14 @@
       "integrate_to_tooltip": "Les outils présentés servent d'exemple, tout service compatible avec le standard HTML peut être utilisé",
       "features_title": "Tout ce qu'il vous faut pour faire des modèles d'e-mails performants",
       "features_description": "L’outil idéal pour vous aider à construire une communication par e-mail avec une image de marque cohérente, tout en y consacrant le moins de temps possible",
+      "feature_1_title": "Centraliser les modèles d'e-mails",
+      "feature_1_description": "See issues and learn how to solve them in seconds. With the help of AI Assistant.",
+      "feature_2_title": "Options de pré-visualisation",
+      "feature_2_description": "See issues and learn how to solve them in seconds. With the help of AI Assistant.",
+      "feature_3_title": "Intégration facile et rapide",
+      "feature_3_description": "See issues and learn how to solve them in seconds. With the help of AI Assistant.",
+      "feature_4_title": "Environnement optimisé pour les développeurs",
+      "feature_4_description": "See issues and learn how to solve them in seconds. With the help of AI Assistant.",
       "usage_title": "Un outil pour tous les cas d’usages",
       "usage_description": "Voici trois exemples de cas d’usages pour lesquels un modèle d’e-mail peut s’avérer utile",
       "usage_emailing_title": "E-mailing",
@@ -126,7 +137,20 @@
       "faq_question_4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "faq_answer_4": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
       "faq_question_5": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "faq_answer_5": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API."
+      "faq_answer_5": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
+      "pricing_option_title_1": "Gratuit",
+      "pricing_option_description_1": "Accès à la plupart des fonctionnalités avec limitations",
+      "pricing_option_perk_1_1": "Jusqu’à 1 modèle",
+      "pricing_option_perk_1_2": "Stockage sur navigateur*",
+      "pricing_option_perk_1_3": "Fonctionnalités basiques",
+      "pricing_option_title_2": "Sur inscription",
+      "pricing_option_description_2": "Toutes les fonctionnalités disponibles sans limitations",
+      "pricing_option_perk_2_1": "Pas de limite de modèles",
+      "pricing_option_perk_2_2": "Stockage sur nos serveurs",
+      "pricing_option_perk_2_3": "Fonctionnalités avancées",
+      "ready_to_test_title": "Prêt à tester Dédale ?",
+      "ready_to_test_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team.",
+      "pricing_disclaimer": "* Les modèles sont stockés localement dans le navigateur, ils peuvent être perdus si les donnnées de navigation sont effacées"
     },
     "PostPage": {
       "breadcrumb": {
