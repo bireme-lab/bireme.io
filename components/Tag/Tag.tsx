@@ -1,5 +1,5 @@
 import { cx } from "@/styles/mixins";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { Icon } from "../Icon/Icon";
 import { IconName } from "../Icon/Icon.types";
 import { Text } from "../Text/Text";

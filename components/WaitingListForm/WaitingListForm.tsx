@@ -151,6 +151,8 @@ const WaitingListForm: React.FC<Props> = ({ className, style, autofocus = false,
         <Field name="email">
           {({ value, error, onChange, onBlur }) => (
             <Input
+              hideLabel={true}
+              label={t("email.label")}
               autoFocus={autofocus}
               value={value}
               placeholder={t("email.placeholder")}

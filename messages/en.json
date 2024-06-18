@@ -55,6 +55,7 @@
     },
     "WaitingListForm": {
       "email": {
+        "label": "Mail address",
         "placeholder": "alan.turing@gmail.com",
         "empty": "Email field is required",
         "invalid": "Please enter a valid email address"
@@ -109,6 +110,8 @@
       "react_email_title": "Develop e-mails with React",
       "react_email_description": "Dédale has been designed with the very latest in email development. We've integrated React Email in an optimized environment with a better preview system.",
       "react_email_explore_docs": "Explore React Email documentation",
+      "react_email_tab1": "Develop with React Email",
+      "react_email_tab2": "Add and preview with variables",
       "pricing_title": "A free service available with or without registration",
       "pricing_description": "Plain puts all your customer conversations from Slack, email and forms into a single, lightning-fast interface and makes it easy to work with your team. Integrated with the tools you already use, and backed by our powerful API.",
       "faq_title": "Frequently asked questions",
