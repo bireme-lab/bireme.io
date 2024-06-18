@@ -28,7 +28,7 @@ tldr: "TODO"
 
 ### Les tâches tech accomplies durant le mois
 
-- Mise en place de l'authentification sur Dedale
+- Mise en place de l'authentification sur Dédale
 - Stockage des modèles d'email sur le serveur
 - Mise en place du déploiement continue
 - Traduction de nos applications en anglais
@@ -39,7 +39,30 @@ tldr: "TODO"
 
 ### Focus sur : Le workflow d'authentification de nos applications
 
+Dans notre premier récapitulatif au mois de Mars, nous vous présentions **Heimdall**, notre application responsable de la gestion des utilisateurs et socle commun pour nos futures applications.  
+Pour rappel Heimdall contient les fonctionnalité suivante:
+- authentification des utilisateurs
+- gestion des membres
+- gestion des équipes
+- gestion des souscriptions aux futures abonnements disponible
+
+Et tout ça est accessible à la fois:
+- avec une interface graphique pour que les utilisateurs puissent facilement gérer les membres de leur équipe avec leurs authorisations
+- avec une API GraphQL permettant à nos applications de vérifier si l'utilisateur est bien connecté et quelles sont les fonctionnalités disponibles pour lui
+
+#### Fonctionnement l'authentification sur Dédale
+
+L'application Dédale est accessible à l'addresse [dedale.bireme.io](https://dedale.bireme.io).  
+Lorsqu'un utilisateur veut créer un compte ou se connecter, il est redirigé vers [heimdall.bireme.io/signin?from_app=dedale&redirect_to=https://dedale.bireme.io](https://heimdall.bireme.io/signin?from_app=dedale&redirect_to=https%3A%2F%2Fdedale.bireme.io%2F).  
+
+- Le suffix `?from_app=dedale` (appelé aussi query param dans le jargon technique) nous permet d'afficher une page de connexion personalisée.
+- Et `redirect_to=https://dedale.bireme.io` permet d'automatiquement rediriger l'utilisateur vers Dédale une fois qu'il s'est connecté.
+
+> Grâce à ces paramètres dans l'url, nous pourrons facilement créer des variantes de l'interface de connexion pour chacune de nos applications sans devoir la re-coder entièrement.
+
+Une fois que l'utilisateur est connecté, on enregistre un cookie<sup>1</sup> contenant un token d'authentification unique permettant d'authentifier toutes les requêtes faite au serveur en charge du stockage des templates.
+
 
 ---
 
-<sup>-</sup> : TODO
+<sup>1</sup> : Un cookie est un petit morceau de données envoyé par un site web et sauvegardé dans le navigateur de l'utilisateur. Il permet au site de se souvenir d'informations comme les préférences de langue ou les informations de connexion.
