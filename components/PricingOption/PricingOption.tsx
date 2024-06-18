@@ -1,7 +1,6 @@
 import { cx } from "@/styles/mixins";
 import { Locale } from "@/utils/i18n";
 import { getTranslations } from "next-intl/server";
-import { match } from "ts-pattern";
 import { Icon } from "../Icon/Icon";
 import { Text } from "../Text/Text";
 import * as styles from "./PricingOption.css";
@@ -49,13 +48,9 @@ export const PricingOption: React.FC<Props> = async ({
       <ul className={styles.perks}>
         {perks.map((perk) => (
           <li key={perk} className={styles.perk}>
-            <Icon
-              className={styles.perkIcon}
-              name={match(variant)
-                .with("primary", () => "square_check_primary" as const)
-                .with("neutral", () => "square_check_neutral" as const)
-                .exhaustive()}
-            />
+            <div className={styles.perkIconContainer({ variant })}>
+              <Icon className={styles.perkIcon} name="check" />
+            </div>
             <Text variant="body" color="inherit" className={styles.perkTitle({ variant })}>
               {perk}
             </Text>

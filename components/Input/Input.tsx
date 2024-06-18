@@ -9,6 +9,7 @@ import * as styles from "./Input.css";
 type Props = Omit<AriaTextFieldOptions<"input">, "type" | "inputElementType"> & {
   label?: string;
   hideError?: boolean;
+  hideLabel?: boolean;
   description?: string;
   className?: string;
   style?: CSSProperties;
@@ -35,7 +36,7 @@ export const Input: React.FC<Props> = (props) => {
 
   return (
     <div className={cx(styles.container, props.className)} style={props.style} {...hoverProps}>
-      {isNotNullish(props.label) && isNotEmpty(props.label) && (
+      {!props.hideLabel && isNotNullish(props.label) && isNotEmpty(props.label) && (
         <Text markup="label" variant="body" {...labelProps} color="neutral-50">
           {props.label}
           {props.isRequired && <span className={styles.requiredMarker}>&nbsp;*</span>}
