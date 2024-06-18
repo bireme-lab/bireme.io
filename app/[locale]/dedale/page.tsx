@@ -5,13 +5,13 @@ import { Image } from "@/components/Image/Image";
 import { IntegrationTooltip } from "@/components/IntegrationsTooltip/IntegrationTooltip";
 import { PricingOption } from "@/components/PricingOption/PricingOption";
 import { Question } from "@/components/Question/Question";
+import { ReactEmailSection } from "@/components/ReactEmailSection/ReactEmailSection";
 import { Section } from "@/components/Section/Section";
 import { Text } from "@/components/Text/Text";
 import { Usage } from "@/components/Usage/Usage";
 import WaitingListForm from "@/components/WaitingListForm/WaitingListForm";
 import { Locale } from "@/utils/i18n";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import Link from "next/link";
 import * as styles from "./page.css";
 
 type HeroProps = {
@@ -171,45 +171,7 @@ const Dedale = async ({
             />
           </Grid>
         </Section>
-        <Section>
-          <Grid>
-            <div className={styles.sectionTitleDummy} />
-            <div className={styles.sectionTitleWrapper}>
-              <Text markup="h2" variant="title1" color="white-a100" className={styles.centeredText}>
-                {t("react_email_title")}
-              </Text>
-              <Text markup="p" variant="body" className={styles.centeredText}>
-                {t("react_email_description")}
-              </Text>
-              <Link
-                href="https://react.email/docs"
-                target="_blank"
-                rel="noopener noreferrer"
-                title={t("react_email_explore_docs")}
-                className={styles.reactEmailLink}
-              >
-                <Text variant="body-flat" color="primary-500" className={styles.reactEmailLinkText}>
-                  {t("react_email_explore_docs")}
-                  <Icon name="new_tab" className={styles.reactEmailLinkIcon} />
-                </Text>
-              </Link>
-            </div>
-            <div className={styles.sectionTitleDummy} />
-          </Grid>
-          <Grid>
-            <div className={styles.reactEmailScreenshotDummy} />
-            <div className={styles.reactEmailScreenshotWrapper}>
-              <Image
-                src="/images/react-email.webp"
-                alt={t("react_email_title")}
-                title={t("react_email_title")}
-                fill={true}
-                className={styles.reactEmailScreenshot}
-              />
-            </div>
-            <div className={styles.reactEmailScreenshotDummy} />
-          </Grid>
-        </Section>
+        <ReactEmailSection />
         <Section>
           <Grid>
             <div className={styles.sectionTitleDummy} />

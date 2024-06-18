@@ -10,6 +10,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
+    "target": "ESNext",
     "strict": true,
     "noEmit": true,
     "module": "ESNext",

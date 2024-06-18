@@ -100,11 +100,35 @@ export const perk = style({
   gap: vars.sizes[12],
 });
 
+export const perkIconContainer = recipe({
+  base: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: vars.sizes[24],
+    height: vars.sizes[24],
+    borderRadius: vars.sizes[4],
+  },
+  variants: {
+    variant: {
+      primary: {
+        border: `1px solid ${vars.color.primary[700]}`,
+        backgroundColor: vars.color.primary[900],
+      },
+      neutral: {
+        border: `1px solid ${vars.color.neutral[700]}`,
+        backgroundColor: vars.color.neutral[900],
+      },
+    },
+  },
+});
+
 export const perkIcon = style({
-  width: vars.sizes[24],
-  height: vars.sizes[24],
-  minWidth: vars.sizes[24],
-  minHeight: vars.sizes[24],
+  width: vars.sizes[16],
+  height: vars.sizes[16],
+  minWidth: vars.sizes[16],
+  minHeight: vars.sizes[16],
+  color: vars.color.primary[500],
 });
 
 export const perkTitle = recipe({
