@@ -39,7 +39,7 @@ export const Question: React.FC<Props> = ({ question, answer }) => {
         </Text>
       </button>
       <div className={styles.answer({ isOpened: isSelected })}>
-        <Text markup="p" variant="small">
+        <Text markup="p" variant="body">
           {answer}
         </Text>
       </div>

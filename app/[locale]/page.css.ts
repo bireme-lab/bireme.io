@@ -11,9 +11,7 @@ export const hero = responsiveStyle({
     flexDirection: "column",
     justifyContent: "center",
     gap: vars.sizes[36],
-    paddingTop: vars.sizes[36],
-    paddingLeft: vars.sizes[24],
-    paddingRight: vars.sizes[24],
+    padding: `${vars.sizes[36]} ${vars.sizes[24]}`,
     borderBottom: `1px solid ${vars.color.neutral[700]}`,
     overflow: "hidden",
   },
@@ -77,9 +75,16 @@ export const heroGrid = responsiveStyle({
   },
 });
 
+export const heroContent = style({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  gap: vars.sizes[24],
+});
+
 export const titleDummy = responsiveStyle({
   mobile: columnCount(0),
-  tablet: columnCount(0),
+  tablet: columnCount(1),
   desktop: columnCount(2),
 });
 
@@ -92,7 +97,7 @@ export const titleWrapper = responsiveStyle({
       gap: vars.sizes[8],
     },
   ],
-  tablet: columnCount(4),
+  tablet: columnCount(6),
   desktop: columnCount(8),
 });
 
@@ -127,14 +132,14 @@ export const titleSpan = style({
 
 export const descriptionDummy = responsiveStyle({
   mobile: columnCount(0),
-  tablet: columnCount(0),
-  desktop: columnCount(3),
+  tablet: columnCount(1),
+  desktop: columnCount(4),
 });
 
 export const descriptionWrapper = responsiveStyle({
   mobile: columnCount(2),
-  tablet: columnCount(2),
-  desktop: columnCount(6),
+  tablet: columnCount(4),
+  desktop: columnCount(4),
 });
 
 export const description = style({
@@ -162,57 +167,71 @@ export const productCard = responsiveStyle({
     columnCount(2),
     {
       position: "relative",
-      height: "160px",
-      backgroundColor: vars.color.neutral[800],
-      border: `1px solid ${vars.color.neutral[700]}`,
+      display: "flex",
+      flexDirection: "column",
+      gap: vars.sizes[24],
       borderRadius: vars.sizes[8],
-    },
-  ],
-  tablet: [
-    columnCount(2),
-    {
-      borderBottomRightRadius: 0,
-      borderBottomLeftRadius: 0,
-      borderTopLeftRadius: vars.sizes[8],
-      borderTopRightRadius: vars.sizes[8],
-    },
-  ],
-  desktop: [
-    columnCount(4),
-    {
-      transform: "translateY(40px)",
-      transition: `transform ${transitionDuration}ms ease-out`,
+      border: `1px solid ${vars.color.neutral[700]}`,
+      transition: `all ${transitionDuration}ms ease-out`,
+      width: "100%",
+      aspectRatio: "16 / 9",
+      overflow: "hidden",
 
       ":hover": {
-        transform: "translateY(30px)",
+        border: `1px solid ${vars.color.neutral[500]}`,
+      },
+
+      ":focus-visible": {
+        outline: "none",
+        border: `1px solid ${vars.color.primary[500]}`,
       },
     },
   ],
-});
-
-export const productCardName = style({
-  zIndex: 3,
-  position: "absolute",
-  top: 0,
-  left: 0,
-  transform: `translate(${vars.sizes[12]}, -50%)`,
-  borderRadius: vars.sizes[4],
-  padding: `${vars.sizes[12]} ${vars.sizes[16]}`,
-  backgroundColor: vars.color.neutral[800],
-  border: `1px solid ${vars.color.neutral[700]}`,
+  tablet: columnCount(2),
+  desktop: columnCount(4),
 });
 
 export const productCardIcon = style({
-  height: "20px",
-  minHeight: "20px",
-  width: "80px",
+  height: vars.sizes[20],
+  minHeight: vars.sizes[20],
+  width: vars.sizes[80],
+  minWidth: vars.sizes[80],
+});
+
+export const productCardDescription = responsiveStyle({
+  mobile: {
+    zIndex: 3,
+    position: "absolute",
+    bottom: 0,
+    height: "100%",
+    width: "100%",
+    top: 0,
+    display: "flex",
+    alignItems: "flex-end",
+    padding: vars.sizes[12],
+    background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.90) 100%)",
+  },
+  tablet: {},
+  desktop: {},
 });
 
 export const productCardImage = style({
-  height: "100%",
   width: "100%",
+  height: "100%",
   objectFit: "cover",
-  borderRadius: vars.sizes[8],
+  transition: `all ${transitionDuration}ms ease-out`,
+  objectPosition: "center",
+});
+
+export const productCardName = style({
+  zIndex: 5,
+  position: "absolute",
+  top: vars.sizes[12],
+  left: vars.sizes[12],
+  background: vars.color.neutral[800],
+  borderRadius: vars.sizes[4],
+  padding: `${vars.sizes[8]} ${vars.sizes[12]}`,
+  border: `1px solid ${vars.color.neutral[700]}`,
 });
 
 // Home

@@ -16,7 +16,7 @@ export const container = recipe({
   variants: {
     isHovered: {
       true: {
-        backgroundColor: vars.color.neutral[700],
+        borderColor: vars.color.neutral[500],
       },
       false: {},
     },

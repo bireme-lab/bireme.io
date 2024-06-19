@@ -8,7 +8,6 @@ import { Question } from "@/components/Question/Question";
 import { ReactEmailSection } from "@/components/ReactEmailSection/ReactEmailSection";
 import { Section } from "@/components/Section/Section";
 import { Text } from "@/components/Text/Text";
-import { Usage } from "@/components/Usage/Usage";
 import WaitingListForm from "@/components/WaitingListForm/WaitingListForm";
 import { Locale } from "@/utils/i18n";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
@@ -112,14 +111,14 @@ const Dedale = async ({
               title={t("feature_1_title")}
               description={t("feature_1_description")}
               className={styles.bentoCardFeature1}
-              illustration="/images/centralized.webp"
+              illustration="/images/editor.webp"
             />
             <BentoCard
               variant="contained"
               title={t("feature_2_title")}
               description={t("feature_2_description")}
               className={styles.bentoCardFeature2}
-              illustration="/images/product-image.webp"
+              illustration="/images/variables-panel.webp"
             />
             <BentoCard
               variant="covered"
@@ -133,41 +132,7 @@ const Dedale = async ({
               title={t("feature_4_title")}
               description={t("feature_4_description")}
               className={styles.bentoCardFeature4}
-              illustration="/images/optimized-environment.webp"
-            />
-          </Grid>
-        </Section>
-        <Section>
-          <Grid>
-            <div className={styles.sectionTitleDummy} />
-            <div className={styles.sectionTitleWrapper}>
-              <Text markup="h2" variant="title1" color="white-a100" className={styles.centeredText}>
-                {t("usage_title")}
-              </Text>
-              <Text markup="p" variant="body" className={styles.centeredText}>
-                {t("usage_description")}
-              </Text>
-            </div>
-            <div className={styles.sectionTitleDummy} />
-          </Grid>
-          <Grid>
-            <Usage
-              href="#"
-              className={styles.usageBlock}
-              title={t("usage_emailing_title")}
-              description={t("usage_emailing_description")}
-            />
-            <Usage
-              href="#"
-              className={styles.usageBlock}
-              title={t("usage_transactional_title")}
-              description={t("usage_transactional_description")}
-            />
-            <Usage
-              href="#"
-              className={styles.usageBlock}
-              title={t("usage_retargeting_title")}
-              description={t("usage_retargeting_description")}
+              illustration="/images/centralized.webp"
             />
           </Grid>
         </Section>
@@ -220,6 +185,9 @@ const Dedale = async ({
             <div className={styles.pricingDisclaimerContainer}>
               <Text variant="small" className={styles.pricingDisclaimer}>
                 {t("pricing_disclaimer")}
+              </Text>
+              <Text variant="small" className={styles.pricingDisclaimer}>
+                {t("pricing_wip")}
               </Text>
             </div>
             <div className={styles.pricingDisclaimerDummy} />
