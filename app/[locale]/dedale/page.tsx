@@ -133,6 +133,74 @@ const Dedale = async ({
               description={t("feature_4_description")}
               className={styles.bentoCardFeature4}
               illustration="/images/centralized.webp"
+              illustrationOverlay={
+                <>
+                  <Text
+                    className={styles.illustrationFileName}
+                    style={{ transform: "translate(-300px, -80px)", filter: "blur(2px)" }}
+                    variant="code"
+                    color="white-a100"
+                  >
+                    product-launch-campaign.tsx
+                  </Text>
+                  <Text
+                    className={styles.illustrationFileName}
+                    style={{ transform: "translate(-40px, -75px)" }}
+                    variant="code"
+                    color="white-a100"
+                  >
+                    newsletter-2024.tsx
+                  </Text>
+                  <Text
+                    className={styles.illustrationFileName}
+                    style={{ transform: "translate(-250px, 10px)" }}
+                    variant="code"
+                    color="white-a100"
+                  >
+                    reset-password.tsx
+                  </Text>
+                  <Text
+                    className={styles.illustrationFileName}
+                    style={{ transform: "translate(120px, -10px)" }}
+                    variant="code"
+                    color="white-a100"
+                  >
+                    magic-link.tsx
+                  </Text>
+                  <Text
+                    className={styles.illustrationFileName}
+                    style={{ transform: "translate(100px, 50px)", filter: "blur(1px)" }}
+                    variant="code"
+                    color="white-a100"
+                  >
+                    welcome.tsx
+                  </Text>
+                  <Text
+                    className={styles.illustrationFileName}
+                    style={{ transform: "translate(-300px, 90px)", filter: "blur(1px)" }}
+                    variant="code"
+                    color="white-a100"
+                  >
+                    user-invite.tsx
+                  </Text>
+                  <Text
+                    className={styles.illustrationFileName}
+                    style={{ transform: "translate(-50%, 100px)" }}
+                    variant="code"
+                    color="white-a100"
+                  >
+                    cart-is-waiting-you.tsx
+                  </Text>
+                  <Text
+                    className={styles.illustrationFileName}
+                    style={{ transform: "translate(130px, 120px)", filter: "blur(1.3px)" }}
+                    variant="code"
+                    color="white-a100"
+                  >
+                    newsletter-2024.tsx
+                  </Text>
+                </>
+              }
             />
           </Grid>
         </Section>
