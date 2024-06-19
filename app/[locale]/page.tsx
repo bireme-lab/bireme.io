@@ -18,18 +18,32 @@ import * as styles from "./page.css";
 
 type ProductCardProps = {
   icon: IconName;
-  productName: string;
-  productImage: ImageSrc;
+  name: string;
+  image: ImageSrc;
   href: Pathname;
+  description: string;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ icon, productName, productImage, href }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ icon, name, image, href, description }) => {
   return (
     <Link href={href} className={styles.productCard}>
       <div className={styles.productCardName}>
-        <Icon name={icon} title={productName} className={styles.productCardIcon} />
+        <Icon name={icon} title={name} className={styles.productCardIcon} />
       </div>
-      <Image className={styles.productCardImage} src={productImage} fill={true} alt={productName} />
+      <Image
+        src={image}
+        alt={description}
+        title={name}
+        className={styles.productCardImage}
+        width={960}
+        height={540}
+        sizes="(min-width: 768px) 960px, 540px"
+      />
+      <div className={styles.productCardDescription}>
+        <Text variant="small" color="white-a100">
+          {description}
+        </Text>
+      </div>
     </Link>
   );
 };
@@ -62,29 +76,34 @@ const Hero: React.FC<HeroProps> = async ({ locale }) => {
           {t("news_banner")}
         </Text>
       </Link>
-      <Grid className={styles.heroGrid}>
-        <div className={styles.titleDummy} />
-        <div className={styles.titleWrapper}>
-          <Text variant="gradientTitle" markup="h1" className={styles.title}>
-            <span className={styles.titleSpan}>{t("title")}</span>
-          </Text>
-        </div>
-        <div className={styles.titleDummy} />
-        <div className={styles.descriptionDummy} />
-        <div className={styles.descriptionWrapper}>
-          <Text variant="body" markup="p" color="neutral-100" className={styles.description}>
-            {t("description")}
-          </Text>
-        </div>
-        <div className={styles.descriptionDummy} />
-      </Grid>
+      <div className={styles.heroContent}>
+        <Grid className={styles.heroGrid}>
+          <div className={styles.titleDummy} />
+          <div className={styles.titleWrapper}>
+            <Text variant="gradientTitle" markup="h1" className={styles.title}>
+              <span className={styles.titleSpan}>{t("title")}</span>
+            </Text>
+          </div>
+          <div className={styles.titleDummy} />
+        </Grid>
+        <Grid>
+          <div className={styles.descriptionDummy} />
+          <div className={styles.descriptionWrapper}>
+            <Text variant="body" markup="p" color="neutral-100" className={styles.description}>
+              {t("description")}
+            </Text>
+          </div>
+          <div className={styles.descriptionDummy} />
+        </Grid>
+      </div>
       <Grid className={styles.productCards}>
         <div className={styles.productCardDummy} />
         <ProductCard
           href="/dedale"
           icon="dedale"
-          productName="Dédale"
-          productImage="/images/dedale.webp"
+          name="Dédale"
+          image="/images/dedale-product.webp"
+          description={t("dedale_description")}
         />
         <div className={styles.productCardDummy} />
       </Grid>
@@ -141,7 +160,7 @@ const Home = async ({
             <div className={styles.postsDummy} />
           </Grid>
         </Section>
-        <NewsletterSection />
+        <NewsletterSection displayBorderBottom={true} />
       </div>
       <script
         type="application/ld+json"

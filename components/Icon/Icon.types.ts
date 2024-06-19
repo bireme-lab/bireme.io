@@ -6,6 +6,7 @@ export type IconName =
   | "caret_right"
   | "check"
   | "clerk"
+  | "code"
   | "copy"
   | "cross"
   | "dedale"
@@ -32,4 +33,5 @@ export type IconName =
   | "square_check_neutral"
   | "square_check_primary"
   | "table_of_content"
+  | "variables"
   | "x";

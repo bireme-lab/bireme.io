@@ -17,8 +17,10 @@ import {
 } from "react-aria";
 import { useInView } from "react-intersection-observer";
 import { Item, TabListState, useTabListState } from "react-stately";
+import { match } from "ts-pattern";
 import { Grid } from "../Grid/Grid";
 import { Icon } from "../Icon/Icon";
+import { IconName } from "../Icon/Icon.types";
 import { Section } from "../Section/Section";
 import { Text } from "../Text/Text";
 import * as styles from "./ReactEmailSection.css";
@@ -26,8 +28,9 @@ import * as styles from "./ReactEmailSection.css";
 const Tab: React.FC<{
   item: Node<AriaTabProps>;
   state: TabListState<AriaTabProps>;
+  icon: IconName;
   orientation?: Orientation;
-}> = ({ item, state }) => {
+}> = ({ item, state, icon }) => {
   const { key, rendered } = item;
   const ref = React.useRef(null);
   const { tabProps } = useTab({ key }, state, ref);
@@ -45,7 +48,7 @@ const Tab: React.FC<{
       })}
     >
       <div className={styles.tabIconContainer}>
-        <Icon name="check" className={styles.tabIcon} />
+        <Icon name={icon} className={styles.tabIcon} />
       </div>
       <Text variant="body" color="white-a100">
         {rendered}
@@ -86,7 +89,7 @@ const TabPanel: React.FC<AriaTabPanelProps & { state: TabListState<AriaTabProps>
     <div {...tabPanelProps} ref={ref} className={styles.videoContainer}>
       <video
         ref={videoRef}
-        poster="/videos/poster.webp"
+        poster={`/videos/${state.selectedItem.key}-poster.webp`}
         muted={true}
         className={styles.video}
         loop={true}
@@ -111,7 +114,15 @@ export const Tabs: React.FC<AriaTabListProps<AriaTabProps>> = (props) => {
         <Grid>
           <div className={styles.tabsDummy} />
           {[...state.collection].map((item) => (
-            <Tab key={item.key} item={item} state={state} />
+            <Tab
+              key={item.key}
+              item={item}
+              state={state}
+              icon={match(item.key)
+                .with("develop", () => "code" as const)
+                .with("variables", () => "variables" as const)
+                .otherwise(() => "check" as const)}
+            />
           ))}
           <div className={styles.tabsDummy} />
         </Grid>
@@ -125,7 +136,7 @@ Tabs.displayName = "Tabs";
 
 export const ReactEmailSection: React.FC = () => {
   const t = useTranslations("pages.Dedale");
-  const firstItemKey = "video";
+  const firstItemKey = "develop";
 
   return (
     <Section>
@@ -157,7 +168,7 @@ export const ReactEmailSection: React.FC = () => {
         <Item key={firstItemKey} title={t("react_email_tab1")}>
           <Text variant="body">{t("react_email_tab1")}</Text>
         </Item>
-        <Item key="video2" title={t("react_email_tab2")}>
+        <Item key="variables" title={t("react_email_tab2")}>
           <Text variant="body">{t("react_email_tab2")}</Text>
         </Item>
       </Tabs>

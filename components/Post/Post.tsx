@@ -17,7 +17,7 @@ export const Post: React.FC<Props> = ({ className, style, post }) => {
       <Text variant="body-flat" color="white-a100">
         {post.title}
       </Text>
-      <Text variant="small">{post.seo.description}</Text>
+      <Text variant="body">{post.seo.description}</Text>
       <PublishedAt authors={post.authors} publishedAt={post.publishedAt} />
     </Link>
   );
