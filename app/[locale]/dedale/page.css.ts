@@ -387,3 +387,16 @@ export const pricingDisclaimerContainer = responsiveStyle({
 export const pricingDisclaimer = style({
   textAlign: "center",
 });
+
+export const illustrationFileName = style({
+  // @ts-expect-error we need important to overwrite Text style
+  position: "absolute !important",
+  left: "50%",
+  bottom: "50%",
+  padding: vars.sizes[8],
+  borderWidth: "1px",
+  borderStyle: "solid",
+  borderColor: vars.color.neutral[700],
+  borderRadius: vars.sizes[4],
+  backgroundColor: vars.color.neutral[800],
+});
