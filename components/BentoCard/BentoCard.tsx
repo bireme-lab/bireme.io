@@ -11,6 +11,7 @@ type Props = {
   className?: string;
   style?: React.CSSProperties;
   illustration: ImageSrc;
+  illustrationOverlay?: React.ReactNode;
 };
 
 export const BentoCard: React.FC<Props> = ({
@@ -20,6 +21,7 @@ export const BentoCard: React.FC<Props> = ({
   description,
   variant,
   illustration,
+  illustrationOverlay,
 }) => {
   return (
     <div className={cx(styles.container, className)} style={style}>
@@ -34,6 +36,10 @@ export const BentoCard: React.FC<Props> = ({
       {match(variant)
         .with("contained", () => (
           <div className={styles.containedIllustrationContainer}>
+            {illustrationOverlay != null && (
+              <div className={styles.illustrationOverlay}>{illustrationOverlay}</div>
+            )}
+
             <Image
               src={illustration}
               alt={description}
@@ -46,6 +52,11 @@ export const BentoCard: React.FC<Props> = ({
         .with("covered", () => (
           <div className={styles.coveredIllustrationContainer}>
             <div className={styles.satin} />
+
+            {illustrationOverlay != null && (
+              <div className={styles.illustrationOverlay}>{illustrationOverlay}</div>
+            )}
+
             <Image
               src={illustration}
               alt={description}

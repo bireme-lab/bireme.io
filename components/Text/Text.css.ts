@@ -12,6 +12,12 @@ export const text = recipe({
   },
   variants: {
     variant: {
+      code: {
+        fontSize: "0.8125rem",
+        fontWeight: 400,
+        fontFamily: vars.font.mono,
+        lineHeight: "0.8125rem",
+      },
       comment: {
         fontFamily: vars.font.hand,
       },

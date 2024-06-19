@@ -56,11 +56,20 @@ export const coveredIllustration = style({
 });
 
 export const satin = style({
-  zIndex: 1,
+  zIndex: 2,
   position: "absolute",
   top: 0,
   left: 0,
   width: "100%",
   height: "100%",
   background: "linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0) 100%)",
+});
+
+export const illustrationOverlay = style({
+  zIndex: 1,
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
 });
