@@ -77,6 +77,12 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAJElEQVR4nGOQlpD8/+zWLTDmYmD6zxAWEgrmnDl06L+pkdF/AEszFAf7yxHHAAAAAElFTkSuQmCC",
   },
+  "/images/dedale-product.webp": {
+    name: "dedale-product.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGOIjo5ubGy8c+fOtOnTGOTk5NauXfvq+cvGxkYApwUNis9IDWcAAAAASUVORK5CYII=",
+  },
   "/images/dedale.webp": {
     name: "dedale.webp",
     extension: ".webp",
@@ -88,6 +94,12 @@ export const data = {
     extension: ".webp",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAMklEQVR4nAEnANj/AA0NDfv//t3l6Tk0KwAFBQXAwMCUlZJAPzcACgoKyNDWcHmCEhMPRLwPTtqxA9cAAAAASUVORK5CYII=",
+  },
+  "/images/editor.webp": {
+    name: "editor.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAH0lEQVR4nGO4ePFcc3OzNhgwsLKyfvz4sbm5OSQkBACMXQpj78wW2QAAAABJRU5ErkJggg==",
   },
   "/images/gustave.png": {
     name: "gustave.png",
@@ -232,5 +244,11 @@ export const data = {
     extension: ".webp",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAKUlEQVR4nGPIycn5r6qqCsaL5s/7z3Dnzp3/ERER/93c3P6bmppiCgAAkNkaELXudVUAAAAASUVORK5CYII=",
+  },
+  "/images/variables-panel.webp": {
+    name: "variables-panel.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGOQlpb28/P7++tbbGwsw+TJkxsaGtTU1GJjYwGDSQoCKYS+XQAAAABJRU5ErkJggg==",
   },
 };

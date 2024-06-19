@@ -7,19 +7,21 @@ type Props = {
   className?: string;
   style?: React.CSSProperties;
   displayBorderTop?: boolean;
+  displayBorderBottom?: boolean;
 };
 
 export const NewsletterSection: React.FC<Props> = ({
   className,
   style,
   displayBorderTop = false,
+  displayBorderBottom = false,
 }) => {
   return (
     <Section
       className={className}
       style={style}
       displayBorderTop={displayBorderTop}
-      displayBorderBottom={false}
+      displayBorderBottom={displayBorderBottom}
     >
       <Grid>
         <div className={styles.dummy} />

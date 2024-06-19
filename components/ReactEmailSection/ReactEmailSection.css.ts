@@ -34,6 +34,7 @@ export const tab = recipe({
     mobile: [
       columnCount(2),
       {
+        cursor: "pointer",
         display: "flex",
         gap: vars.sizes[12],
         borderRadius: vars.sizes[8],
@@ -98,9 +99,10 @@ export const tabIcon = style({
 
 export const videoContainer = style({
   width: "100%",
-  aspectRatio: "16 / 9",
+  aspectRatio: "16 / 10",
   borderRadius: vars.sizes[8],
   overflow: "hidden",
+  border: `1px solid ${vars.color.neutral[700]}`,
 });
 
 export const video = style({

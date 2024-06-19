@@ -310,12 +310,6 @@ export const reactEmailLinkIcon = style({
   minHeight: vars.sizes[16],
 });
 
-export const usageBlock = responsiveStyle({
-  mobile: columnCount(2),
-  tablet: columnCount(3),
-  desktop: columnCount(4),
-});
-
 export const faqWrapper = responsiveStyle({
   mobile: [
     columnCount(2),
@@ -337,25 +331,25 @@ export const faqDummy = responsiveStyle({
 
 export const bentoCardFeature1 = responsiveStyle({
   mobile: columnCount(2),
-  tablet: columnCount(3),
+  tablet: columnCount(6),
   desktop: columnCount(8),
 });
 
 export const bentoCardFeature2 = responsiveStyle({
   mobile: columnCount(2),
-  tablet: columnCount(3),
+  tablet: columnCount(6),
   desktop: columnCount(4),
 });
 
 export const bentoCardFeature3 = responsiveStyle({
   mobile: columnCount(2),
-  tablet: columnCount(3),
+  tablet: columnCount(6),
   desktop: columnCount(4),
 });
 
 export const bentoCardFeature4 = responsiveStyle({
   mobile: columnCount(2),
-  tablet: columnCount(3),
+  tablet: columnCount(6),
   desktop: columnCount(8),
 });
 
@@ -383,6 +377,7 @@ export const pricingDisclaimerContainer = responsiveStyle({
     {
       display: "flex",
       flexDirection: "column",
+      gap: vars.sizes[12],
     },
   ],
   tablet: columnCount(4),
