@@ -36,7 +36,7 @@ Les données obligatoires sont indiquées lorsque vous nous fournissez vos donn�
 
 **Durée de conservation :** Pour les clients : les données sont conservées pendant toute la durée de la relation contractuelle.Pour les prospects : les données sont conservées pendant un délai de 3 ans à compter de votre dernier contact, à des fins de prospection.
 
--
+---
 
 **Finalité :** Adresser des newsletters, sollicitations et messages promotionnels.
 
@@ -44,7 +44,7 @@ Les données obligatoires sont indiquées lorsque vous nous fournissez vos donn�
 
 **Durée de conservation :** Les données sont conservées pendant 3 ans à compter de votre dernier contact avec Nous ou jusqu’au retrait de votre consentement.
 
--
+---
 
 **Finalité :** Répondre à vos demandes d’information.
 
@@ -52,7 +52,7 @@ Les données obligatoires sont indiquées lorsque vous nous fournissez vos donn�
 
 **Durée de conservation :** Les données sont conservées pendant le temps nécessaire au traitement de votre demande d’information et supprimées une fois la demande d’information traitée.
 
--
+---
 
 **Finalité :** Se conformer aux obligations légales applicables à notre activité.
 
@@ -60,7 +60,7 @@ Les données obligatoires sont indiquées lorsque vous nous fournissez vos donn�
 
 **Durée de conservation :** Pour les factures : les factures sont archivées pendant une durée de 10 ans. Les données relatives à vos transactions (à l’exception des données bancaires) sont conservées pendant 5 ans.
 
--
+---
 
 **Finalité :** Élaborer des statistiques d’analyses de cohortes (audience) et de comportements de navigation sur notre site.
 
@@ -68,7 +68,7 @@ Les données obligatoires sont indiquées lorsque vous nous fournissez vos donn�
 
 **Durée de conservation :** Les données sont conservées pendant 25 mois.
 
--
+---
 
 **Finalité :** Diffuser de la publicité personnalisée.
 
@@ -76,7 +76,7 @@ Les données obligatoires sont indiquées lorsque vous nous fournissez vos donn�
 
 **Durée de conservation :** Les données sont conservées pendant 90 jours.
 
--
+---
 
 **Finalité :** Gérer les demandes d’exercice de droits.
 
@@ -89,8 +89,84 @@ Les données obligatoires sont indiquées lorsque vous nous fournissez vos donn�
 Auront accès à vos données à caractère personnel :
 
 - (i) Le personnel de notre société ;
-- (ii) Nos sous-traitants : prestataire d’hébergement (https://vercel.com et https://www.hetzner.com/), prestataire d’envoi de newsletters (https://www.useplunk.com/), prestataire de gestion des paiements (https://stripe.com/), outil CRM.
+- (ii) Nos sous-traitants : prestataire d’hébergement (https://vercel.com, https://www.digitalocean.com/, https://www.hetzner.com/, https://www.cloudflare.com/ et https://aws.amazon.com/), prestataire d’envoi de newsletters (https://www.useplunk.com/), prestataire de gestion d'authentication (https://clerk.com/) et services intégrés "Se connecter avec..." (https://microsoft.com/, https://google.com, et https://github.com).
 - (iii) Le cas échéant : les organismes publics et privés, exclusivement pour répondre à nos obligations légales.
+
+## Identité et accès aux produits de Bireme Lab
+
+Lorsque vous vous inscrivez pour accéder aux produits de Bireme Lab, nous vous demandons votre prénom, votre nom et votre adresse électronique. Nous utilisons ces informations pour personnaliser votre compte et vous offrir une expérience utilisateur sur mesure.
+
+Nous ne vendrons jamais vos informations personnelles à des tiers, et nous ne les utiliserons pas non plus dans des déclarations marketing sans votre permission.
+
+### A propos de notre fournisseur d'authentification
+
+Bireme Lab s'appuie sur un service tiers nommé [Clerk] (https://clerk.com/) pour gérer l'authentification et assurer la sécurité dans l'ensemble de notre écosystème. Ce service a été configuré pour être utilisé et partagé à travers notre domaine racine (par exemple bireme.io) ; et les sous-domaines (par exemple *.bireme.io) ;
+
+Clerk est conforme au GDPR, certifié SOC 2 type 2 et conforme au CCPA.
+
+Vous pouvez en savoir plus sur la façon dont Clerk traite vos données en lisant leur [page de politique de confidentialité] (https://clerk.com/legal/privacy).
+
+### Utilisation des options "Se connecter avec" avec un service intégré
+
+Si vous décidez de vous inscrire ou d'accorder l'accès à un réseau social tiers ou à un service intégré (ce que nous appelons un **Service intégré**), tel que Microsoft Connect ou Google, Bireme Lab peut également collecter des informations personnelles qui sont déjà associées à votre compte de service intégré.
+
+Les services intégrés ont été mis en place par l'intermédiaire de Clerk, société dédiée, sécurisée et auditée pour mettre en œuvre les meilleures pratiques dans l'implémentation du protocol OAuth2.
+
+Permettre une connection par services intégrés nous permet de réduire les frictions lors de l'inscription et de la connexion en proposant différentes méthodes pour accéder à l'écosystème de Bireme Lab.
+
+Voici une liste exhaustive des champs d'application et des informations que nous agrégeons à travers les différents fournisseurs [OAuth2](https://oauth.net/2/) que nous utilisons :
+
+**Service:** Google.
+
+**Scope:** `openid`, `https://www.googleapis.com/auth/userinfo.email`, `https://www.googleapis.com/auth/userinfo.profile`
+
+**Usage:**
+- Email : nous utilisons l'adresse email comme identifiant pour créer votre compte Bireme Lab, obligatoire,
+- Prénom : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits Bireme Lab, optionnel,
+- Nom de famille : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits Bireme Lab, optionnel,
+- Photo de profil : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits de Bireme Lab, optionnel,
+
+Pour activer la fonction `Sign in with Google`, nous avons dû publier nos applications et demander au service de conformité de Google d'examiner et de vérifier la bonne configuration et le respect des conditions de Google concernant [API services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes).
+
+---
+
+**Service:** Microsoft.
+
+**Scope:** `openid`, `email`, `profile`, `offline_access`
+
+**Usage:**
+- Email : nous utilisons l'adresse email comme identifiant pour créer votre compte Bireme Lab, obligatoire,
+- Prénom : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits Bireme Lab, optionnel,
+- Nom de famille : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits Bireme Lab, optionnel,
+- Photo de profil : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits de Bireme Lab, optionnel,
+
+Les politiques de confidentialité de Microsoft peuvent être consultées sur cette page : https://privacy.microsoft.com/en-gb/privacystatement
+
+---
+
+**Service:** Github.
+
+**Scope:** `user:email`, `read:user`
+
+**Usage:**
+- Email : nous utilisons l'adresse email comme identifiant pour créer votre compte Bireme Lab, obligatoire,
+- Prénom : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits de Bireme Lab, optionnel,
+- Nom de famille : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits Bireme Lab, optionnel,
+- Photo de profil : nous l'utilisons pour vous fournir une expérience personnalisée sur les interfaces des produits de Bireme Lab, optionnel,
+
+Les politiques de confidentialité de Github peuvent être consultées sur cette page : https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement
+
+---
+
+### Traitement et stockage des données au sein des services de Bireme Lab
+
+Les informations personnelles (y compris celles agrégées à partir de services intégrés tels que Google) sont stockées chez nos hébergeurs de la manière suivante :
+- Votre adresse email, votre prénom et votre nom sont répliqués dans notre base de données hébergée sur [Digital Ocean] (https://www.digitalocean.com/), ce processus de réplication est obligatoire pour réduire la latence des requêtes et fournir une expérience réactive de premier ordre lors de l'utilisation de nos applications.
+- Les médias, tels que votre photo de profil, sont hébergés et servis par les services [AWS](https://aws.amazon.com/) et [Cloudflare](https://www.cloudflare.com/) (Cloudflare R2, S3 et Cloudfront).
+
+Seules les informations considérées comme "non sensibles et de portée non restreinte" sont stockées sur nos serveurs.
+
+Les services de nos fournisseurs d'hébergement ont été configurés pour stocker vos informations personnelles sur des serveurs situés dans l'Union européenne, conformément aux exigences du GDPR.
 
 ## Vos données sont-elles susceptibles d’être transférées hors de l’Union européenne ?
 
@@ -131,4 +207,4 @@ E-mail de contact : privacy@bireme.io
 
 Nous pouvons modifier à tout moment la présente politique, afin notamment de nous conformer à toutes évolutions réglementaires, jurisprudentielles, éditoriales ou techniques. Ces modifications s’appliqueront à la date d’entrée en vigueur de la version modifiée. Vous êtes donc invité à consulter régulièrement la dernière version de cette politique. Néanmoins, nous vous tiendrons informé(e) de toute modification significative de la présente politique de confidentialité.
 
-Entrée en vigueur : 1er mars 2024
+Entrée en vigueur : 20 juin 2024
