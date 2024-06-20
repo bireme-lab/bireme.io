@@ -96,7 +96,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Bireme Lab",
               url: ORIGIN,
-              logo: "https://bireme.io/images/logo.png",
+              logo: "https://bireme.io/images/logo.png?v=2",
               foundingDate: "2024",
               founders: [
                 {
@@ -123,7 +123,7 @@ export default function RootLayout({
                 contactType: "Contact",
                 email: "contact@bireme.io",
               },
-              sameAs: ["https://twitter.com/biremelab"],
+              sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
             } as WithContext<Organization>),
           }}
         />

@@ -92,7 +92,7 @@ export const perks = style({
   listStyle: "none",
   display: "flex",
   flexDirection: "column",
-  gap: vars.sizes[16],
+  gap: vars.sizes[12],
 });
 
 export const perk = style({
@@ -113,11 +113,11 @@ export const perkIconContainer = recipe({
     variant: {
       primary: {
         border: `1px solid ${vars.color.primary[700]}`,
-        backgroundColor: vars.color.primary[900],
+        backgroundColor: vars.color.primary[800],
       },
       neutral: {
-        border: `1px solid ${vars.color.neutral[700]}`,
-        backgroundColor: vars.color.neutral[900],
+        border: `1px solid ${vars.color.neutral[600]}`,
+        backgroundColor: vars.color.neutral[700],
       },
     },
   },
