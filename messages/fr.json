@@ -97,7 +97,8 @@
       "all_posts": "Tous nos articles",
       "all_posts_subtitle": "Retrouvez notre actualité et toutes les nouveautés concernant Bireme Lab",
       "no_posts": "Bientôt disponible !",
-      "learn_more": "En savoir plus sur Bireme Lab"
+      "learn_more": "En savoir plus sur Bireme Lab",
+      "all_products": "Nos produits"
     },
     "Dedale": {
       "title": "L’environnement de développement de modèle d'e-mail nouvelle génération",
@@ -109,18 +110,18 @@
       "feature_1_title": "Expérience de développement optimale dans son navigateur",
       "feature_1_description": "Pensé par des développeurs, pour des développeurs, Dedale offre un environnement de développement optimisé pour le développement d'e-mail. Éditeur natif, installation automatique des dépendances, prévisualisation en temps réel, prise en charge de TypeScript.",
       "feature_2_title": "Pré-visualisation avec variables",
-      "feature_2_description": "Assurez-vous du rendu parfait de vos templates pour les différentes tailles d'écran avec des données réelles.",
+      "feature_2_description": "Assurez-vous de la cohérence de vos modèles en pré-visualisant un rendu proche de la réalité grâce au système de variables de Dédale.",
       "feature_3_title": "Intégration facile et rapide",
       "feature_3_description": "Avec Dedale, vous pouvez exporter vos modèles d'e-mails en un clic pour les utiliser dans vos services préférés.",
       "feature_4_title": "Centraliser les modèles d'e-mails",
-      "feature_4_description": "Développez, organisez et gérez tous vos modèles d'emails en un seul endroit. Fini les recherches interminables, tout est à portée de main.",
+      "feature_4_description": "Développez, organisez et gérez tous vos modèles d'emails uniquement depuis Dédale.",
       "react_email_title": "Développez des e-mails avec React",
-      "react_email_description": "Dédale à été conçu avec ce qui se fait de mieux dans le développement d’e-mails. Nous avons intégré React Email dans un environnement optimisé avec un meilleur système de pré-visualisation.",
+      "react_email_description": "Dédale à été conçu pour apporter une surcouche à React Email, un environnement optimisé et dédié au développement de modèles d'e-emails.",
       "react_email_explore_docs": "Explorer la documentation de React Email",
       "react_email_tab1": "Développer avec React Email",
       "react_email_tab2": "Ajouter et prévisualiser avec des variables",
       "pricing_title": "Un service gratuit accessible avec ou sans inscription",
-      "pricing_description": "Dédale est accessible gratuitement pour tous, sans inscription. Cependant, certaines fonctionnalités sont limitées :",
+      "pricing_description": "Dédale est accessible gratuitement, avec et sans création de compte :",
       "faq_title": "Questions fréquentes",
       "faq_description": "Nous avons regroupé la plupart des questions qui nous sont fréquemment posées afin d'éclaircir les points les plus importants",
       "faq_question_1": "Est-ce que je peux importer mes modèles d'e-mails existants ?",
@@ -143,10 +144,10 @@
       "pricing_option_perk_2_1": "Pas de limite de modèles",
       "pricing_option_perk_2_2": "Stockage sur nos serveurs",
       "pricing_option_perk_2_3": "Fonctionnalités avancées**",
-      "ready_to_test_title": "Prêt à tester Dédale ?",
-      "ready_to_test_description": "Renseignez votre e-mail pour être informé de la sortie publie de Dédale. Nous envoyons régulièrement des accès anticipés parmis les personnes inscrites.",
       "pricing_disclaimer": "* Les modèles sont stockés localement dans le navigateur, ils peuvent être perdus si les donnnées de navigation sont effacées",
-      "pricing_wip": "** en cours de développement"
+      "pricing_wip": "** en cours de développement",
+      "ready_to_test_title": "Prêt à tester Dédale ?",
+      "ready_to_test_description": "Renseignez votre e-mail pour être informé, en avant-première, de la sortie publique de Dédale ainsi que des prochaines fonctionnalités en cours de développement"
     },
     "PostPage": {
       "breadcrumb": {

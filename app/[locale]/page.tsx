@@ -96,6 +96,15 @@ const Hero: React.FC<HeroProps> = async ({ locale }) => {
           <div className={styles.descriptionDummy} />
         </Grid>
       </div>
+      <Grid>
+        <div className={styles.productsTitleDummy} />
+        <div className={styles.productsTitleContainer}>
+          <Text markup="h3" variant="section-heading" color="white-a100">
+            {t("all_products")}
+          </Text>
+        </div>
+        <div className={styles.productsTitleDummy} />
+      </Grid>
       <Grid className={styles.productCards}>
         <div className={styles.productCardDummy} />
         <ProductCard
@@ -171,13 +180,13 @@ const Home = async ({
             "@type": "WebSite",
             name: "Bireme Lab",
             url: ORIGIN,
-            logo: "https://bireme.io/images/logo.png",
+            logo: "https://bireme.io/images/logo.png?v=2",
             publisher: {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Bireme Lab",
               url: ORIGIN,
-              logo: "https://bireme.io/images/logo.png",
+              logo: "https://bireme.io/images/logo.png?v=2",
               foundingDate: "2024",
               founders: [
                 {
@@ -204,9 +213,9 @@ const Home = async ({
                 contactType: "Contact",
                 email: "contact@bireme.io",
               },
-              sameAs: ["https://twitter.com/biremelab"],
+              sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
             },
-            sameAs: ["https://twitter.com/biremelab"],
+            sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
           } as WithContext<WebSite>),
         }}
       />
@@ -219,13 +228,13 @@ const Home = async ({
             "@type": "WebPage",
             name: "Bireme Lab",
             url: `${ORIGIN}/${locale}`,
-            logo: "https://bireme.io/images/logo.png",
+            logo: "https://bireme.io/images/logo.png?v=2",
             publisher: {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Bireme Lab",
               url: ORIGIN,
-              logo: "https://bireme.io/images/logo.png",
+              logo: "https://bireme.io/images/logo.png?v=2",
               foundingDate: "2024",
               founders: [
                 {
@@ -252,9 +261,9 @@ const Home = async ({
                 contactType: "Contact",
                 email: "contact@bireme.io",
               },
-              sameAs: ["https://twitter.com/biremelab"],
+              sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
             },
-            sameAs: ["https://twitter.com/biremelab"],
+            sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
           } as WithContext<WebPage>),
         }}
       />

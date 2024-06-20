@@ -133,18 +133,37 @@ export const titleSpan = style({
 export const descriptionDummy = responsiveStyle({
   mobile: columnCount(0),
   tablet: columnCount(1),
-  desktop: columnCount(4),
+  desktop: columnCount(3),
 });
 
 export const descriptionWrapper = responsiveStyle({
   mobile: columnCount(2),
   tablet: columnCount(4),
-  desktop: columnCount(4),
+  desktop: columnCount(6),
 });
 
 export const description = style({
   display: "inline-flex!important",
   textAlign: "center",
+});
+
+export const productsTitleDummy = responsiveStyle({
+  mobile: columnCount(0),
+  tablet: columnCount(2),
+  desktop: columnCount(3),
+});
+
+export const productsTitleContainer = responsiveStyle({
+  mobile: [
+    columnCount(0),
+    {
+      display: "flex",
+      justifyContent: "center",
+      width: "100%",
+    },
+  ],
+  tablet: columnCount(2),
+  desktop: columnCount(6),
 });
 
 export const productCards = responsiveStyle({

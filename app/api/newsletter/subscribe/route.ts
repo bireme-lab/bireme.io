@@ -109,9 +109,8 @@ export async function POST(req: Request) {
         event:
           body.data.locale === "fr" ? "newsletter-subscription-fr" : "newsletter-subscription-en",
         email: body.data.email,
-        subscribed: true,
+        subscribed: body.data.marketing_opted_in,
         data: {
-          marketing_opted_in: body.data.marketing_opted_in ? "yes" : "no",
           locale: body.data.locale,
         },
       }),

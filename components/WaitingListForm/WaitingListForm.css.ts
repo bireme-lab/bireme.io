@@ -25,9 +25,10 @@ export const mention = responsiveStyle({
   mobile: [
     columnCount(2),
     {
-      display: "inline",
+      display: "inline!important",
       width: "100%",
       textAlign: "center",
+      gap: vars.sizes[4],
     },
   ],
   tablet: columnCount(3),

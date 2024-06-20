@@ -23,6 +23,7 @@ type Props = {
   className?: string;
   style?: CSSProperties;
   onSuccess?: () => void;
+  displayDisclaimer?: boolean;
 };
 
 type FormResponseMessage =
@@ -32,7 +33,13 @@ type FormResponseMessage =
   | "success"
   | "already_subscribed";
 
-const WaitingListForm: React.FC<Props> = ({ className, style, autofocus = false, onSuccess }) => {
+const WaitingListForm: React.FC<Props> = ({
+  className,
+  style,
+  autofocus = false,
+  onSuccess,
+  displayDisclaimer = false,
+}) => {
   const [requestState, setRequestState] = useState<AsyncData<Result<boolean, boolean>>>(
     AsyncData.NotAsked(),
   );
@@ -200,6 +207,32 @@ const WaitingListForm: React.FC<Props> = ({ className, style, autofocus = false,
           </>
         )}
       </FieldsListener>
+      {displayDisclaimer && (
+        <Text variant="small" markup="p" className={styles.mention} color="neutral-200">
+          {t.rich("google_disclaimer", {
+            privacy: (chunk) => (
+              <Text
+                href="https://policies.google.com/privacy"
+                style={{ display: "inline" }}
+                target="_blank"
+                className={styles.link}
+              >
+                {chunk}
+              </Text>
+            ),
+            terms: (chunk) => (
+              <Text
+                href="https://policies.google.com/terms"
+                style={{ display: "inline" }}
+                target="_blank"
+                className={styles.link}
+              >
+                {chunk}
+              </Text>
+            ),
+          })}
+        </Text>
+      )}
     </form>
   );
 };
