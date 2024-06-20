@@ -10,7 +10,7 @@ At Bireme Lab, protecting your personal data is a priority.
 
 During your interactions with Bireme Lab (use of the bireme.io website hereinafter the "**Site**")), we may collect personal data about you.
 
-The purpose of this policy is to inform you about how we process this data in compliance with Regulation (EU) 2016/679 of April 27, 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data (hereinafter the "**RGPD**").
+The purpose of this policy is to inform you about how we process this data in compliance with Regulation (EU) 2016/679 of April 27, 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data (hereinafter the "**GDPR**").
 
 ## Who is the data controller?
 
@@ -23,7 +23,8 @@ Personal data is data that can be used to identify an individual, either directl
 When you use our website, we collect data in the following categories:
 
 - Identification data (e.g. your e-mail address);
-- Connection data (e.g. IP address, logs);
+- Profile data (e.g. your first name, last name and profile picture);
+- Device information (e.g. IP address, device type, unique identifier, app version, operating system, network data, and phone state);
 - Browsing preferences (your browser's language settings);
 
 Mandatory data are indicated when you provide us with your data. They are marked with an asterisk and are necessary to provide you with our services.
@@ -36,7 +37,7 @@ Mandatory data are indicated when you provide us with your data. They are marked
 
 **Retention period:** For customers: data is kept for the duration of the contractual relationship; for prospects: data is kept for a period of 3 years from your last contact, for prospecting purposes.
 
--
+---
 
 **Purpose:** To send newsletters, solicitations and promotional messages.
 
@@ -44,7 +45,7 @@ Mandatory data are indicated when you provide us with your data. They are marked
 
 **Retention period:** Data is kept for 3 years from your last contact with us or until your consent is withdrawn.
 
--
+---
 
 **Purpose:** To respond to your requests for information.
 
@@ -52,7 +53,7 @@ Mandatory data are indicated when you provide us with your data. They are marked
 
 **Retention period:** Data is retained for the time necessary to process your request for information and deleted once the request for information has been processed.
 
--
+---
 
 **Purpose:** To comply with legal obligations applicable to our business.
 
@@ -60,7 +61,7 @@ Mandatory data are indicated when you provide us with your data. They are marked
 
 **Retention period:** Invoices are archived for 10 years. Transaction data (with the exception of bank details) is kept for 5 years.
 
--
+---
 
 **Purpose:** To develop statistics for analyzing cohorts (audience) and browsing behavior on our site.
 
@@ -68,7 +69,7 @@ Mandatory data are indicated when you provide us with your data. They are marked
 
 **Retention period:** Data is kept for 25 months.
 
--
+---
 
 **Purpose:** To provide personalized advertising.
 
@@ -76,7 +77,7 @@ Mandatory data are indicated when you provide us with your data. They are marked
 
 **Retention period:** Data is kept for 90 days.
 
--
+---
 
 **Purpose:** To manage requests to exercise rights.
 
@@ -84,15 +85,91 @@ Mandatory data are indicated when you provide us with your data. They are marked
 
 **Retention period:** If we ask you for proof of identity, we keep it only for the time needed to verify your identity. Once verification has been completed, the proof of identity is deleted. If you exercise your right to object to receiving prospecting: we keep this information for 3 years.
 
--
+---
 
 ## Who will receive your data?
 
 The following will have access to your personal data:
 
 - (i) Our staff;
-- (ii) Our subcontractors: hosting service provider (https://vercel.com and https://www.hetzner.com/), newsletter sending service provider (https://www.useplunk.com/), payment management service provider (https://stripe.com/), CRM tool.
+- (ii) Our subcontractors: hosting service provider (https://vercel.com, https://www.hetzner.com/, https://www.digitalocean.com/, https://www.cloudflare.com/ and https://aws.amazon.com/), newsletter sending service provider (https://www.useplunk.com/), our auth provider (https://clerk.com/) and "Sign with" integrated services (https://microsoft.com/, https://google.com, and https://github.com);
 - (iii) Where applicable: public and private bodies, exclusively to meet our legal obligations.
+
+## Identity and access to Bireme Lab products
+
+When you sign up for accessing Bireme Lab's products, we ask for your first name, last name and email address. We are using thoses informations to personalize your account and provide a custom/tailored user experience.
+
+We'll never sell your personal infos to third parties, and we won't use them neither in marketing statements without your permission.
+
+### About our auth provider
+
+Bireme Lab is relying on a third party service named [Clerk](https://clerk.com/) to handle authentication and ensure security accross all our ecosystem. This service has been setup to be used and shared accross our root domain (e.g. bireme.io); and subdomains (e.g. *.bireme.io);
+
+Clerk is GDPR compliant, SOC 2 type 2 certified and CCPA compliant.
+
+You can learn more about how Clerk is processing your data by reading their [privacy policy page](https://clerk.com/legal/privacy).
+
+### Usage of "Sign in with" options with Integrated Service
+
+If you decide to register through or otherwise grant access to a third-party social networking or integrated service (what we call an **Integrated Service**), such as Microsoft Connect or Google, Bireme Lab may also collect personal information that is already associated with your Integrated Service account.
+
+Integrated Services have been setup through Clerk, ensuring we rely on a dedicated, secured and audited company to implement OAuth2 procotol.
+
+This ensure we reduce friction on sign-up and sign-in by proposing different methods to connect and access Bireme Lab ecosystem.
+
+Here is an exhaustive list of scopes and informations we are aggregating through the different [OAuth2](https://oauth.net/2/) providers we are using:
+
+**Service:** Google.
+
+**Scope:** `openid`, `https://www.googleapis.com/auth/userinfo.email`, `https://www.googleapis.com/auth/userinfo.profile`
+
+**Usage:**
+- Email: we use email address as identifier to create your Bireme Lab account, required,
+- First name: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+- Last name: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+- Profile picture: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+
+Google uses [OAuth2](https://developers.google.com/identity/protocols/oauth2) for user permissions and consent, which enables us to specify the type, and level of access required for our app to function via strings known as API scopes. To enable a `Sign in with Google` feature, we had to publish our applications and ask Google compliance department to review and verify the proper setup and respect of Google terms regarding [API services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes).
+
+---
+
+**Service:** Microsoft.
+
+**Scope:** `openid`, `email`, `profile`, `offline_access`
+
+**Usage:**
+- Email: we use email address as identifier to create your Bireme Lab account, required,
+- First name: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+- Last name: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+- Profile picture: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+
+Microsoft privacy policies can be found on this page: https://privacy.microsoft.com/en-gb/privacystatement
+
+---
+
+**Service:** Github.
+
+**Scope:** `user:email`, `read:user`
+
+**Usage:**
+- Email: we use email address as identifier to create your Bireme Lab account, required,
+- First name: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+- Last name: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+- Profile picture: we use it to provide you a custom experience on Bireme Lab's products interfaces, optional,
+
+Github privacy policies can be found on this page: https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement
+
+---
+
+### Data processing and storage within Bireme Lab services
+
+Personnal informations (including ones aggregated from Integrated Service such as Google) are stored on our hosting providers as the following:
+- Your email address, your first name and your last name are replicated in our database hosted on [Digital Ocean](https://www.digitalocean.com/), this replication process is mandatory to reduce requests latency and provide a best-in-class responsive experience while using our applications.
+- Assets, such as your profile picture, are hosted and served using [AWS](https://aws.amazon.com/) services (e.g. S3 and Cloudfront).
+
+Only informations considered as "non-sensitive and non-restricted scope requirements" are stored on our servers.
+
+Our hosting providers services have been setup to store your personal informations on servers located in the European Union, in accordance with GDPR requirements.
 
 ## Are your data likely to be transferred outside the European Union?
 
@@ -100,24 +177,24 @@ Your data is kept and stored for the duration of the processing operation on the
 
 In the context of the tools we use (see article on recipients concerning our subcontractors), your data may be transferred outside the European Union. The transfer of your data in this context is secured using the following tools:
 
-- either the data is transferred to a country that has been the subject of an adequacy decision by the European Commission, in accordance with Article 45 of the RGPD: in this case, this country ensures a level of protection deemed sufficient and adequate to the provisions of the RGPD;
-- or the data is transferred to a country whose level of data protection has not been recognized as adequate to the RGPD: in this case such transfers are based on appropriate safeguards indicated in Article 46 of the RGPD, tailored to each provider, including but not limited to the conclusion of standard contractual clauses approved by the European Commission, the application of binding corporate rules or under an approved certification mechanism.
-- or the data is transferred on the basis of one of the appropriate guarantees described in Chapter V of the RGPD.‍
+- either the data is transferred to a country that has been the subject of an adequacy decision by the European Commission, in accordance with Article 45 of the GDPR: in this case, this country ensures a level of protection deemed sufficient and adequate to the provisions of the GDPR;
+- or the data is transferred to a country whose level of data protection has not been recognized as adequate to the GDPR: in this case such transfers are based on appropriate safeguards indicated in Article 46 of the GDPR, tailored to each provider, including but not limited to the conclusion of standard contractual clauses approved by the European Commission, the application of binding corporate rules or under an approved certification mechanism.
+- or the data is transferred on the basis of one of the appropriate guarantees described in Chapter V of the GDPR.‍
 
 ## What are your rights regarding your personal data?
 
 You have the following rights with regard to your personal data:
 
-- **Right to information:** this is precisely why we have drawn up this policy. This right is provided for in Articles 13 and 14 of the RGPD.
-- **Right of access:** you have the right to access all your personal data at any time, in accordance with article 15 of the RGPD.
+- **Right to information:** this is precisely why we have drawn up this policy. This right is provided for in Articles 13 and 14 of the GDPR.
+- **Right of access:** you have the right to access all your personal data at any time, in accordance with article 15 of the GDPR.
 - **Right of rectification:** you have the right to rectify at any time your inaccurate, incomplete or obsolete personal data in accordance with Article 16 of the GDPR.
 - **Right to limitation:** you have the right to obtain the limitation of the processing of your personal data in certain cases defined in Article 18 of the GDPR.
 - **Right to erasure:** you have the right to demand that your personal data be erased, and to prohibit any future collection on the grounds set out in Article 17 of the GDPR.
-- **Right to lodge a complaint with a competent supervisory authority** (in France, the CNIL), if you consider that the processing of your personal data constitutes a breach of the applicable texts. (Article 77 of the RGPD)
+- **Right to lodge a complaint with a competent supervisory authority** (in France, the CNIL), if you consider that the processing of your personal data constitutes a breach of the applicable texts. (Article 77 of the GDPR)
 - **Right to define directives relating to the retention, deletion and communication of your personal data after your death**, in accordance with Article 40-1 of the French Data Protection Act.
-- **Right to withdraw your consent at any time:** for purposes based on consent, Article 7 of the RGPD states that you may withdraw your consent at any time. This withdrawal will not call into question the legality of the processing carried out prior to the withdrawal.
-- **Right to portability:** under certain conditions specified in Article 20 of the RGPD, you have the right to receive the personal data you have provided to us in a standard machine-readable format and to demand its transfer to the recipient of your choice.
-- **Right to object:** pursuant to Article 21 of the RGPD, you have the right to object to the processing of your personal data. Please note, however, that we may continue to process them despite this objection, for legitimate reasons or the defense of legal rights.
+- **Right to withdraw your consent at any time:** for purposes based on consent, Article 7 of the GDPR states that you may withdraw your consent at any time. This withdrawal will not call into question the legality of the processing carried out prior to the withdrawal.
+- **Right to portability:** under certain conditions specified in Article 20 of the GDPR, you have the right to receive the personal data you have provided to us in a standard machine-readable format and to demand its transfer to the recipient of your choice.
+- **Right to object:** pursuant to Article 21 of the GDPR, you have the right to object to the processing of your personal data. Please note, however, that we may continue to process them despite this objection, for legitimate reasons or the defense of legal rights.
 
 You can exercise these rights by writing to us using the contact details below. We may ask you to provide additional information or documents to prove your identity.
 
@@ -133,4 +210,4 @@ Contact e-mail: privacy@bireme.io
 
 We may modify this policy at any time, in particular in order to comply with any regulatory, legal, editorial or technical developments. These modifications will apply as of the effective date of the modified version. You are therefore invited to consult the latest version of this policy on a regular basis. Nevertheless, we will keep you informed of any significant changes to this privacy policy.
 
-Effective date: March 1, 2024
+Effective date: June 20, 2024
