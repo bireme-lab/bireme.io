@@ -34,15 +34,17 @@ export const Header: React.FC = () => {
     <header>
       <Container variant="header" className={styles.container}>
         <nav className={styles.nav}>
-          <Link href="/" className={styles.logoLink}>
-            {match(pathname)
-              .with(P.string.includes("/dedale"), () => (
+          {match(pathname)
+            .with(P.string.includes("/dedale"), () => (
+              <Link href="/dedale" className={styles.logoLink}>
                 <Icon name="dedale" title="Dédale" className={styles.dedaleLogo} />
-              ))
-              .otherwise(() => (
+              </Link>
+            ))
+            .otherwise(() => (
+              <Link href="/" className={styles.logoLink}>
                 <Icon name="logo" title={t("homepage")} className={styles.biremeLabLogo} />
-              ))}
-          </Link>
+              </Link>
+            ))}
           {/* <div className={styles.wrapper}>
             <ul className={styles.navLinks}>
               {match(pathname)

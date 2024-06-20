@@ -10,7 +10,9 @@ import { Section } from "@/components/Section/Section";
 import { Text } from "@/components/Text/Text";
 import WaitingListForm from "@/components/WaitingListForm/WaitingListForm";
 import { Locale } from "@/utils/i18n";
+import { ORIGIN } from "@/utils/vars";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { FAQPage, WebPage, WithContext } from "schema-dts";
 import * as styles from "./page.css";
 
 type HeroProps = {
@@ -153,7 +155,7 @@ const Dedale = async ({
                   </Text>
                   <Text
                     className={styles.illustrationFileName}
-                    style={{ transform: "translate(-250px, 10px)" }}
+                    style={{ transform: "scale(0.7) translate(-320px, 10px)", filter: "blur(1px)" }}
                     variant="code"
                     color="white-a100"
                   >
@@ -161,7 +163,7 @@ const Dedale = async ({
                   </Text>
                   <Text
                     className={styles.illustrationFileName}
-                    style={{ transform: "translate(120px, -10px)" }}
+                    style={{ transform: "scale(0.7) translate(120px, -10px)", filter: "blur(1px)" }}
                     variant="code"
                     color="white-a100"
                   >
@@ -169,7 +171,7 @@ const Dedale = async ({
                   </Text>
                   <Text
                     className={styles.illustrationFileName}
-                    style={{ transform: "translate(100px, 50px)", filter: "blur(1px)" }}
+                    style={{ transform: "scale(0.9) translate(100px, 50px)" }}
                     variant="code"
                     color="white-a100"
                   >
@@ -177,7 +179,7 @@ const Dedale = async ({
                   </Text>
                   <Text
                     className={styles.illustrationFileName}
-                    style={{ transform: "translate(-300px, 90px)", filter: "blur(1px)" }}
+                    style={{ transform: "scale(1.2) translate(-250px, 90px)", filter: "blur(1px)" }}
                     variant="code"
                     color="white-a100"
                   >
@@ -193,7 +195,10 @@ const Dedale = async ({
                   </Text>
                   <Text
                     className={styles.illustrationFileName}
-                    style={{ transform: "translate(130px, 120px)", filter: "blur(1.3px)" }}
+                    style={{
+                      transform: "scale(1.3) translate(120px, 100px)",
+                      filter: "blur(1.3px)",
+                    }}
                     variant="code"
                     color="white-a100"
                   >
@@ -306,11 +311,121 @@ const Dedale = async ({
           </Grid>
           <Grid>
             <div className={styles.waitingListDummy} />
-            <WaitingListForm className={styles.waitingList} />
+            <WaitingListForm className={styles.waitingList} displayDisclaimer={true} />
             <div className={styles.waitingListDummy} />
           </Grid>
         </Section>
       </div>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Bireme Lab",
+            url: `${ORIGIN}/${locale}`,
+            logo: "https://bireme.io/images/logo.png?v=2",
+            publisher: {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Bireme Lab",
+              url: ORIGIN,
+              logo: "https://bireme.io/images/logo.png?v=2",
+              foundingDate: "2024",
+              founders: [
+                {
+                  "@type": "Person",
+                  name: "Antoine Lin",
+                  jobTitle: locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+                {
+                  "@type": "Person",
+                  name: "Frédéric Godin",
+                  jobTitle: locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+              ],
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "7 rue Meyerbeer",
+                addressLocality: "Paris",
+                addressRegion: "Paris",
+                postalCode: "75009",
+                addressCountry: "FR",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Contact",
+                email: "contact@bireme.io",
+              },
+              sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
+            },
+            sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
+          } as WithContext<WebPage>),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            name: "Bireme Lab",
+            url: `${ORIGIN}/${locale}`,
+            logo: "https://bireme.io/images/logo.png?v=2",
+            publisher: {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Bireme Lab",
+              url: ORIGIN,
+              logo: "https://bireme.io/images/logo.png?v=2",
+              foundingDate: "2024",
+              founders: [
+                {
+                  "@type": "Person",
+                  name: "Antoine Lin",
+                  jobTitle: locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+                {
+                  "@type": "Person",
+                  name: "Frédéric Godin",
+                  jobTitle: locale === "fr" ? "Co-fondateur" : "Co-founder",
+                },
+              ],
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "7 rue Meyerbeer",
+                addressLocality: "Paris",
+                addressRegion: "Paris",
+                postalCode: "75009",
+                addressCountry: "FR",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Contact",
+                email: "contact@bireme.io",
+              },
+              sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
+            },
+            sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
+            mainEntity: Array(5)
+              .fill(null)
+              .map((_, i) => {
+                return {
+                  "@type": "Question",
+                  // @ts-expect-error - This is a dynamic key
+                  name: t(`faq_question_${i + 1}`),
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    // @ts-expect-error - This is a dynamic key
+                    text: t(`faq_answer_${i + 1}`),
+                  },
+                };
+              }),
+          } as WithContext<FAQPage>),
+        }}
+      />
     </>
   );
 };

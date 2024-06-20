@@ -110,7 +110,6 @@ export async function POST(req: Request) {
         email: body.data.email,
         subscribed: true,
         data: {
-          marketing_opted_in: "yes",
           locale: body.data.locale,
         },
       }),

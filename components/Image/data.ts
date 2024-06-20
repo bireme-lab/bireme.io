@@ -111,7 +111,7 @@ export const data = {
     name: "logo.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQUlEQVR4nGMQEhT8z8XN/Z+Lm+e/gIDAfwYeHp7/f74+///iwbn/IDYDSPb3l/v/X9w/DlbJICIi8p+NjR2MQVoAu2kcejQ2s/MAAAAASUVORK5CYII=",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAR0lEQVR4nGP4/+rSnW93jv//cf/UfxCb4f/fJ/8luBj+q0gL/f//9+l/hv+/H/+XFWb5L8rE8P//57v/GUDKvt498R+EQVoAfiww6s8oWrYAAAAASUVORK5CYII=",
   },
   "/images/logos.webp": {
     name: "logos.webp",

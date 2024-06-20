@@ -156,13 +156,13 @@ const Page = async ({ params }: PageParams) => {
             "@type": "WebPage",
             name: "Bireme Lab",
             url: pageUrl,
-            logo: "https://bireme.io/images/logo.png",
+            logo: "https://bireme.io/images/logo.png?v=2",
             publisher: {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Bireme Lab",
               url: ORIGIN,
-              logo: "https://bireme.io/images/logo.png",
+              logo: "https://bireme.io/images/logo.png?v=2",
               foundingDate: "2024",
               founders: [
                 {
@@ -189,9 +189,9 @@ const Page = async ({ params }: PageParams) => {
                 contactType: "Contact",
                 email: "contact@bireme.io",
               },
-              sameAs: ["https://twitter.com/biremelab"],
+              sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
             },
-            sameAs: ["https://twitter.com/biremelab"],
+            sameAs: ["https://twitter.com/biremelab", "https://github.com/bireme-lab"],
           } as WithContext<WebPage>),
         }}
       />
