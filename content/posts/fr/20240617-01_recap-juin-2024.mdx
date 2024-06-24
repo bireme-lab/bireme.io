@@ -33,34 +33,48 @@ tldr: "TODO"
 - Mise en place du déploiement continue
 - Traduction de nos applications en anglais
 - Amélioration de l'interface de connexion
-- Creation d'un généteur de variable pour prévisualiser les modèles d'email
+- Creation d'un générateur de variable pour prévisualiser les modèles d'emails
 - Possibilité d'exporter un modèle au format HTML
 - Ajout d'un bouton pour envoyer un email de test avec [Resend](https://resend.com/)
 
 ### Focus sur : Le workflow d'authentification de nos applications
 
-Dans notre premier récapitulatif au mois de Mars, nous vous présentions **Heimdall**, notre application responsable de la gestion des utilisateurs et socle commun pour nos futures applications.  
-Pour rappel Heimdall contient les fonctionnalité suivante:
-- authentification des utilisateurs
-- gestion des membres
-- gestion des équipes
-- gestion des souscriptions aux futures abonnements disponible
+Dans notre premier [récapitulatif du mois de Mars](/blog/recap-mars-2024), nous vous présentions **Heimdall**, notre application de gestion des utilisateurs et socle commun pour nos futures applications.  
+Pour rappel, les fonctionalités d'Heimdall sont :
+- l'authentification des utilisateurs,
+- la gestion des membres,
+- la gestion des équipes,
+- la gestion des souscriptions aux futures abonnements disponible.
 
 Et tout ça est accessible à la fois:
-- avec une interface graphique pour que les utilisateurs puissent facilement gérer les membres de leur équipe avec leurs authorisations
-- avec une API GraphQL permettant à nos applications de vérifier si l'utilisateur est bien connecté et quelles sont les fonctionnalités disponibles pour lui
+- avec une interface graphique accessible à l'address [dedale.bireme.io](https://dedale.bireme.io). Elle permet aux utilisateurs de gérer facilement les membres de leurs équipes avec leurs authorisations,
+- avec une API GraphQL permettant à toutes nos applications :
+  - d'authentifier les requêtes des utilisateurs,
+  - vérifier les fonctionalités accessible pour chaque utilisateur (en se basant sur ses souscriptions et ses droits).
+
+#### Contrainte technique
+
+Depuis la création d'**Heimdall**, nous avons l'ambition de centraliser tout ce qui concerne l'authentification des utilisateurs.  
+Cela nous apporte ces avantages :
+- nous avons qu'une seule base de code à maintenir pour gérer la connexion des utilisateurs. Nous permettant de créer de nouveaux produits nécessitant une authentification plus rapidement,
+- nous pouvons interconnecter nos différentes applications de façon transparente,
+- une fois connecté à un service, l'utilisateur aura accès à tous les services à la fois sans avoir à se connecter à nouveau (rendant l'expérience utilisateur plus fluide).
+
+À partir de ce postula, nous avons décidé de ne pas développer une nouvelle interface de connexion pour Dédale, mais plutôt de faire passer l'utilisateur par [heimdall.bireme.io/signin](https://heimdall.bireme.io/signin)
 
 #### Fonctionnement l'authentification sur Dédale
 
 L'application Dédale est accessible à l'addresse [dedale.bireme.io](https://dedale.bireme.io).  
-Lorsqu'un utilisateur veut créer un compte ou se connecter, il est redirigé vers [heimdall.bireme.io/signin?from_app=dedale&redirect_to=https://dedale.bireme.io](https://heimdall.bireme.io/signin?from_app=dedale&redirect_to=https%3A%2F%2Fdedale.bireme.io%2F).  
+Lorsqu'un utilisateur clique sur le bouton pour créer un compte ou se connecter, il est redirigé vers [heimdall.bireme.io/signin?from_app=dedale&redirect_to=https://dedale.bireme.io](https://heimdall.bireme.io/signin?from_app=dedale&redirect_to=https%3A%2F%2Fdedale.bireme.io%2F).  
 
 - Le suffix `?from_app=dedale` (appelé aussi query param dans le jargon technique) nous permet d'afficher une page de connexion personalisée.
 - Et `redirect_to=https://dedale.bireme.io` permet d'automatiquement rediriger l'utilisateur vers Dédale une fois qu'il s'est connecté.
 
-> Grâce à ces paramètres dans l'url, nous pourrons facilement créer des variantes de l'interface de connexion pour chacune de nos applications sans devoir la re-coder entièrement.
+> Grâce à ces paramètres dans l'url, nous avons la possibilité de créer facilement des variantes de l'interface de connexion pour chacune de nos applications sans devoir la re-coder entièrement.
 
-Une fois que l'utilisateur est connecté, on enregistre un cookie<sup>1</sup> contenant un token d'authentification unique permettant d'authentifier toutes les requêtes faite au serveur en charge du stockage des templates.
+Une fois que l'utilisateur est connecté, on enregistre un cookie<sup>1</sup> contenant un token d'authentification unique. Ce dernier est accessible pour tous les sous domaines `.bireme.io`.  
+Donc même si le cookie d'authentification est enregistré depuis le sous domaine `heimdall.bireme.io`, il est aussi accessible depuis `dedale.bireme.io`.  
+Une fois le token d'authentification enregistré, les requêtes de l'utilisateur peuvent être authentifié par nos serveurs, ce qui lui permet de récupérer ses modèles d'emails.
 
 
 ---
