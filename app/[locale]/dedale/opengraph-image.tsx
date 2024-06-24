@@ -15,7 +15,7 @@ type Props = {
 };
 
 export async function generateImageMetadata({ params }: Props) {
-  const t = await getTranslations({ locale: params.locale, namespace: "meta" });
+  const t = await getTranslations({ locale: params.locale, namespace: "pages.Dedale" });
 
   return [
     {
@@ -28,7 +28,7 @@ export async function generateImageMetadata({ params }: Props) {
 }
 
 const Image = async ({ params }: Props) => {
-  const t = await getTranslations({ locale: params.locale, namespace: "meta" });
+  const t = await getTranslations({ locale: params.locale, namespace: "pages.Dedale" });
 
   return new ImageResponse(
     (
@@ -42,7 +42,7 @@ const Image = async ({ params }: Props) => {
         }}
       >
         <img
-          src={`${ORIGIN}/images/opengraph-images/${params.locale}.png?v=2`}
+          src={`${ORIGIN}/images/opengraph-images/opengraph-dedale.png?v=2`}
           alt={t("title")}
           width={1200}
           height={630}
