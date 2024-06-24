@@ -42,7 +42,7 @@ const Image = async ({ params }: Props) => {
         }}
       >
         <img
-          src={`${ORIGIN}/images/opengraph-images/opengraph-dedale.png?v=2`}
+          src={`${ORIGIN}/images/opengraph-images/dedale-${params.locale}.png?v=2`}
           alt={t("meta_title")}
           width={1200}
           height={630}
