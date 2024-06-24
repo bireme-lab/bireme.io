@@ -101,6 +101,8 @@
       "all_products": "Nos produits"
     },
     "Dedale": {
+      "meta_title": "Créez, développez et centralisez vos modèles d'emails dans votre navigateur",
+      "meta_description": "Dédale est un service en ligne gratuit pour aider les développeurs et les entreprises à développer leurs modèles d'e-mails facilement et rapidement",
       "title": "L’environnement de développement de modèle d'e-mail nouvelle génération",
       "description": "Dédale est un <primary>service gratuit</primary> dédié aux personnes et entreprises qui cherchent à créer, développer et organiser leurs modèles d'e-mails",
       "integrate_to": "S'intègre rapidement et facilement à ces outils",

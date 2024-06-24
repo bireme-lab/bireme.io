@@ -17,7 +17,7 @@ export async function generateImageMetadata({ params }: Props) {
     {
       id: "default",
       size: { width: 1200, height: 630 },
-      alt: t("title"),
+      alt: t("meta_title"),
       contentType: "image/png",
     },
   ];

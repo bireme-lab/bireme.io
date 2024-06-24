@@ -21,7 +21,7 @@ export async function generateImageMetadata({ params }: Props) {
     {
       id: "default",
       size: { width: 1200, height: 630 },
-      alt: t("title"),
+      alt: t("meta_title"),
       contentType: "image/png",
     },
   ];
@@ -43,7 +43,7 @@ const Image = async ({ params }: Props) => {
       >
         <img
           src={`${ORIGIN}/images/opengraph-images/opengraph-dedale.png?v=2`}
-          alt={t("title")}
+          alt={t("meta_title")}
           width={1200}
           height={630}
         />

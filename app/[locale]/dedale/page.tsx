@@ -9,10 +9,12 @@ import { ReactEmailSection } from "@/components/ReactEmailSection/ReactEmailSect
 import { Section } from "@/components/Section/Section";
 import { Text } from "@/components/Text/Text";
 import WaitingListForm from "@/components/WaitingListForm/WaitingListForm";
+import { getMeta } from "@/content/meta";
 import { Locale } from "@/utils/i18n";
 import { ORIGIN } from "@/utils/vars";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { FAQPage, WebPage, WithContext } from "schema-dts";
+import { match } from "ts-pattern";
 import * as styles from "./page.css";
 
 type HeroProps = {
@@ -64,11 +66,48 @@ const Hero: React.FC<HeroProps> = async () => {
 
 Hero.displayName = "Hero";
 
-const Dedale = async ({
-  params: { locale },
-}: Readonly<{
-  params: { locale: Locale };
-}>) => {
+type PageParams = {
+  params: {
+    page_slug: string;
+    locale: Locale;
+  };
+};
+
+export const generateMetadata = async ({ params }: PageParams) => {
+  const defaultMeta = await getMeta(params.locale);
+  const t = await getTranslations("pages.Dedale");
+
+  return {
+    title: t("meta_title"),
+    description: t("meta_description"),
+    alternates: {
+      canonical: match(params)
+        .with({ locale: "fr" }, () => `${ORIGIN}/dedale`)
+        .with({ locale: "en" }, () => `${ORIGIN}/en/dedale`)
+        .exhaustive(),
+      languages: {
+        fr: `${ORIGIN}/dedale`,
+        en: `${ORIGIN}/en/dedale`,
+        "x-default": `${ORIGIN}/dedale`,
+      },
+    },
+    twitter: {
+      ...defaultMeta.twitter,
+      title: t("meta_title"),
+      description: t("meta_description"),
+    },
+    openGraph: {
+      ...defaultMeta.openGraph,
+      title: t("meta_title"),
+      description: t("meta_description"),
+      url: match(params)
+        .with({ locale: "fr" }, () => `${ORIGIN}/dedale`)
+        .otherwise(({ locale }) => `${ORIGIN}/${locale}/dedale`),
+    },
+  };
+};
+
+const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
   unstable_setRequestLocale(locale);
 
   const t = await getTranslations("pages.Dedale");

@@ -101,6 +101,8 @@
       "all_products": "Our products"
     },
     "Dedale": {
+      "meta_title": "Create, develop and centralize email templates in your browser",
+      "meta_description": "Dédale is a free online service to help developers and companies develop their e-mail templates quickly and easily.",
       "title": "The next-generation e-mail template development environment",
       "description": "Dédale is a <primary>free service</primary> dedicated to individuals and companies looking to create, develop and organize their e-mail templates with ease.",
       "integrate_to": "Integrates quickly and easily with these tools",
