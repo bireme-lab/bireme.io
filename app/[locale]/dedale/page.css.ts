@@ -1,5 +1,5 @@
 import { columnCount, responsiveStyle } from "@/styles/mixins";
-import { vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const hero = responsiveStyle({
@@ -8,7 +8,7 @@ export const hero = responsiveStyle({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    gap: vars.sizes[24],
+    gap: vars.sizes[12],
     paddingTop: vars.sizes[36],
     paddingLeft: vars.sizes[24],
     paddingRight: vars.sizes[24],
@@ -17,6 +17,7 @@ export const hero = responsiveStyle({
     background: "linear-gradient(180deg, #0E0E0E 27.35%, #331010 182.31%)",
   },
   tablet: {
+    gap: vars.sizes[24],
     paddingTop: vars.sizes[72],
     paddingLeft: vars.sizes[24],
     paddingRight: vars.sizes[24],
@@ -123,14 +124,23 @@ export const container = style({
   minHeight: "735px",
 });
 
-export const waitingListDummy = responsiveStyle({
+export const ctaDummy = responsiveStyle({
   mobile: columnCount(1),
   tablet: columnCount(1),
   desktop: columnCount(3),
 });
 
-export const waitingList = responsiveStyle({
-  mobile: columnCount(2),
+export const ctaContainer = responsiveStyle({
+  mobile: [
+    columnCount(2),
+    {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: vars.sizes[12],
+    },
+  ],
   tablet: columnCount(4),
   desktop: [
     columnCount(6),
@@ -138,6 +148,59 @@ export const waitingList = responsiveStyle({
       marginTop: vars.sizes[12],
     },
   ],
+});
+
+export const cta = style({
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  overflow: "hidden",
+  width: "auto",
+  borderRadius: vars.sizes[4],
+  transitionProperty: "color, transform, background, border",
+  transitionDuration: `${transitionDuration}ms`,
+  transitionTimingFunction: "ease-out",
+  cursor: "pointer",
+  border: "none",
+  backgroundColor: vars.color.invariant.white.a100,
+  backgroundImage: "linear-gradient(98deg, rgba(255,255,255,0) -63.78%, #FFC799 100%)",
+  color: vars.color.neutral[900],
+  padding: `${vars.sizes[12]} ${vars.sizes[16]}`,
+
+  // Prevents flickering on Safari
+  backfaceVisibility: "hidden",
+  transformStyle: "preserve-3d",
+
+  ":hover": {
+    outline: "none",
+    backgroundColor: vars.color.primary[500],
+  },
+
+  ":focus-visible": {
+    outline: `1px solid ${vars.color.primary[500]}!important`,
+    outlineOffset: 4,
+    borderRadius: vars.sizes[2],
+  },
+});
+
+export const docLink = style({
+  display: "flex",
+  alignItems: "center",
+  color: vars.color.neutral[200],
+  transition: `color ${transitionDuration}ms ease-out`,
+
+  ":hover": {
+    color: vars.color.primary[500],
+  },
+});
+
+export const ctaIcon = style({
+  width: vars.sizes[24],
+  minWidth: vars.sizes[24],
+  height: vars.sizes[24],
+  minHeight: vars.sizes[24],
+  color: vars.color.neutral[200],
 });
 
 export const integrateIntroWrapper = style({
@@ -386,4 +449,11 @@ export const pricingDisclaimerContainer = responsiveStyle({
 
 export const pricingDisclaimer = style({
   textAlign: "center",
+});
+
+export const lastSection = style({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: `${vars.sizes[24]}!important`,
 });
