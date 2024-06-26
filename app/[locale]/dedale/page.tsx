@@ -8,11 +8,11 @@ import { Question } from "@/components/Question/Question";
 import { ReactEmailSection } from "@/components/ReactEmailSection/ReactEmailSection";
 import { Section } from "@/components/Section/Section";
 import { Text } from "@/components/Text/Text";
-import WaitingListForm from "@/components/WaitingListForm/WaitingListForm";
 import { getMeta } from "@/content/meta";
 import { Locale } from "@/utils/i18n";
 import { ORIGIN } from "@/utils/vars";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import Link from "next/link";
 import { FAQPage, WebPage, WithContext } from "schema-dts";
 import { match } from "ts-pattern";
 import * as styles from "./page.css";
@@ -47,9 +47,20 @@ const Hero: React.FC<HeroProps> = async () => {
         <div className={styles.descriptionDummy} />
       </Grid>
       <Grid>
-        <div className={styles.waitingListDummy} />
-        <WaitingListForm className={styles.waitingList} />
-        <div className={styles.waitingListDummy} />
+        <div className={styles.ctaDummy} />
+        <div className={styles.ctaContainer}>
+          <Link href="https://dedale.bireme.io" className={styles.cta}>
+            <Text variant="small-flat" color="neutral-900">
+              Essayer gratuitement
+            </Text>
+          </Link>
+          <Link href="https://docs.bireme.io" className={styles.docLink}>
+            <Text variant="small-flat" color="inherit">
+              Lire la documentation
+            </Text>
+          </Link>
+        </div>
+        <div className={styles.ctaDummy} />
       </Grid>
       <div className={styles.heroImageContainer}>
         <Image
@@ -259,7 +270,7 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
             <div className={styles.faqDummy} />
           </Grid>
         </Section>
-        <Section>
+        <Section className={styles.lastSection}>
           <Grid>
             <div className={styles.sectionTitleDummy} />
             <div className={styles.sectionTitleWrapper}>
@@ -278,9 +289,15 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
             <div className={styles.sectionTitleDummy} />
           </Grid>
           <Grid>
-            <div className={styles.waitingListDummy} />
-            <WaitingListForm className={styles.waitingList} displayDisclaimer={true} />
-            <div className={styles.waitingListDummy} />
+            <div className={styles.ctaDummy} />
+            <div className={styles.ctaContainer}>
+              <Link href="https://dedale.bireme.io" className={styles.cta}>
+                <Text variant="small-flat" color="neutral-900">
+                  Essayer gratuitement
+                </Text>
+              </Link>
+            </div>
+            <div className={styles.ctaDummy} />
           </Grid>
         </Section>
       </div>
