@@ -54,7 +54,7 @@ const Hero: React.FC<HeroProps> = async () => {
       <div className={styles.heroImageContainer}>
         <Image
           className={styles.heroImage}
-          src="/images/product-image.webp"
+          src="/images/dedale-product-image.webp"
           fill={true}
           alt={t("title")}
           title={t("title")}

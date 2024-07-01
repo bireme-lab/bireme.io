@@ -77,6 +77,12 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAFklEQVR4nGPgYmD6//H5czAGsRnQBQA/fxMlqFTDPQAAAABJRU5ErkJggg==",
   },
+  "/images/dedale-product-image.webp": {
+    name: "dedale-product-image.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAH0lEQVR4nGOIjo5ubGy8AwYMjY2NgoKCd+7cuXThIgCyiQ56bYLYoQAAAABJRU5ErkJggg==",
+  },
   "/images/dedale-product.webp": {
     name: "dedale-product.webp",
     extension: ".webp",
@@ -106,6 +112,18 @@ export const data = {
     extension: ".png",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAPUlEQVR4nGNgYNJTs41XNotkYNBj8PUJ+v5i37vbW/z9ghmcfJP+/n/w/Pl5t8BUBgYxOwGDWCX7TAZJRwDRiRJDT7GungAAAABJRU5ErkJggg==",
+  },
+  "/images/june-recap-dedale-lp.webp": {
+    name: "june-recap-dedale-lp.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGNQVFScM2vGgX07mZmZGWSkpK0tLP//+KqloQ4AcDEI1HqNaX0AAAAASUVORK5CYII=",
+  },
+  "/images/june-recap-docs-ui.webp": {
+    name: "june-recap-docs-ui.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGNobW3Ny8szNjbOy8tjiIiIuHLlSl5enrKyMgCFKAn0ST59OwAAAABJRU5ErkJggg==",
   },
   "/images/logo.png": {
     name: "logo.png",

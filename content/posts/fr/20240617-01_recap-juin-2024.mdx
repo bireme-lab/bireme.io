@@ -8,19 +8,114 @@ tags:
   - "company"
 seo:
   title: "Récapitulatif du mois de juin 2024"
-  description: "TODO"
-tldr: "TODO"
+  description: "En juin, nous avons priorisé la sortie de notre service Dédale, créé de la documentation, mis à jour le site, et intégré la gestion des utilisateurs via Heimdall."
+tldr: "En juin, nous avons priorisé le travail à faire pour sortir notre premier service : Dédale. Nous avons créé une documentation, mis à jour le site, et intégré la gestion des utilisateurs en connectant le produit à notre plateforme centralisée : Heimdall."
 ---
 
 ## Récapitulatif du travail effectué au cours du mois de juin 2024
 
-### Le projet "RMS"
+### Fin de développement pour la sortie du projet Dédale
+
+Au cours du mois de juin nous avons finalisé et préparé la sortie du projet Dédale : l'éditeur en ligne pour aider les développeurs à créer leurs modèles d'e-mails dans leur navigateur.
+
+Nous avons concentré nos efforts pour perfectionner l'outil, résoudre les _bugs_ résiduels et préparer tous les à-côtés comme :
+- une première version de la documentation,
+- la _landing page_<sup>1</sup>,
+- la mise en place d'une liste d'attente,
+- la communication à avoir et les canaux à activer pour partager notre travail.
+
+Pour en savoir davantage à propos de Dédale vous pouvez lire notre [récapitulatif du mois dernier](/blog/recap-mai-2024), ou [accéder à la landing page](/dedale).
 
 ## Travail lié à la conception et au développement produit
 
+**Focus produit du mois :** Dédale
+
 ### Les tâches produits accomplies durant le mois
 
-**Focus produit du mois :** Dédale
+**Mise à jour du site bireme.io :**
+- Ajout de la _landing page_ dédiée à Dédale
+- Refonte légère de l'interface (page d'accueil, page "article")
+- Mise à jour des politiques de confidentialité
+
+<Image
+  src="/images/june-recap-dedale-lp.webp"
+  alt="Mise à jour du site bireme.io avec ajout de la landing page dédiée à Dédale"
+  title="Mise à jour du site bireme.io avec ajout de la landing page dédiée à Dédale"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Création de la documentation :**
+- Création des visuels pour illustrer les éléments de documentation
+
+**UX/UI :**
+- Élements de conversion pour inciter les utilisateurs à créer un compte
+- Tests et mises à jour du design de l'interface :
+  - retouches des tailles de police,
+  - retouches des couleurs,
+  - modification du style à appliquer en fonction des intéractions de l'utilisateur.
+
+**Annexes :**
+- Création des modèles d'e-mails pour la communication transactionnelle avec l'inscription en liste d'attente sur Dédale
+- Configuration des automatisations pour la liste d'attente sur Dédale
+
+### Focus sur : la création de notre documentation
+
+Pour simplifier la compréhension et l'usage de Dédale nous avons décidé d'accompagner la sortie du produit d'une documentation.
+
+Nous avons pensé cette documentation comme une grande place ou trouver toutes les informations concernant chaque produit de l'écosystème Bireme Lab ainsi que des ressources utiles comme :
+- Notre _roadmap_,
+- Un changelog par produit,
+- Des foires aux questions.
+
+Dans le cadre de Dédale nous avons créé une section entière pour fournir un maximum d'informations et aider les utilisateurs à :
+- comprendre l'interface,
+- avoir un aperçu du concept et une plus large explication détaillée de chaque fonctionnalité,
+- une liste de cas d'usages pour lesquels un modèle d'e-mail peut-être pertinent,
+- toutes les étapes nécessaires pour comprendre et utiliser Dédale (créer un modèle, éditer le code, utiliser le système de variables etc.)
+
+La documentation est disponible, en anglais, à l'adresse suivante : [docs.bireme.io](https://docs.bireme.io)
+
+<Image
+  src="/images/june-recap-docs-ui.webp"
+  alt="La documentation est disponible, en anglais, à l'adresse suivante : docs.bireme.io"
+  title="La documentation est disponible, en anglais, à l'adresse suivante : docs.bireme.io"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+#### La technologie utilisée pour créer notre documentation
+
+Pour développer notre documentation nous avons utilisé le service sur abonnement [Mintlify](https://mintlify.com/).
+Mintlify permet d'obtenir rapidement un **rendu professionnel** et visuellement beau avec une **expérience utilisateur optimale**.
+
+Nous avons découvert ce service grâce aux entreprises du réseau [Y Combinator](https://www.ycombinator.com/) que nous suivons sur les réseaux sociaux.
+
+Voici un premier retour d'expérience sur l'usage de Mintlify :
+
+**Points positifs** :
+- rapide à mettre en place,
+- un résultat visuel de qualité _out of the box_,
+- un plan gratuit généreux.
+
+**Points négatifs** :
+- les plans payants sont rapidement couteux,
+- pas de gestion intégrée des traductions,
+- impossibilité de stocker le code sur une organisation Github sans un plan payant pour faciliter la collaboration.
+
+Certains points négatifs sont bloquant pour nous comme l'absence de gestion des traductions et nous avons longuement envisagé de créer une seconde documentation pour **traduire en français** et traiter les contraintes techniques SEO avec du bricolage maison (comme la génération d'un _sitemap_ sur un sous-domaine distinct pour y intégrer les informations _hreflang_, par exemple).
+
+Nous avons hésité à utiliser [Docusaurus](https://docusaurus.io/) mais nous avons finalement préféré la rapidité de mise en place avec Mintlify pour se concentrer sur le contenu.
 
 ## Travail de développement
 
@@ -39,7 +134,8 @@ tldr: "TODO"
 
 ### Focus sur : notre méthode pour authentifier les utilisateurs sur nos applications
 
-Dans notre premier [récapitulatif du mois de Mars](/blog/recap-mars-2024), nous vous présentions **Heimdall**, notre application de gestion des utilisateurs et socle commun pour nos futures applications.  
+Dans notre premier [récapitulatif du mois de Mars](/blog/recap-mars-2024), nous vous présentions **Heimdall**, notre application de gestion des utilisateurs et socle commun pour nos futures applications.
+
 Pour rappel, les fonctionalités d'Heimdall sont :
 - l'authentification des utilisateurs,
 - la gestion des membres,
@@ -52,7 +148,7 @@ Le tout est rendu disponible :
   - d'authentifier les requêtes des utilisateurs,
   - vérifier les fonctionalités accessible pour chaque utilisateur (en se basant sur ses souscriptions et ses droits).
 
-#### Contrainte technique
+#### Éviter de reproduire le travail effectué sur notre plateforme de gestion d'utilisateurs pour chaque produit
 
 Avec la création d'Heimdall, nous avions pour ambition de centraliser la gestion et l'authentification des utilisateurs pour obtenir les avantages suivants :
 - nous n'avons qu'une seule base de code à maintenir pour gérer la connexion des utilisateurs, nous permettant de créer de nouveaux produits nécessitant une authentification plus rapidement,
@@ -61,7 +157,7 @@ Avec la création d'Heimdall, nous avions pour ambition de centraliser la gestio
 
 À partir de ce postula, plutôt que de développer une nouvelle page de connexion pour Dédale, nous avons décider de rediriger l'utilisateur vers notre plateforme d'authentification.
 
-#### Comment notre plateforme authentifie nos utilisateurs sur nos produits
+#### Comment notre plateforme authentifie nos utilisateurs sur nos produits ?
 
 L'application Dédale est accessible à l'addresse [dedale.bireme.io](https://dedale.bireme.io).  
 Lorsqu'un utilisateur souhaite créer un compte ou se connecter, il est redirigé vers `heimdall.bireme.io/signin?from_app=dedale&redirect_to=https://dedale.bireme.io`.  
@@ -71,11 +167,11 @@ Lorsqu'un utilisateur souhaite créer un compte ou se connecter, il est redirig�
 
 > Grâce à ces paramètres dans l'url, nous avons la possibilité de créer facilement des variantes de l'interface de connexion pour chacune de nos applications sans devoir la re-coder entièrement.
 
-Une fois que l'utilisateur est connecté, on enregistre un cookie<sup>1</sup> contenant les informations de connexion de l'utilisateur. Ce dernier est accessible pour tous les sous-domaines `.bireme.io`.  
+Une fois que l'utilisateur est connecté, on enregistre un cookie<sup>2</sup> contenant les informations de connexion de l'utilisateur. Ce dernier est accessible pour tous les sous-domaines `.bireme.io`.  
 Par exemple, un cookie enregistré depuis `heimdall.bireme.io` est accessible depuis `dedale.bireme.io`.  
 Une fois le token d'authentification enregistré, les requêtes de l'utilisateur peuvent être authentifié par nos serveurs, ce qui lui permet de récupérer ses modèles d'e-mails.
 
-
 ---
 
-<sup>1</sup> : Un cookie est un petit morceau de données envoyé par un site web et sauvegardé dans le navigateur de l'utilisateur. Il permet au site de se souvenir d'informations comme les préférences de langue ou les informations de connexion.
+<sup>1</sup> : Un cookie est un petit morceau de données envoyé par un site web et sauvegardé dans le navigateur de l'utilisateur. Il permet au site de se souvenir d'informations comme les préférences de langue ou les informations de connexion.  
+<sup>2</sup> : Une landing page est une page web conçue pour convertir les visiteurs en clients. Utilisée dans les campagnes marketing, elle incite à des actions précises comme remplir un formulaire ou effectuer un achat. Elle se concentre sur un seul objectif avec des éléments comme des appels à l'action et des témoignages.
