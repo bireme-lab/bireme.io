@@ -8,30 +8,171 @@ tags:
   - "company"
 seo:
   title: "Monthly recap for june 2024"
-  description: "TODO"
-tldr: "TODO"
+  description: "In June, we prioritized the release of our Dédale service, created documentation, updated the site, and integrated user management via Heimdall."
+tldr: "In June, we prioritized the work required to release our first service: Dédale. We created documentation, updated the site, and integrated user management by connecting the product to our centralized platform: Heimdall."
 ---
 
 ## Summary of work done for the month of june 2024
 
-### Project "RMS"
+### End of development for the Dédale project release
+
+During June we finalized and prepared the release of the Dédale project: the online editor to help developers create e-mail templates in their browser.
+
+We focused our efforts on perfecting the tool, resolving residual bugs and preparing all the extras, such as:
+- a first version of the documentation,
+- a landing page,
+- setting up a waiting list,
+- communication and channels to share our work.
+
+To find out more about Dédale you can read our [last month's recap](/blog/recap-may-2024), or [go to landing page](/dedale).
 
 ## Work related to product design and development
 
+**Product focus of the month:** Dédale
+
 ### Product tasks completed during the month
 
-**Product focus of the month:** Dédale
+**bireme.io website update:**
+- Addition of the landing page dedicated to Dédale
+- Light interface redesign (home page, article page)
+- Update of privacy policies
+
+<Image
+  src="/images/june-recap-dedale-lp.webp"
+  alt="Update of the bireme.io website with the addition of the landing page dedicated to Dédale"
+  title="Update of the bireme.io website with the addition of the landing page dedicated to Dédale"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**Creation of documentation:**
+- Creation of visuals to illustrate documentation elements
+
+**UX/UI:**
+- Conversion elements to encourage users to create an account
+- Testing and updating of interface design:
+  - touching up font sizes,
+  - color touch-ups,
+  - modification of style to be applied according to user interaction.
+
+**Appendices:**
+- Creation of e-mail templates for transactional communication with waiting list registration on Dédale
+- Configuration of waiting list automations on Dédale
+
+### Focus on: creating our documentation
+
+To simplify understanding and use of Dédale, we've decided to accompany the product release with documentation.
+
+We thought of this documentation as a place to find all the information concerning each product in the Bireme Lab ecosystem, as well as useful resources such as :
+- Our roadmap,
+- A changelog for each product,
+- Frequently asked questions.
+
+As part of Dédale we have created an entire section to provide as much information as possible and help users to :
+- understand the interface,
+- get an overview of the concept and a more detailed explanation of each feature,
+- a list of use cases for which an e-mail template may be relevant,
+- all the steps required to understand and use Dédale (creating a template, editing code, using the variable system, etc.).
+
+Documentation is available at [docs.bireme.io](https://docs.bireme.io).
+
+<Image
+  src="/images/june-recap-docs-ui.webp"
+  alt="Documentation is available in English at docs.bireme.io"
+  title="Documentation is available in English at docs.bireme.io"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+#### The technology used to create our documentation
+
+To develop our documentation we used the subscription-based service [Mintlify](https://mintlify.com/).
+Mintlify makes it possible to quickly obtain a **professional** and visually beautiful rendering with an **optimal user experience**.
+
+We discovered this service thanks to the companies in the [Y Combinator](https://www.ycombinator.com/) network that we follow on social networks.
+
+Here's some initial feedback on using Mintlify:
+
+**Positive points**:
+- quick to set up,
+- high-quality visual results out of the box,
+- a generous free plan.
+
+**Negative points**:
+- paid plans quickly become costly,
+- no integrated translation management,
+- impossible to store code on a Github organization without a paid plan to facilitate collaboration.
+
+Some negative points were blocking us, such as the lack of translation management, and we thought long and hard about creating a second documentation to **translate into French** and deal with technical SEO constraints with home-made DIY (such as generating a _sitemap_ on a separate sub-domain to integrate _hreflang_ information, for example).
+
+We hesitated to use [Docusaurus](https://docusaurus.io/) but in the end preferred the speed of implementation with Mintlify to concentrate on content.
 
 ## Development work
 
 **Tech focus of the month:** Dédale
 
-### Tech tasks accomplished during the month
+### Tech tasks completed during the month
 
+- Set up authentication on Daedalus
+- Email templates stored on server
+- Implementation of continuous deployment
+- Translation of our applications into English
+- Improved login interface
+- Creation of a variable generator to preview e-mail templates
+- Possibility of exporting a template in `HTML` format
+- Added a button to send a test e-mail with [Resend](https://resend.com/)
 
-### Focus on : Application authentication workflow
+### Focus on: our method for authenticating users on our applications
 
+In our first [March roundup](/blog/recap-march-2024), we presented **Heimdall**, our user management application and the common base for our future applications.
+
+As a reminder, the functionalities of Heimdall are :
+- user authentication,
+- member management,
+- team management,
+- subscription management and billing parameters.
+
+All this is made available :
+- with a graphical interface accessible at [heimdall.bireme.io](https://heimdall.bireme.io). It enables users to easily manage team members and their authorizations,
+- with a GraphQL API enabling all our applications to :
+  - authenticate user requests,
+  - check the functionalities available to each user (based on their subscriptions and rights).
+
+#### Avoid duplicating the work done on our user management platform for each product
+
+With the creation of Heimdall, our ambition was to centralize user management and authentication to achieve the following benefits:
+- we only need to maintain a single code base to manage user login, enabling us to create new products requiring authentication more quickly,
+- we can interconnect our different applications invisibly, in much the same way as Google automatically adds an event to Calendar when an invitation is accepted in Gmail.
+- a single authentication process to use all our applications without having to log in again, guaranteeing a smooth and pleasant user experience.
+
+Based on this premise, rather than develop a new login page for Dédale, we decided to redirect the user to our authentication platform.
+
+#### How does our platform authenticate users on our products?
+
+When a user wishes to create an account or log in, they are redirected to `heimdall.bireme.io/signin?from_app=dedale&redirect_to={{ app_url }}`.
+
+- the `?from_app=dedale` part allows us to display a personalized login page.
+- and `redirect_to={{ app_url }}` allows us to automatically redirect the user to Daedalus once they've logged in.
+
+> Thanks to these parameters in the url, we can easily create variants of the login interface for each of our applications without having to re-code it entirely.
+
+Once the user has logged in, a cookie<sup>2</sup> containing the user's login details is saved. This cookie is accessible for all `.bireme.io` subdomains.
+
+For example, a cookie registered from `heimdall.bireme.io` can be accessed from any of the applications available in the *.bireme.io subdomains (`app1.bireme.io`, `app2.bireme.io` etc.).
+
+Once the authentication token has been registered, the user's requests can be authenticated by our servers, enabling them to retrieve their e-mail templates.
 
 ---
 
-<sup>-</sup> : TODO
+<sup>1</sup> : A landing page is a web page designed to convert visitors into customers. Used in marketing campaigns, it encourages specific actions such as filling in a form or making a purchase. It focuses on a single objective, with elements such as calls to action and testimonials.  
+<sup>1</sup> : A cookie is a small piece of data sent by a website and saved in the user's browser. It enables the site to remember information such as language preferences or login details.  

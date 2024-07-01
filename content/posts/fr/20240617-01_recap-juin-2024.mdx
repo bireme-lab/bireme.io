@@ -75,7 +75,7 @@ Nous avons pensé cette documentation comme une grande place ou trouver toutes l
 
 Dans le cadre de Dédale nous avons créé une section entière pour fournir un maximum d'informations et aider les utilisateurs à :
 - comprendre l'interface,
-- avoir un aperçu du concept et une plus large explication détaillée de chaque fonctionnalité,
+- avoir un aperçu du concept et une explication détaillée de chaque fonctionnalité,
 - une liste de cas d'usages pour lesquels un modèle d'e-mail peut-être pertinent,
 - toutes les étapes nécessaires pour comprendre et utiliser Dédale (créer un modèle, éditer le code, utiliser le système de variables etc.)
 
@@ -94,10 +94,9 @@ La documentation est disponible, en anglais, à l'adresse suivante : [docs.bire
   sizes="(min-width: 768px) 1728px, 1280px"
 />
 
-#### La technologie utilisée pour créer notre documentation
+#### Technologie utilisée pour créer notre documentation
 
-Pour développer notre documentation nous avons utilisé le service sur abonnement [Mintlify](https://mintlify.com/).
-Mintlify permet d'obtenir rapidement un **rendu professionnel** et visuellement beau avec une **expérience utilisateur optimale**.
+Pour développer notre documentation nous avons utilisé le service sur abonnement [Mintlify](https://mintlify.com/) qui permet d'obtenir rapidement un **rendu professionnel** et beau avec une **expérience utilisateur optimale**.
 
 Nous avons découvert ce service grâce aux entreprises du réseau [Y Combinator](https://www.ycombinator.com/) que nous suivons sur les réseaux sociaux.
 
@@ -159,16 +158,17 @@ Avec la création d'Heimdall, nous avions pour ambition de centraliser la gestio
 
 #### Comment notre plateforme authentifie nos utilisateurs sur nos produits ?
 
-L'application Dédale est accessible à l'adresse [dedale.bireme.io](https://dedale.bireme.io).  
-Lorsqu'un utilisateur souhaite créer un compte ou se connecter, il est redirigé vers `heimdall.bireme.io/signin?from_app=dedale&redirect_to=https://dedale.bireme.io`.  
+Lorsqu'un utilisateur souhaite créer un compte ou se connecter, il est redirigé vers `heimdall.bireme.io/signin?from_app=dedale&redirect_to={{ app_url }}`.
 
 - la partie `?from_app=dedale` nous permet d'afficher une page de connexion personalisée.
-- et `redirect_to=https://dedale.bireme.io` permet d'automatiquement rediriger l'utilisateur vers Dédale une fois qu'il s'est connecté.
+- et `redirect_to={{ app_url }}` permet d'automatiquement rediriger l'utilisateur vers Dédale une fois qu'il s'est connecté.
 
 > Grâce à ces paramètres dans l'url, nous avons la possibilité de créer facilement des variantes de l'interface de connexion pour chacune de nos applications sans devoir la re-coder entièrement.
 
-Une fois que l'utilisateur est connecté, on enregistre un cookie<sup>2</sup> contenant les informations de connexion de l'utilisateur. Ce dernier est accessible pour tous les sous-domaines `.bireme.io`.  
-Par exemple, un cookie enregistré depuis `heimdall.bireme.io` est accessible depuis `dedale.bireme.io`.  
+Une fois que l'utilisateur est connecté, on enregistre un cookie<sup>2</sup> contenant les informations de connexion de l'utilisateur. Ce dernier est accessible pour tous les sous-domaines `.bireme.io`.
+
+Par exemple, un cookie enregistré depuis `heimdall.bireme.io` est accessible depuis chacune des applications disponibles aux sous-domaines *.bireme.io (`app1.bireme.io`, `app2.bireme.io` etc.).
+
 Une fois le token d'authentification enregistré, les requêtes de l'utilisateur peuvent être authentifié par nos serveurs, ce qui lui permet de récupérer ses modèles d'e-mails.
 
 ---
