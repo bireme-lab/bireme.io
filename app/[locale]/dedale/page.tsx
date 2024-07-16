@@ -162,96 +162,18 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
               illustration="/images/variables-panel.webp"
             />
             <BentoCard
-              variant="contained"
+              variant="covered"
               title={t("feature_3_title")}
               description={t("feature_3_description")}
               className={styles.bentoCardFeature3}
-              illustration="/images/can-i-email.webp"
+              illustration="/images/logos.webp"
             />
             <BentoCard
               variant="covered"
               title={t("feature_4_title")}
               description={t("feature_4_description")}
               className={styles.bentoCardFeature4}
-              illustration="/images/logos.webp"
-            />
-            <BentoCard
-              variant="covered"
-              title={t("feature_5_title")}
-              description={t("feature_5_description")}
-              className={styles.bentoCardFeature5}
-              illustration="/images/centralized.webp"
-              illustrationOverlay={
-                <>
-                  <Text
-                    className={styles.illustrationFileName}
-                    style={{ transform: "translate(-300px, -80px)", filter: "blur(2px)" }}
-                    variant="code"
-                    color="white-a100"
-                  >
-                    product-launch-campaign.tsx
-                  </Text>
-                  <Text
-                    className={styles.illustrationFileName}
-                    style={{ transform: "translate(-40px, -75px)" }}
-                    variant="code"
-                    color="white-a100"
-                  >
-                    newsletter-2024.tsx
-                  </Text>
-                  <Text
-                    className={styles.illustrationFileName}
-                    style={{ transform: "scale(0.7) translate(-320px, 10px)", filter: "blur(1px)" }}
-                    variant="code"
-                    color="white-a100"
-                  >
-                    reset-password.tsx
-                  </Text>
-                  <Text
-                    className={styles.illustrationFileName}
-                    style={{ transform: "scale(0.7) translate(120px, -10px)", filter: "blur(1px)" }}
-                    variant="code"
-                    color="white-a100"
-                  >
-                    magic-link.tsx
-                  </Text>
-                  <Text
-                    className={styles.illustrationFileName}
-                    style={{ transform: "scale(0.9) translate(100px, 50px)" }}
-                    variant="code"
-                    color="white-a100"
-                  >
-                    welcome.tsx
-                  </Text>
-                  <Text
-                    className={styles.illustrationFileName}
-                    style={{ transform: "scale(1.2) translate(-250px, 90px)", filter: "blur(1px)" }}
-                    variant="code"
-                    color="white-a100"
-                  >
-                    user-invite.tsx
-                  </Text>
-                  <Text
-                    className={styles.illustrationFileName}
-                    style={{ transform: "translate(-50%, 100px)" }}
-                    variant="code"
-                    color="white-a100"
-                  >
-                    cart-is-waiting-you.tsx
-                  </Text>
-                  <Text
-                    className={styles.illustrationFileName}
-                    style={{
-                      transform: "scale(1.3) translate(120px, 100px)",
-                      filter: "blur(1.3px)",
-                    }}
-                    variant="code"
-                    color="white-a100"
-                  >
-                    newsletter-2024.tsx
-                  </Text>
-                </>
-              }
+              illustration="/images/can-i-email.webp"
             />
           </Grid>
         </Section>

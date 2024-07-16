@@ -75,7 +75,7 @@ export const data = {
     name: "can-i-email.webp",
     extension: ".webp",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAGklEQVR4nGMQFxf/v2Pt2v9f3j3//+XVk/8AUrML36+B0YEAAAAASUVORK5CYII=",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAF0lEQVR4nGPISIj9D8I9jXX/bQz0/wMARoYIbcl5mHYAAAAASUVORK5CYII=",
   },
   "/images/centralized.webp": {
     name: "centralized.webp",
