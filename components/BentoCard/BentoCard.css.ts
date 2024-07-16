@@ -62,7 +62,7 @@ export const satin = style({
   left: 0,
   width: "100%",
   height: "100%",
-  background: "linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0) 100%)",
+  background: "linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%)",
 });
 
 export const illustrationOverlay = style({
