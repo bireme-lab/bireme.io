@@ -162,17 +162,24 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
               illustration="/images/variables-panel.webp"
             />
             <BentoCard
-              variant="covered"
+              variant="contained"
               title={t("feature_3_title")}
               description={t("feature_3_description")}
               className={styles.bentoCardFeature3}
-              illustration="/images/logos.webp"
+              illustration="/images/can-i-email.webp"
             />
             <BentoCard
               variant="covered"
               title={t("feature_4_title")}
               description={t("feature_4_description")}
               className={styles.bentoCardFeature4}
+              illustration="/images/logos.webp"
+            />
+            <BentoCard
+              variant="covered"
+              title={t("feature_5_title")}
+              description={t("feature_5_description")}
+              className={styles.bentoCardFeature5}
               illustration="/images/centralized.webp"
               illustrationOverlay={
                 <>

@@ -71,6 +71,12 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAP0lEQVR4nAE0AMv/AP/8+NfKxebWz6OXlADx392wm5vQu7nWyMcAi4WKjYGGe3F1nZSXAGFgZwoEEExLUaelrH0SHWyL7iq4AAAAAElFTkSuQmCC",
   },
+  "/images/can-i-email.webp": {
+    name: "can-i-email.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAGklEQVR4nGMQFxf/v2Pt2v9f3j3//+XVk/8AUrML36+B0YEAAAAASUVORK5CYII=",
+  },
   "/images/centralized.webp": {
     name: "centralized.webp",
     extension: ".webp",
