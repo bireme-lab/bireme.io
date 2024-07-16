@@ -344,10 +344,16 @@ export const bentoCardFeature2 = responsiveStyle({
 export const bentoCardFeature3 = responsiveStyle({
   mobile: columnCount(2),
   tablet: columnCount(6),
-  desktop: columnCount(4),
+  desktop: columnCount(12),
 });
 
 export const bentoCardFeature4 = responsiveStyle({
+  mobile: columnCount(2),
+  tablet: columnCount(6),
+  desktop: columnCount(4),
+});
+
+export const bentoCardFeature5 = responsiveStyle({
   mobile: columnCount(2),
   tablet: columnCount(6),
   desktop: columnCount(8),
