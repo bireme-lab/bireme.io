@@ -180,7 +180,6 @@ export const cta = style({
   ":focus-visible": {
     outline: `1px solid ${vars.color.primary[500]}!important`,
     outlineOffset: 4,
-    borderRadius: vars.sizes[2],
   },
 });
 

@@ -216,6 +216,8 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
                 t("pricing_option_perk_1_2"),
                 t("pricing_option_perk_1_3"),
               ]}
+              ctaLabel="Lancer l'application"
+              ctaHref="https://dedale.bireme.io"
             />
             <PricingOption
               locale={locale}
@@ -229,6 +231,8 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
                 t("pricing_option_perk_2_2"),
                 t("pricing_option_perk_2_3"),
               ]}
+              ctaLabel="S'inscrire gratuitement"
+              ctaHref="https://heimdall.bireme.io/signin?from_app=dedale&redirect_to=https%3A%2F%2Fdedale.bireme.io%2F"
             />
             <div className={styles.pricingDummy} />
           </Grid>
