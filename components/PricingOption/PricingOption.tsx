@@ -1,6 +1,7 @@
 import { cx } from "@/styles/mixins";
 import { Locale } from "@/utils/i18n";
 import { getTranslations } from "next-intl/server";
+import Link from "next/link";
 import { Icon } from "../Icon/Icon";
 import { Text } from "../Text/Text";
 import * as styles from "./PricingOption.css";
@@ -14,6 +15,8 @@ type Props = {
   description: string;
   price: string;
   perks: string[];
+  ctaLabel: string;
+  ctaHref: string;
 };
 
 export const PricingOption: React.FC<Props> = async ({
@@ -24,6 +27,8 @@ export const PricingOption: React.FC<Props> = async ({
   className,
   style,
   perks,
+  ctaLabel,
+  ctaHref,
 }) => {
   const t = await getTranslations("components.PricingOption");
 
@@ -45,6 +50,11 @@ export const PricingOption: React.FC<Props> = async ({
           </Text>
         </div>
       </div>
+      <Link href={ctaHref} className={styles.cta({ variant })}>
+        <Text variant="small-flat" color="inherit">
+          {ctaLabel}
+        </Text>
+      </Link>
       <ul className={styles.perks}>
         {perks.map((perk) => (
           <li key={perk} className={styles.perk}>

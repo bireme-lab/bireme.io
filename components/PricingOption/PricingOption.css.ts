@@ -1,4 +1,4 @@
-import { vars } from "@/styles/theme/index.css";
+import { transitionDuration, vars } from "@/styles/theme/index.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -140,6 +140,62 @@ export const perkTitle = recipe({
       },
       neutral: {
         color: vars.color.neutral[200],
+      },
+    },
+  },
+});
+
+export const cta = recipe({
+  base: {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+    width: "auto",
+    borderRadius: vars.sizes[4],
+    transitionProperty: "color, transform, background, border",
+    transitionDuration: `${transitionDuration}ms`,
+    transitionTimingFunction: "ease-out",
+    cursor: "pointer",
+    padding: `${vars.sizes[12]} ${vars.sizes[16]}`,
+
+    // Prevents flickering on Safari
+    backfaceVisibility: "hidden",
+    transformStyle: "preserve-3d",
+  },
+  variants: {
+    variant: {
+      primary: {
+        border: "none",
+        backgroundColor: vars.color.invariant.white.a100,
+        backgroundImage: "linear-gradient(98deg, rgba(255,255,255,0) -63.78%, #FFC799 100%)",
+        color: vars.color.neutral[900],
+
+        ":hover": {
+          outline: "none",
+          backgroundColor: vars.color.primary[500],
+        },
+
+        ":focus-visible": {
+          outline: `1px solid ${vars.color.primary[500]}!important`,
+          outlineOffset: 4,
+        },
+      },
+      neutral: {
+        border: `1px solid ${vars.color.primary[500]}`,
+        backgroundColor: vars.color.primary[900],
+        color: vars.color.primary[200],
+
+        ":hover": {
+          outline: "none",
+          backgroundColor: vars.color.primary[800],
+        },
+
+        ":focus-visible": {
+          outline: `1px solid ${vars.color.primary[500]}!important`,
+          outlineOffset: 4,
+        },
       },
     },
   },
