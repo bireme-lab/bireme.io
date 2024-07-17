@@ -101,6 +101,8 @@
       "all_products": "Our products"
     },
     "Dedale": {
+      "test_for_free": "Test for free",
+      "read_documentation": "Read documentation",
       "meta_title": "Create, develop and centralize email templates in your browser",
       "meta_description": "Dédale is a free online service to help developers and companies develop their e-mail templates quickly and easily.",
       "title": "The next-generation e-mail template development environment",
@@ -138,11 +140,13 @@
       "faq_answer_5": "With Dedale, you can export your email template in a highly compatible HTML format with most existing professional tools.",
       "pricing_option_title_1": "Free",
       "pricing_option_description_1": "Access to most features with limitations",
+      "pricing_option_ctaLabel_1": "Launch application",
       "pricing_option_perk_1_1": "Up to 1 template",
       "pricing_option_perk_1_2": "Browser storage*",
       "pricing_option_perk_1_3": "Basic features",
       "pricing_option_title_2": "With registration",
       "pricing_option_description_2": "All features available without limitations",
+      "pricing_option_ctaLabel_2": "Register for free",
       "pricing_option_perk_2_1": "No template limit",
       "pricing_option_perk_2_2": "Server storage",
       "pricing_option_perk_2_3": "Advanced features**",
