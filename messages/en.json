@@ -16,6 +16,7 @@
     },
     "Header": {
       "homepage": "Home",
+      "test_for_free": "Test for free",
       "subscribe_to_newsletter": "Get an early access to our products by <NewsletterTrigger>subscribing to our newsletter</NewsletterTrigger>"
     },
     "PricingOption": {

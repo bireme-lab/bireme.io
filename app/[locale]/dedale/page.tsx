@@ -297,7 +297,7 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
             <div className={styles.ctaContainer}>
               <Link href="https://dedale.bireme.io" className={styles.cta}>
                 <Text variant="small-flat" color="neutral-900">
-                  Essayer gratuitement
+                  {t("test_for_free")}
                 </Text>
               </Link>
             </div>
