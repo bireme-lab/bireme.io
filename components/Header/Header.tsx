@@ -2,17 +2,17 @@
 
 import { Icon } from "@/components/Icon/Icon";
 import { Text } from "@/components/Text/Text";
-import { Link } from "@/navigation";
-import { Pathname } from "@/utils/i18n";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PropsWithChildren } from "react";
 import { match, P } from "ts-pattern";
+import { Button } from "../Button/Button";
 import { Container } from "../Container/Container";
 import * as styles from "./Header.css";
 
 type NavLinkProps = PropsWithChildren<{
-  href: Pathname;
+  href: string;
 }>;
 
 export const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
@@ -45,29 +45,23 @@ export const Header: React.FC = () => {
                 <Icon name="logo" title={t("homepage")} className={styles.biremeLabLogo} />
               </Link>
             ))}
-          {/* <div className={styles.wrapper}>
+          <div className={styles.wrapper}>
             <ul className={styles.navLinks}>
               {match(pathname)
                 .with(P.string.includes("/dedale"), () => (
                   <>
                     <li>
-                      <NavLink href="/">
-                        Docs
-                      </NavLink>
+                      <NavLink href="https://docs.bireme.io">Docs</NavLink>
                     </li>
                     <li>
-                      <NavLink href="/">
-                        Changelog
-                      </NavLink>
+                      <NavLink href="https://docs.bireme.io/changelog/dedale">Changelog</NavLink>
                     </li>
                   </>
                 ))
                 .otherwise(() => (
                   <>
                     <li>
-                      <NavLink href="/">
-                        Docs
-                      </NavLink>
+                      <NavLink href="https://docs.bireme.io">Docs</NavLink>
                     </li>
                   </>
                 ))}
@@ -75,11 +69,13 @@ export const Header: React.FC = () => {
             {match(pathname)
               .with(P.string.includes("/dedale"), () => (
                 <>
-                  <Button variant="plain" size="small">Essayer gratuitement</Button>
+                  <Button variant="plain" size="small">
+                    {t("test_for_free")}
+                  </Button>
                 </>
               ))
               .otherwise(() => null)}
-          </div> */}
+          </div>
         </nav>
       </Container>
     </header>
