@@ -101,6 +101,8 @@
       "all_products": "Nos produits"
     },
     "Dedale": {
+      "test_for_free": "Essayer gratuitement",
+      "read_documentation": "Lire la documentation",
       "meta_title": "Créez, développez et centralisez vos modèles d'emails dans votre navigateur",
       "meta_description": "Dédale est un service en ligne gratuit pour aider les développeurs et les entreprises à développer leurs modèles d'e-mails facilement et rapidement",
       "title": "L’environnement de développement de modèle d'e-mail nouvelle génération",
@@ -138,11 +140,13 @@
       "faq_answer_5": "Avec Dédale vous pouvez exporter votre modèle d'e-mail au format HTML hautement compatible avec la plupart des outils professionnels existants.",
       "pricing_option_title_1": "Gratuit",
       "pricing_option_description_1": "Accès à la plupart des fonctionnalités avec limitations",
+      "pricing_option_ctaLabel_1": "Lancer l'application",
       "pricing_option_perk_1_1": "Jusqu’à 1 modèle",
       "pricing_option_perk_1_2": "Stockage sur navigateur*",
       "pricing_option_perk_1_3": "Fonctionnalités basiques",
       "pricing_option_title_2": "Sur inscription",
       "pricing_option_description_2": "Toutes les fonctionnalités disponibles sans limitations",
+      "pricing_option_ctaLabel_2": "S'inscrire gratuitement",
       "pricing_option_perk_2_1": "Pas de limite de modèles",
       "pricing_option_perk_2_2": "Stockage sur nos serveurs",
       "pricing_option_perk_2_3": "Fonctionnalités avancées**",

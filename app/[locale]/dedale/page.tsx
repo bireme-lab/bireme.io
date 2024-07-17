@@ -51,12 +51,12 @@ const Hero: React.FC<HeroProps> = async () => {
         <div className={styles.ctaContainer}>
           <Link href="https://dedale.bireme.io" className={styles.cta}>
             <Text variant="small-flat" color="neutral-900">
-              Essayer gratuitement
+              {t("test_for_free")}
             </Text>
           </Link>
           <Link href="https://docs.bireme.io" className={styles.docLink}>
             <Text variant="small-flat" color="inherit">
-              Lire la documentation
+              {t("read_documentation")}
             </Text>
           </Link>
         </div>
@@ -216,7 +216,7 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
                 t("pricing_option_perk_1_2"),
                 t("pricing_option_perk_1_3"),
               ]}
-              ctaLabel="Lancer l'application"
+              ctaLabel={t("pricing_option_ctaLabel_1")}
               ctaHref="https://dedale.bireme.io"
             />
             <PricingOption
@@ -231,7 +231,7 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
                 t("pricing_option_perk_2_2"),
                 t("pricing_option_perk_2_3"),
               ]}
-              ctaLabel="S'inscrire gratuitement"
+              ctaLabel={t("pricing_option_ctaLabel_2")}
               ctaHref="https://heimdall.bireme.io/signin?from_app=dedale&redirect_to=https%3A%2F%2Fdedale.bireme.io%2F"
             />
             <div className={styles.pricingDummy} />
