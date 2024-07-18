@@ -107,7 +107,7 @@
       "meta_title": "Create, develop and centralize email templates in your browser",
       "meta_description": "Dédale is a free online service to help developers and companies develop their e-mail templates quickly and easily.",
       "title": "The next-generation e-mail template development environment",
-      "description": "Dédale is a <primary>free service</primary> dedicated to individuals and companies looking to create, develop and organize their e-mail templates with ease.",
+      "description": "Dédale is a <primary>free code editor</primary> for developers looking to integrate their e-mail templates using React.js from their browser.",
       "integrate_to": "Integrates quickly and easily with these tools",
       "integrate_to_tooltip": "The tools shown are examples, and any HTML-compatible service can be used.",
       "features_title": "Everything you need to create high-performance email templates",
