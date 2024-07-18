@@ -7,7 +7,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PropsWithChildren } from "react";
 import { match, P } from "ts-pattern";
-import { Button } from "../Button/Button";
 import { Container } from "../Container/Container";
 import * as styles from "./Header.css";
 
@@ -69,9 +68,11 @@ export const Header: React.FC = () => {
             {match(pathname)
               .with(P.string.includes("/dedale"), () => (
                 <>
-                  <Button variant="plain" size="small">
-                    {t("test_for_free")}
-                  </Button>
+                  <Link href="https://dedale.bireme.io" className={styles.cta}>
+                    <Text variant="small-flat" color="inherit">
+                      {t("test_for_free")}
+                    </Text>
+                  </Link>
                 </>
               ))
               .otherwise(() => null)}

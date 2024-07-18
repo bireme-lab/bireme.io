@@ -91,3 +91,36 @@ export const wrapper = style({
   gap: vars.sizes[24],
   alignItems: "center",
 });
+
+export const cta = style({
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  overflow: "hidden",
+  width: "auto",
+  borderRadius: vars.sizes[4],
+  transitionProperty: "color, transform, background, border",
+  transitionDuration: `${transitionDuration}ms`,
+  transitionTimingFunction: "ease-out",
+  cursor: "pointer",
+  padding: `${vars.sizes[10]} ${vars.sizes[12]}`,
+
+  // Prevents flickering on Safari
+  backfaceVisibility: "hidden",
+  transformStyle: "preserve-3d",
+  border: "none",
+  backgroundColor: vars.color.invariant.white.a100,
+  backgroundImage: "linear-gradient(98deg, rgba(255,255,255,0) -63.78%, #FFC799 100%)",
+  color: vars.color.neutral[900],
+
+  ":hover": {
+    outline: "none",
+    backgroundColor: vars.color.primary[500],
+  },
+
+  ":focus-visible": {
+    outline: `1px solid ${vars.color.primary[500]}!important`,
+    outlineOffset: 4,
+  },
+});
