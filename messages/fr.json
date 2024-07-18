@@ -91,7 +91,7 @@
   "pages": {
     "Home": {
       "new": "Nouveau",
-      "news_banner": "Mise à jour concernant l'entreprise : création de Bireme Lab",
+      "news_banner": "Lancement de Dédale : développez vos modèles d’e-mails en ligne avec React",
       "title": "Nous créons des services pour aider les autres à concevoir les leurs",
       "description": "Experts dans la création de services en ligne spécialisés pour les développeurs, les indépendants ainsi que les petites entreprises",
       "dedale_description": "Dédale est un service gratuit pour créer, développer et organiser ses modèles d'e-mails",
@@ -150,9 +150,8 @@
       "pricing_option_ctaLabel_2": "S'inscrire gratuitement",
       "pricing_option_perk_2_1": "Pas de limite de modèles",
       "pricing_option_perk_2_2": "Stockage sur nos serveurs",
-      "pricing_option_perk_2_3": "Fonctionnalités avancées**",
+      "pricing_option_perk_2_3": "Fonctionnalités avancées",
       "pricing_disclaimer": "* Les modèles sont stockés localement dans le navigateur, ils peuvent être perdus si les donnnées de navigation sont effacées",
-      "pricing_wip": "** en cours de développement",
       "ready_to_test_title": "Prêt à tester Dédale ?",
       "ready_to_test_description": "Renseignez votre e-mail pour être informé, en avant-première, de la sortie publique de Dédale ainsi que des prochaines fonctionnalités en cours de développement"
     },

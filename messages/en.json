@@ -150,9 +150,8 @@
       "pricing_option_ctaLabel_2": "Register for free",
       "pricing_option_perk_2_1": "No template limit",
       "pricing_option_perk_2_2": "Server storage",
-      "pricing_option_perk_2_3": "Advanced features**",
+      "pricing_option_perk_2_3": "Advanced features",
       "pricing_disclaimer": "* Templates are stored locally in the browser, they may be lost if browsing data is cleared",
-      "pricing_wip": "** under development",
       "ready_to_test_title": "Ready to test Dedale?",
       "ready_to_test_description": "Enter your email to be informed, in advance, of Dedale's public release as well as upcoming features in development"
     },

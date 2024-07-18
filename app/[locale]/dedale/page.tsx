@@ -242,9 +242,6 @@ const Dedale = async ({ params: { locale } }: Readonly<PageParams>) => {
               <Text variant="small" className={styles.pricingDisclaimer}>
                 {t("pricing_disclaimer")}
               </Text>
-              <Text variant="small" className={styles.pricingDisclaimer}>
-                {t("pricing_wip")}
-              </Text>
             </div>
             <div className={styles.pricingDisclaimerDummy} />
           </Grid>

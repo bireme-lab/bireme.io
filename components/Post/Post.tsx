@@ -14,7 +14,7 @@ type Props = {
 export const Post: React.FC<Props> = ({ className, style, post }) => {
   return (
     <Link href={post.href} className={cx(styles.container, className)} style={style}>
-      <Text variant="body-flat" color="white-a100">
+      <Text variant="body" color="white-a100">
         {post.title}
       </Text>
       <Text variant="body">{post.seo.description}</Text>

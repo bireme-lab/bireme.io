@@ -56,8 +56,8 @@ const Hero: React.FC<HeroProps> = async ({ locale }) => {
   const t = await getTranslations("pages.Home");
 
   const slug = match(locale)
-    .with("fr", () => "a-propos-de-bireme-lab")
-    .with("en", () => "about-bireme-lab")
+    .with("fr", () => "lancement-de-dedale")
+    .with("en", () => "announcing-dedale")
     .exhaustive();
 
   return (
