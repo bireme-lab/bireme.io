@@ -1,0 +1,121 @@
+---
+title: "Pourquoi passer de JavaScript à Rust en 2024"
+publishedAt: "2024-07-03T18:00:00"
+authors:
+  - "frederic-godin"
+tags:
+  - "tech"
+seo:
+  title: "Pourquoi passer de JavaScript à Rust en 2024"
+  description: "TODO"
+tldr: "On entend de plus en plus parler de Rust ces dernières années, en particulier pour ces performances. Mais c'est aussi un langage apportant une meilleure expérience de développement que JavaScript, notamment grâce à son compilateur"
+---
+
+Depuis ces dernières années, l'écosystème autour du langage Rust est devenu de plus en plus vaste avec des librairies de plus en plus mature.  
+Cela fait de ce language une alternative viable à NodeJS qui est énormément utilisé dans le développement de serveur web.  
+Dans cet article je vais vous montrer pourquoi vous devriez considérer Rust pour vos futures applications web.  
+
+## Une meilleure dévelopeur expérience
+
+### Fini de perdre du temps a mettre en place des outils pour la DX
+
+Aujourd'hui quand on veut commencer un nouveau projet NodeJS, on doit choisir parmis 4 gestionaire de packages:
+- npm (intégré avec NodeJS par défaut)
+- [yarn](https://yarnpkg.com/)
+- [pnpm](https://pnpm.io/)
+- [bun](https://bun.sh/docs/cli/install)
+
+Ensuite il faut installer et configurer une liste d'outils pour nous aider à écrire du code de meilleure qualité et plus fiable:
+- [TypeScript](https://www.typescriptlang.org/) pour vérifier avant l'exécution des potientiels erreur lié aux types qui sont dynamique en JS,
+- [Prettier](https://prettier.io/) pour formatter le code
+- [ESLint](https://eslint.org/) pour mettre en place des convention de code,
+
+Et en plus ces outils sont régulièrement mis à jour avec des breaking change. Au mieux vous perdez quelques heures à mettre à jour la configuration, au pire vous devez attendre que tous les outils qui en dépendent se mettent à jour.  
+
+> À titre personnel je n'ai toujours pas mis à jour ESLint vers la version 9 car je préfère passer mon temps à améliorer mon produit plutôt que d'adapter une énième fois un outil sensé me faire gagner du temps.
+
+Même si chacun apporte des avantages qui font sens, on se retrouve au final avec un ecosystem complètement fragmenté et nous sommes amené à devoir maitriser une dizaine d'outils car chaque équipe fait son propre choix concernant les outils qu'elle préfère utiliser.  
+Et le temps qu'on passe à apprendre à les utiliser et surout les configurer est du temps qu'on ne passe pas à développer des fonctionalités pour nos utilisateurs.  
+
+Lorsque j'ai commencé à coder avec Rust, j'ai été surpris de constater que tous ces outils pour la DX s'installe automatiquement avec le compilateur avec une configuration par défaut :
+- `cargo` qui est le gestionnaire de package et de build
+- `cargo fmt` permet de formatter le code de votre projet
+- `cargo clippy` analyse votre code et propose des suggestions pour suivre des bonnes pratiques
+- `cargo build` pour compiler l'application
+
+On gagne du temps à ne pas devoir mettre en place ces outils, et tout le monde les utilise donc pas besoin d'apprendre à utiliser différents outils en fonction des goûts de votre équipe.
+
+
+### Un compilateur sévère mais qui vous veut du bien
+
+À mes yeux un des plus gros défaut de JavaScript pour faire des applications robuste est l'absence de compilateur.  
+Car l'utilisation d'un compilateur permet :
+- de vérifier la syntaxe de notre code avant l'exécution,
+- s'assurer que les attributs et méthodes auxquels on veux accéder sont disponible (que l'on appelle typechecking)
+- faciliter la refactorisation du code : le compilateur peut vous indiquer tous les fichiers à modifier si vous changez la signature d'une fonction
+- vérifier que vos `switch` sont exhaustif (si vous travaillez avec des union type ou enum, c'est indispensable)
+
+Alors on peut mettre en place TypeScript, mais il nécéssite d'être bien configuré pour prévenir d'un maximum d'erreur (et donc prendre le temps d'apprendre à bien le configurer).  
+Aussi les dépendences doivent contenir un fichier de définition de types pour pouvoir être intégré dans votre projet, ce qui peut demander plus de travail pour les développeurs de librairies. Après TypeScript est devenu tellement populaire qu'on ne rencontre quasiment plus ce problème.
+
+Dans le cas de Rust il est obligatoire d'utiliser un compilateur qui va faire toutes ces vérifications. La différence avec TypeScript c'est qu'il n'y a pas de configuration, mise à part le niveau d'optimisation et la cible d'exécution (le type de CPU et l'OS).  
+Et le compilateur Rust est bien plus strict que TypeScript :
+- il n'existe pas de type `any` ou `unknown` : toute données venant de l'exterieur doit être serializé vers un type défini dans votre code.
+- on ne peux pas dire au compilateur "t'inquiète fais moi confiance" avec `@ts-ignore`
+- le pattern matching (l'equivalent de `switch` mais en beaucoup plus puissant) est par défaut exhaustif
+- les messages d'erreur sont plus explicite, et propose parfois des suggestions de code pour la corriger
+
+### Des mutations toujours explicite
+
+// TODO supprimer cette partie et se concentrer sur les mutations explicite
+
+Avec Rust, il n'y a pas pas de débat à ce propos car on peut déclarer des variables uniquement avec le mot clé `let`:
+```rust
+let names = vec!["Frederic"]; // défini un vecteur
+names = vec!["Antoine"]; // ❌ on ne peut pas le redéfinir car les variables sont par défaut immutable
+names.push("Frederic"); // ❌ et donc on ne peux pas utliser des méthodes qui mofifie la valeur
+
+let mut names = vec!["Frederic"]; // on peut utiliser le mot clé mut pour rendre la variable mutable
+names = vec!["Antoine"]; // on peut donc la re-assigner
+names.push("Frederic"); // et aussi utiliser des méthodes qui modifient la valeur
+```
+
+### Un code plus robuste avec des concepts de la programmation fonctionnelle
+
+Rust s'inspire de différents languages et notamment de la programmation fonctionnelle.
+
+#### Fini les "Cannot read properties of undefined" avec Option
+
+Le premier que je veux vous présenter est la notion d'absence de valeur dans une variable.  
+Par exemple avec JavaScript, nous pouvons récupérer une valeur provenant d'un tableau :
+```ts
+let users = ["epimodev", "antoinerdlin"]
+let user1 = user[0]; // user1 contient "epimodev"
+let user2 = user[2]; // user2 contient undefined car users contient uniquement 2 valeurs
+let displayName1 = user1.toUpperCase(); // fonctionne car user1 est défini
+let displayName2 = user2.toUpperCase(); // ❌ ici on a une erreur à l'execution "Cannot read properties of undefined"
+```
+
+Avec Rust, ni `null` ni `undefined` existe, mais il existe le type `Option`, qui peut être soit :
+- `Some<T>` si la variable contient une valeur
+- `None` si la variable n'a pas de valeur
+```rust
+let users = vec![String::from("epimodev"), String::from("antoinerdlin")];
+let user1 = usernames.get(0); // retourne Option.Some<&String>
+let user2 = usernames.get(2); // retourne Option.None
+
+// On peut modifier la valeur dans une Option avec .map
+let display_name_1 = user1.map(|name| name.to_uppercase());
+let display_name_2 = user2.map(|name| name.to_uppercase()) // ne pose pas de problème même si la valeur est None car .map s'execute uniquement si la valeur est Some<T>
+
+// Si on veut récupérer une String on a le choix entre :
+let value = display_name_1.unwrap(); // returne la valeur ou fait crash le programme si nous avons Option.None
+let value = display_name_1.unwrap_or(String::from("Unknown")); // return la valeur dans l'Option ou une valeur par défaut
+```
+
+> Il existe d'autres façons d'extraire une valeur dans une Option comme la syntaxe `if let` ou le pattern matching.
+
+#### Des fonction qui retourne explicitement des erreurs avec Result
+
+### Plus besoin de générateur de code grâce aux macros
+
