@@ -108,13 +108,14 @@ Sur [LinkedIn - @antoinelin](https://www.linkedin.com/in/antoinelin/)
 
 ### Les tâches techniques accomplies durant le mois
 
+- ajout de templates pre-configurés pour créer un nouveau template à partir d'exemples existant
 - modification de l'interface pour supprimer un template
 - ajout de la possibilité de dupliquer un template
 - intégration d'une vidéo d'introduction dans la page d'accueil de Dedale
-- création du panneau indiquant l'incompatibilité du template avec certains clients e-mail, basé sur Can I Email
+- création d'un panneau indiquant l'incompatibilité du template avec certains clients e-mail, basé sur Can I Email
 - mise en place du tracking en utilisant MixPanel
 
-### Focus sur : la détection des propriétés incompatible avec les clients e-mail
+### Focus sur : la détection des fonctionalités incompatible avec les clients e-mail
 
 Une des fonctionnalités qui nous tenait à cœur pour dédale est de pouvoir facilement vérifier si le template d'e-mail qu'on est en train de développer s'affichera bien pour l'ensemble des destinataires.
 
@@ -126,20 +127,30 @@ Comme cela peut être très chronophage, nous avons automatisé ce processus dan
 
 #### Étape 1 : Récupérer la liste des fonctionnalités d'un template d'e-mail
 
+Pour s'assurer de la compatibilité d'un template d'e-mail avec l'ensemble des clients existants, la première chose à faire est de lister l'ensemble des fonctionalités qui sont utilisé par ce dernier, ça peut être :
+- l'utilisation d'une police d'écriture personnalisée,
+- l'affichage d'image dans certains formats,
+- avoir un dégradé de couleur sur un bouton.
+
+Sur le plan technique, on va analyser le code du template et en extraire la liste des fonctionalités qu'il utilise.  
+Cette analyse est faite avec des outils déjà existant qui sont :
+- [hast](https://github.com/syntax-tree/hast) qui permet de récupérer l'ensemble des textes/images du template
+- [csstree](https://github.com/csstree/csstree) qui liste les règles concernant l'aspect visuel du template
+
 #### Étape 2 : Optimiser l'accès aux données de Can I Email
 
-Une fois qu'on arrive à récupérer la liste des fonctionalités utilisé par un template d'e-mail, on doit aller vérifier pour chacune d'entre elle son pourcentage de compatibilité avec les différents clients e-mail.
+Une fois qu'on arrive à récupérer la liste des fonctionalités utilisé par un template d'e-mail, on doit aller vérifier pour chacune d'entre elles son pourcentage de compatibilité avec les différents clients e-mail.
 
 La première idée qu'on pourrait avoir consiterai à faire automatiquement une recherche sur le site https://www.caniemail.com/ pour chaque fonctionnalité existante dans le template. Mais cela pose les problèmes suivant :
 - d'un point de vue performance, la vérification pourrait prendre des dizaines de secondes, le temps de charger les pages concernant chaque fonctionnalité,
 - au niveau fiabilité, si le design du site change, la récupération des informations ne fonctionnerai plus pour tous les utilisateurs et nécessiterai une mise à jour urgente à faire de notre côté.
 
-Pour éviter ce problème, nous avons intégré dans le code source de Dédale une liste de fonctionnalité ayant des problèmes de compatibilité en se basant sur `Can I email` :
+Pour éviter ce problème, nous avons créé notre propre liste de fonctionalités avec leur pourcentage de compatibilité en se basant sur `Can I email` :
 - à travers une API<sup>1</sup> fourni pour les développeurs accessible à l'adresse https://www.caniemail.com/api/data.json
 - sur la page de chaque propriété pour récupérer le pourcentage de client e-mail compatible (qui n'est pas disponible dans l'API)
 
-Cette intégration est automatisé pendant le développement. À l'utilisation, aucune requête n'est faite à `Can I email` pour vérifier la compatibilité du template.  
-La vérification du template peut donc être instantanée tout en étant à l'abris de potentiels changement du site `Can I email`.
+Une fois que nous avons généré cette liste, nous l'intégrons automatiquement dans le code source de Dédale. Donc quand un utlisateur créer un template sur Dédale, aucune requête n'est faite sur `Can I email` pour faire des tests de compatibilité.
+Cette vérification devient donc instantanée tout en étant à l'abris de potentiels changement du site `Can I email`.
 
 ---
 
