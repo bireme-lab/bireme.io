@@ -119,6 +119,30 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAPUlEQVR4nGNgYNJTs41XNotkYNBj8PUJ+v5i37vbW/z9ghmcfJP+/n/w/Pl5t8BUBgYxOwGDWCX7TAZJRwDRiRJDT7GungAAAABJRU5ErkJggg==",
   },
+  "/images/july-recap-dedale.webp": {
+    name: "july-recap-dedale.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGNgYmK6ceHM/2/vywuyGAT4eBvqatNTEsID/QGRqQp4SeZq/gAAAABJRU5ErkJggg==",
+  },
+  "/images/july-recap-new-creation-system.webp": {
+    name: "july-recap-new-creation-system.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGMQFha+cuWKjIwMHx8fg4SExOLFi799+2ZkZAQAY/II3c3Y/XYAAAAASUVORK5CYII=",
+  },
+  "/images/july-recap-new-home.webp": {
+    name: "july-recap-new-home.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGPg4+OTkJCwtLQUFhZmUFVVlZCQ+P/tg6KiIgAvogVWt+M7QwAAAABJRU5ErkJggg==",
+  },
+  "/images/july-recap-testimonials.webp": {
+    name: "july-recap-testimonials.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGOQlpa+fPbExdPHWVhYGFhYWCrKiv7//sLGxgYAgFgJlSBlj2kAAAAASUVORK5CYII=",
+  },
   "/images/june-recap-dedale-lp.webp": {
     name: "june-recap-dedale-lp.webp",
     extension: ".webp",
@@ -237,13 +261,13 @@ export const data = {
     name: "dedale-en.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAK0lEQVR4nGNgZWH5/+DWpf//f33+31xd+p+BlZnpv6qK8v/oiND/0aGB/wE3dBFw4qNDLwAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAK0lEQVR4nGPgZGP7//jW1f//f3z4X1WU+59BTFT0f0lR/n9XJ8f//t6e/wFBrhIgD+9IZQAAAABJRU5ErkJggg==",
   },
   "/images/opengraph-images/dedale-fr.png": {
     name: "dedale-fr.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAK0lEQVR4nGPg4+X9f/74of/f3zz8X1mU85+BhZnxv7qa6v+QYP///p5u/wEudxDiAhpxOAAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAK0lEQVR4nGPg4+X9/+z+jf//v7/7X16Q9Z9BUlz8f05W+n9XF8f/Xu4u/wFDoBIWpFLi9wAAAABJRU5ErkJggg==",
   },
   "/images/opengraph-images/default.png": {
     name: "default.png",
