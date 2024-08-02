@@ -161,22 +161,22 @@ Sur [LinkedIn - @antoinelin](https://www.linkedin.com/in/antoinelin/)
 
 ### Les tâches techniques accomplies durant le mois
 
-- Ajout de modèles pre-configurés pour créer un nouveau modèle à partir d'exemples existant@π
+- Ajout de modèles pre-configurés pour commencer à travailler à partir d'un exemple
 - Modification de l'interface pour supprimer un modèle
 - Ajout de la possibilité de dupliquer un modèle
 - Intégration d'une vidéo d'introduction dans la page d'accueil de Dedale
 - Création d'un panneau indiquant l'incompatibilité du modèle avec certains clients e-mail, basé sur Can I Email
-- Mise en place du tracking en utilisant MixPanel
+- Mise en place du tracking en utilisant [Mixpanel](https://mixpanel.com/)
 
 ### Focus sur : la détection des fonctionalités incompatible avec les clients e-mail
 
-Une des fonctionnalités qui nous tenait à cœur pour dédale est de pouvoir facilement vérifier si le modèle d'e-mail qu'on est en train de développer s'affichera bien pour l'ensemble des destinataires.
+Une des fonctionnalités qui nous tenait à cœur pour Dédale est de pouvoir facilement vérifier si le modèle d'e-mail qu'on est en train de développer s'affichera bien pour l'ensemble des destinataires.
 
-Pour cela il existe le site [Can I email](https://www.caniemail.com/) qui fournit une liste des fonctionalités prise en charge par chaque client e-mail (Gmail, Outlook, Apple Mail, ...).
+Avec le site [Can I email](https://www.caniemail.com/), nous pouvons récupérer la liste des fonctionalités prise en charge par chaque client e-mail (Gmail, Outlook, Apple Mail, ...).
 
-Mais cet outil permet uniquement de faire des recherches par propriété, on doit donc faire des recherches pour chaque fonctionnalité mise en place dans notre modèle d'e-mail pour s'assurer de sa compatibilité.
+Mais cet outil permet uniquement de faire des recherches par propriété, nous amenant à répéter cette action pour chaque fonctionnalité mise en place dans notre modèle d'e-mail pour s'assurer de sa compatibilité.
 
-Comme cela peut être très chronophage, nous avons automatisé ce processus dans Dédale.
+Ce qui peut vite devenir fastidieux, nous motivant à automatiser ce processus dans Dédale.
 
 <Image
   src="/images/optimized-environment.webp"
@@ -193,21 +193,20 @@ Comme cela peut être très chronophage, nous avons automatisé ce processus dan
 
 #### Étape 1 : Récupérer la liste des fonctionnalités d'un modèle d'e-mail
 
-Pour s'assurer de la compatibilité d'un modèle d'e-mail avec l'ensemble des clients existants, la première chose à faire est de lister l'ensemble des fonctionalités qui sont utilisées par ce dernier, ça peut être :
+Pour s'assurer de la compatibilité d'un modèle d'e-mail avec l'ensemble des clients existants, la première chose à faire est de lister l'ensemble des fonctionalités qui le composent, ça peut être :
 - l'utilisation d'une police d'écriture personnalisée,
 - l'affichage d'images dans certains formats,
 - avoir un dégradé de couleur sur un bouton.
 
-Sur le plan technique, on va analyser le code du modèle et en extraire la liste des fonctionalitées qu'il utilise.  
-Cette analyse est faite avec des outils déjà existant qui sont :
+Sur le plan technique, on va analyser le code du modèle et en extraire la liste des fonctionalitées qu'il utilise. Cette analyse est faite avec :
 - [hast](https://github.com/syntax-tree/hast) qui permet de récupérer l'ensemble des textes/images du modèle,
 - [csstree](https://github.com/csstree/csstree) qui liste les règles concernant l'aspect visuel du modèle.
 
 #### Étape 2 : Optimiser l'accès aux données de Can I Email
 
-Une fois qu'on arrive à récupérer la liste des fonctionalités utilisé par un modèle d'e-mail, on doit aller vérifier pour chacune d'entre elles son pourcentage de compatibilité avec les différents clients e-mail.
+Après avoir listé les fonctionnalités utilisé par un modèle d'e-mail, on doit aller vérifier pour chacune d'entre elles son pourcentage de compatibilité avec les différents clients e-mail.
 
-La première idée qu'on pourrait avoir consisterait à faire automatiquement une recherche sur le site https://www.caniemail.com/ pour chaque fonctionnalité existante dans le modèle. Mais cela pose les problèmes suivant :
+L'idée qui nous est venu en premier est de faire automatiquement une recherche sur le site https://www.caniemail.com/ pour chaque fonctionnalité existante dans le modèle. Mais ça pose les problèmes suivant :
 - d'un point de vue performance, la vérification pourrait prendre des dizaines de secondes, le temps de charger les pages concernant chaque fonctionnalité,
 - au niveau fiabilité, si le design du site change, la récupération des informations ne fonctionnerai plus pour tous les utilisateurs et nécessiterai une mise à jour urgente à faire de notre côté.
 
@@ -215,8 +214,7 @@ Pour éviter ce problème, nous avons créé notre propre liste de fonctionalit�
 - à travers une API<sup>1</sup> fourni pour les développeurs accessible à l'adresse https://www.caniemail.com/api/data.json,
 - sur la page de chaque propriété pour récupérer le pourcentage de client e-mail compatible (qui n'est pas disponible dans l'API).
 
-Une fois que nous avons généré cette liste, nous l'intégrons automatiquement dans le code source de Dédale. Donc quand un utlisateur créer un modèle sur Dédale, aucune requête n'est faite sur `Can I email` pour faire des tests de compatibilité.
-Cette vérification devient donc instantanée tout en étant à l'abris de potentiels changement du site `Can I email`.
+Une fois cette liste générée, nous l'intégrons automatiquement dans le code source de Dédale. Ça permet de ne plus faire de requête à `Can I email` pour faire des tests de compatibilité, rendant cette vérification instantanée tout en étant à l'abris de potentiels changement du site `Can I email`.
 
 ---
 
