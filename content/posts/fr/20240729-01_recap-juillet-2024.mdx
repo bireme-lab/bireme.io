@@ -34,13 +34,13 @@ Ce lancement s'est effectué en deux étapes :
   sizes="(min-width: 768px) 1728px, 1280px"
 />
 
-### Bêta privée et premiers retours
+### Bêta privée et retours des utilisateurs sélectionnés
 
-La première étape consistant à obtenir un maximum de premiers retours d'utilisateurs pour "valider" notre idée initiale.
+La première étape consistait à obtenir un maximum de premiers retours d'utilisateurs pour "valider" notre idée initiale.
 
-Nous avons invité un groupe restreint d'utilisateurs sélectionnés à partir de notre liste d'attente. Cette étape a été importante pour recueillir des retours directs et identifier les premiers points à améliorer en vue de la sortie publique.
+Nous avons alors invité un groupe restreint d'utilisateurs sélectionnés à partir de notre liste d'attente. Cette étape a été importante pour recueillir des retours directs et identifier les premiers points à améliorer en vue de la sortie publique.
 
-Nous parlons de "validation" de façon très légère concernant ce produit puisque l'objectif a toujours été d'entrer rapidement dans un processus d'échanges cycliques entre les produits que nous construisons et l'audience que nous cherchons à développer. Dédale a toujours été pour nous une manière de "montrer patte blanche" en offrant gratuitement un outil qui nous est utile chez Bireme Lab.
+Nous parlons de "validation" de façon très légère concernant ce produit puisque l'objectif a toujours été d'entrer rapidement dans un processus d'échanges cycliques entre les produits que nous construisons et l'audience que nous cherchons à développer. Dédale a toujours été pour nous une manière de montrer notre savoir-faire en offrant gratuitement un outil qui nous est utile chez Bireme Lab.
 
 ### Priorisation des fonctionnalités clé en vue d'une sortie publique
 
@@ -72,7 +72,7 @@ Pour répondre à ces deux points, nous avons :
   sizes="(min-width: 768px) 1728px, 1280px"
 />
 
-Pour le lancement nous avons eu la chance de bénéficier d'un coup de pouce de la part de [@guillaume_rygn](https://x.com/guillaume_rygn) sur [X](x.com) qui a [communiqué sur son compte](https://x.com/guillaume_rygn/status/1815649646313705704) auprès d'une audience de presque **20 000 personnes** avec pour résultats :
+Pour le lancement nous avons eu la chance de bénéficier d'un coup de pouce de la part de [@guillaume_rygn](https://x.com/guillaume_rygn) sur [X](https://x.com) qui a [communiqué sur son compte](https://x.com/guillaume_rygn/status/1815649646313705704) auprès d'une audience de presque **20 000 personnes** avec pour résultats :
 - **238** "j'aimes",
 - **308** ajouts au "signets" pour sauvegarder le tweet,
 - **31** republications,
@@ -170,7 +170,7 @@ Sur [LinkedIn - @antoinelin](https://www.linkedin.com/in/antoinelin/)
 
 ### Focus sur : la détection des fonctionalités incompatible avec les clients e-mail
 
-Une des fonctionnalités qui nous tenait à cœur pour Dédale est de pouvoir facilement vérifier si le modèle d'e-mail qu'on est en train de développer s'affichera bien pour l'ensemble des destinataires.
+Une des fonctionnalités qui nous tient à cœur pour Dédale est de pouvoir facilement vérifier si le modèle d'e-mail en cours de développement s'affichera bien pour l'ensemble des destinataires.
 
 Avec le site [Can I email](https://www.caniemail.com/), nous pouvons récupérer la liste des fonctionalités prise en charge par chaque client e-mail (Gmail, Outlook, Apple Mail, ...).
 
@@ -204,17 +204,17 @@ Sur le plan technique, on va analyser le code du modèle et en extraire la liste
 
 #### Étape 2 : Optimiser l'accès aux données de Can I Email
 
-Après avoir listé les fonctionnalités utilisé par un modèle d'e-mail, on doit aller vérifier pour chacune d'entre elles son pourcentage de compatibilité avec les différents clients e-mail.
+Après avoir listé les fonctionnalités utilisées par un modèle d'e-mail, on doit aller vérifier pour chacune d'entre elles son pourcentage de compatibilité avec les différents clients e-mails.
 
-L'idée qui nous est venu en premier est de faire automatiquement une recherche sur le site https://www.caniemail.com/ pour chaque fonctionnalité existante dans le modèle. Mais ça pose les problèmes suivant :
+L'idée qui nous est venue en premier est de faire automatiquement une recherche sur le site https://www.caniemail.com/ pour chaque fonctionnalité existante dans le modèle. Mais ça pose les problèmes suivant :
 - d'un point de vue performance, la vérification pourrait prendre des dizaines de secondes, le temps de charger les pages concernant chaque fonctionnalité,
-- au niveau fiabilité, si le design du site change, la récupération des informations ne fonctionnerai plus pour tous les utilisateurs et nécessiterai une mise à jour urgente à faire de notre côté.
+- au niveau fiabilité, si le design du site change, la récupération des informations ne fonctionnerait plus pour tous les utilisateurs et nécessiterait une mise à jour urgente à faire de notre côté.
 
-Pour éviter ce problème, nous avons créé notre propre liste de fonctionalités avec leur pourcentage de compatibilité en se basant sur `Can I email` :
+Pour éviter ce problème, nous avons créé notre propre liste de fonctionnalités avec leur pourcentage de compatibilité en se basant sur `Can I email` :
 - à travers une API<sup>1</sup> fourni pour les développeurs accessible à l'adresse https://www.caniemail.com/api/data.json,
-- sur la page de chaque propriété pour récupérer le pourcentage de client e-mail compatible (qui n'est pas disponible dans l'API).
+- sur la page de chaque propriété pour récupérer le pourcentage de clients e-mails compatibles (qui n'est pas disponible dans l'API).
 
-Une fois cette liste générée, nous l'intégrons automatiquement dans le code source de Dédale. Ça permet de ne plus faire de requête à `Can I email` pour faire des tests de compatibilité, rendant cette vérification instantanée tout en étant à l'abris de potentiels changement du site `Can I email`.
+Une fois cette liste générée, nous l'intégrons automatiquement dans le code source de Dédale. Ça permet de ne plus faire de requête à `Can I email` pour faire des tests de compatibilité, rendant cette vérification instantanée tout en étant à l'abris de potentiels changements du site `Can I email`.
 
 ---
 
