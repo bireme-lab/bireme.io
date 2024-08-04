@@ -2,7 +2,7 @@ import { columnCount, responsiveStyle } from "@/styles/mixins";
 
 export const dummy = responsiveStyle({
   mobile: columnCount(0),
-  tablet: columnCount(0),
+  tablet: columnCount(1),
   desktop: columnCount(3),
 });
 

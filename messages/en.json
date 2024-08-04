@@ -33,8 +33,8 @@
       }
     },
     "NewsletterForm": {
-      "headline": "Join our newsletter",
-      "subtitle": "Our newsletter is the ideal way to keep up to date with the latest news and upcoming product updates.",
+      "headline": "The newsletter to become an expert in SaaS product development",
+      "subtitle": "Get a behind-the-scenes look at SaaS product development, useful tips for developers and entrepreneurs, and privileged access to previews of all Bireme Lab products!",
       "email": {
         "label": "Mail address",
         "placeholder": "alan.turing@gmail.com",
@@ -154,6 +154,10 @@
       "pricing_disclaimer": "* Templates are stored locally in the browser, they may be lost if browsing data is cleared",
       "ready_to_test_title": "Ready to test Dedale?",
       "ready_to_test_description": "Enter your email to be informed, in advance, of Dedale's public release as well as upcoming features in development"
+    },
+    "Newsletter": {
+      "meta_title": "The newsletter to become an expert in SaaS product development | Bireme Lab",
+      "meta_description": "Get a behind-the-scenes look at SaaS product development, useful tips for developers and entrepreneurs, and privileged access to previews of all Bireme Lab products!"
     },
     "PostPage": {
       "breadcrumb": {

@@ -288,7 +288,7 @@ export const centeredText = style({
 
 export const postsDummy = responsiveStyle({
   mobile: columnCount(0),
-  tablet: columnCount(0),
+  tablet: columnCount(1),
   desktop: columnCount(3),
 });
 
