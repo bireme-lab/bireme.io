@@ -8,7 +8,13 @@ export const BackgroundImage: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setLoaded(true);
+    const timeout = setTimeout(() => {
+      setLoaded(true);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
