@@ -1,4 +1,3 @@
-import { Image } from "@/components/Image/Image";
 import { NewsletterSection } from "@/components/NewsletterSection/NewsletterSection";
 import { getMeta } from "@/content/meta";
 import { Locale } from "@/utils/i18n";
@@ -6,6 +5,7 @@ import { ORIGIN } from "@/utils/vars";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { WebPage, WithContext } from "schema-dts";
 import { match } from "ts-pattern";
+import { BackgroundImage } from "./BackgroundImage";
 import * as styles from "./page.css";
 
 type PageParams = {
@@ -55,16 +55,7 @@ const Newsletter = async ({ params: { locale } }: Readonly<PageParams>) => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.backgroundImageContainer}>
-          <Image
-            src="/images/waves.webp"
-            className={styles.backgroundImage}
-            alt=""
-            fill={true}
-            fetchPriority="high"
-            priority={true}
-          />
-        </div>
+        <BackgroundImage />
         <NewsletterSection className={styles.newsletterSection} displayBorderBottom={true} />
       </div>
       <script

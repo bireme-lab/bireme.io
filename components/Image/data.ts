@@ -287,6 +287,18 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAKUlEQVR4nGOwsbH5D8KH9u/7//fXt/8Menp6/5WVlf8HBwf/T0xM/A8ALS0RnKhA/6UAAAAASUVORK5CYII=",
   },
+  "/images/opengraph-images/newsletter-en.png": {
+    name: "newsletter-en.png",
+    extension: ".png",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAALUlEQVR4nAEiAN3/AAUFAP/c0sj///Pm/1VPSP8AGSAg/4mOif+sraj/f395/0JSE65LvAkbAAAAAElFTkSuQmCC",
+  },
+  "/images/opengraph-images/newsletter-fr.png": {
+    name: "newsletter-fr.png",
+    extension: ".png",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAALUlEQVR4nAEiAN3/AAQEAf/UysD//O/h/1VPSP8AExoa/36Bff+fn5v/d3dx/zp5ExOEXNe3AAAAAElFTkSuQmCC",
+  },
   "/images/optimized-environment.webp": {
     name: "optimized-environment.webp",
     extension: ".webp",
@@ -315,6 +327,6 @@ export const data = {
     name: "waves.webp",
     extension: ".webp",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAP0lEQVR4nAE0AMv/ALp5S/qhZP+5ef/SkgC7r47ZxaD/98+gqpEACTc8XWtcU2xmlKecAAMQBQASGCVGRkJlZ+eJF4XV18pnAAAAAElFTkSuQmCC",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAP0lEQVR4nAE0AMv/ALp5S/ufZP+5ef/SkgC7r47ZxaD/98+hqpEACjk8XWtcU2xmm6ufAAMQBQASGCVGRkJlZ+iXF5aTDOv8AAAAAElFTkSuQmCC",
   },
 };
