@@ -261,13 +261,13 @@ export const data = {
     name: "dedale-en.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAK0lEQVR4nGPgZGP7//jW1f//f3z4X1WU+59BTFT0f0lR/n9XJ8f//t6e/wFBrhIgD+9IZQAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAK0lEQVR4nGPgZOP4//jW1f//f3z4X1WU+59BTFT0f0lR/n9XJ8f//t6e/wFB7BIiZV7HKAAAAABJRU5ErkJggg==",
   },
   "/images/opengraph-images/dedale-fr.png": {
     name: "dedale-fr.png",
     extension: ".png",
     blurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAK0lEQVR4nGPg4+X9/+z+jf//v7/7X16Q9Z9BUlz8f05W+n9XF8f/Xu4u/wFDoBIWpFLi9wAAAABJRU5ErkJggg==",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAK0lEQVR4nGPg4+H5f/X08f/f3zz+n5+Z/J9BQkzsf2pKwn9HB9v/bk4O/wE3bxF6GgL2RgAAAABJRU5ErkJggg==",
   },
   "/images/opengraph-images/default.png": {
     name: "default.png",
@@ -310,5 +310,11 @@ export const data = {
     extension: ".webp",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGOQlpb28/P7++tbbGwsw+TJkxsaGtTU1GJjYwGDSQoCKYS+XQAAAABJRU5ErkJggg==",
+  },
+  "/images/waves.webp": {
+    name: "waves.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAP0lEQVR4nAE0AMv/ALp5S/qhZP+5ef/SkgC7r47ZxaD/98+gqpEACTc8XWtcU2xmlKecAAMQBQASGCVGRkJlZ+eJF4XV18pnAAAAAElFTkSuQmCC",
   },
 };
