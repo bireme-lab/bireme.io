@@ -10,7 +10,7 @@ export const BackgroundImage: React.FC = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoaded(true);
-    }, 500);
+    }, 1000);
 
     return () => {
       clearTimeout(timeout);
@@ -26,6 +26,7 @@ export const BackgroundImage: React.FC = () => {
         fill={true}
         fetchPriority="high"
         priority={true}
+        placeholder="empty"
       />
     </div>
   );
