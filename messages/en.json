@@ -155,6 +155,11 @@
       "ready_to_test_title": "Ready to test Dedale?",
       "ready_to_test_description": "Enter your email to be informed, in advance, of Dedale's public release as well as upcoming features in development"
     },
+    "Hermes": {
+      "meta_title": "TODO",
+      "meta_description": "TODO",
+      "title": "Lorem ipsum dolor sit amet"
+    },
     "Newsletter": {
       "meta_title": "The newsletter to become an expert in SaaS product development | Bireme Lab",
       "meta_description": "Get a behind-the-scenes look at SaaS product development, useful tips for developers and entrepreneurs, and privileged access to previews of all Bireme Lab products!"

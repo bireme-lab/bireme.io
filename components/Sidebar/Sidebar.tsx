@@ -33,6 +33,14 @@ export const Sidebar: React.FC<Props> = ({ className, style, locale: currentLoca
               <Icon name="dedale_mark" title="Dédale" className={styles.productIcon} />
             </Link>
           </li>
+          <li className={styles.navItem}>
+            <Link
+              href="/hermes"
+              className={styles.navItemLink({ isActive: pathname === "/hermes" })}
+            >
+              <Icon name="hermes_mark" title="Hermes" className={styles.productIcon} />
+            </Link>
+          </li>
         </ul>
         <ul className={styles.list}>
           {i18n.locales.map((locale) => (

@@ -39,6 +39,11 @@ export const Header: React.FC = () => {
                 <Icon name="dedale" title="Dédale" className={styles.dedaleLogo} />
               </Link>
             ))
+            .with(P.string.includes("/hermes"), () => (
+              <Link href="/hermes" className={styles.logoLink}>
+                <Icon name="hermes" title="Hermes" className={styles.hermesLogo} />
+              </Link>
+            ))
             .otherwise(() => (
               <Link href="/" className={styles.logoLink}>
                 <Icon name="logo" title={t("homepage")} className={styles.biremeLabLogo} />

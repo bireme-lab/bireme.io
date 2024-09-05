@@ -8,6 +8,7 @@ export const pathnames = {
   // single external path can be provided.
   "/": "/",
   "/dedale": "/dedale",
+  "/hermes": "/hermes",
   "/[page_slug]": "/[page_slug]",
   "/blog/[post_slug]": "/blog/[post_slug]",
   "/rss.xml": "/rss.xml",

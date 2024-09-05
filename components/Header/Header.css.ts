@@ -38,8 +38,15 @@ export const biremeLabLogo = style({
 });
 
 export const dedaleLogo = style({
-  width: "79px",
-  minWidth: "79px",
+  width: "87px",
+  minWidth: "87px",
+  height: "20px",
+  color: "inherit",
+});
+
+export const hermesLogo = style({
+  width: "87px",
+  minWidth: "87px",
   height: "20px",
   color: "inherit",
 });
