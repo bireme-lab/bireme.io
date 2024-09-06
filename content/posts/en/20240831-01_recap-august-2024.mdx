@@ -8,6 +8,197 @@ tags:
   - "company"
 seo:
   title: "Monthly recap for august 2024"
-  description: "TODO"
-tldr: "TODO"
+  description: "In August we worked on our communications, the development of Hermes, an RGPD emailing tool, and the redesign of Dédale to better target developers."
+tldr: "In August 2024, we optimized our content strategy on X (Twitter), achieving 65,000 impressions and 200 new subscribers, while LinkedIn slowed down due to the vacations. On the product side, we launched the design of Hermes, a contact management-focused, RGPD-compliant emailing tool, while making progress on the redesign of the Dédale website. The technical aspects focused on integrating AWS SES to track email deliverability."
 ---
+
+## Summary of work carried out in August 2024
+
+### Content creation and communication on social networks
+
+During the first fortnight of August, we focused on communication and content creation.
+
+To increase the visibility of our products, we understand that it is essential to develop:
+- our content strategy mass marketing,
+- our sales and canvassing strategy.
+
+As the second option is closely linked to the notion of “being” able to convert our prospects into customers, i.e. having a product or service to sell (which we don't yet have), we decided to concentrate on the first.
+
+We decided to use an iterative, trial-and-error approach to test and adapt our way of communicating on the networks.
+
+Here's what we discovered:
+- the best way to get statistics on X is to quote tweets and offer related content, then measure the interest generated (likes, tweet replies, subscriptions),
+- some ideas are good, but may be invisible due to our low organic reach,
+- it's often possible to re-emphasize old content by quoting/replying to a tweet, thereby increasing its visibility,
+- posting a lot is not enough and can sometimes be detrimental,
+- Keep threads short,
+- dividing a topic into several threads (parts) doesn't work: the first part takes all the visibility and the following ones very little.
+
+Here are the results achieved on [X](https://x.com):
+- a publication with **65,000** impressions, practically **300** likes,
+- a 4-part Twitter thread with the first part reaching **112** likes,
+- almost **200** new subscribers over 30 rolling days.
+
+About LinkedIn, August was a more complicated month. We observed a drop in statistics in relation to the vacation period, so we reduced the number of publications to conserve our content ideas for September.
+
+### Research and development: continuation of the Daedalus project and design of Hermes
+
+In parallel with our communication efforts, we continued to exchange on Dédale in order to:
+- improve the product and define the next functionalities to be prioritized,
+- understand the needs of our core target group (developers),
+- adapt our communication and sales approach.
+
+Here are the actions we've taken as a result of these exchanges:
+- redesign of the site [bireme.io](https://bireme.io),
+- changing the way we communicate about Dédale to clarify the promise to our core target audience.
+
+and above all: we began the research and design work required for our 2nd product: Hermes.
+
+All our discussions brought us back to the initial issue we wanted to address: simplifying and modernizing emailing services and methods.
+
+So we decided to deal with the problem of managing contact lists and easily distributing a mail designed with Dédale to an audience.
+
+## Work related to product design
+
+**Focus of the month:** Hermes
+
+### Product tasks completed during the month
+
+**UX/UI on Hermes :**
+- Contacts list management
+
+<Image
+  src="/images/august-recap-contacts.webp"
+  alt="Contacts list management"
+  title="Contacts list management"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+- Audiences management from the contacts list
+
+<Image
+  src="/images/august-recap-audiences.webp"
+  alt="Audiences management from the contacts list"
+  title="Audiences management from the contacts list"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+- Mail broadcast
+
+<Image
+  src="/images/august-recap-broadcast.webp"
+  alt="Mail broadcast"
+  title="Mail broadcast"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+- Definition of important third-party functionalities: domain name management, cross-integration of Dédale with Hermes
+
+- Redesign of bireme.io :
+  - redesign of the home page to clarify what we do, why, and for whom,
+  - work on the _copywriting_ of the Daedalus _landing page_ to clarify the value contribution.
+
+### Focus on : RGPD and product design
+
+Enabling our end users to create and manage a contact list means storing and processing user data.
+
+This essential component of an emailing system worthy of the name is subject to the General Data Protection Regulation (GDPR) that came into force on May 25, 2018.
+
+We discovered, via exchanges on Twitter and in visio with personalities from the French digital universe, that no known emailing solution complies 100% with the legal obligations of the RGPD:
+- options for tracking user actions that cannot be deactivated,
+- company headquarters based in the USA and subject to the US Patriot Act.
+
+In France the processing of a user's data must: be legitimate and necessary for the operation of the tool to fall within the notion of [legal bases](https://www.cnil.fr/fr/les-bases-legales), where, be subject to consent.
+
+With Bireme Lab, we want to offer a 100% RGPD regulatory solution, data protection-oriented from the outset, based and managed in France.
+
+During the month of August we reviewed:
+- the compliance of our technical infrastructure (server location, data transit, etc.),
+- product orientation by rethinking functionalities that could pose problems.
+
+#### Contact import functionality and RGPD
+
+An example of functionality that required RGPD to be integrated into its design: importing contacts.
+
+When migrating from one emailing management tool to another, a question arises concerning compliance with the double opt-in process. If a user has already validated his subscription to my newsletter via tool 1, am I entitled to transfer his information to tool 2 while validating the double opt-in for him, or do I have to send him a new e-mail to confirm his subscription again? This situation raises the question of compliance when transferring data between two platforms.
+
+We've decided to delegate the decision-making process by offering both options: the end-user can import his contacts by activating double-opt-in, or offer to resend a “would you still like to hear from me?” e-mail to obtain his readers' consent once again.
+
+> We validated this decision after discussing RGPD obligations with specialists. Most of the feedback we received encouraged us to delegate processing responsibility and rely on the notion of legal bases. However, we feel that it is also our responsibility to encourage our end users to respect the processing of third-party data by offering a user experience that encourages the following of good practices.
+
+## Development work
+
+**Tech focus of the month:** Hermes
+
+### Technical tasks completed during the month
+
+- creation of the Hermes project,
+- development of contact storage,
+- set up the filtering system to create audiences,
+- integration of graphical interfaces to manage contacts and audiences,
+- connection between AWS SES and our infrastructure to retrieve events concerning the deliverability of sent emails.
+
+### Focus on : Retrieving email deliverability information with AWS SES
+
+The main purpose of our next product is to send e-mails to a mailing list.  
+But we also want to confirm to our users that the e-mails have reached their recipients. Because they may not be delivered. This is called a bounce.  
+There are 2 types of bounce:
+1. `hard bounce`, also known as `permanent bounce`, which indicates that the message cannot be delivered because :
+- the recipient's email does not exist,
+- the recipient's email is blacklisted.
+
+2. soft bounces, also known as transient bounces, are temporary and can occur when :
+- the recipient's mailbox is full,
+- the message is too long,
+- the message contains content banned by the e-mail provider
+- attachments are too large or potentially dangerous (such as executables that could contain viruses)
+
+> For more details, we recommend the official AWS documentation: https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-process.html
+
+In practice, we have :
+- our application, which will retrieve a list of contacts and generate e-mails for each one from a template
+- an e-mail sending service, in our case using AWS SES (*Simple Email Service*)
+- an e-mail reception service, depending on the recipient: Google for `@gmail` addresses, Microsoft for `@outlook` addresses, etc.
+- the recipient, the person to whom the e-mail address belongs
+
+Our application will ask AWS SES to send an e-mail to an address.  
+This e-mail arrives at the receiving service, which performs a number of checks before forwarding it to the recipient.  
+If the receiving service considers that the message should not be forwarded to the recipient for one of the reasons mentioned above, it will indicate this to AWS SES.  
+When SES receives information from the receiving service, we need to use the AWS notification service called SNS (*Simple Notification Service*) to pass the information on to our application via a webhook<sup>1</sup>.
+
+<Image
+  src="/images/august-recap-schema-en.webp"
+  alt="Récupérer les informations de déliverabilité des email avec AWS SES"
+  title="Récupérer les informations de déliverabilité des email avec AWS SES"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+With this architecture, we can find out which e-mails have not reached their destination and display this information to our users.
+
+---
+
+<sup>1</sup> : A webhook is an automatic way for a website or application to instantly send information to another site or application as soon as a specific event occurs.

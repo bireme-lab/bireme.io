@@ -59,6 +59,36 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGO4cvFSeUlJUlLSlYuXGF6+fJmUlGRtbf3y5UsAwd0OwbHrLR8AAAAASUVORK5CYII=",
   },
+  "/images/august-recap-audiences.webp": {
+    name: "august-recap-audiences.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAG0lEQVR4nGM4derUqlWrusGAoaCgQBwMCgoKAK0SCsmRx9OVAAAAAElFTkSuQmCC",
+  },
+  "/images/august-recap-broadcast.webp": {
+    name: "august-recap-broadcast.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAHElEQVR4nGPYuXNnBhi4ubkxgDADw86dOzk4OACEBQiDZG34YwAAAABJRU5ErkJggg==",
+  },
+  "/images/august-recap-contacts.webp": {
+    name: "august-recap-contacts.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIElEQVR4nGPYuXNnRkYGAwMDiHRzc+vr63NwccjIyAAAfJwJFNs9efIAAAAASUVORK5CYII=",
+  },
+  "/images/august-recap-schema-en.webp": {
+    name: "august-recap-schema-en.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGNgZmZ+9/vJlNmLubi4GLi4uH58e7dy+XQBAQEAgG0J2OM33HUAAAAASUVORK5CYII=",
+  },
+  "/images/august-recap-schema.webp": {
+    name: "august-recap-schema.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGNgZmb+8v/NlNmLubi4GJiZmX98e7dy+XQBAQEAgP4J1TfpX7AAAAAASUVORK5CYII=",
+  },
   "/images/avatars/antoine.webp": {
     name: "antoine.webp",
     extension: ".webp",
