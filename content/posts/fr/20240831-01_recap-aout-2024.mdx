@@ -8,8 +8,8 @@ tags:
   - "company"
 seo:
   title: "Récapitulatif du mois d'août 2024"
-  description: "TODO"
-tldr: "TODO"
+  description: "En août nous avons travaillé sur notre communication, le développement d'Hermes, un outil d'emailing RGPD, et la refonte de Dédale pour mieux cibler les développeurs."
+tldr: "En août 2024, nous avons optimisé notre stratégie de contenu sur X (Twitter), obtenant 65 000 impressions et 200 nouveaux abonnés, tandis que LinkedIn a ralenti à cause des vacances. Côté produit, nous avons lancé la conception d’Hermes, un outil d'emailing axé sur la gestion de contacts et conforme au RGPD, tout en avançant sur la refonte du site de Dédale. Les aspects techniques se sont concentrés sur l'intégration d'AWS SES pour suivre la délivrabilité des emails."
 ---
 
 ## Récapitulatif du travail effectué au cours du mois d'août 2024
@@ -24,20 +24,22 @@ Pour permettre à nos produits de gagner en visibilité nous avons compris qu'il
 
 La seconde option étant étroitement liée à la notion "d'être" en capacité de convertir nos prospects en client, c'est-à-dire, avoir un produit ou un service à vendre (ce que nous n'avons pas encore), nous avons décidé de nous concentrer sur la première.
 
-Nous avons décidé de travailler avec une approche scientifique, méthode "essai/échec", pour tester et adapter notre manière de communiquer sur les réseaux.
+Nous avons décidé de travailler avec une approche itérative, méthode "essai/échec", pour tester et adapter notre manière de communiquer sur les réseaux.
 
 Voici ce que nous avons découvert :
-- la meilleure manière d'avoir un contenu qui fait des statistiques est de faire des propositions de contenu et de mesurer la traction,
+- la meilleure manière de faire des statistiques sur X est de citer des tweets et de proposer du contenu en rapport, puis de mesurer l'intérêt suscité (j'aimes, réponses au tweet, abonnements),
 - certaines idées sont bonnes mais peuvent être invisibilisées par notre faible portée organique,
 - il est souvent possible de remettre en avant un ancien contenu en citation/réponse d'un tweet pour lui faire gagner en visibilité,
 - poster beaucoup ne suffit pas et peut parfois desservir,
 - un thread doit être court,
 - découper un sujet en plusieurs threads (parties) ne fonctionne pas : la première partie prend toute la visibilité et les suivantes très peu.
 
-Et voici les résultats atteints :
+Voici les résultats atteints sur [X](https://x.com) :
 - une publication à **65 000** impressions, pratiquement **300** j'aimes,
 - un thread Twitter en 4 parties avec la première qui a atteint **112** j'aimes,
 - pratiquement **200** nouveaux abonnés sur 30 jours glissants.
+
+Au sujet de LinkedIn, le mois d'août a été plus compliqué. Nous avons observé une chute des statistiques en rapport à la période de vacances, aussi, nous avons diminué le nombre de publications pour conserver nos idées de contenu pour le mois de septembre.
 
 ### Recherche et développement : suite du projet Dédale et conception d'Hermes
 
@@ -50,7 +52,7 @@ Voici les actions que nous avons entamées à partir de ces échanges :
 - refonte du site [bireme.io](https://bireme.io),
 - changement de la manière de communiquer sur Dédale pour éclaircir la promesse auprès de notre coeur de cible,
 
-et surtout : nous avons commencé le travail de conception et de recherche et développement nécessaire pour la création de notre 2ème produit : Hermes.
+et surtout : nous avons commencé le travail de recherche et conception nécessaire pour notre 2ème produit : Hermes.
 
 Tous nos échanges nous ont amené à revenir sur la problématique initiale que nous souhaitions traiter : simplifier et moderniser les services et les méthodes d'emailing.
 
@@ -62,11 +64,53 @@ Nous avons donc décidé de traiter la problématique de gestion de liste de con
 
 ### Les tâches produits accomplies durant le mois
 
-- Conception d'Hermes :
-  - Gestion des contacts
-  - Création d'audiences à partir de la liste de contacts
-  - Création et gestion des diffusions
-  - Définition des fonctionnalités tierces importantes : gestion des noms de domaines, cross-intégration de Dédale avec Hermes
+**UX/UI sur Hermes :**
+- Gestion des contacts
+
+<Image
+  src="/images/august-recap-contacts.webp"
+  alt="Gestion des contacts sur Hermes"
+  title="Gestion des contacts sur Hermes"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+- Création d'audiences à partir de la liste de contacts
+
+<Image
+  src="/images/august-recap-audiences.webp"
+  alt="Création d'audiences à partir de la liste de contacts sur Hermes"
+  title="Création d'audiences à partir de la liste de contacts sur Hermes"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+- Création et gestion des diffusions d'e-mails
+
+<Image
+  src="/images/august-recap-broadcast.webp"
+  alt="Création et gestion des diffusions d'e-mails sur Hermes"
+  title="Création et gestion des diffusions d'e-mails sur Hermes"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+- Définition des fonctionnalités tierces importantes : gestion des noms de domaines, cross-intégration de Dédale avec Hermes
 
 - Refonte de bireme.io :
   - refonte de la page d'accueil pour éclaircir ce que nous faisons, pourquoi, et pour qui,
@@ -77,13 +121,14 @@ Nous avons donc décidé de traiter la problématique de gestion de liste de con
 Permettre à nos utilisateurs finaux de créer et gérer une liste de contacts signifie stocker et traiter des données d'utilisateurs.
 
 Cette composante essentielle d'un système d'emailing digne de ce nom est soumis au règlement général de protection des données (RGPD) entré en vigueur le 25 mai 2018.
-Nous avons découvert, via des échanges sur Twitter et en visio avec des personnalités de l'univers numérique Français, qu'aucune solution d'emailing connue ne respecte _by design_ et à 100% les obligations légales du RGPD :
+
+Nous avons découvert, via des échanges sur Twitter et en visio avec des personnalités de l'univers numérique Français, qu'aucune solution d'emailing connue ne respecte à 100% les obligations légales du RGPD :
 - options de traçabilité des actions de l'utilisateur non désactivables,
 - siège social de la société basé aux États-Unis et soumis au Patriot Act américain.
 
 En France le traitement des données d'un utilisateur doit : être légitime et nécessaire au fonctionnement de l'outil pour rentrer dans la notion de [bases légales](https://www.cnil.fr/fr/les-bases-legales), où, être soumis à consentement.
 
-Avec Bireme Lab, nous voulons proposer une solution 100% réglementaire RGPD, orienté protection des données _by design_, basée et pilotée en France.
+Avec Bireme Lab, nous voulons proposer une solution 100% réglementaire RGPD, orientée protection des données dès la conception, basée et pilotée en France.
 
 Au cours de ce mois d'août nous avons revu :
 - la conformité de notre infrastructure technique (localisation des serveurs, transit des données etc.),
@@ -93,9 +138,9 @@ Au cours de ce mois d'août nous avons revu :
 
 Un exemple de fonctionnalité qui a nécessité d'intégrer la notion de RGPD dans sa conception : l'import de contacts.
 
-Nous nous sommes posé la question de l'initiative de l'utilisateur final au regard du double-optin : si un lecteur s'inscrit à ma newsletter et valide son double-optin, alors que j'utilise l'outil 1 pour gérer mon _emailing_, ai-je le droit de l'importer dans un outil 2 en prenant l'initiative de valider à nouveau le double optin à sa place ? Ou dois-je renvoyer un e-mail pour demander une nouvelle fois au lecteur de double-optin ?
+Dans le cadre d’une migration d’un outil de gestion d’emailing à un autre, une question se pose quant au respect du processus de double opt-in. Si un utilisateur a déjà validé son inscription à ma newsletter via l’outil 1, suis-je en droit de transférer ses informations dans l’outil 2 tout en validant à sa place le double opt-in, ou dois-je lui envoyer un nouvel e-mail pour qu’il confirme à nouveau son inscription ? Cette situation soulève la question de la conformité lors du transfert de données entre deux plateformes.
 
-Nous avons décidé de déléguer la prise de décision en proposant les deux options : l'utilisateur final pourra importer ses contacts en activant le double "double-optin", ou, proposer de renvoyer un e-mail "souhaitez-vous toujours avoir de mes nouvelles ?" pour obtenir à nouveau le consentement de ses lecteurs.
+Nous avons décidé de déléguer la prise de décision en proposant les deux options : l'utilisateur final pourra importer ses contacts en activant le double-optin, ou, proposer de renvoyer un e-mail "souhaitez-vous toujours avoir de mes nouvelles ?" pour obtenir à nouveau le consentement de ses lecteurs.
 
 > Nous avons validé cette décision après avoir échangé au sujet des obligations RGPD avec des spécialistes. La plupart des retours que nous avons eu nous ont incité à déléguer la responsabilité de traitement et à nous reposer sur la notion de bases légales. Cependant, nous estimons qu'il est aussi de notre responsabilité d'inciter nos utilisateurs finaux à respecter le traitement des données de tiers en proposant une expérience utilisateur qui favorise le suivi des bonnes pratiques.
 
@@ -138,6 +183,19 @@ Notre application va demander à AWS SES d'envoyer un e-mail à une adresse.
 Cet e-mail arrive au service de reception qui va exécuter certaines vérifications avant de le transmettre au destinataire.  
 Si le service de réception considère que le message ne doit pas être transmis au destinataire pour une des raison évoquées plus haut, il va l'indiquer à AWS SES.  
 Quand SES reçoit une information provenant du service de réception, nous devons passer par le service de notification d'AWS appelé SNS (*Simple Notification Service*) pour transmette l'information à notre application grâce à un webhook<sup>1</sup>.  
+
+<Image
+  src="/images/august-recap-schema.webp"
+  alt="Récupérer les informations de déliverabilité des email avec AWS SES"
+  title="Récupérer les informations de déliverabilité des email avec AWS SES"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
 
 Avec cette architecture, nous pouvons savoir quels sont les e-mails qui ne sont pas arrivés à destination et afficher l'information à nos utilisateurs.
 
