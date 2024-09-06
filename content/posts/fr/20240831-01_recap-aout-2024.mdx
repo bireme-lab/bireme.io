@@ -16,22 +16,23 @@ tldr: "TODO"
 
 ### Création de contenu et communication sur les réseaux sociaux
 
-Durant la première quinzaine d'août nous avons priorisé le travail de communication et de création de contenu.
+Durant la première quinzaine d'août, nous avons priorisé le travail de communication et de création de contenu.
 
 Pour permettre à nos produits de gagner en visibilité nous avons compris qu'il est essentiel de développer :
 - notre stratégie de contenu _mass marketing_,
-- notre stratégie de vente et de démarcharge commerciale.
+- notre stratégie de vente et de démarchage commerciale.
 
-La seconde option étant étroitement lié à la notion "d'être" en capacité de convertir nos prospects en client, c'est-à-dire, avoir un produit ou un service à vendre (ce que nous n'avons pas encore), nous avons décidé de nous concentrer sur la première.
+La seconde option étant étroitement liée à la notion "d'être" en capacité de convertir nos prospects en client, c'est-à-dire, avoir un produit ou un service à vendre (ce que nous n'avons pas encore), nous avons décidé de nous concentrer sur la première.
 
 Nous avons décidé de travailler avec une approche scientifique, méthode "essai/échec", pour tester et adapter notre manière de communiquer sur les réseaux.
 
-Voici ce que nous avons découverts :
-- la meilleure manière d'avoir un contenu qui fait des statistiques c'est de faire des propositions de contenu,
-- certaines idées de contenus sont bonnes et sont justes invisibilisées par notre faible portée organique,
-- il est souvent possible de remettre en avant un ancien contenu en citation/réponse d'un tweet pour lui faire gagner de la visibilité,
-- poster beaucoup ne suffit pas et peut parfois déservir.
-- un thread doit être court et découper un sujet en plusieurs threads (parties) ne fonctionne pas : la première partie prend toute la visibilité et les suivantes très peu.
+Voici ce que nous avons découvert :
+- la meilleure manière d'avoir un contenu qui fait des statistiques est de faire des propositions de contenu et de mesurer la traction,
+- certaines idées sont bonnes mais peuvent être invisibilisées par notre faible portée organique,
+- il est souvent possible de remettre en avant un ancien contenu en citation/réponse d'un tweet pour lui faire gagner en visibilité,
+- poster beaucoup ne suffit pas et peut parfois desservir,
+- un thread doit être court,
+- découper un sujet en plusieurs threads (parties) ne fonctionne pas : la première partie prend toute la visibilité et les suivantes très peu.
 
 Et voici les résultats atteints :
 - une publication à **65 000** impressions, pratiquement **300** j'aimes,
@@ -45,15 +46,13 @@ En parallèle de l'effort sur notre communication, nous avons continué d'échan
 - comprendre les besoins de notre coeur de cible (les développeurs),
 - adapter notre communication et notre approche commerciale.
 
-Voici les actions que nous avons entamé à partir de ces échanges :
+Voici les actions que nous avons entamées à partir de ces échanges :
 - refonte du site [bireme.io](https://bireme.io),
 - changement de la manière de communiquer sur Dédale pour éclaircir la promesse auprès de notre coeur de cible,
 
-et surtout : nous avons commencé le travail de conception et et de recherche et développement nécessaire pour la création de notre 2ème produit : Hermes.
+et surtout : nous avons commencé le travail de conception et de recherche et développement nécessaire pour la création de notre 2ème produit : Hermes.
 
 Tous nos échanges nous ont amené à revenir sur la problématique initiale que nous souhaitions traiter : simplifier et moderniser les services et les méthodes d'emailing.
-
-Question : quelle est la suite logique une fois que vous avez développé un modèle sur Dédale ?
 
 Nous avons donc décidé de traiter la problématique de gestion de liste de contacts et de pouvoir facilement diffuser un e-mail conçu avec Dédale à une audience.
 
@@ -75,16 +74,16 @@ Nous avons donc décidé de traiter la problématique de gestion de liste de con
 
 ### Focus sur : RGPD et conception produit
 
-Permettre à nos utilisateurs finaux de créer et gérer une liste de contacts siginifie stocker et traiter des données d'utilisateurs.
+Permettre à nos utilisateurs finaux de créer et gérer une liste de contacts signifie stocker et traiter des données d'utilisateurs.
 
 Cette composante essentielle d'un système d'emailing digne de ce nom est soumis au règlement général de protection des données (RGPD) entré en vigueur le 25 mai 2018.
 Nous avons découvert, via des échanges sur Twitter et en visio avec des personnalités de l'univers numérique Français, qu'aucune solution d'emailing connue ne respecte _by design_ et à 100% les obligations légales du RGPD :
-- options de traçabilité des actions de l'utilisateur non désactivable,
+- options de traçabilité des actions de l'utilisateur non désactivables,
 - siège social de la société basé aux États-Unis et soumis au Patriot Act américain.
 
-En France le traitement des données d'un utilisateur doit soit être légitime et nécessaire au fonctionnement de l'outil et rentrer dans la notion de [bases légales](https://www.cnil.fr/fr/les-bases-legales) soit être soumis à consentement.
+En France le traitement des données d'un utilisateur doit : être légitime et nécessaire au fonctionnement de l'outil pour rentrer dans la notion de [bases légales](https://www.cnil.fr/fr/les-bases-legales), où, être soumis à consentement.
 
-Avec Bireme Lab, nous voulons proposer une solution 100% réglementaire RGPD, orienté protection des données _by design, et basée et pilotée en France.
+Avec Bireme Lab, nous voulons proposer une solution 100% réglementaire RGPD, orienté protection des données _by design_, basée et pilotée en France.
 
 Au cours de ce mois d'août nous avons revu :
 - la conformité de notre infrastructure technique (localisation des serveurs, transit des données etc.),
@@ -92,13 +91,13 @@ Au cours de ce mois d'août nous avons revu :
 
 #### Fonctionnalité d'import de contacts et RGPD
 
-Un exemple de fonctionnalité qui a nécessité d'intégrer la notion de RGPD _by design_ dans sa conception : la possibilité de pouvoir importer des contacts.
+Un exemple de fonctionnalité qui a nécessité d'intégrer la notion de RGPD dans sa conception : l'import de contacts.
 
-Nous nous sommes posé la question de l'initiative de l'utilisateur final au regard du double-optin : si un lecteur s'inscrit à ma newsletter et valide son double-optin alors que j'utilise l'outil 1 pour gérer mon _emailing_, ai-je le droit de l'importer dans un outil 2 en prenant l'initiative de valider à nouveau le double optin à sa place ? Ou dois-je renvoyer un e-mail pour demander une nouvelle fois au lecteur de double optin ?
+Nous nous sommes posé la question de l'initiative de l'utilisateur final au regard du double-optin : si un lecteur s'inscrit à ma newsletter et valide son double-optin, alors que j'utilise l'outil 1 pour gérer mon _emailing_, ai-je le droit de l'importer dans un outil 2 en prenant l'initiative de valider à nouveau le double optin à sa place ? Ou dois-je renvoyer un e-mail pour demander une nouvelle fois au lecteur de double-optin ?
 
-Nous avons décidé de déléguer la prise de décision à l'utilisateur de l'outil en sélectionnant par défaut l'option qui respecte le plus les données des lecteurs : l'utilisateur final pourra importer en cochant "double optin" OU proposer de renvoyer un e-mail "souhaitez-vous toujours avoir de mes nouvelles ?" à l'import dans la liste.
+Nous avons décidé de déléguer la prise de décision en proposant les deux options : l'utilisateur final pourra importer ses contacts en activant le double "double-optin", ou, proposer de renvoyer un e-mail "souhaitez-vous toujours avoir de mes nouvelles ?" pour obtenir à nouveau le consentement de ses lecteurs.
 
-> Nous avons validé cette décision après avoir échangé au sujet des obligations RGPD avec des spécialistes. La plupart des retours que nous avons eu nous ont incité à déléguer la responsabilité de traitement et à nous reposer sur la notion de bases légales. Cependant, nous estimons qu'il est de notre responsabilité d'inciter nos utilisateurs finaux à respecter le traitement des données de tiers en proposant une expérience utilisateur qui favorise le suivi des bonnes pratiques.
+> Nous avons validé cette décision après avoir échangé au sujet des obligations RGPD avec des spécialistes. La plupart des retours que nous avons eu nous ont incité à déléguer la responsabilité de traitement et à nous reposer sur la notion de bases légales. Cependant, nous estimons qu'il est aussi de notre responsabilité d'inciter nos utilisateurs finaux à respecter le traitement des données de tiers en proposant une expérience utilisateur qui favorise le suivi des bonnes pratiques.
 
 ## Travail de développement
 
@@ -106,38 +105,42 @@ Nous avons décidé de déléguer la prise de décision à l'utilisateur de l'ou
 
 ### Les tâches techniques accomplies durant le mois
 
-- creation du projet Hermes
-- développement du stockage des contacts
-- mise en place du système de filtrage pour créer des audiences
-- intégration des interfaces graphique pour gérer les contacts et les audiences
-- connection entre AWS SES et notre infrastructure pour récupérer les événements concernant la déliverabilité des emails envoyé
+- création du projet Hermes,
+- développement du stockage des contacts,
+- mise en place du système de filtrage pour créer des audiences,
+- intégration des interfaces graphique pour gérer les contacts et les audiences,
+- connexion entre AWS SES et notre infrastructure pour récupérer les événements concernant la délivrabilité des emails envoyés.
 
 ### Focus sur : Récupérer les informations de déliverabilité des email avec AWS SES
 
 L'objectif principal de notre prochain produit est d'envoyer des e-mails à une liste de diffusion.  
-Mais nous voulons aussi confimer à nos utilisateurs que les e-mails sont bien arrivé à leurs destinataires. Parce que ces derniers peuvent ne pas être délivrés. On appelle cela un `Bounce`.  
+Mais nous voulons aussi confirmer à nos utilisateurs que les e-mails sont bien arrivés à leurs destinataires. Parce que ces derniers peuvent ne pas être délivrés. On appelle cela un `Bounce`.  
 Il existe 2 types de `bounce` :
-1. les `hard bounce` appelé aussi `permanent bounce` qui indiquent que le message ne peux pas être délivré parce que :
+1. les `hard bounce` appelés aussi `permanent bounce` qui indiquent que le message ne peut pas être délivré parce que :
 - l'email du destinataire n'existe pas,
-- l'email du destinataire est black listé.
+- l'email du destinataire est blacklisté.
 
-2. les `soft bounce` appelé aussi `transient bounce` qui sont temporaire et peuvent arriver lorsque :
-- la boite e-mail du destinataire est pleine,
+2. les `soft bounce` appelés aussi `transient bounce` qui sont temporaires et peuvent arriver lorsque :
+- la boîte e-mail du destinataire est pleine,
 - le message est trop long,
 - le message contient des propos bannis par le fournisseur de messagerie
-- les pièces jointes sont trop lourde ou sont potentielement dangereuse (commes des exécutables qui pourraient être des virus)
+- les pièces jointes sont trop lourdes ou sont potentiellement dangereuses (comme des exécutables qui pourraient contenir des virus)
 
-> Si vous voulez plus de détails, je vous recommande la documentation qu'AWS a fait à ce propos : https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-process.html
+> Si vous voulez plus de détails, nous vous recommandons la documentation officielle d'AWS à ce propos : https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-process.html
 
 Dans la pratique nous avons :
-- notre application qui va se charger de récupérer une liste de contact et générer des e-mails pour chacun à partir d'un modèle
-- un service d'envoie d'email, dans notre cas nous utilisons AWS SES (*Simple Email Service*)
-- un service de reception d'email qui dépend du destinataire, ça peut être Google pour les adresses `@gmail`, Microsoft pour les adresses `@outlook`, ...
-- le destinataire, la personne à qui appartient l'adresse email
+- notre application qui va se charger de récupérer une liste de contacts et générer des e-mails pour chacun à partir d'un modèle
+- un service d'envoi d'e-mails, dans notre cas nous utilisons AWS SES (*Simple Email Service*)
+- un service de réception d'e-mails qui dépend du destinataire : Google pour les adresses `@gmail`, Microsoft pour les adresses `@outlook`, etc.
+- le destinataire, la personne à qui appartient l'adresse e-mail
 
 Notre application va demander à AWS SES d'envoyer un e-mail à une adresse.  
-Cet email arrive au service de reception d'email qui va exécuter certaines vérifications avant de transmettre l'email au destinataire.  
-Si le service de reception considère que le message ne doit pas être transmit au destinataire pour une des raison évoqué plus tôt dans cette article, il va l'indiquer à AWS SES.  
-Quand SES reçoit une information provenant du service de reception, nous devons passer par le service de notification d'AWS appelé SNS (*Simple Notification Service*) pour transmette l'information à notre application grâce à un webhook.  
+Cet e-mail arrive au service de reception qui va exécuter certaines vérifications avant de le transmettre au destinataire.  
+Si le service de réception considère que le message ne doit pas être transmis au destinataire pour une des raison évoquées plus haut, il va l'indiquer à AWS SES.  
+Quand SES reçoit une information provenant du service de réception, nous devons passer par le service de notification d'AWS appelé SNS (*Simple Notification Service*) pour transmette l'information à notre application grâce à un webhook<sup>1</sup>.  
 
-Avec cette architecture, nous pouvons savoir qu'elles sont les e-mails qui ne sont pas arrivés à destination et afficher l'information à nos utlisateurs.
+Avec cette architecture, nous pouvons savoir quels sont les e-mails qui ne sont pas arrivés à destination et afficher l'information à nos utilisateurs.
+
+---
+
+<sup>1</sup> : Un webhook est un moyen automatique pour un site web ou une application d'envoyer instantanément des informations à un autre site ou application dès qu'un événement spécifique se produit.
