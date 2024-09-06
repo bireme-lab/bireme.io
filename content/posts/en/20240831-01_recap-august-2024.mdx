@@ -8,8 +8,8 @@ tags:
   - "company"
 seo:
   title: "Monthly recap for august 2024"
-  description: "In August we worked on our communications, the development of Hermes, an RGPD emailing tool, and the redesign of Dédale to better target developers."
-tldr: "In August 2024, we optimized our content strategy on X (Twitter), achieving 65,000 impressions and 200 new subscribers, while LinkedIn slowed down due to the vacations. On the product side, we launched the design of Hermes, a contact management-focused, RGPD-compliant emailing tool, while making progress on the redesign of the Dédale website. The technical aspects focused on integrating AWS SES to track email deliverability."
+  description: "In August we worked on our communications, the development of Hermes, an GDPR emailing tool, and the redesign of Dédale to better target developers."
+tldr: "In August 2024, we optimized our content strategy on X (Twitter), achieving 65,000 impressions and 200 new subscribers, while LinkedIn slowed down due to the vacations. On the product side, we launched the design of Hermes, a contact management-focused, GDPR-compliant emailing tool, while making progress on the redesign of the Dédale website. The technical aspects focused on integrating AWS SES to track email deliverability."
 ---
 
 ## Summary of work carried out in August 2024
@@ -116,33 +116,33 @@ So we decided to deal with the problem of managing contact lists and easily dist
   - redesign of the home page to clarify what we do, why, and for whom,
   - work on the _copywriting_ of the Daedalus _landing page_ to clarify the value contribution.
 
-### Focus on : RGPD and product design
+### Focus on : GDPR and product design
 
 Enabling our end users to create and manage a contact list means storing and processing user data.
 
 This essential component of an emailing system worthy of the name is subject to the General Data Protection Regulation (GDPR) that came into force on May 25, 2018.
 
-We discovered, via exchanges on Twitter and in visio with personalities from the French digital universe, that no known emailing solution complies 100% with the legal obligations of the RGPD:
+We discovered, via exchanges on Twitter and in visio with personalities from the French digital universe, that no known emailing solution complies 100% with the legal obligations of the GDPR:
 - options for tracking user actions that cannot be deactivated,
 - company headquarters based in the USA and subject to the US Patriot Act.
 
 In France the processing of a user's data must: be legitimate and necessary for the operation of the tool to fall within the notion of [legal bases](https://www.cnil.fr/fr/les-bases-legales), where, be subject to consent.
 
-With Bireme Lab, we want to offer a 100% RGPD regulatory solution, data protection-oriented from the outset, based and managed in France.
+With Bireme Lab, we want to offer a 100% GDPR regulatory solution, data protection-oriented from the outset, based and managed in France.
 
 During the month of August we reviewed:
 - the compliance of our technical infrastructure (server location, data transit, etc.),
 - product orientation by rethinking functionalities that could pose problems.
 
-#### Contact import functionality and RGPD
+#### Contact import functionality and GDPR
 
-An example of functionality that required RGPD to be integrated into its design: importing contacts.
+An example of functionality that required GDPR to be integrated into its design: importing contacts.
 
 When migrating from one emailing management tool to another, a question arises concerning compliance with the double opt-in process. If a user has already validated his subscription to my newsletter via tool 1, am I entitled to transfer his information to tool 2 while validating the double opt-in for him, or do I have to send him a new e-mail to confirm his subscription again? This situation raises the question of compliance when transferring data between two platforms.
 
 We've decided to delegate the decision-making process by offering both options: the end-user can import his contacts by activating double-opt-in, or offer to resend a “would you still like to hear from me?” e-mail to obtain his readers' consent once again.
 
-> We validated this decision after discussing RGPD obligations with specialists. Most of the feedback we received encouraged us to delegate processing responsibility and rely on the notion of legal bases. However, we feel that it is also our responsibility to encourage our end users to respect the processing of third-party data by offering a user experience that encourages the following of good practices.
+> We validated this decision after discussing GDPR obligations with specialists. Most of the feedback we received encouraged us to delegate processing responsibility and rely on the notion of legal bases. However, we feel that it is also our responsibility to encourage our end users to respect the processing of third-party data by offering a user experience that encourages the following of good practices.
 
 ## Development work
 
