@@ -127,18 +127,17 @@ Il existe 2 types de `bounce` :
 - le message contient des propos bannis par le fournisseur de messagerie
 - les pièces jointes sont trop lourde ou sont potentielement dangereuse (commes des exécutables qui pourraient être des virus)
 
-> Si vous voulez plus de détails, je vous recommande la documentation qu'`AWS` a fait à ce propos : https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-process.html
+> Si vous voulez plus de détails, je vous recommande la documentation qu'AWS a fait à ce propos : https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-process.html
 
 Dans la pratique nous avons :
-- notre application qui va se charger de définir de récupérer une liste de contact et générer des e-mails pour chacun à partir d'un modèle
-- un service d'envoie d'email, dans notre cas nous utilisons AWS SES (~Simple Email Service~)
+- notre application qui va se charger de récupérer une liste de contact et générer des e-mails pour chacun à partir d'un modèle
+- un service d'envoie d'email, dans notre cas nous utilisons AWS SES (*Simple Email Service*)
 - un service de reception d'email qui dépend du destinataire, ça peut être Google pour les adresses `@gmail`, Microsoft pour les adresses `@outlook`, ...
 - le destinataire, la personne à qui appartient l'adresse email
 
 Notre application va demander à AWS SES d'envoyer un e-mail à une adresse.  
-Ce dernier s'occupe d'envoyer l'email. Cet email arrive au service de reception d'email qui va exécuter certaines vérifications avant de transmettre l'email au destinateur.  
-Si le service de reception considère que le message ne doit pas être transmit au destinateur pour une des raison évoqué plus tôt dans cette article, il va l'indiquer à AWS SES.  
-Quand SES reçoit une information provenant du service de reception, nous ne pouvons pas la transférer directement à notre application.  
-Nous devont passer par le service de notification d'AWS appelé SNS (~Simple Notification Service~). Nous avons configuré ce dernier pour qu'il transmette l'information à notre application grâce à un webhook.  
+Cet email arrive au service de reception d'email qui va exécuter certaines vérifications avant de transmettre l'email au destinataire.  
+Si le service de reception considère que le message ne doit pas être transmit au destinataire pour une des raison évoqué plus tôt dans cette article, il va l'indiquer à AWS SES.  
+Quand SES reçoit une information provenant du service de reception, nous devons passer par le service de notification d'AWS appelé SNS (*Simple Notification Service*) pour transmette l'information à notre application grâce à un webhook.  
 
 Avec cette architecture, nous pouvons savoir qu'elles sont les e-mails qui ne sont pas arrivés à destination et afficher l'information à nos utlisateurs.
