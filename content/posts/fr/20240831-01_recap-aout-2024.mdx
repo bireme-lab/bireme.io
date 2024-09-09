@@ -8,8 +8,8 @@ tags:
   - "company"
 seo:
   title: "Récapitulatif du mois d'août 2024"
-  description: "En août nous avons travaillé sur notre communication, le développement d'Hermes, un outil d'emailing RGPD, et la refonte de Dédale pour mieux cibler les développeurs."
-tldr: "En août 2024, nous avons optimisé notre stratégie de contenu sur X (Twitter), obtenant 65 000 impressions et 200 nouveaux abonnés, tandis que LinkedIn a ralenti à cause des vacances. Côté produit, nous avons lancé la conception d’Hermes, un outil d'emailing axé sur la gestion de contacts et conforme au RGPD, tout en avançant sur la refonte du site de Dédale. Les aspects techniques se sont concentrés sur l'intégration d'AWS SES pour suivre la délivrabilité des emails."
+  description: "En août nous avons travaillé sur notre communication, le développement d'Hermes, un outil d'e-mailsing RGPD, et la refonte de Dédale pour mieux cibler les développeurs."
+tldr: "En août 2024, nous avons optimisé notre stratégie de contenu sur X (Twitter), obtenant 65 000 impressions et 200 nouveaux abonnés, tandis que LinkedIn a ralenti à cause des vacances. Côté produit, nous avons lancé la conception d’Hermes, un outil d'e-mailsing axé sur la gestion de contacts et conforme au RGPD, tout en avançant sur la refonte du site de Dédale. Les aspects techniques se sont concentrés sur l'intégration d'AWS SES pour suivre la délivrabilité des e-mails."
 ---
 
 ## Récapitulatif du travail effectué au cours du mois d'août 2024
@@ -54,7 +54,7 @@ Voici les actions que nous avons entamées à partir de ces échanges :
 
 et surtout : nous avons commencé le travail de recherche et conception nécessaire pour notre 2ème produit : Hermes.
 
-Tous nos échanges nous ont amené à revenir sur la problématique initiale que nous souhaitions traiter : simplifier et moderniser les services et les méthodes d'emailing.
+Tous nos échanges nous ont amené à revenir sur la problématique initiale que nous souhaitions traiter : simplifier et moderniser les services et les méthodes d'e-mailsing.
 
 Nous avons donc décidé de traiter la problématique de gestion de liste de contacts et de pouvoir facilement diffuser un e-mail conçu avec Dédale à une audience.
 
@@ -120,9 +120,9 @@ Nous avons donc décidé de traiter la problématique de gestion de liste de con
 
 Permettre à nos utilisateurs finaux de créer et gérer une liste de contacts signifie stocker et traiter des données d'utilisateurs.
 
-Cette composante essentielle d'un système d'emailing digne de ce nom est soumis au règlement général de protection des données (RGPD) entré en vigueur le 25 mai 2018.
+Cette composante essentielle d'un système d'e-mailsing digne de ce nom est soumis au règlement général de protection des données (RGPD) entré en vigueur le 25 mai 2018.
 
-Nous avons découvert, via des échanges sur Twitter et en visio avec des personnalités de l'univers numérique Français, qu'aucune solution d'emailing connue ne respecte à 100% les obligations légales du RGPD :
+Nous avons découvert, via des échanges sur Twitter et en visio avec des personnalités de l'univers numérique Français, qu'aucune solution d'e-mailsing connue ne respecte à 100% les obligations légales du RGPD :
 - options de traçabilité des actions de l'utilisateur non désactivables,
 - siège social de la société basé aux États-Unis et soumis au Patriot Act américain.
 
@@ -138,7 +138,7 @@ Au cours de ce mois d'août nous avons revu :
 
 Un exemple de fonctionnalité qui a nécessité d'intégrer la notion de RGPD dans sa conception : l'import de contacts.
 
-Dans le cadre d’une migration d’un outil de gestion d’emailing à un autre, une question se pose quant au respect du processus de double opt-in. Si un utilisateur a déjà validé son inscription à ma newsletter via l’outil 1, suis-je en droit de transférer ses informations dans l’outil 2 tout en validant à sa place le double opt-in, ou dois-je lui envoyer un nouvel e-mail pour qu’il confirme à nouveau son inscription ? Cette situation soulève la question de la conformité lors du transfert de données entre deux plateformes.
+Dans le cadre d’une migration d’un outil de gestion d’e-mailsing à un autre, une question se pose quant au respect du processus de double opt-in. Si un utilisateur a déjà validé son inscription à ma newsletter via l’outil 1, suis-je en droit de transférer ses informations dans l’outil 2 tout en validant à sa place le double opt-in, ou dois-je lui envoyer un nouvel e-mail pour qu’il confirme à nouveau son inscription ? Cette situation soulève la question de la conformité lors du transfert de données entre deux plateformes.
 
 Nous avons décidé de déléguer la prise de décision en proposant les deux options : l'utilisateur final pourra importer ses contacts en activant le double-optin, ou, proposer de renvoyer un e-mail "souhaitez-vous toujours avoir de mes nouvelles ?" pour obtenir à nouveau le consentement de ses lecteurs.
 
@@ -154,16 +154,16 @@ Nous avons décidé de déléguer la prise de décision en proposant les deux op
 - développement du stockage des contacts,
 - mise en place du système de filtrage pour créer des audiences,
 - intégration des interfaces graphique pour gérer les contacts et les audiences,
-- connexion entre AWS SES et notre infrastructure pour récupérer les événements concernant la délivrabilité des emails envoyés.
+- connexion entre AWS SES et notre infrastructure pour récupérer les événements concernant la délivrabilité des e-mails envoyés.
 
-### Focus sur : Récupérer les informations de déliverabilité des email avec AWS SES
+### Focus sur : Récupérer les informations de délivrabilité des e-mails avec AWS SES
 
 L'objectif principal de notre prochain produit est d'envoyer des e-mails à une liste de diffusion.  
 Mais nous voulons aussi confirmer à nos utilisateurs que les e-mails sont bien arrivés à leurs destinataires. Parce que ces derniers peuvent ne pas être délivrés. On appelle cela un `Bounce`.  
 Il existe 2 types de `bounce` :
 1. les `hard bounce` appelés aussi `permanent bounce` qui indiquent que le message ne peut pas être délivré parce que :
-- l'email du destinataire n'existe pas,
-- l'email du destinataire est blacklisté.
+- l'e-mails du destinataire n'existe pas,
+- l'e-mails du destinataire est blacklisté.
 
 2. les `soft bounce` appelés aussi `transient bounce` qui sont temporaires et peuvent arriver lorsque :
 - la boîte e-mail du destinataire est pleine,
@@ -171,11 +171,11 @@ Il existe 2 types de `bounce` :
 - le message contient des propos bannis par le fournisseur de messagerie
 - les pièces jointes sont trop lourdes ou sont potentiellement dangereuses (comme des exécutables qui pourraient contenir des virus)
 
-> Si vous voulez plus de détails, nous vous recommandons la documentation officielle d'AWS à ce propos : https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-process.html
+> Si vous voulez plus de détails, nous vous recommandons la documentation officielle d'AWS à ce propos : https://docs.aws.amazon.com/ses/latest/dg/send-e-mails-concepts-process.html
 
 Dans la pratique nous avons :
 - notre application qui va se charger de récupérer une liste de contacts et générer des e-mails pour chacun à partir d'un modèle
-- un service d'envoi d'e-mails, dans notre cas nous utilisons AWS SES (*Simple Email Service*)
+- un service d'envoi d'e-mails, dans notre cas nous utilisons AWS SES (*Simple e-mails Service*)
 - un service de réception d'e-mails qui dépend du destinataire : Google pour les adresses `@gmail`, Microsoft pour les adresses `@outlook`, etc.
 - le destinataire, la personne à qui appartient l'adresse e-mail
 
@@ -186,8 +186,8 @@ Quand SES reçoit une information provenant du service de réception, nous devon
 
 <Image
   src="/images/august-recap-schema.webp"
-  alt="Récupérer les informations de déliverabilité des email avec AWS SES"
-  title="Récupérer les informations de déliverabilité des email avec AWS SES"
+  alt="Récupérer les informations de déliverabilité des e-mails avec AWS SES"
+  title="Récupérer les informations de déliverabilité des e-mails avec AWS SES"
   width={864}
   height={300}
   quality={100}
