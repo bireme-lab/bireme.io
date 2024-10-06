@@ -29,3 +29,34 @@ tldr: "TODO"
 **Focus tech du mois :** Hermes
 
 ### Les tâches techniques accomplies durant le mois
+
+- rendu des template html sur nos serveurs permettant de future automatisation,
+- ajout d'une option pour activer/desactiver le suivi des actions d'une audience,
+- mise en place de la diffusion d'email par lot (par exemple envoyer un email à 100 contacts chaque jour),
+- développement de la gestion des nom de domaines,
+- gestion des expéditeurs par nom de domaine,
+- création d'une application permettant à une personne inscrite à une newsletter de se désabonner.
+
+### Focus sur : Le suivi des actions des contacts
+
+Le mois dernier nous vous avions parlé des informations de déliverabilité avec AWS SES.  
+Ce dernier nous permet aussi de récupérer des informations concernant les actions de l'utilisateur :
+- s'il a ouvert l'email
+- les liens sur lesquels il a cliqué
+
+Nous vous avions aussi partagé notre volonté à respecter la vie privé des utilisateurs en se conformant à la RGPD.  
+Mais nous avons conscience que beaucoup de client sont friand de ses données de suivis.  
+On a donc pris la décision de laisser la responsabilité aux équipes marketing utilisant notre outil de pouvoir suivre ou non les actions de leurs contacts.  
+
+// Screenshot de la modale de création d'une audience avec l'option de suivi de tracking
+
+À la création d'une audience, l'utilisateur devra décider s'il veut ou non suivre les actions des destinataires.  
+Nous avons pris le parti de ne pas avoir une valeur par défaut pour forcer à nos utilisateurs à faire leur choix en toute conscience.  
+
+Nous stockons cette option dans les audiences et dans les diffusions : lorsqu'une diffusion commence, le suivi est activé en fonction de la valeur défini dans l'audience cible.  
+Cette dernière n'est pas éditable au niveau d'une diffusion pour éviter des statistiques corrompu (dans le cas où le suivi serai activé ou désactivé pendant l'envoi des emails, on pourrait penser qu'une grande parti des emails n'ont pas été ouvert alors que ça serai dû à la désactivation du suivi pendant l'envoi des e-mails).  
+Par contre nous pouvons éditer la possibilité de suivre les actions au niveau de l'audience pour les prochaines diffusions.
+
+Et lorsqu'AWS SES nous transmet des événements concernant les actions de l'utilisateur, nous regardons si la diffusion concerné a le suivi activé :
+- si oui, nous stockons l'événement dans notre base de données nous permettant de faire des statistiques sur le pourcentage d'email ouvert,
+- si non, nous ignorons le message, empêchant toute possibilité de retrouver cette information à l'avenir.
