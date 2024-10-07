@@ -51,9 +51,11 @@ Nous avons alors pris la décision de déléguer cette responsabilité et de lai
 À la création d'une audience, l'utilisateur décide s'il souhaite suivre les actions des destinataires.  
 Nous avons pris le parti de ne pas avoir de valeur par défaut pour obliger nos utilisateurs de faire un choix avisé.  
 
-Nous stockons cette option dans les audiences et dans les diffusions : lorsqu'une diffusion commence, le suivi est activé en fonction de la valeur défini dans l'audience cible.  
-Cette dernière n'est pas éditable au niveau d'une diffusion pour éviter des statistiques corrompu (dans le cas où le suivi serai activé ou désactivé pendant l'envoi des emails, on pourrait penser qu'une grande parti des emails n'ont pas été ouvert alors que ça serai dû à la désactivation du suivi pendant l'envoi des e-mails).  
-Par contre nous pouvons éditer la possibilité de suivre les actions au niveau de l'audience pour les prochaines diffusions.
+L'utilisateur a la possibilité d'éditer cette option autant qu'il veut.  
+Néammoins, elle sera appliqué uniquement pour les prochaines diffusions, et pas celle déjà envoyé ou en cours d'envoie (ça rendrai les statistiques de cette dernière comrompues car une partie des e-mails pourrait avoir été ouvert avant l'activation du suivi).
+
+Nous avons rendu cela possible en sauvegardant l'option dans les audiences et dans les diffusions.  
+La valeur dans chaque diffusion est défini au moment où on commence à l'envoyer et se base sur l'audience cible.
 
 Et lorsqu'AWS SES nous transmet des événements concernant les actions de l'utilisateur, nous regardons si la diffusion concerné a le suivi activé :
 - si oui, nous stockons l'événement dans notre base de données nous permettant de faire des statistiques sur le pourcentage d'email ouvert,
