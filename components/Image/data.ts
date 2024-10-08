@@ -347,6 +347,30 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAKUlEQVR4nGPIycn5r6qqCsaL5s/7z3Dnzp3/ERER/93c3P6bmppiCgAAkNkaELXudVUAAAAASUVORK5CYII=",
   },
+  "/images/september-recap-domains.webp": {
+    name: "september-recap-domains.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGPYuXPn9y8fv3/5mJGRwcDBwdHZ2ebm5sbAwAAAx98LnotTFWcAAAAASUVORK5CYII=",
+  },
+  "/images/september-recap-newsletter-subscription-page.webp": {
+    name: "september-recap-newsletter-subscription-page.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGNQU1Pj5+eXlpZWU1NjkJaWLisq/Pvrm7S0NAA4bQZLPZDj+gAAAABJRU5ErkJggg==",
+  },
+  "/images/september-recap-pricing.webp": {
+    name: "september-recap-pricing.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGPIysoqKcyPjgi1s7NjYGVlbW5u/vjx49HDBwF28QsJFtM/BwAAAABJRU5ErkJggg==",
+  },
+  "/images/september-recap-tracking-option.webp": {
+    name: "september-recap-tracking-option.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGOQkZEpKipycnLS0NBgcHJyCgwM/P/nl6mpKQBZIgg28udUiwAAAABJRU5ErkJggg==",
+  },
   "/images/variables-panel.webp": {
     name: "variables-panel.webp",
     extension: ".webp",
