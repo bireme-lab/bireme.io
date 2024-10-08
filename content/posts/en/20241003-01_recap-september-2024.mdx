@@ -7,17 +7,164 @@ authors:
 tags:
   - "company"
 seo:
-  title: "TODO"
-  description: "TODO"
-tldr: "TODO"
+  title: "Monthly recap for september 2024"
+  description: "Check out Bireme Lab's September 2024 recap: strategic overhaul, Hermes development with new domain and newsletter management features, and technical enhancements including an RGPD-compliant tracking option. A month rich in innovation and product-market alignment."
+tldr: "In September 2024, we refocused our strategy at Bireme Lab, taking inspiration from Bill Aulet's The Entrepreneurial Discipline and conducting discovery interviews. We enhanced our Hermes product with new features, including domain name management, pricing, and newsletter subscription management pages. On the technical side, we improved HTML rendering, batch mailing management, and introduced an RGPD-compliant user action tracking option, allowing our customers to choose whether they want to track their contacts' interactions."
 ---
 
 ## Summary of work carried out in September 2024
 
+In September, we took advantage of the back-to-school period to contact marketing and communications managers from companies of all sizes.
+This work is part of a process of understanding the issues to be resolved in order to validate, or invalidate, the commercial potential of projects such as Dédale or Hermes.
+
+At the same time, we took time to put our marketing approach in order, in order to :
+- redefine our product ideas,
+- redefine our market segment,
+- redefine our end-user profile,
+- redefine our unique value proposition.
+
+And with a view to :
+- make our product/market fit theoretically coherent,
+- direct our marketing efforts and adapt our communication (social networks and website) to increase the perceived value to our end-user,
+- prepare our sales process, as well as our *pitch* and *sales deck*.
+
+### Focus on: “Entrepreneurial discipline” by Bill Aulet
+
+To help us, we rely in part on the teachings of [Bill Aulet](https://mitsloan.mit.edu/faculty/directory/bill-aulet), Executive Director of the Martin Trust Center for MIT Entrepreneurship at MIT, in his book “The Entrepreneurial Discipine: 24 Steps to Building a Successful Business”.
+
+This book proposes a structured approach in logical steps that help decision-making for each key phase in the creation of an entrepreneurial project:
+- market segmentation,
+- choice of preferred market,
+- end-user profiling,
+- total addressable market,
+- creation of personas,
+- general product specification (landing page, survey, etc.),
+- definition and quantification of value proposition,
+- identification of first customers,
+- definition of unique value proposition,
+- competitive position,
+- identification of decision-making entity,
+- identification of customer acquisition processes,
+- extended total addressable market (including related markets),
+- business model,
+- pricing structure,
+- customer lifetime value (LTV),
+- definition of the sales process,
+- customer acquisition cost (CAC) calculation,
+- product plan development.
+
+Each step is complemented by questions to answer and matrices to fill in, to support the strategic and product thinking needed to achieve a theoretically coherent project structure.
+Bill Aulet's approach perfectly complements the paradigms of *lean startup* development, as well as other literary *bestsellers* in the field such as Steve Blank's “The Startup Builder's Manual”, where the relationship to validation through market confrontation comes into play at every moment of the company's development.
+
+This first book is accompanied by a second with more practical resources: “La discipine entrepreneuriale: Workbook”.
+Both are translated into French and [available for purchase on Amazon](https://www.amazon.fr/discipline-entrepreneuriale-%C3%A9tapes-d%C3%A9velopper-entreprise/dp/2212570511).
+
+### Focus on: conducting discovery interviews
+
+During September we also perfected our approach to exchanging and confronting our hypotheses with the experience of experts in our market segment.
+
+We call these “discovery interviews” or *discovery calls*, during which we ask our interviewee about :
+- personal experience,
+- challenges and difficulties encountered,
+- the general ecosystem and the state of the art.
+
+We want this approach to be as natural as possible, so that we can discern opportunities based on the real difficulties encountered, and not through guided questions and answers.
+We were advised to read and apply the advice contained in the book [“The MOM test, how to talk to customers and learn if your business idea is a good one, when everyone is lying to you”](https://www.amazon.fr/Mom-Test-Comment-apprendre-dentreprise/dp/1724903861) by [Rob Fitzpatrick](https://www.robfitz.com/), a resource which we in turn recommend to those around us.
+
+Here are the various points on which we improved: 
+- **making the discussion more informal**, the best ideas and most passionate exchanges happen when the whole table is relaxed,
+- **avoiding the wrong questions**, such as “do you think this is a good idea?” or “would you buy a product that would do X?”,
+- **discerning bad data**, such as compliments, generalities, predictions or proposals for new ideas,
+- **simplify the contact process**, to increase the rate of positive responses to our messages or phone calls.
+
+We make a point of respecting the following rule: the discussion must be centered, and only centered, on the interlocutor's feedback.
+
+## Work related to product design and development
+
+**Product focus of the month:** Hermes
+
 ### Product tasks completed during the month
 
-### Marketing tasks completed during the month
+**UX/UI on Hermes :**
+- Domain names management
 
-### Sales tasks completed during the month
+<Image
+  src="/images/september-recap-domains.webp"
+  alt="Product tasks completed during the month"
+  title="Product tasks completed during the month"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
 
-### Engineering tasks completed during the month
+- Pricing & usage
+
+<Image
+  src="/images/september-recap-pricing.webp"
+  alt="Pricing & usage"
+  title="Pricing & usage"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+- Newsletter subscription management pages
+
+<Image
+  src="/images/september-recap-newsletter-subscription-page.webp"
+  alt="Newsletter subscription management pages"
+  title="Newsletter subscription management pages"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
+**invoicing management:** user path and interface adaptations to suit the project's business model
+
+## Task related to engineering
+
+**Tech focus of the month:** Hermes
+
+### Technical tasks completed during the month
+
+- HTML templates rendered on our servers for future automation,
+- addition of an option to activate/deactivate audience tracking,
+- implementation of batch mail distribution (e.g. send an mail to 100 contacts every day),
+- development of domain name management,
+- management of senders by domain name,
+- enable newsletter subscribers to unsubscribe.
+
+### Focus on: tracking and escalating contacts' actions during mail communications
+
+Last month we talked to you about deliverability information with [AWS SES](https://aws.amazon.com/fr/ses/).  
+This Amazon technology also enables us to retrieve all actions performed by the user, such as opening the e-mail or clicking on one of the links in the content.
+
+We also shared with you our desire to respect users' privacy by following the restrictions imposed by the RGPD.  
+But, we know that companies like to analyze the performance of their communication campaigns based on tracking data.  
+We therefore took the decision to delegate this responsibility and leave Hermes users free to choose whether or not to track their contacts' actions.  
+
+<Image
+  src="/images/september-recap-tracking-option.webp"
+  alt="Tracking and escalating contacts' actions during mail communications"
+  title="Tracking and escalating contacts' actions during mail communications"
+  width={864}
+  height={300}
+  quality={100}
+  style={{
+    objectFit: "cover",
+  }}
+  sizes="(min-width: 768px) 1728px, 1280px"
+/>
+
