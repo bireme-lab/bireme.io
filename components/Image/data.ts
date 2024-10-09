@@ -347,11 +347,29 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAKUlEQVR4nGPIycn5r6qqCsaL5s/7z3Dnzp3/ERER/93c3P6bmppiCgAAkNkaELXudVUAAAAASUVORK5CYII=",
   },
+  "/images/september-recap-bill-aulet-en.webp": {
+    name: "september-recap-bill-aulet-en.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGPg4+M7deLww7wCVlZWBiEhof+/v+11cGNlZQUAdokIxkwEmccAAAAASUVORK5CYII=",
+  },
+  "/images/september-recap-bill-aulet-fr.webp": {
+    name: "september-recap-bill-aulet-fr.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGNgY2P7//vnt5mT2djYGNjY2C6sXj7Ny4mNjQ0Af7UIol3L4FsAAAAASUVORK5CYII=",
+  },
   "/images/september-recap-domains.webp": {
     name: "september-recap-domains.webp",
     extension: ".webp",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGPYuXPn9y8fv3/5mJGRwcDBwdHZ2ebm5sbAwAAAx98LnotTFWcAAAAASUVORK5CYII=",
+  },
+  "/images/september-recap-interviews-illustration.webp": {
+    name: "september-recap-interviews-illustration.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGPg5ub+8+vf4jmzubm5Gbi5uUuLK25du87NzQ0Afc8JOnRMwucAAAAASUVORK5CYII=",
   },
   "/images/september-recap-newsletter-subscription-page.webp": {
     name: "september-recap-newsletter-subscription-page.webp",
@@ -364,6 +382,12 @@ export const data = {
     extension: ".webp",
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGPIysoqKcyPjgi1s7NjYGVlbW5u/vjx49HDBwF28QsJFtM/BwAAAABJRU5ErkJggg==",
+  },
+  "/images/september-recap-tracking-illustration.webp": {
+    name: "september-recap-tracking-illustration.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nAXBsQkAMAwDsGy6O9AX/GvAS6VB27vDIMnuwweMBglzGEQ81wAAAABJRU5ErkJggg==",
   },
   "/images/september-recap-tracking-option.webp": {
     name: "september-recap-tracking-option.webp",
