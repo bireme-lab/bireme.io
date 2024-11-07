@@ -26,6 +26,38 @@ tldr: "TODO"
 
 ### Les tâches techniques accomplies durant le mois
 
+- prise en main de la librairie Tiptap qui permet de créer un éditeur de personalisé
+- création d'une API pour récupérer les polices d'écriture sur [Google Font](https://fonts.google.com/) plus rapidement
+- création de l'interface pour modifier les couleurs et police d'écriture d'un template d'email
+- développement de champs de saisie spécifique pour l'édition des marges et la sélection des couleurs
+- mise en place des formulaires pour personnaliser différents type de bloc (paragraphes, image, bouton)
+
+### Focus sur : la création d'un éditeur de text avec des éléments visuel et intéractifs
+
+Dans le but élargir l'audience de Dédale au delà des developpeurs, nous avons décidé de se lancer dans le développement d'un éditeur de texte permettant d'ajouter des éléments visuelle comme on peut retrouver des outils de documentation tel que [Notion](https://www.notion.so/).  
+Nous voulions avoir une interface qui s'inspire à la fois d'un éditeur de texte pour apporter une bonne expérience d'écriture mais aussi d'outils de design tel que [Figma](https://www.figma.com/) pour faciliter la personalisation.  
+
+Pour le développement de cet éditeur, on voulait avoir une liberté totale sur l'interface graphique, mais on voulait éviter de partir complètement de zéro pour gagner du temps.  
+Lors d'une discussion avec [@ledevultime](https://x.com/ledevultime), ce dernier nous a recommandé [Tiptap](https://tiptap.dev/) qui correspond exactement à ce qu'on cherchait.  
+
+Cette librairie est dite `headless`, c'est à dire qu'elle va proposer uniquement des fonctionalités sans apporter d'élément visuel.  
+Un second point qui nous a plu avec Tiptap, c'est qu'elle fonctionne avec un système d'extension pour les différents type de bloc tel que :
+- les titres
+- les paragraphes,
+- les listes à puces,
+- les images,
+- les séparateurs horizontaux, ...
+
+Et pour ces extensions nous avons le choix entre :
+- utiliser celles fournis par défaut
+- augmenter ces extensions par défauts avec des fonctionnalités supplémentaires
+- créer nos propres extensions
+
+Par exemple, nous utilisons les extensions `Bold`, `Italic` et `Underline` pour offrir la possitilité d'avoir du text en gras, en italic ou souligné.
+Pour les titres, les paragraphes et les listes à puces, nous avons ajouté la possibilité de choisir une couleur de fond, d'ajouter une bordure et de définir une marge intérieur.
+Et nous allons créer notre propre bloc pour créer des boutons personalisés.
+
+
 ---
 
 <sup>1</sup> : 
