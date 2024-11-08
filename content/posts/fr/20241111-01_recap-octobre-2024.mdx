@@ -19,15 +19,15 @@ tldr: "TODO"
 **Focus produit du mois :** Dédale
 
 Suite à nos recherches utilisateurs et au développement d'Hermes, on a réalisé qu'une solution d'emailing complète demanderait trop de temps avant d'être viable.
-Dans une situation à 100% fonds propres, on doit être plus pragmatiques et trouver rapidement notre marché. Difficile, donc, de justifier passer 6 mois à design et coder sans garantie de résultats.
+Dans une situation à 100% fonds propres, on doit être plus pragmatiques et trouver rapidement notre marché. Difficile, donc, de justifier passer 6 mois à designer et coder sans garantie de résultats.
 
-Donc on reprends le travail avec des ambitions plus réalistes.
+Donc on reprend le travail avec des ambitions plus réalistes.
 
 **Notre ambition :** faire de Dédale la référence de l'éditeur en ligne pour le développement d'emails.
 
 Voici un aperçu de la prochaine grosse mise à jour de Dédale :
 - **Éditeur visuel :** Dédale va maintenant embarquer un éditeur visuel complet permettant de créer ses modèles sans écrire de code et avec une interface digne d'une expérience de design sur [Figma](https://www.figma.com/) !
-- **API ouverte :** nous allons ouvrir l'API pour laisser l'opportunité de créer des webhook et donner la possibilité de récupérer les modèles stockés dans Dédale dans des automatisations [Zapier](https://zapier.com/), [n8n](https://n8n.io/), [make](https://www.make.com/) etc.
+- **API ouverte :** nous allons ouvrir l'API pour laisser l'opportunité de créer des webhooks et donner la possibilité de récupérer les modèles stockés dans Dédale dans des automatisations [Zapier](https://zapier.com/), [n8n](https://n8n.io/), [make](https://www.make.com/) etc.
 
 Cette approche plus ciblée nous permet d'avancer plus vite et de proposer rapidement des fonctionnalités utiles et concrètes afin d'envisager un modèle économique viable.
 
@@ -41,7 +41,7 @@ On conserve un accès gratuit qui sera limité :
 - Prévisualisation en temps réel
 - **Export HTML désactivé**
 
-Version payante
+Version payante :
 - Export HTML des emails
 - Détection automatique Can I Email
 - Accès à l'API
@@ -129,13 +129,13 @@ Ces apprentissages ont transformé notre façon d'aborder le design d'interface,
 
 ### Les tâches techniques accomplies durant le mois
 
-- prise en main de la librairie Tiptap qui permet de créer un éditeur de texte personalisé
-- création d'une API pour récupérer les polices d'écriture sur [Google Font](https://fonts.google.com/) plus rapidement
-- développement de champs de saisie spécifique pour l'édition des marges et la sélection des couleurs
-- création de l'interface pour modifier les couleurs et police d'écriture d'un template d'email
-- mise en place des formulaires pour personnaliser différents type de bloc (paragraphes, image, bouton)
+- Prise en main de la librairie Tiptap qui permet de créer un éditeur de texte personnalisé
+- Création d'une API pour récupérer les polices d'écriture sur [Google Font](https://fonts.google.com/) plus rapidement
+- Développement de champs de saisie spécifiques pour l'édition des marges et la sélection des couleurs
+- Création de l'interface pour modifier les couleurs et polices d'écriture d'un template d'email
+- Mise en place des formulaires pour personnaliser différents types de blocs (paragraphes, image, bouton)
 
-### Focus sur : la création d'un éditeur de texte avec des éléments visuels et intéractifs
+### Focus sur : la création d'un éditeur de texte avec des éléments visuels et interactifs
 
 Dédale évolue pour toucher un public plus large, au-delà des développeurs. Cette ambition nous a conduits à repenser complètement notre approche de l'édition d'emails. Notre réflexion s'est naturellement tournée vers les outils qui excellent dans leur domaine : [Notion](https://www.notion.so/) pour son expérience d'écriture fluide et Figma pour sa puissance créative.
 
@@ -154,7 +154,7 @@ Cette technologie nous permet de construire l'expérience que nous avions en tê
 Sa nature modulaire nous permet d'intégrer les fonctionnalités dont nous avons besoin, tout en gardant un contrôle total sur l'apparence et le comportement de l'éditeur.
 C'est le compromis idéal entre rapidité de développement et liberté de personnalisation.
 
-Un second point qui nous a plu avec Tiptap, c'est qu'elle fonctionne avec un système d'extension pour les différents type de bloc tel que :
+Un second point qui nous a plu avec Tiptap, c'est qu'elle fonctionne avec un système d'extension pour les différents types de blocs tels que :
 - les titres
 - les paragraphes,
 - les listes à puces,
@@ -166,6 +166,6 @@ Nous avons le choix :
 - d'étoffer ces extensions par défaut avec des fonctionnalités supplémentaires,
 - de créer nos propres extensions.
 
-Par exemple, nous utilisons les extensions `Bold`, `Italic` et `Underline` pour offrir la possitilité d'avoir du text en gras, en italic ou souligné.
-Pour les titres, les paragraphes et les listes à puces, nous avons ajouté la possibilité de choisir une couleur de fond, d'ajouter une bordure et de définir une marge intérieur.
-Et nous allons créer notre propre bloc pour créer des boutons personalisés.
+Par exemple, nous utilisons les extensions `Bold`, `Italic` et `Underline` pour offrir la possibilité d'avoir du texte en gras, en italique ou souligné.
+Pour les titres, les paragraphes et les listes à puces, nous avons ajouté la possibilité de choisir une couleur de fond, d'ajouter une bordure et de définir une marge intérieure.
+Et nous allons créer notre propre bloc pour créer des boutons personnalisés.
