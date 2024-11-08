@@ -14,11 +14,114 @@ tldr: "TODO"
 
 ## Récapitulatif du travail effectué au cours du mois de septembre 2024
 
-## Travail lié à la conception et au développement produit
+## Travail lié à la conception, au développement produit et à la communication
 
 **Focus produit du mois :** Dédale
 
+Suite à nos recherches utilisateurs et au développement d'Hermes, on a réalisé qu'une solution d'emailing complète demanderait trop de temps avant d'être viable.
+Dans une situation à 100% fonds propres, on doit être plus pragmatiques et trouver rapidement notre marché. Difficile, donc, de justifier passer 6 mois à design et coder sans garentie de résultats.
+
+Donc on reprends le travail avec des ambitions plus réalistes.
+
+**Notre ambition :** faire de Dédale la référence de l'éditeur en ligne pour le développement d'emails.
+
+Voici un aperçu de la prochaine grosse mise à jour de Dédale :
+- **Éditeur visuel :** Dédale va maintenant embarquer un éditeur visuel complet permettant de créer ses modèles sans écrire de code et avec une interface digne d'une expérience de design sur [Figma](https://www.figma.com/) !
+- **API ouverte :** nous allons ouvrir l'API pour laisser l'opportunité de créer des webhook et donner la possibilité de récupérer les modèles stockés dans Dédale dans des automatisations Zapier, n8n, make etc.
+
+Cette approche plus ciblée nous permet d'avancer plus vite et de proposer rapidement des fonctionnalités utiles et concrètes afin d'envisager un modèle économique.
+
+### Dédale va devenir payant
+
+À partir de la prochaine mise à jour, Dédale adopte un modèle économique sur abonnement :
+
+On conserve un accès gratuit qui sera limité :
+- Accès complet à l'éditeur visuel
+- Création et sauvegarde des templates
+- Prévisualisation en temps réel
+- **Export HTML désactivé**
+
+Version payante
+- Export HTML des emails
+- Détection automatique Can I Email
+- Accès à l'API
+- Plus de fonctionnalités à venir
+
+**Pour nos "Early adopters"**
+
+Bonne nouvelle pour nos utilisateurs actuels : tous les comptes créés et actifs avant la mise à jour conserveront l'accès gratuit à toutes les fonctionnalités, à vie.
+
+Plus de détails sur les offres et les tarifs seront communiqués prochainement.
+Note : Cette nouvelle structure nous permettra de continuer à développer Dédale tout en maintenant un service de qualité.
+
+### Dédale devient une marque distincte de Bireme Lab
+
+Pour plus de clarté, Dédale devient une marque à part entière, tout en restant dans la famille Bireme Lab. Cette distinction permettra au projet d'avoir son identité propre et facilitera la compréhension pour les nouveaux utilisateurs.
+
+Avec ce changement :
+- Nouveau domaine dédié
+- Blog spécialisé sur le développement d'emails
+- Refonte de la *landing page* pour mettre l'accent sur la valeur ajoutée plutôt que sur une simple liste de fonctionnalités.
+
+Cette évolution reflète notre volonté de mieux répondre aux besoins concrets et de communiquer plus clairement sur la valeur que Dédale apporte.
+
 ### Les tâches produits accomplies durant le mois
+
+- Conception et design de l'éditeur visuel sur Dédale
+
+- Contenu et design de la nouvelle version de la landing page de Dédale
+
+- Création graphique de cartes *bento* pour la landing page de Dédale
+
+### Focus sur : l'importance de l'UI pour sublimer l'UX
+
+Pour un site internet, la différence entre une maquette standard et une maquette mémorable repose souvent sur les notions suivantes :
+- Gestion des ombres
+- Contraste et profondeur
+- Points de lumière
+- Effets de relief
+- Hiérarchie et cohérence visuelle
+- Images
+
+Ces aspects, qui relèvent du design graphique pur, transforment significativement l'impact d'une interface. C'est ce qui donne vie à une maquette et la fait passer du "correct" au "captivant".
+La conception web ne se limite pas à l'agencement des éléments - c'est aussi un travail artistique qui demande une attention particulière aux détails visuels.
+
+C'est ce qui différencie le travail UX qui permet à un projet d'être fonctionnel, et le travail d'UI qui permet de susciter l'attrait par le visuel.
+
+Dans la refonte visuelle de Dédale nous avons retravaillé la mise en avant des fonctionnalités de façon graphique à l'aide du système de grille bento.
+
+Pour chaque carte bento nous avons travaillé le jeu de lumière pour obtenir un résultat visuel cohérent et attrayant.
+
+Sur Figma, il est relativement simple de simuler de la lumière à partir de formes (cercles, rectangles etc.) en jouant avec les éléments suivants :
+- couleur de `fill` : utilisation de couleurs pleines ET de dégradés,
+- superposition de calques avec opacité,
+- utilisation de la fonction `blend mode` pour les calques,
+- utilisation de l'effet `layer blur`.
+
+<Callout emoji="💡">
+
+Grâce à l'onglet `communauté` sur Figma il est possible de rechercher des fichiers publics avec les mots-clés de ce qu'on souhaite réaliser pour avoir des exemples à décortiquer et reproduire. Tapez `light beam effect` et essayez de reproduire quelques-unes des réalisations pour apprendre à créer des effets de lumière.
+
+</Callout>
+
+Voici nos découvertes et conclusions :
+
+**Hiérarchie visuelle**
+- La lumière guide naturellement le regard
+- Les zones éclairées attirent l'attention
+- Les contrastes subtils créent une lecture intuitive
+
+**Cohérence**
+- Importance d'une source lumineuse principale cohérente
+- Maintien d'une direction d'éclairage constante
+- Harmonie entre les ombres des différents éléments
+
+**Réalisme**
+- Les objets proches projettent des ombres plus nettes
+- La lumière rebondit et crée des reflets secondaires
+- Les transitions douces sont plus naturelles que les effets brutaux
+
+Ces apprentissages ont transformé notre façon d'aborder le design d'interface, passant d'un style plat à des compositions plus vivantes et engageantes.
 
 ## Travail de développement
 
@@ -34,13 +137,25 @@ tldr: "TODO"
 
 ### Focus sur : la création d'un éditeur de text avec des éléments visuel et intéractifs
 
-Dans le but élargir l'audience de Dédale au delà des developpeurs, nous avons décidé de se lancer dans le développement d'un éditeur de texte permettant d'ajouter des éléments visuelle comme on peut retrouver des outils de documentation tel que [Notion](https://www.notion.so/).  
-Nous voulions avoir une interface qui s'inspire à la fois d'un éditeur de texte pour apporter une bonne expérience d'écriture mais aussi d'outils de design tel que [Figma](https://www.figma.com/) pour faciliter la personalisation.  
+Dédale évolue pour toucher un public plus large, au-delà des développeurs. Cette ambition nous a conduits à repenser complètement notre approche de l'édition d'emails. Notre réflexion s'est naturellement tournée vers les outils qui excellent dans leur domaine : Notion pour son expérience d'écriture fluide et Figma pour sa puissance créative.
 
-Pour le développement de cet éditeur, on voulait avoir une liberté totale sur l'interface graphique, mais on voulait éviter de partir complètement de zéro pour gagner du temps.  
-Lors d'une discussion avec [@ledevultime](https://x.com/ledevultime), ce dernier nous a recommandé [Tiptap](https://tiptap.dev/) qui correspond exactement à ce qu'on cherchait.  
+**Une expérience d'édition similaire à celle de Notion** : L'édition de texte est au cœur de la création d'emails, c'est pourquoi nous nous sommes inspirés de Notion. Son interface épurée et son approche intuitive de la structuration du contenu ont prouvé qu'il était possible de rendre la rédaction agréable et efficace, même pour des contenus complexes. Nous voulons apporter cette même fluidité à la création d'emails.
 
-Cette librairie est dite `headless`, c'est à dire qu'elle va proposer uniquement des fonctionalités sans apporter d'élément visuel.  
+**Des possibilités créatives à l'image d'un outil comme Figma** : Mais un email n'est pas qu'un simple texte. L'aspect visuel est important, et c'est là que l'influence de Figma entre en jeu. Sa façon de gérer les éléments visuels et sa capacité à rendre le design accessible ont redéfini les standards de l'industrie. Nous souhaitons prolonger cette philosophie dans notre éditeur pour que la personnalisation visuelle devienne aussi naturelle que l'écriture.
+
+Cette fusion d'influences nous permet de créer un outil qui respecte à la fois les besoins des créatifs et des rédacteurs.
+
+Pour le développement de cet éditeur, nous souhaitions conserver une liberté totale sur l'interface graphique, sans partir de zéro avec une solution 100% maison pour gagner du temps.  
+Une conversation avec [@ledevultime](https://x.com/ledevultime) nous a menés vers [Tiptap](https://tiptap.dev/), une solution qui s'est révélée parfaitement alignée avec nos besoins.
+
+Tiptap nous offre le meilleur des deux mondes : une fondation robuste basée sur [ProseMirror](https://prosemirror.net/), tout en gardant une flexibilité totale sur l'interface utilisateur.
+Cette technologie nous permet de construire l'expérience que nous avions en tête, sans les contraintes habituelles des éditeurs traditionnels.
+
+Sa nature modulaire nous permet d'intégrer les fonctionnalités dont nous avons besoin, tout en gardant un contrôle total sur l'apparence et le comportement de l'éditeur.
+C'est le compromis idéal entre rapidité de développement et liberté de personnalisation.
+
+Cette librairie est dite `headless` : elle fournie des fonctionalités techniques sans apporter d'élément visuel.
+
 Un second point qui nous a plu avec Tiptap, c'est qu'elle fonctionne avec un système d'extension pour les différents type de bloc tel que :
 - les titres
 - les paragraphes,
@@ -48,16 +163,11 @@ Un second point qui nous a plu avec Tiptap, c'est qu'elle fonctionne avec un sys
 - les images,
 - les séparateurs horizontaux, ...
 
-Et pour ces extensions nous avons le choix entre :
-- utiliser celles fournis par défaut
-- augmenter ces extensions par défauts avec des fonctionnalités supplémentaires
-- créer nos propres extensions
+Nous avons le choix :
+- d'utiliser ces extensions par défaut sans modifications,
+- d'étoffer ces extensions par défaut avec des fonctionnalités supplémentaires,
+- de créer nos propres extensions.
 
 Par exemple, nous utilisons les extensions `Bold`, `Italic` et `Underline` pour offrir la possitilité d'avoir du text en gras, en italic ou souligné.
 Pour les titres, les paragraphes et les listes à puces, nous avons ajouté la possibilité de choisir une couleur de fond, d'ajouter une bordure et de définir une marge intérieur.
 Et nous allons créer notre propre bloc pour créer des boutons personalisés.
-
-
----
-
-<sup>1</sup> : 
