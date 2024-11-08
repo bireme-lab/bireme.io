@@ -287,6 +287,30 @@ export const data = {
     blurHash:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAJUlEQVR4nAEaAOX/AJ+fn//+/5aWlgQEBACfn5/39/rU1NRQUFDF3g7Ze6VlQgAAAABJRU5ErkJggg==",
   },
+  "/images/october-recap-bento.webp": {
+    name: "october-recap-bento.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAI0lEQVR4nGPgYGV1cLSeu3xBV54bw/q+XD4+vtBQp7//nwIAZJIJkjnVOL0AAAAASUVORK5CYII=",
+  },
+  "/images/october-recap-editor.webp": {
+    name: "october-recap-editor.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGM4depUW1tbZmbm8uXLGTIzM319fdva2kxNTQGrPgt0AqRCmQAAAABJRU5ErkJggg==",
+  },
+  "/images/october-recap-landing.webp": {
+    name: "october-recap-landing.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAIklEQVR4nGMQFhYO9PeNiwwRFhZmkJGR+f/u5btb15SUlABXagiZcbzPwQAAAABJRU5ErkJggg==",
+  },
+  "/images/october-recap-tiptap.webp": {
+    name: "october-recap-tiptap.webp",
+    extension: ".webp",
+    blurHash:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAJUlEQVR4nAEaAOX/AP39/XNzcy4sKgAQAgD9/f2qqqqfm5manqKrRQ2Jc5F/EwAAAABJRU5ErkJggg==",
+  },
   "/images/opengraph-images/dedale-en.png": {
     name: "dedale-en.png",
     extension: ".png",
