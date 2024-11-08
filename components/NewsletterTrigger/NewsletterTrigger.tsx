@@ -47,7 +47,7 @@ export const NewsletterTrigger: React.FC<Props> = ({ content }) => {
         close={() => overlayTriggerState.close()}
         isDismissable={true}
       >
-        <NewsletterForm autofocus={true} />
+        <NewsletterForm />
       </Sidepanel>
     </>
   );
