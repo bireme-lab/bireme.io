@@ -26,7 +26,7 @@ export const NewsletterSection: React.FC<Props> = ({
       <Grid>
         <div className={styles.dummy} />
         <div className={styles.container}>
-          <NewsletterForm autofocus={true} />
+          <NewsletterForm />
         </div>
         <div className={styles.dummy} />
       </Grid>
